@@ -1,0 +1,8 @@
+------------------------------------------------------------------------------------------------------------------------------------------
+Piątek, 29.04.2022:
+Zaimplementowałem te metody przeciążone dla BuisnessPlan. Mam nadzieję, że te mapy będą działać, jeśli widzisz niescisłości/błędy to pisz.
+Wydaje mi się, że dwie metody klasy event nie muszą być wirtualne (będą uniwersalne dla każdej klasy składowej) - zweryfikuj to proszę.
+Mam do uzupełnienia jeszcze plik Event_tools.cpp, na razie jest tylko plik nagłówkowy z funkcjami, które wiem, że będą potrzebne:
+- sumowanie punktów
+- znajdowanie najlepszego rezultatu (wykorzystywać będzie sumowanie punktów z mapy)
+------------------------------------------------------------------------------------------------------------------------------------------
