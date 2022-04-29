@@ -11,7 +11,7 @@ class Event  // Abstract class
     // Attributes:
     std::vector<Team> teams_participating;  // Vector of the Teams that are participating in the event (required to be provided externally).
     std::map<Team, std::map<std::string, double>> teams_and_results;  // Map with teams and second map of attributes created from Teams vector by a method.
-    std::map<Team, int> classification;  // Array with teams and total points scored in the Event [Team, TotalPoints].
+    std::map<Team, const unsigned int> classification;  // Array with teams and total points scored in the Event [Team, TotalPoints].
 
     // Methods:
     virtual void create_teams_and_results_map()=0;  // Function to create teams_and_results map.
@@ -21,9 +21,11 @@ class Event  // Abstract class
     virtual void open_info_file()=0;  // Opens the file with information about the Event.
 
     public:
+    // Constructor:
+    Event(std::vector<Team> teams);  // Constructor
     // Getters:
-    std::map<Team, std::map<std::string, double>> get_teams_and_results();
-    std::map<Team, int> get_classification();
+    std::map<Team, std::map<std::string, unsigned double>> get_teams_and_results() const;
+    std::map<Team, const unsigned int> get_classification() const;
 };
 
 #endif
