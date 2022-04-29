@@ -17,7 +17,7 @@ class Event  // Abstract class
     virtual void create_teams_and_results_map()=0;  // Function to create teams_and_results map.
     virtual void set_teams_results()=0;  // Function to set results in the event for every team participating.
     virtual void calculate_teams_points()=0;  // Function that calculates points for teams (based on the map: teams_and_results).
-    virtual void make_final_classification()=0;  // Function that sorts teams by their total score.
+    void make_final_classification();  // Function that sorts teams by their total score (not cirtual, as it only sorts the map by the amount of points that teams scored - same for every competition).
     virtual void open_info_file()=0;  // Opens the file with information about the Event.
 
     public:
