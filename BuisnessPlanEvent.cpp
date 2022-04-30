@@ -1,11 +1,12 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <fstream>
 #include "BuisnessPlanEvent.h"
 #include "Team.h"
 
 
-BuisnessPlanEvent::virtual void create_teams_and_results_map()
+void BuisnessPlanEvent::create_teams_and_results_map()
 {
     // Creating sophisticated map for this event:
     std::map<std::string, double> event_attributes;
@@ -23,30 +24,33 @@ BuisnessPlanEvent::virtual void create_teams_and_results_map()
     // Inserting created map into the map with teams:
     for (int i = 0; i < teams_participating.size(); i++)
     {
-        teams_and_results.insert(std::pair<Team, std::map<std::string, double>> (teams_participating[i], event_attributes));
+        teams_and_results.insert(std::map<Team,std::map<std::string,double>> {teams_participating[i], event_attributes});  // Tu coś nie working
     }
-    //
+    // std::map<Team, std::map<std::string, double>>
 }
 
 
-BuisnessPlanEvent::virtual void calculate_teams_points()
+void BuisnessPlanEvent::calculate_teams_points()
 {
     // Finding best result among all teams:
-    const unsigned double max_points = find_max_points(teams_and_results);
+    const double max_points = find_max_points(teams_and_results);
     //
 
     // Calculating teams points and adding them to the classification map:
-    for (itr = teams_and_results.begin(); itr != teams_and_results.end(); ++itr)
+    int i = 0;
+    for (std::map<Team,std::map<std::string,double>>::iterator itr = teams_and_results.begin(); itr != teams_and_results.end(); ++itr)
     {
-        unsigned double team_total_result = sum_all_teams_results(itr);  // summing all team`s point
-        unsigned double team_points = 70*(team_total_result/max_points);  // calculating team`s points based on the formula
-        classification.insert(std::pair<Team, double> (teams_participating[i], team_points));  // inserting team and their final result into classification
+        const double team_total_result = sum_all_teams_results((*itr).second);  // summing all team`s point
+        const double team_points = 70*(team_total_result/max_points);  // calculating team`s points based on the formula
+        classification.insert({teams_participating[i], team_points});  // inserting team and their final result into classification
+        i++;
     }
     //
 }
 
 
-BuisnessPlanEvent::virtual void open_info_file()
+std::string BuisnessPlanEvent::get_file_info_name()
 {
-
+    std::string name = "BuisnessPlanEventInfo.pdf";
+    return name;
 }
