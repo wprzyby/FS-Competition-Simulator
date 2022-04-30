@@ -17,6 +17,7 @@ class TrackdriveEvent : public Event  // TrackdriveEvent class that inherits fro
     public:
     // Constructor:
     TrackdriveEvent(std::vector<Team> teams);  // Constructor with demanded argument - vector of teams participating in the Event.
+    virtual std::string get_file_info_name();
 };
 
 #endif

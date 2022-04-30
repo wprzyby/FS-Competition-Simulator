@@ -17,6 +17,7 @@ class EngeeneringDesignEvent : public Event  // EngeeneringDesignEvent class tha
     public:
     // Constructor:
     EngeeneringDesignEvent(std::vector<Team> teams);  // Constructor with demanded argument - vector of teams participating in the Event.
+    virtual std::string get_file_info_name();
 };
 
 #endif

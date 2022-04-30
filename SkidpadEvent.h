@@ -17,6 +17,7 @@ class SkidpadEvent : public Event  // SkidpadEvent class that inherits from the 
     public:
     // Constructor:
     SkidpadEvent(std::vector<Team> teams);  // Constructor with demanded argument - vector of teams participating in the Event.
+    virtual std::string get_file_info_name();
 };
 
 #endif

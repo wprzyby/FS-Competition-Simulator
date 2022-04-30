@@ -7,9 +7,5 @@ Mam do uzupełnienia jeszcze plik Event_tools.cpp, na razie jest tylko plik nag�
 - znajdowanie najlepszego rezultatu (wykorzystywać będzie sumowanie punktów z mapy)
 ------------------------------------------------------------------------------------------------------------------------------------------
 Sobta 30.04.2022:
-for (int i = 0; i < teams_participating.size(); i++)
-    {
-        teams_and_results.insert(std::map<Team,std::map<std::string,double>> {teams_participating[i], event_attributes});
-    }
-Tutaj mi krzyczy błąd, że nie zgadza się listą argumentów wywołania
+
 ------------------------------------------------------------------------------------------------------------------------------------------

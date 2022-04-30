@@ -17,6 +17,7 @@ class AutocrossEvent : public Event  // AutocrossEvent class that inherits from 
     public:
     // Constructor:
     AutocrossEvent(std::vector<Team> teams);  // Constructor with demanded argument - vector of teams participating in the AutocrossEvent Event.
+    virtual std::string get_file_info_name();
 };
 
 #endif
