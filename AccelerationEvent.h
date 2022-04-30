@@ -18,6 +18,7 @@ class AccelerationEvent : public Event  // AccelerationEvent class that inherits
     public:
     // Constructor:
     AccelerationEvent(std::vector<Team> teams);  // Constructor with demanded argument - vector of teams participating in the AccelerationEvent Event.
+    virtual std::string get_file_info_name();
 };
 
 #endif

@@ -17,6 +17,7 @@ class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent cla
     public:
     // Constructor:
     CostAndManufacturingEvent(std::vector<Team> teams);  // Constructor with demanded argument - vector of teams participating in the CostAndManufacturingEvent Event.
+    virtual std::string get_file_info_name();
 };
 
 #endif

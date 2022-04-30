@@ -24,7 +24,7 @@ void BuisnessPlanEvent::create_teams_and_results_map()
     // Inserting created map into the map with teams:
     for (int i = 0; i < teams_participating.size(); i++)
     {
-        teams_and_results.insert(std::map<Team,std::map<std::string,double>> {teams_participating[i], event_attributes});  // Tu coś nie working
+        teams_and_results.insert(std::pair<Team,std::map<std::string,double>> (teams_participating[i], event_attributes));  // Tu coś nie working
     }
     // std::map<Team, std::map<std::string, double>>
 }
