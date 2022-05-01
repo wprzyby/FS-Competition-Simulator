@@ -6,6 +6,7 @@
 #include "Team.h"
 
 
+double find_max(const double number1, const double number2);
 double find_max_points(std::map<Team, std::map<std::string, double>> &teams_and_results);
 double sum_all_teams_results(std::map<std::string, double> results);
 
