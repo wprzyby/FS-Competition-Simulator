@@ -16,7 +16,7 @@ class BuisnessPlanEvent : public Event  // BuisnessEvent class that inherits fro
 
     public:
     // Constructor:
-    BuisnessPlanEvent(std::vector<Team> teams);  // Constructor with demanded argument - vector of teams participating in the BuisnessPlan Event.
+    BuisnessPlanEvent(std::vector<Team> &teams);  // Constructor with demanded argument - vector of teams participating in the BuisnessPlan Event.
     virtual std::string get_file_info_name();
 };
 

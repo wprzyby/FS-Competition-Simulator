@@ -11,12 +11,12 @@ class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent cla
 {
     // Methods:
     virtual void create_teams_and_results_map();  // Function to create teams_and_results map.
-    virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
+    virtual void calculate_teams_points(bool finals, const int finalists=0);  // Function that calculates points for teams (based on the map: teams_and_results).
     virtual void open_info_file();  // Opens the file with information about the Event.
 
     public:
     // Constructor:
-    CostAndManufacturingEvent(std::vector<Team> teams);  // Constructor with demanded argument - vector of teams participating in the CostAndManufacturingEvent Event.
+    CostAndManufacturingEvent(std::vector<Team> &teams);  // Constructor with demanded argument - vector of teams participating in the CostAndManufacturingEvent Event.
     virtual std::string get_file_info_name();
 };
 

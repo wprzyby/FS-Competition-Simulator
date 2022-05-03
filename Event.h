@@ -22,7 +22,7 @@ class Event  // Abstract class
 
     public:
     // Constructor:
-    Event(std::vector<Team> teams);  // Constructor
+    Event();
     // Getters:
     std::map<Team, std::map<std::string, double>> get_teams_and_results() const;
     std::map<Team, const unsigned int> get_classification() const;

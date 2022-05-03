@@ -1,10 +1,15 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include <fstream>
 #include "BuisnessPlanEvent.h"
 #include "Team.h"
 #include "Event_tools.h"
+
+
+BuisnessPlanEvent::BuisnessPlanEvent(std::vector<Team> &teams)
+{
+    teams_participating = teams;
+}
 
 
 void BuisnessPlanEvent::create_teams_and_results_map()
@@ -27,7 +32,7 @@ void BuisnessPlanEvent::create_teams_and_results_map()
     {
         teams_and_results.insert(std::pair<Team,std::map<std::string,double>> (teams_participating[i], event_attributes));  // Tu coś nie working
     }
-    // std::map<Team, std::map<std::string, double>>
+    //
 }
 
 
