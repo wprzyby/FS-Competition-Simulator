@@ -12,10 +12,20 @@ class Team
 
 
     public:
+    // constructor:
     Team(const std::string p_name, const std::string p_university, const unsigned int p_number);
-    std::string get_name();
-    std::string get_univeristy();
-    unsigned int get_number();
+
+    // getters:
+    std::string get_name() const;
+    std::string get_univeristy() const;
+    unsigned int get_number() const;
+
+    // setters:
+    // (boolean returns to communicate whether the setter succeeded or failed)
+    bool set_name(std::string p_name);
+    bool set_university(std::string p_university);
+    bool set_number(unsigned int p_number);
+
 };
 
 
