@@ -10,29 +10,23 @@ BuisnessPlanEvent::BuisnessPlanEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
 }
+BuisnessPlanEvent::BuisnessPlanEvent(){}
 
 
-void BuisnessPlanEvent::create_teams_and_results_map()
+void Event::set_results(std::map<Team, std::map<std::string, double>> &results)
 {
-    // Creating sophisticated map for this event:
-    std::map<std::string, double> event_attributes;
-    event_attributes.insert(std::pair<std::string, double> ("pitch_video", 0));
-    event_attributes.insert(std::pair<std::string, double> ("novelty", 0));
-    event_attributes.insert(std::pair<std::string, double> ("content", 0));
-    event_attributes.insert(std::pair<std::string, double> ("finances", 0));
-    event_attributes.insert(std::pair<std::string, double> ("deep_dive_topic", 0));
-    event_attributes.insert(std::pair<std::string, double> ("demontration_and_structure", 0));
-    event_attributes.insert(std::pair<std::string, double> ("delivery", 0));
-    event_attributes.insert(std::pair<std::string, double> ("questions", 0));
-    event_attributes.insert(std::pair<std::string, double> ("general_impression", 0));
-    //
-
-    // Inserting created map into the map with teams:
-    for (int i = 0; i < teams_participating.size(); i++)
+    enum keys_check {pitch_video, novelty, content, finances, deep_dive_topic, demontration_and_structure, delivery, questions, general_impression};
+    for (auto& [team, inner_map]: results)
     {
-        teams_and_results.insert(std::pair<Team,std::map<std::string,double>> (teams_participating[i], event_attributes));  // Tu coś nie working
+        for (auto& [category, points]: inner_map)
+        {
+            if (category not in keys_check)  //TODO Fix the semantics of this line.
+            {
+                //TODO: Create an exception for this
+            }
+        }
     }
-    //
+    teams_and_results = results;
 }
 
 

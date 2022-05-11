@@ -14,27 +14,20 @@ CostAndManufacturingEvent::~CostAndManufacturingEvent(){}
 CostAndManufacturingEvent::CostAndManufacturingEvent(){}
 
 
-void CostAndManufacturingEvent::create_teams_and_results_map()
+void Event::set_results(std::map<Team, std::map<std::string, double>> &results)
 {
-    // Creating sophisticated map for this event:
-    std::map<std::string, double> event_attributes;
-    // event_attributes.insert(std::pair<std::string, double> ("format_and_accuracy_of_documents", 0));
-    event_attributes.insert({"format_and_accuracy_of_documents", 0});
-    event_attributes.insert({"knowledge_of_documents_and_vehicle", 0});
-    event_attributes.insert({"bom_discussion", 0});
-    event_attributes.insert({"cost_understanding", 0});
-    event_attributes.insert({"real_case", 0});
-    event_attributes.insert({"assembly", 0});
-    event_attributes.insert({"part", 0});
-    event_attributes.insert({"process/material", 0});
-    //
-
-    // Inserting created map into the map with teams:
-    for (int i = 0; i < teams_participating.size(); i++)
+    enum keys_check {format_and_accuracy_of_documents, knowledge_of_documents_and_vehicle, bom_discussion, cost_understanding, real_case, assembly, part, process_material};
+    for (auto& [team, inner_map]: results)
     {
-        teams_and_results.insert(std::pair<Team,std::map<std::string,double>> (teams_participating[i], event_attributes));  //TODO Change this method of iteration
+        for (auto& [category, points]: inner_map)
+        {
+            if (category not in keys_check)  //TODO Fix the semantics of this line.
+            {
+                //TODO: Create an exception for this
+            }
+        }
     }
-    //
+    teams_and_results = results;
 }
 
 
