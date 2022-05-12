@@ -3,31 +3,50 @@
 #include <map>
 #include <iostream>
 #include <vector>
+#include "constans.h"
 #include "Team.h"
 
 
 class Event  // Abstract class
 {
     protected:
-    // Attributes:
-    std::vector<Team> teams_participating;  // Vector of the Teams that are participating in the event (required to be provided externally).
-    std::map<Team, std::map<std::string, double>> teams_and_results;  // Map with teams and second map of attributes created from Teams vector by a method.
-    std::map<Team, const double> classification;  // Array with teams and total points scored in the Event [Team, TotalPoints].
-    void make_event_classification();  // Function that sorts teams by their total score (not cirtual, as it only sorts the map by the amount of points that teams scored - same for every competition).
-    virtual void calculate_teams_points()=0;
+        // Vector of the Teams that are participating in the event (required to be provided externally).
+        std::vector<Team> teams_participating;
+
+        // Map with teams and second map of attributes created from Teams vector by a method.
+        std::map<Team, std::map<EventsCategories, double>> teams_and_results;
+
+        // Array with teams and total points scored in the Event [Team, TotalPoints].
+        std::map<Team, const double> classification;
+
+        // Function that sorts teams by their total score (not cirtual, as it only sorts the map by the amount of points that teams scored - same for every competition).
+        void make_event_classification();
+
+        // Calculating points for each event according to the rules.
+        virtual void calculate_teams_points()=0;
+
 
     public:
-    // Methods:
-    virtual void set_results(std::map<Team, std::map<std::string, double>> &results)=0;  // Function to create teams_and_results map.
-    void simulate();  // Simulating the event
+        // Must be excluded due to different call - out arguments for every inheritatig class.
+        virtual void set_results(std::map<Team, std::map<EventsCategories, double>> &results)=0;
 
-    // Constructor:
-    Event();
-    Event(std::vector<Team> p_teams_participating);
+        // Simulating the event.
+        void simulate();
 
-    // Getters:
-    std::map<Team, const double> get_classification() const;
-    virtual std::string get_file_info_name()=0;  // Opens the file with information about the Event.
+        // Default Constructor:
+        Event();
+
+        // Constructor:
+        Event(std::vector<Team> p_teams_participating);
+
+        // Destructor:
+        virtual ~Event();
+
+        // Getter of final event classification:
+        std::map<Team, const double> get_classification() const;
+
+        // Getter of the name of file with information about the event.
+        virtual std::string get_info_file_name()=0;
 };
 
 // Order of calling out the methods:

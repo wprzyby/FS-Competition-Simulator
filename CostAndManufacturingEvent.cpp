@@ -5,6 +5,7 @@
 #include "CostAndManufacturingEvent.h"
 #include "Event_tools.h"
 
+//TODO: Implement according to BuisnessPlanEvent implementation
 
 CostAndManufacturingEvent::CostAndManufacturingEvent(std::vector<Team> &teams)
 {
@@ -21,9 +22,8 @@ void Event::set_results(std::map<Team, std::map<std::string, double>> &results)
     {
         for (auto& [category, points]: inner_map)
         {
-            if (category not in keys_check)  //TODO Fix the semantics of this line.
+            if (category not in keys_check)
             {
-                //TODO: Create an exception for this
             }
         }
     }
