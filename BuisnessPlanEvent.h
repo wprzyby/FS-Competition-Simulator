@@ -9,14 +9,14 @@
 
 class BuisnessPlanEvent : public Event  // BuisnessEvent class that inherits from the abstract class Event
 {
-    // Methods:
     protected:
+        // Methods:
         virtual void set_results(std::map<Team, std::map<EventsCategories, double>> &results);
         virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
 
     public:
-        // Constructor:
+        // Constructors:
         BuisnessPlanEvent();
         BuisnessPlanEvent(std::vector<Team> &teams);
         // Destructor:

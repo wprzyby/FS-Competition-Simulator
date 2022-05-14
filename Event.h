@@ -13,7 +13,7 @@ class Event  // Abstract class
         // Vector of the Teams that are participating in the event (required to be provided externally).
         std::vector<Team> teams_participating;
 
-        // Map with teams and second map of attributes created from Teams vector by a method.
+        // Map with teams and second map of categories in desired Event.
         std::map<Team, std::map<EventsCategories, double>> teams_and_results;
 
         // Array with teams and total points scored in the Event [Team, TotalPoints].
@@ -28,7 +28,7 @@ class Event  // Abstract class
 
     public:
         // Must be excluded due to different call - out arguments for every inheritatig class.
-        virtual void set_results(std::map<Team, std::map<EventsCategories, double>> &results)=0;
+        virtual void set_results(std::map<Team, std::map<std::vector<EventsCategories>, double>> &results)=0;
 
         // Simulating the event.
         void simulate();

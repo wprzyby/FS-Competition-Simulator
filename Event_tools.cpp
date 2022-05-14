@@ -13,7 +13,7 @@ double find_max(const double number1, const double number2)  // Function finding
 }
 
 
-double find_max_points(std::map<Team, std::map<EventsCategories, double>> &teams_and_results)
+double find_max_points(std::map<Team, std::map<EventsCategories, double>> teams_and_results)
 {
     double max_points = 0;
     for (auto& [team, results]: teams_and_results)
@@ -24,7 +24,7 @@ double find_max_points(std::map<Team, std::map<EventsCategories, double>> &teams
 }
 
 
-double sum_all_teams_results(std::map<EventsCategories, double> &results)
+double sum_all_teams_results(std::map<EventsCategories, double> results)
 {
     double summed_points = 0;
     for (auto& [category, points]: results)  // Getting row in the map
@@ -33,3 +33,5 @@ double sum_all_teams_results(std::map<EventsCategories, double> &results)
     }
     return summed_points;  // Returning points scored in an event by  the team.
 }
+
+// TODO: Implement two ast funstions from header file!

@@ -6,7 +6,6 @@
 #include "Event_tools.h"
 #include "constans.h"
 
-//TODO: Traktuj to jako wzorzec
 
 BuisnessPlanEvent::BuisnessPlanEvent(std::vector<Team> &teams)
 {
