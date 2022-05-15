@@ -12,6 +12,7 @@ BuisnessPlanEvent::BuisnessPlanEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
     event_categories = BuiPlaEveCat;
+    m_event_type = businessplan;
 }
 BuisnessPlanEvent::BuisnessPlanEvent()
 {

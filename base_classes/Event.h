@@ -10,6 +10,8 @@
 class Event  // Abstract class
 {
     protected:
+        event_type m_event_type;
+
         // Vector of the Teams that are participating in the event (required to be provided externally).
         std::vector<Team> teams_participating;
 

@@ -12,6 +12,7 @@ CostAndManufacturingEvent::CostAndManufacturingEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
     event_categories = CosAndManEveCat;
+    m_event_type = cost_and_manufacturing;
 }
 CostAndManufacturingEvent::CostAndManufacturingEvent()
 {

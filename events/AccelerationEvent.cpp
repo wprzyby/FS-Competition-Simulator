@@ -11,6 +11,7 @@ AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
     event_categories = AccEveCat;
+    m_event_type = acceleration;
 }
 AccelerationEvent::AccelerationEvent()
 {
