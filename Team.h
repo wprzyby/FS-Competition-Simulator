@@ -6,16 +6,28 @@
 class Team
 {
     private:
-    std::string name;
-    std::string university;
-    unsigned int number;
+    std::string m_name;
+    std::string m_university;
+    unsigned m_number;
+    unsigned m_total_points;
 
 
     public:
-    Team(const std::string p_name, const std::string p_university, const unsigned int p_number);
-    std::string get_name();
-    std::string get_univeristy();
-    unsigned int get_number();
+    // constructor:
+    Team(const std::string name, const std::string university, const unsigned number);
+
+    // getters:
+    std::string get_name() const {return m_name;}
+    std::string get_univeristy() const {return m_university;}
+    unsigned get_number() const {return m_number;}
+
+    // setters:
+    // (boolean returns to communicate whether the setter succeeded or failed)
+    bool set_name(std::string name);
+    bool set_university(std::string university);
+    bool set_number(unsigned number);
+    bool set_total_points(unsigned points);
+
 };
 
 
