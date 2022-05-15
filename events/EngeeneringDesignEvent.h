@@ -1,13 +1,13 @@
-#ifndef ENDURANCE_EVENT_H
-#define ENDURANCE_EVENT_H
+#ifndef ENGEENERING_DESIGN_EVENT_H
+#define ENGEENERING_DESIGN_EVENT_H
 #include <map>
 #include <vector>
 #include <iostream>
-#include "Team.h"
-#include "Event.h"
+#include "../base_classes/Team.h"
+#include "../base_classes/Event.h"
 
 
-class EnduranceEvent : public Event  // EnduranceEvent class that inherits from the abstract class Event
+class EngeeneringDesignEvent : public Event  // EngeeneringDesignEvent class that inherits from the abstract class Event
 {
     // Methods:
     virtual void set_results(std::map<Team, std::map<std::string, double>> &results);  // Function to create teams_and_results map.
@@ -15,7 +15,7 @@ class EnduranceEvent : public Event  // EnduranceEvent class that inherits from 
 
     public:
     // Constructor:
-    EnduranceEvent(std::vector<Team> teams);  // Constructor with demanded argument - vector of teams participating in the Event.
+    EngeeneringDesignEvent(std::vector<Team> teams);  // Constructor with demanded argument - vector of teams participating in the Event.
     virtual std::string get_file_info_name();
 };
 

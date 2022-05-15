@@ -3,8 +3,8 @@
 #include <map>
 #include <vector>
 #include <iostream>
-#include "Team.h"
-#include "Event.h"
+#include "../base_classes/Team.h"
+#include "../base_classes/Event.h"
 
 
 class BuisnessPlanEvent : public Event  // BuisnessEvent class that inherits from the abstract class Event

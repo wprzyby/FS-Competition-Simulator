@@ -3,8 +3,8 @@
 #include <map>
 #include <vector>
 #include <iostream>
-#include "Team.h"
-#include "LapTime.h"
+#include "base_classes/Team.h"
+#include "base_classes/LapTime.h"
 #include "constants.h"
 
 

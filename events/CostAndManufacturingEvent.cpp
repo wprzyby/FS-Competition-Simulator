@@ -1,9 +1,9 @@
 #include <map>
 #include <vector>
 #include <iostream>
-#include "Team.h"
+#include "../base_classes/Team.h"
 #include "CostAndManufacturingEvent.h"
-#include "Event_tools.h"
+#include "../Event_tools.h"
 
 //TODO: Implement according to BuisnessPlanEvent implementation
 

@@ -2,9 +2,9 @@
 #include <map>
 #include <vector>
 #include "AccelerationEvent.h"
-#include "Team.h"
-#include "Event_tools.h"
-#include "constants.h"
+#include "../base_classes/Team.h"
+#include "../Event_tools.h"
+#include "../constants.h"
 
 
 AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)

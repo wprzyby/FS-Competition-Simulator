@@ -7,7 +7,7 @@
 #include <map>
 
 // FIXME: using relative import, risky, better to change include path within IDE (?)
-#include "constants.h"
+#include "../constants.h"
 #include "Team.h"
 #include "Event.h"
 

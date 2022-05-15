@@ -2,9 +2,9 @@
 #include <map>
 #include <vector>
 #include "BuisnessPlanEvent.h"
-#include "Team.h"
-#include "Event_tools.h"
-#include "constants.h"
+#include "../base_classes/Team.h"
+#include "../Event_tools.h"
+#include "../constants.h"
 
 
 BuisnessPlanEvent::BuisnessPlanEvent(std::vector<Team> &teams)

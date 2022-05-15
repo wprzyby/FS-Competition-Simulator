@@ -4,7 +4,7 @@
 
 // FIXME: also relative imports
 #include "Competition.h"
-#include "constants.h"
+#include "../constants.h"
 #include "Team.h"
 
 Competition::Competition()
