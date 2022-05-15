@@ -25,7 +25,7 @@ class Event  // Abstract class
     Event(std::vector<Team> teams);  // Constructor
     // Getters:
     std::map<Team, std::map<std::string, double>> get_teams_and_results() const;
-    std::map<Team, const unsigned int> get_classification() const;
+    std::map<Team, double> get_classification() const;
     virtual std::string get_file_info_name()=0;  // Opens the file with information about the Event.
 };
 
