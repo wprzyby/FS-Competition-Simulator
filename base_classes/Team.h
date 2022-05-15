@@ -20,6 +20,7 @@ class Team
     std::string get_name() const {return m_name;}
     std::string get_univeristy() const {return m_university;}
     unsigned get_number() const {return m_number;}
+    double get_total_points() const {return m_total_points;}
 
     // setters:
     // (boolean returns to communicate whether the setter succeeded or failed)
@@ -27,6 +28,8 @@ class Team
     bool set_university(std::string university);
     bool set_number(unsigned number);
     bool set_total_points(unsigned points);
+
+    bool operator>(const Team second_arg) const;
 
 };
 
