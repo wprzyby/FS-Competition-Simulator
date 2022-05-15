@@ -10,6 +10,7 @@
 AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
+    m_event_type = acceleration;
 }
 AccelerationEvent::AccelerationEvent(){}
 AccelerationEvent::~AccelerationEvent(){}

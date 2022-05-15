@@ -10,6 +10,7 @@
 CostAndManufacturingEvent::CostAndManufacturingEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
+    m_event_type = cost_and_manufacturing;
 }
 CostAndManufacturingEvent::~CostAndManufacturingEvent(){}
 CostAndManufacturingEvent::CostAndManufacturingEvent(){}

@@ -26,7 +26,7 @@ void Event::simulate()
 }
 
 
-std::map<Team, const double> Event::get_classification() const
+std::map<Team, double> Event::get_classification() const
 {
     return classification;
 }

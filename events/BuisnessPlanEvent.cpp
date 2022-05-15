@@ -10,6 +10,7 @@
 BuisnessPlanEvent::BuisnessPlanEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
+    m_event_type = businessplan;
 }
 BuisnessPlanEvent::BuisnessPlanEvent(){}
 BuisnessPlanEvent::~BuisnessPlanEvent(){}

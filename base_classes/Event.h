@@ -10,6 +10,8 @@
 class Event  // Abstract class
 {
     protected:
+        event_type m_event_type;
+
         // Vector of the Teams that are participating in the event (required to be provided externally).
         std::vector<Team> teams_participating;
 
@@ -17,7 +19,7 @@ class Event  // Abstract class
         std::map<Team, std::map<EventsCategories, double>> teams_and_results;
 
         // Array with teams and total points scored in the Event [Team, TotalPoints].
-        std::map<Team, const double> classification;
+        std::map<Team, double> classification;
 
         // Function that sorts teams by their total score (not cirtual, as it only sorts the map by the amount of points that teams scored - same for every competition).
         void make_event_classification();
@@ -27,6 +29,8 @@ class Event  // Abstract class
 
 
     public:
+        event_type get_type() const {return m_event_type;}
+
         // Must be excluded due to different call - out arguments for every inheritatig class.
         virtual void set_results(std::map<Team, std::map<std::vector<EventsCategories>, double>> &results)=0;
 
@@ -43,7 +47,7 @@ class Event  // Abstract class
         virtual ~Event();
 
         // Getter of final event classification:
-        std::map<Team, const double> get_classification() const;
+        std::map<Team, double> get_classification() const;
 
         // Getter of the name of file with information about the event.
         virtual std::string get_info_file_name()=0;
