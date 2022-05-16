@@ -5,7 +5,7 @@
 #include "../base_classes/Team.h"
 #include "../Event_tools.h"
 #include "../constants.h"
-
+//TODO: DONE | Wzorzec dla statycznych
 
 BuisnessPlanEvent::BuisnessPlanEvent(std::vector<Team> &teams)
 {

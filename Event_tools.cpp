@@ -43,10 +43,10 @@ double sum_all_teams_results(std::map<EventsCategories, double> results)
 }
 
 
-unsigned int find_best_time_for_team(std::map<EventsCategories, double> results)
+unsigned int find_best_time_for_team(std::map<EventsCategories, double> team_and_times)
 {
-    double best_time = results.begin()->second;  // getting first time as a refference
-    for (auto& [category, time]: results)
+    double best_time = team_and_times.begin()->second;  // getting first time as a refference
+    for (auto& [category, time]: team_and_times)
     {
         best_time = find_min(time, best_time);  // finding lower value among current best and global best
     }
@@ -54,12 +54,12 @@ unsigned int find_best_time_for_team(std::map<EventsCategories, double> results)
 }
 
 
-unsigned int find_best_time_overall(std::map<Team, double> results)
+unsigned int find_best_time_overall(std::map<Team, double> teams_and_times)
 {
-    double best_time = results.begin()->second;  // getting the first time as a refference
-    for (auto& [team, time]: results)
+    double best_time = teams_and_times.begin()->second;  // getting the first time as a refference
+    for (auto& [team, time]: teams_and_times)
     {
         best_time = find_min(time, best_time);  // finding lower value among current best and global best
     }
     return best_time;
-}
+}  //TODO: Decide if we should use this function in the interface or event

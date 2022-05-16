@@ -6,19 +6,22 @@
 #include "../base_classes/Team.h"
 #include "../base_classes/Event.h"
 
-
+//TODO: Change this according to new implementation
 class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent class that inherits from the abstract class Event
 {
-    // Methods:
-    virtual void create_teams_and_results_map();  // Function to create teams_and_results map.
-    virtual void calculate_teams_points(bool finals, const int finalists=0);  // Function that calculates points for teams (based on the map: teams_and_results).
-    virtual void open_info_file();  // Opens the file with information about the Event.
+    protected:
+        // Methods:
+        virtual void set_results(std::map<Team, std::map<EventsCategories, double>> &results);  // Function to create teams_and_results map.
+        virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
     public:
-    // Constructor:
-    CostAndManufacturingEvent();  // Default constructor.
-    CostAndManufacturingEvent(std::vector<Team> &teams);  // Constructor with demanded argument - vector of teams participating in the CostAndManufacturingEvent Event.
-    virtual std::string get_file_info_name();
+        // Constructors:
+        CostAndManufacturingEvent();
+        CostAndManufacturingEvent(std::vector<Team> &teams);
+        // Destructor:
+        ~CostAndManufacturingEvent();
+        // Methods
+        virtual std::string get_file_info_name();
 };
 
 #endif
