@@ -9,6 +9,7 @@
 
 
 double find_max(const double number1, const double number2);
+double find_min(const double number1, const double number2);  // Function finding lower value among two numbers provided
 double find_max_points(std::map<Team, std::map<EventsCategories, double>> teams_and_results);
 double sum_all_teams_results(std::map<EventsCategories, double> results);
 unsigned int find_best_time_for_team(std::map<EventsCategories, double> results);  // Here only times with included penalties should be given! Best time will be returned andd added to the call-out map

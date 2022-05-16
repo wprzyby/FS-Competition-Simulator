@@ -3,12 +3,20 @@
 #include <vector>
 #include "constants.h"
 #include "base_classes/Team.h"
+#include "base_classes/LapTime.h"
 #include "Event_tools.h"
 
 
 double find_max(const double number1, const double number2)  // Function finding bigger value among two numbers provided
 {
     if (number1 >= number2){return number1;}
+    else {return number2;}
+}
+
+
+double find_min(const double number1, const double number2)  // Function finding lower value among two numbers provided
+{
+    if (number1 <= number2){return number1;}
     else {return number2;}
 }
 
@@ -34,4 +42,24 @@ double sum_all_teams_results(std::map<EventsCategories, double> results)
     return summed_points;  // Returning points scored in an event by  the team.
 }
 
-// TODO: Implement two ast funstions from header file!
+
+unsigned int find_best_time_for_team(std::map<EventsCategories, double> results)
+{
+    double best_time = results.begin()->second;  // getting first time as a refference
+    for (auto& [category, time]: results)
+    {
+        best_time = find_min(time, best_time);  // finding lower value among current best and global best
+    }
+    return best_time;
+}
+
+
+unsigned int find_best_time_overall(std::map<Team, double> results)
+{
+    double best_time = results.begin()->second;  // getting the first time as a refference
+    for (auto& [team, time]: results)
+    {
+        best_time = find_min(time, best_time);  // finding lower value among current best and global best
+    }
+    return best_time;
+}

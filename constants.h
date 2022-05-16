@@ -1,8 +1,10 @@
 #ifndef CONSTANTS_H
 #define CONSTANTS_H
 
+
 #include <iostream>
 #include <vector>
+
 
 enum event_type {acceleration, autocross, businessplan, cost_and_manufacturing,
                  endurance, engineering_design, skidpad, trackdrive};
