@@ -11,8 +11,7 @@ class BuisnessPlanEvent : public Event  // BuisnessEvent class that inherits fro
 {
     protected:
         // Methods:
-        virtual void set_results(std::map<Team, std::map<EventsCategories, double>> &results);  // Function to create teams_and_results map.
-        virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
+        virtual void calculate_teams_points(int finalists, std::map<Team, double> points_to_set);  // Function that calculates points for teams (based on the map: teams_and_results).
 
 
     public:
@@ -26,3 +25,5 @@ class BuisnessPlanEvent : public Event  // BuisnessEvent class that inherits fro
 };
 
 #endif
+
+// DONE

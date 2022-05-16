@@ -12,7 +12,6 @@ class AccelerationEvent : public Event  // AccelerationEvent class that inherits
 {
     protected:
         // Methods:
-        virtual void set_results(std::map<Team, std::map<EventsCategories, double>> &results);  // Function to create teams_and_results map.
         virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
     public:
@@ -26,3 +25,5 @@ class AccelerationEvent : public Event  // AccelerationEvent class that inherits
 };
 
 #endif
+
+// DONE

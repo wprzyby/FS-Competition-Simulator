@@ -11,7 +11,6 @@ class SkidpadEvent : public Event  // SkidpadEvent class that inherits from the 
 {
     protected:
         // Methods:
-        virtual void set_results(std::map<Team, std::map<EventsCategories, double>> &results);  // Function to create teams_and_results map.
         virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
     public:
@@ -24,3 +23,5 @@ class SkidpadEvent : public Event  // SkidpadEvent class that inherits from the 
 };
 
 #endif
+
+// DONE

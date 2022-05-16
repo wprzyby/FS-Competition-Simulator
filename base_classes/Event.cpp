@@ -3,6 +3,8 @@
 #include <map>
 #include "Event.h"
 #include "Team.h"
+#include "../exceptions.h"
+#include "../Event_tools.h"
 
 
 Event::Event(){}
@@ -11,6 +13,21 @@ Event::Event(std::vector<Team> p_teams_participating)
     teams_participating = p_teams_participating;
 }
 Event::~Event(){};
+
+
+void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &results, std::vector<EventsCategories> &categories_in_event)
+{
+    std::map<EventsCategories, double> inner_results_map = results.begin()->second;
+    for (auto& [category, points]: inner_results_map)
+    {
+        bool check = check_if_category_in_vector(category, categories_in_event);
+        if (check != true)
+        {
+            throw NoSuchCategoryInTheEventError(category);
+        }
+    }
+    teams_and_results = results;
+}
 
 
 void Event::make_event_classification()
@@ -26,7 +43,7 @@ void Event::simulate()
 }
 
 
-std::map<Team, const double> Event::get_classification() const
+std::map<Team, double> Event::get_classification() const
 {
     return classification;
 }

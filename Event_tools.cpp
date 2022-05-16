@@ -62,4 +62,10 @@ unsigned int find_best_time_overall(std::map<Team, double> teams_and_times)
         best_time = find_min(time, best_time);  // finding lower value among current best and global best
     }
     return best_time;
-}  //TODO: Decide if we should use this function in the interface or event
+}  //FIXME: Decide if we should use this function in the interface or event
+
+
+bool check_if_category_in_vector(EventsCategories category, std::vector<EventsCategories> categories_in_event)
+{
+    // TODO: Implement this method.
+}
