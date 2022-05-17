@@ -11,11 +11,11 @@
 SkidpadEvent::SkidpadEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
-    event_categories = SkiEveCat;
+    event_categories = SkidEveCat;
 }
 SkidpadEvent::SkidpadEvent()
 {
-    event_categories = SkiEveCat;
+    event_categories = SkidEveCat;
 }
 SkidpadEvent::~SkidpadEvent(){}
 
