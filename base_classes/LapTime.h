@@ -1,5 +1,7 @@
 #ifndef LAPTIME_H
 #define LAPTIME_H
+
+
 #include <iostream>
 
 
@@ -25,5 +27,6 @@ class LapTime  // LapTime is a special class that represents a lap time of a tea
         unsigned int get_total() const;
 
 };
+
 
 #endif

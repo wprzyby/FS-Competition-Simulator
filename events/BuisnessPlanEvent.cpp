@@ -5,24 +5,24 @@
 #include "../base_classes/Team.h"
 #include "../Event_tools.h"
 #include "../constants.h"
+#include "../exceptions.h"
 
 
 BuisnessPlanEvent::BuisnessPlanEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
+    event_categories = BuiPlaEveCat;
 }
-BuisnessPlanEvent::BuisnessPlanEvent(){}
+BuisnessPlanEvent::BuisnessPlanEvent()
+{
+    event_categories = BuiPlaEveCat;
+}
 BuisnessPlanEvent::~BuisnessPlanEvent(){}
 
 
-void BuisnessPlanEvent::set_results(std::map<Team, std::map<EventsCategories, double>> &results)
+void BuisnessPlanEvent::calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={})
 {
-    teams_and_results = results;
-}
 
-
-void BuisnessPlanEvent::calculate_teams_points()
-{
     // Finding best result among all teams:
     const double max_points = find_max_points(teams_and_results);
     //
@@ -35,6 +35,26 @@ void BuisnessPlanEvent::calculate_teams_points()
         classification.insert({team, team_points});  // inserting team and their final result into classification
     }
     //
+
+    // In case there are finals:
+    if (finalists > 0)
+    {
+        if (points_to_set.size() != finalists)  // Checking if number of provided results matches with number of finalists
+        {
+            throw UnmatchedNumberOfFinalistsError();
+        }
+
+        make_event_classification();  // making clasification (sorting teams)
+
+        int iterator = 1;
+        for (auto& [team, points]: points_to_set)  // modyfing best teams` results
+        {
+            classification.at(team) = points;
+            if (iterator == finalists) {break;}
+            iterator++;  // FIXME: Do I really want to this that way?
+        }
+    }
+    //
 }
 
 
@@ -43,3 +63,5 @@ std::string BuisnessPlanEvent::get_file_info_name()
     std::string name = "BuisnessPlanEventInfo.pdf";
     return name;
 }
+
+// DONE | Wzorzec dla statycznych

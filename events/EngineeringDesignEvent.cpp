@@ -1,32 +1,32 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "CostAndManufacturingEvent.h"
+#include "EngineeringDesignEvent.h"
 #include "../base_classes/Team.h"
 #include "../Event_tools.h"
 #include "../constants.h"
 #include "../exceptions.h"
 
 
-CostAndManufacturingEvent::CostAndManufacturingEvent(std::vector<Team> &teams)
+EngineeringDesignEvent::EngineeringDesignEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
     event_categories = CosAndManEveCat;
 }
-CostAndManufacturingEvent::CostAndManufacturingEvent()
+EngineeringDesignEvent::EngineeringDesignEvent()
 {
     event_categories = CosAndManEveCat;
 }
-CostAndManufacturingEvent::~CostAndManufacturingEvent(){}
+EngineeringDesignEvent::~EngineeringDesignEvent(){}
 
 
-void CostAndManufacturingEvent::calculate_teams_points()
+void EngineeringDesignEvent::calculate_teams_points()
 {
     // TODO: Implement this method
 }
 
 
-std::string CostAndManufacturingEvent::get_file_info_name()
+std::string EngineeringDesignEvent::get_file_info_name()
 {
     std::string name = "CostAndManufacturingEventInfo.pdf";
     return name;

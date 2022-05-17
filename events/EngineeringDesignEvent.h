@@ -1,5 +1,5 @@
-#ifndef COST_AND_MANUFACTURING_EVENT_H
-#define COST_AND_MANUFACTURING_EVENT_H
+#ifndef ENGINERING_DESIGN_EVENT_H
+#define ENGINERING_DESIGN_EVENT_H
 #include <map>
 #include <vector>
 #include <iostream>
@@ -7,7 +7,7 @@
 #include "../base_classes/Event.h"
 
 
-class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent class that inherits from the abstract class Event
+class EngineeringDesignEvent : public Event  // EngineeringDesignEvent class that inherits from the abstract class Event
 {
     protected:
         // Methods:
@@ -15,10 +15,10 @@ class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent cla
 
     public:
         // Constructors:
-        CostAndManufacturingEvent();
-        CostAndManufacturingEvent(std::vector<Team> &teams);
+        EngineeringDesignEvent();
+        EngineeringDesignEvent(std::vector<Team> &teams);
         // Destructor:
-        ~CostAndManufacturingEvent();
+        ~EngineeringDesignEvent();
         // Methods
         virtual std::string get_file_info_name();
 };
