@@ -3,7 +3,6 @@
 #include <algorithm>
 
 
-// FIXME: also relative imports
 #include "Competition.h"
 #include "../constants.h"
 #include "Team.h"
@@ -35,11 +34,9 @@ void Competition::simulate()
 {
     for(auto& event_ptr: m_events)
     {
-        // TODO: does make_final_classification do everything?
         event_ptr->simulate();
         std::map<Team, double> event_classification = event_ptr->get_classification();
 
-        // TODO: implement attribute and getter for event type (assign through overridden constructor)
         event_type type = event_ptr->get_type();
 
         m_events_points[type] = event_classification;

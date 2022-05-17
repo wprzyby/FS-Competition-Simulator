@@ -1,7 +1,6 @@
 #include <iostream>
 
 #include "Team.h"
-// FIXME: relative imports again
 #include "../exceptions.h"
 
 Team::Team(const std::string name, const std::string university, const unsigned number) :
