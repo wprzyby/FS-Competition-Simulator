@@ -1,5 +1,5 @@
-#ifndef ENGEENERING_DESIGN_EVENT_H
-#define ENGEENERING_DESIGN_EVENT_H
+#ifndef ENGINERING_DESIGN_EVENT_H
+#define ENGINERING_DESIGN_EVENT_H
 #include <map>
 #include <vector>
 #include <iostream>
@@ -7,7 +7,7 @@
 #include "../base_classes/Event.h"
 
 
-class EngeeneringDesignEvent : public Event  // EngeeneringDesignEvent class that inherits from the abstract class Event
+class EngineeringDesignEvent : public Event  // EngineeringDesignEvent class that inherits from the abstract class Event
 {
     protected:
         // Methods:
@@ -15,10 +15,10 @@ class EngeeneringDesignEvent : public Event  // EngeeneringDesignEvent class tha
 
     public:
         // Constructors:
-        EngeeneringDesignEvent();
-        EngeeneringDesignEvent(std::vector<Team> &teams);
+        EngineeringDesignEvent();
+        EngineeringDesignEvent(std::vector<Team> &teams);
         // Destructor:
-        ~EngeeneringDesignEvent();
+        ~EngineeringDesignEvent();
         // Methods
         virtual std::string get_file_info_name();
 };
