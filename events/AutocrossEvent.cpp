@@ -24,34 +24,33 @@ AutocrossEvent::AutocrossEvent(std::vector<Team> &teams)
 void AutocrossEvent::calculate_teams_points()
 {
     std::map<Team, double> teams_and_best_times;
-    double best_time = 0;
 
     for(auto& [team, team_results]: teams_and_results)
     {
-        best_time = find_best_time_for_team(team_results);
-        // teams_and_results[team][aut_best_time] = best_time; TODO: ??
+        double best_time = find_best_time_for_team(team_results);
+        // teams_and_results[team][aut_best_time] = best_time; TODO: to jest potrzebne?
         teams_and_best_times[team] = best_time;
     }
 
     double best_time_overall = find_best_time_overall(teams_and_best_times);
-    double t_max = best_time_overall * 1.25;
 
     double team_final_score = 0;
     for(auto& [team, team_best_time]: teams_and_best_times)
     {
-        // TODO: tutaj zakładam, że jeśli jest DNF albo DQ to jest czas ustawiany na 0
-        // jeśli tak jednak nie będziemy robić, to to do zmiany
+        double team_final_score;
+        double base_points = 4.5;
+
         if(team_best_time == 0)
         {
             team_final_score = 0;
         }
-        else if(team_best_time < t_max)
+        else if(team_best_time < best_time_overall * 1.25)
         {
-            team_final_score = 382 * ( (t_max / team_best_time) - 1 );
+            team_final_score = get_additional_points(best_time_overall, team_best_time) + base_points;
         }
         else
         {
-            team_final_score = 4.5;
+            team_final_score = base_points;
         }
 
         classification.insert({team, team_final_score});
@@ -59,3 +58,23 @@ void AutocrossEvent::calculate_teams_points()
 
 }
 
+
+std::string AutocrossEvent::get_file_info_name()
+{
+    std::string name = "AutocrossEventInfo.pdf";
+    return name;
+}
+
+
+double AutocrossEvent::get_additional_points(double best_time_overall, double team_best_time) const
+{
+    double points = 95.5 * ( ( ( (best_time_overall * 1.25) / team_best_time) - 1 ) / 0.25 );
+
+    if (points < 0)
+    {
+        throw NegativeAdditionalPointsError();
+    }
+
+    return points;
+
+}
