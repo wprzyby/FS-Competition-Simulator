@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+
 #include "constants.h"
 #include "base_classes/Team.h"
 #include "base_classes/LapTime.h"
@@ -16,6 +17,10 @@ double find_max(const double number1, const double number2)  // Function finding
 
 double find_min(const double number1, const double number2)  // Function finding lower value among two numbers provided
 {
+    // handling time=0 (in our convention this means DQ/DNF/DNA)
+    if (number1 == 0){return number2;}
+    if (number2 == 0){return number1;}
+
     if (number1 <= number2){return number1;}
     else {return number2;}
 }
