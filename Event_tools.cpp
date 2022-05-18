@@ -67,5 +67,10 @@ unsigned int find_best_time_overall(std::map<Team, double> teams_and_times)
 
 bool check_if_category_in_vector(EventsCategories category, std::vector<EventsCategories> categories_in_event)
 {
-    // TODO: Implement this method.
+    bool result = false;
+    for (auto& category_in_event: categories_in_event)  // getting category from vector
+    {
+        if (category == category_in_event) {result = true; break;}  // if category is in the vector then result is true and the loop is broken
+    }
+    return false;
 }

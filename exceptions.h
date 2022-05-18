@@ -20,6 +20,13 @@ class UnmatchedNumberOfFinalistsError: public std::invalid_argument
 };
 
 
+class NegativeAdditionalPointsError: public std::invalid_argument
+{
+    public:
+        NegativeAdditionalPointsError();
+};
+
+
 class NoSuchCategoryInTheEventError: public std::invalid_argument
 {
     public:

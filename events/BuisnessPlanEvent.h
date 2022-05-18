@@ -9,6 +9,11 @@
 
 class BuisnessPlanEvent : public Event  // BuisnessEvent class that inherits from the abstract class Event
 {
+    private:
+        // Methods:
+        double get_points(double team_total_result, double max_points) const;
+
+
     protected:
         // Methods:
         virtual void calculate_teams_points(int finalists, std::map<Team, double> points_to_set);  // Function that calculates points for teams (based on the map: teams_and_results).
