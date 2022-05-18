@@ -10,15 +10,15 @@
 
 AutocrossEvent::AutocrossEvent()
 {
-    event_categories = AutEveCat;
     m_event_type = autocross;
+    event_categories = category_lists.at(autocross);
 }
 
 AutocrossEvent::AutocrossEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
-    event_categories = AutEveCat;
     m_event_type = autocross;
+    event_categories = category_lists.at(autocross);
 }
 
 void AutocrossEvent::calculate_teams_points()
@@ -33,12 +33,11 @@ void AutocrossEvent::calculate_teams_points()
     }
 
     double best_time_overall = find_best_time_overall(teams_and_best_times);
+    double base_points = 4.5;
 
-    double team_final_score = 0;
     for(auto& [team, team_best_time]: teams_and_best_times)
     {
         double team_final_score;
-        double base_points = 4.5;
 
         if(team_best_time == 0)
         {
@@ -59,13 +58,6 @@ void AutocrossEvent::calculate_teams_points()
 }
 
 
-std::string AutocrossEvent::get_file_info_name()
-{
-    std::string name = "AutocrossEventInfo.pdf";
-    return name;
-}
-
-
 double AutocrossEvent::get_additional_points(double best_time_overall, double team_best_time) const
 {
     double points = 95.5 * ( ( ( (best_time_overall * 1.25) / team_best_time) - 1 ) / 0.25 );
@@ -78,3 +70,12 @@ double AutocrossEvent::get_additional_points(double best_time_overall, double te
     return points;
 
 }
+
+
+std::string AutocrossEvent::get_file_info_name()
+{
+    std::string name = "AutocrossEventInfo.pdf";
+    return name;
+}
+
+
