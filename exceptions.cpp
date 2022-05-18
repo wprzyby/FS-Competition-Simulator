@@ -13,3 +13,7 @@ NoSuchCategoryInTheEventError::NoSuchCategoryInTheEventError(const EventsCategor
 
 UnmatchedNumberOfFinalistsError::UnmatchedNumberOfFinalistsError():
     std::invalid_argument("The amount of provided number of finalists is different to the number of results to set.") {}
+
+
+NegativeAdditionalPointsError::NegativeAdditionalPointsError():
+    std::invalid_argument("Additional points in the event cannot be negative.") {}

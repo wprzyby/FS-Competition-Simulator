@@ -20,9 +20,14 @@ EngineeringDesignEvent::EngineeringDesignEvent()
 EngineeringDesignEvent::~EngineeringDesignEvent(){}
 
 
-void EngineeringDesignEvent::calculate_teams_points()
+void EngineeringDesignEvent::calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={})
 {
-    // TODO: Implement this method
+    // Calculating teams points and adding them to the classification map:
+    for (auto& [team, results]: teams_and_results)
+    {
+        const double team_points = sum_all_teams_results(results);  // summing all team`s point
+        classification.insert({team, team_points});  // inserting team and their final result into classification
+    }
 }
 
 
