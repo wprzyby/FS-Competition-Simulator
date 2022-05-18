@@ -32,7 +32,7 @@ void BuisnessPlanEvent::calculate_teams_points(int finalists=0, std::map<Team, d
     for (auto& [team, results]: teams_and_results)
     {
         const double team_total_result = sum_all_teams_results(results);  // summing all team`s point
-        const double team_points = 70*(team_total_result/max_points);  // calculating team`s points based on the formula
+        const double team_points = get_points(team_total_result, max_points);  // calculating team`s points based on the formula
         classification.insert({team, team_points});  // inserting team and their final result into classification
     }
     //
@@ -50,8 +50,8 @@ void BuisnessPlanEvent::calculate_teams_points(int finalists=0, std::map<Team, d
         int iterator = 1;
         for (auto& [team, points]: points_to_set)  // modyfing best teams` results
         {
+            if (iterator > finalists) {break;}
             classification.at(team) = points;
-            if (iterator == finalists) {break;}
             iterator++;  // FIXME: Do I really want to this that way?
         }
     }
@@ -63,6 +63,19 @@ std::string BuisnessPlanEvent::get_file_info_name()
 {
     std::string name = "BuisnessPlanEventInfo.pdf";
     return name;
+}
+
+
+double BuisnessPlanEvent::get_points(double team_total_result, double max_points) const
+{
+    double points = 70*(team_total_result/max_points);  // calculating additional points
+
+    if (points < 0)  // Checking if points are not negative
+    {
+        throw NegativeAdditionalPointsError();
+    }
+
+    return points;
 }
 
 // DONE | Wzorzec dla statycznych

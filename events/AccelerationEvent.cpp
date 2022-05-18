@@ -5,6 +5,7 @@
 #include "../base_classes/Team.h"
 #include "../Event_tools.h"
 #include "../constants.h"
+#include "exceptions.h"
 
 
 AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
@@ -38,9 +39,19 @@ void AccelerationEvent::calculate_teams_points()
 
     for (auto& [team, team_best_time]: teams_and_best_times)
     {
-        // TODO: handling tego jakby team_best_time był zerem bo jest dzielenie przez niego
-        // (np. DNF, myślę że jak będzie DNF albo DQ to będziemy dawać po prostu czas 0?)
-        double team_final_score = 93*(((1.5*best_time_overall)/team_best_time) - 1);  // Calculating teams` final score.
+        double team_final_score;
+        if (team_best_time == 0)
+        {
+            team_final_score = 0;
+        }
+        else if (team_best_time < 1.5*best_time_overall)
+        {
+            team_final_score = 3.5 + 93*(((1.5*best_time_overall)/team_best_time) - 1);  // Calculating teams` final score.
+        }
+        else
+        {
+            team_final_score = 3.5;
+        }
         classification.insert({team, team_final_score});  // Inserting team and their final score to the classification.
     }
 }
@@ -50,6 +61,19 @@ std::string AccelerationEvent::get_file_info_name()
 {
     std::string name = "AccelerationEventInfo.pdf";
     return name;
+}
+
+
+double AccelerationEvent::get_additional_points(double best_time_overall, double team_best_time) const
+{
+    double points = 93*(((1.5*best_time_overall)/team_best_time) - 1);  // calculating additional points
+
+    if (points < 0)  // Checking if additional points are not negative
+    {
+        throw NegativeAdditionalPointsError();
+    }
+
+    return points;
 }
 
 // DONE | Wzorzec dla dynamicznych

@@ -17,6 +17,7 @@ class EnduranceEvent : public Event  // EnduranceEvent class that inherits from 
         // Methods:
         virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
+
     public:
         // Constructors:
         EnduranceEvent(bool run_efficiency=false);
