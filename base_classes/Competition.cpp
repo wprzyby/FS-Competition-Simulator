@@ -1,8 +1,8 @@
 #include <iostream>
 #include <memory>
+#include <algorithm>
 
 
-// FIXME: also relative imports
 #include "Competition.h"
 #include "../constants.h"
 #include "Team.h"
@@ -30,15 +30,13 @@ bool Competition::set_teams(std::vector<Team> teams)
     return true;
 }
 
-void Competition::simulate_competition()
+void Competition::simulate()
 {
     for(auto& event_ptr: m_events)
     {
-        // TODO: does make_final_classification do everything?
-        event_ptr->make_final_classification();
+        event_ptr->simulate();
         std::map<Team, double> event_classification = event_ptr->get_classification();
 
-        // TODO: implement attribute and getter for event type (assign through overridden constructor)
         event_type type = event_ptr->get_type();
 
         m_events_points[type] = event_classification;
@@ -47,11 +45,25 @@ void Competition::simulate_competition()
 
 void Competition::create_classification()
 {
-    for(auto [_, event_points]: m_events_points)
+    // TODO: maybe simulate() call here?
+
+    // summing points from each event for every team to obtain total competition points
+    for(auto& [_, event_points]: m_events_points)
         {
-            for(auto [team, points]: event_points)
+            for(auto& [team, points]: event_points)
             {
-                m_competition_points[team] = points;
+                m_competition_points[team] += points;
             }
         }
+
+    // assigning final points to teams, adding {team, total_points} pair to final classification
+    for(auto& team: m_teams)
+    {
+        team.set_total_points(m_competition_points[team]);
+        m_final_classification.push_back( {team, team.get_total_points()} );
+    }
+
+    // sorting the final classification by team's points in descending order
+    std::sort(m_final_classification.begin(), m_final_classification.end(), std::greater<Team>());
+
 }

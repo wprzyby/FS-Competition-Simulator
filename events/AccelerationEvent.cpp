@@ -12,6 +12,7 @@ AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
     event_categories = AccEveCat;
+    m_event_type = acceleration;
 }
 AccelerationEvent::AccelerationEvent()
 {
@@ -26,6 +27,10 @@ void AccelerationEvent::calculate_teams_points()
     for (auto& [team, team_results]: teams_and_results)
     {
         double time_to_set = find_best_time_for_team(team_results);  // Finding best team`s time
+        // FIXME: zmiana tego, po czym się iteruje w pętli, nie wiem czy się nie wypierdoli
+        // (wiem że o tym gadaliśmy ale jakoś wtedy nie zczaiłem tego)
+        // ale w sumie nie wiem czy to acc_best_time musi być wypełniane jak i tak dalej jest korzystane
+        // z teams_and_best_times
         teams_and_results[team][acc_best_time] = time_to_set;  // Inserting team`s best time to the attribute
         teams_and_best_times[team] = time_to_set;  // inserting team and their best result into the bufforing map.
     }

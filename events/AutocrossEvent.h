@@ -19,6 +19,7 @@ class AutocrossEvent : public Event  // AutocrossEvent class that inherits from 
         virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
 
+
     public:
         // Constructors:
         AutocrossEvent();
