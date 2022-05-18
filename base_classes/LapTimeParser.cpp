@@ -29,7 +29,7 @@ void LapTimeParser::load_json_data(std::string file_path)
 }
 
 
-double LapTimeParser::parse_time(event_type event_mode, unsigned minutes, unsigned seconds, unsigned miliseconds, unsigned doo_cnt, unsigned oc_cnt, unsigned uss_cnt) const
+double LapTimeParser::parse_time(EventType event_mode, unsigned minutes, unsigned seconds, unsigned miliseconds, unsigned doo_cnt, unsigned oc_cnt, unsigned uss_cnt) const
 {
     std::string event = m_enum_conversion_map.at(event_mode);
     Json::Value doo_penalty_data = m_penalties_data[event]["DOO"];
@@ -66,10 +66,10 @@ double LapTimeParser::format_time(unsigned time) const
     switch (m_mode)
     {
         case m:
-            ret_val = time / 60 * 1000;
+            ret_val = double(time) / (60 * 1000);
             break;
         case s:
-            ret_val = time / 1000;
+            ret_val = double(time) / 1000;
             break;
         case ms:
             ret_val = time;

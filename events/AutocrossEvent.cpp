@@ -6,6 +6,7 @@
 #include "../base_classes/Team.h"
 #include "../Event_tools.h"
 #include "../constants.h"
+#include "../exceptions.h"
 
 
 AutocrossEvent::AutocrossEvent()
@@ -28,7 +29,6 @@ void AutocrossEvent::calculate_teams_points()
     for(auto& [team, team_results]: teams_and_results)
     {
         double best_time = find_best_time_for_team(team_results);
-        // teams_and_results[team][aut_best_time] = best_time; TODO: to jest potrzebne?
         teams_and_best_times[team] = best_time;
     }
 

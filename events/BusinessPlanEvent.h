@@ -1,5 +1,5 @@
-#ifndef BUISNESS_PLAN_EVENT_H
-#define BUISNESS_PLAN_EVENT_H
+#ifndef BUSINESS_PLAN_EVENT_H
+#define BUSINESS_PLAN_EVENT_H
 #include <map>
 #include <vector>
 #include <iostream>
@@ -7,7 +7,7 @@
 #include "../base_classes/Event.h"
 
 
-class BuisnessPlanEvent : public Event  // BuisnessEvent class that inherits from the abstract class Event
+class BusinessPlanEvent : public Event  // BusinessEvent class that inherits from the abstract class Event
 {
     private:
         // Methods:
@@ -21,10 +21,10 @@ class BuisnessPlanEvent : public Event  // BuisnessEvent class that inherits fro
 
     public:
         // Constructors:
-        BuisnessPlanEvent();
-        BuisnessPlanEvent(std::vector<Team> &teams);
+        BusinessPlanEvent();
+        BusinessPlanEvent(std::vector<Team> &teams);
         // Destructor:
-        ~BuisnessPlanEvent();
+        ~BusinessPlanEvent();
         // Methods:
         virtual std::string get_file_info_name();
 };

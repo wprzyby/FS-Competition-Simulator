@@ -21,7 +21,7 @@ CostAndManufacturingEvent::CostAndManufacturingEvent()
 CostAndManufacturingEvent::~CostAndManufacturingEvent(){}
 
 
-void CostAndManufacturingEvent::calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={})
+void CostAndManufacturingEvent::calculate_teams_points(int finalists, std::map<Team, double> points_to_set)
 {
 
     // Finding best result among all teams:
@@ -52,7 +52,7 @@ void CostAndManufacturingEvent::calculate_teams_points(int finalists=0, std::map
         {
             if (iterator > finalists) {break;}
             classification.at(team) = points;
-            iterator++;  // FIXME: Do I really want to this that way?
+            iterator++;
         }
     }
     //

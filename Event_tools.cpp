@@ -34,6 +34,7 @@ double find_max_points(std::map<Team, std::map<EventsCategories, double>> teams_
         double team_points = sum_all_teams_results(results);  // Summing team`s points
         max_points = find_max(max_points, team_points);  // Finding biggest amount among max_points and current team`s points
     }
+    return max_points;
 }
 
 
@@ -67,10 +68,10 @@ unsigned int find_best_time_overall(std::map<Team, double> teams_and_times)
         best_time = find_min(time, best_time);  // finding lower value among current best and global best
     }
     return best_time;
-}  //FIXME: Decide if we should use this function in the interface or event
+}
 
 
-bool check_if_category_in_vector(EventsCategories category, std::vector<EventsCategories> categories_in_event)
+bool check_if_category_in_vector(EventsCategories const &category, std::vector<EventsCategories> &categories_in_event)
 {
     bool result = false;
     for (auto& category_in_event: categories_in_event)  // getting category from vector

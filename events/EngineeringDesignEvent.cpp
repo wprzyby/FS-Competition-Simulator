@@ -20,7 +20,7 @@ EngineeringDesignEvent::EngineeringDesignEvent()
 EngineeringDesignEvent::~EngineeringDesignEvent(){}
 
 
-void EngineeringDesignEvent::calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={})
+void EngineeringDesignEvent::calculate_teams_points(int finalists, std::map<Team, double> points_to_set)
 {
     // Calculating teams points and adding them to the classification map:
     for (auto& [team, results]: teams_and_results)

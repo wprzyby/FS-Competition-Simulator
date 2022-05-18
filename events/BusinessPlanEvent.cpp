@@ -1,29 +1,28 @@
 #include <iostream>
 #include <map>
 #include <vector>
-#include "BuisnessPlanEvent.h"
+#include "BusinessPlanEvent.h"
 #include "../base_classes/Team.h"
 #include "../Event_tools.h"
 #include "../constants.h"
 #include "../exceptions.h"
 
 
-BuisnessPlanEvent::BuisnessPlanEvent(std::vector<Team> &teams)
+BusinessPlanEvent::BusinessPlanEvent(std::vector<Team> &teams)
 {
     teams_participating = teams;
     event_categories = BuiPlaEveCat;
     m_event_type = businessplan;
 }
-BuisnessPlanEvent::BuisnessPlanEvent()
+BusinessPlanEvent::BusinessPlanEvent()
 {
     event_categories = BuiPlaEveCat;
 }
-BuisnessPlanEvent::~BuisnessPlanEvent(){}
+BusinessPlanEvent::~BusinessPlanEvent(){}
 
 
-void BuisnessPlanEvent::calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={})
+void BusinessPlanEvent::calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={})
 {
-
     // Finding best result among all teams:
     const double max_points = find_max_points(teams_and_results);
     //
@@ -52,21 +51,21 @@ void BuisnessPlanEvent::calculate_teams_points(int finalists=0, std::map<Team, d
         {
             if (iterator > finalists) {break;}
             classification.at(team) = points;
-            iterator++;  // FIXME: Do I really want to this that way?
+            iterator++; 
         }
     }
     //
 }
 
 
-std::string BuisnessPlanEvent::get_file_info_name()
+std::string BusinessPlanEvent::get_file_info_name()
 {
-    std::string name = "BuisnessPlanEventInfo.pdf";
+    std::string name = "BusinessPlanEventInfo.pdf";
     return name;
 }
 
 
-double BuisnessPlanEvent::get_points(double team_total_result, double max_points) const
+double BusinessPlanEvent::get_points(double team_total_result, double max_points) const
 {
     double points = 70*(team_total_result/max_points);  // calculating additional points
 

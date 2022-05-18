@@ -16,8 +16,7 @@ Competition::Competition()
 
 bool Competition::set_events(std::vector<std::unique_ptr<Event>> events)
 {
-    // does this even work with pointers?
-    // TODO: test this
+    // FIXME: check if this assignment works
     m_events = events;
     return true;
 }
@@ -37,7 +36,7 @@ void Competition::simulate()
         event_ptr->simulate();
         std::map<Team, double> event_classification = event_ptr->get_classification();
 
-        event_type type = event_ptr->get_type();
+        EventType type = event_ptr->get_event_type();
 
         m_events_points[type] = event_classification;
     }
@@ -45,7 +44,7 @@ void Competition::simulate()
 
 void Competition::create_classification()
 {
-    // TODO: maybe simulate() call here?
+    simulate();
 
     // summing points from each event for every team to obtain total competition points
     for(auto& [_, event_points]: m_events_points)

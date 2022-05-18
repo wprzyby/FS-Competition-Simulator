@@ -10,7 +10,7 @@
 class Event  // Abstract class
 {
     protected:
-        event_type m_event_type;
+        EventType m_event_type;
 
         // Vector of the Teams that are participating in the event (required to be provided externally).
         std::vector<Team> teams_participating;
@@ -52,6 +52,9 @@ class Event  // Abstract class
 
         // Getter of the name of file with information about the event.
         virtual std::string get_info_file_name()=0;
+
+        // Getter of the type of event as an enum
+        EventType get_event_type() const {return m_event_type;}
 };
 
 // Order of calling out the methods:
