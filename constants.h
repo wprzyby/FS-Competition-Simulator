@@ -17,6 +17,15 @@ electronics, driver_interface, autonomous_functionality, design_report, first_le
 firs_acc_time, second_acc_time, first_acc_penalties, second_acc_penalties, first_aut_time, second_aut_time, third_aut_time, fourth_aut_time, first_aut_penalties, second_aut_penalties, third_aut_penalties,
 fourth_aut_penalties, end_corrected_time, end_uncorrected_time, end_penalties, energy_used, energy_produced, aut_best_time, acc_best_time, skid_best_time, end_best_time};
 
+enum LaptimeMode {m, s, ms};
+
+const std::map<event_type, std::string> DYNAMIC_EVENT_ENUN_TO_STR = {{acceleration, "acceleration"},
+                                                                     {autocross, "autocross"},
+                                                                     {endurance, "endurance"},
+                                                                     {skidpad, "skidpad"}};
+
+
+const std::string DEF_PENALTY_DATA_FILE_PATH = "dynamic_events_penalties.json";
 
 // Categories for BuisnessPlanEvent
 const std::vector<EventsCategories> BuiPlaEveCat = {pitch_video, novelty, content, finances, deep_dive_topic, demontration_and_structure, delivery, questions, general_impression};

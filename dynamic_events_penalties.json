@@ -1,0 +1,51 @@
+{
+    "_comment": "all penalties in miliseconds",
+    "acceleration":
+    {
+        "DOO":
+            {"penalty": 2000,
+            "dnf": false},
+        "OC":
+            {"penalty": 0,
+            "dnf": true},
+        "USS":
+            {"penalty": 0,
+            "dnf": true}
+    },
+    "skidpad":
+    {
+        "DOO":
+            {"penalty": 200,
+            "dnf": false},
+        "OC":
+            {"penalty": 0,
+            "dnf": true},
+        "USS":
+            {"penalty": 0,
+            "dnf": true}
+    },
+    "autocross":
+    {
+        "DOO":
+            {"penalty": 2000,
+            "dnf": false},
+        "OC":
+            {"penalty": 10000,
+            "dnf": false},
+        "USS":
+            {"penalty": 0,
+            "dnf": true}
+    },
+    "endurance":
+    {
+        "DOO":
+            {"penalty": 2000,
+            "dnf": false},
+        "OC":
+            {"penalty": 10000,
+            "dnf": true},
+        "USS":
+            {"penalty": 0,
+            "dnf": false}
+    }
+}
