@@ -10,12 +10,14 @@
 
 EngineeringDesignEvent::EngineeringDesignEvent(std::vector<Team> &teams)
 {
-    teams_participating = teams;
-    event_categories = CosAndManEveCat;
+    m_teams_participating = teams;
+    m_event_type = engineering_design;
+    m_event_categories = category_lists.at(engineering_design);
 }
 EngineeringDesignEvent::EngineeringDesignEvent()
 {
-    event_categories = CosAndManEveCat;
+    m_event_type = engineering_design;
+    m_event_categories = category_lists.at(engineering_design);
 }
 EngineeringDesignEvent::~EngineeringDesignEvent(){}
 
@@ -23,10 +25,10 @@ EngineeringDesignEvent::~EngineeringDesignEvent(){}
 void EngineeringDesignEvent::calculate_teams_points(int finalists, std::map<Team, double> points_to_set)
 {
     // Calculating teams points and adding them to the classification map:
-    for (auto& [team, results]: teams_and_results)
+    for (auto& [team, results]: m_teams_and_results)
     {
         const double team_points = sum_all_teams_results(results);  // summing all team`s point
-        classification.insert({team, team_points});  // inserting team and their final result into classification
+        m_classification.insert({team, team_points});  // inserting team and their final result into classification
     }
 }
 

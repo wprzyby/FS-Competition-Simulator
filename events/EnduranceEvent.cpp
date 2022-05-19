@@ -12,15 +12,15 @@
 EnduranceEvent::EnduranceEvent(bool run_efficiency)
 {
     m_event_type = endurance;
-    event_categories = category_lists.at(endurance);
+    m_event_categories = category_lists.at(endurance);
     m_run_efficiency = run_efficiency;
 }
 
 EnduranceEvent::EnduranceEvent(std::vector<Team> &teams, bool run_efficiency)
 {
-    teams_participating = teams;
+    m_teams_participating = teams;
     m_event_type = endurance;
-    event_categories = category_lists.at(endurance);
+    m_event_categories = category_lists.at(endurance);
     m_run_efficiency = run_efficiency;
 }
 
@@ -32,7 +32,7 @@ void EnduranceEvent::calculate_teams_points()
     std::map<Team, double> teams_and_uncorr_times;
     std::map<Team, double> teams_and_eff_factors;
 
-    for(auto& [team, team_results]: teams_and_results)
+    for(auto& [team, team_results]: m_teams_and_results)
     {
         teams_and_corr_times[team] = team_results[end_corrected_time];
         if (m_run_efficiency)
@@ -63,7 +63,7 @@ void EnduranceEvent::calculate_teams_points()
             team_endurance_score = base_points;
         }
 
-        classification.insert({team, team_endurance_score});
+        m_classification.insert({team, team_endurance_score});
     }
 
     if (!m_run_efficiency) {return;}
@@ -77,7 +77,7 @@ void EnduranceEvent::calculate_teams_points()
     {
         double team_efficiency_score;
 
-        if(classification.at(team) == 0 || team_uncorr_time > 1.333*best_uncorr_time || team_uncorr_time == 0)
+        if(m_classification.at(team) == 0 || team_uncorr_time > 1.333*best_uncorr_time || team_uncorr_time == 0)
         {
             team_efficiency_score = 0;
         }
@@ -86,7 +86,7 @@ void EnduranceEvent::calculate_teams_points()
             team_efficiency_score = get_efficiency_points(best_eff_factor, teams_and_eff_factors.at(team));
         }
 
-        classification.at(team) += team_efficiency_score;
+        m_classification.at(team) += team_efficiency_score;
     }
 
 }

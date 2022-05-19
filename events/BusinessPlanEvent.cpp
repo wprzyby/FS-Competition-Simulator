@@ -10,13 +10,14 @@
 
 BusinessPlanEvent::BusinessPlanEvent(std::vector<Team> &teams)
 {
-    teams_participating = teams;
-    event_categories = BuiPlaEveCat;
+    m_teams_participating = teams;
     m_event_type = businessplan;
+    m_event_categories = category_lists.at(businessplan);
 }
 BusinessPlanEvent::BusinessPlanEvent()
 {
-    event_categories = BuiPlaEveCat;
+    m_event_type = businessplan;
+    m_event_categories = category_lists.at(businessplan);
 }
 BusinessPlanEvent::~BusinessPlanEvent(){}
 
@@ -24,15 +25,15 @@ BusinessPlanEvent::~BusinessPlanEvent(){}
 void BusinessPlanEvent::calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={})
 {
     // Finding best result among all teams:
-    const double max_points = find_max_points(teams_and_results);
+    const double max_points = find_max_points(m_teams_and_results);
     //
 
     // Calculating teams points and adding them to the classification map:
-    for (auto& [team, results]: teams_and_results)
+    for (auto& [team, results]: m_teams_and_results)
     {
         const double team_total_result = sum_all_teams_results(results);  // summing all team`s point
         const double team_points = get_points(team_total_result, max_points);  // calculating team`s points based on the formula
-        classification.insert({team, team_points});  // inserting team and their final result into classification
+        m_classification.insert({team, team_points});  // inserting team and their final result into classification
     }
     //
 
@@ -50,8 +51,8 @@ void BusinessPlanEvent::calculate_teams_points(int finalists=0, std::map<Team, d
         for (auto& [team, points]: points_to_set)  // modyfing best teams` results
         {
             if (iterator > finalists) {break;}
-            classification.at(team) = points;
-            iterator++; 
+            m_classification.at(team) = points;
+            iterator++;
         }
     }
     //

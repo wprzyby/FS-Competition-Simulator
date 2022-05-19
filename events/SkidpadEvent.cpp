@@ -6,17 +6,19 @@
 #include "../base_classes/Team.h"
 #include "../Event_tools.h"
 #include "../constants.h"
-#include "exceptions.h"
+#include "../exceptions.h"
 
 
 SkidpadEvent::SkidpadEvent(std::vector<Team> &teams)
 {
-    teams_participating = teams;
-    event_categories = SkidEveCat;
+    m_teams_participating = teams;
+    m_event_type = skidpad;
+    m_event_categories = category_lists.at(skidpad);
 }
 SkidpadEvent::SkidpadEvent()
 {
-    event_categories = SkidEveCat;
+    m_event_type = skidpad;
+    m_event_categories = category_lists.at(skidpad);
 }
 SkidpadEvent::~SkidpadEvent(){}
 
@@ -24,10 +26,9 @@ SkidpadEvent::~SkidpadEvent(){}
 void SkidpadEvent::calculate_teams_points()
 {
     std::map<Team, double> teams_and_best_times;
-    for (auto& [team, team_results]: teams_and_results)
+    for (auto& [team, team_results]: m_teams_and_results)
     {
         double time_to_set = find_best_time_for_team(team_results);  // Finding best team`s time
-        teams_and_results[team][acc_best_time] = time_to_set;  // Inserting team`s best time to the attribute
         teams_and_best_times[team] = time_to_set;  // inserting team and their best result into the map.
     }
 
@@ -48,7 +49,7 @@ void SkidpadEvent::calculate_teams_points()
         {
             team_final_score = 3.5;
         }
-        classification.insert({team, team_final_score});  // Inserting team and their final score to the classification.
+        m_classification.insert({team, team_final_score});  // Inserting team and their final score to the classification.
     }
 }
 

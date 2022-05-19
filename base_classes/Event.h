@@ -13,16 +13,16 @@ class Event  // Abstract class
         EventType m_event_type;
 
         // Vector of the Teams that are participating in the event (required to be provided externally).
-        std::vector<Team> teams_participating;
+        std::vector<Team> m_teams_participating;
 
         // Map with teams and second map of categories in desired Event.
-        std::map<Team, std::map<EventsCategories, double>> teams_and_results;
+        std::map<Team, std::map<EventsCategories, double>> m_teams_and_results;
 
         // Array with teams and total points scored in the Event [Team, TotalPoints].
-        std::map<Team, double> classification;
+        std::map<Team, double> m_classification;
 
         // Vector with enum categories in the Event
-        std::vector<EventsCategories> event_categories;
+        std::vector<EventsCategories> m_event_categories;
 
         // Function that sorts teams by their total score (not cirtual, as it only sorts the map by the amount of points that teams scored - same for every competition).
         void make_event_classification();
@@ -42,7 +42,7 @@ class Event  // Abstract class
         Event();
 
         // Constructor:
-        Event(std::vector<Team> p_teams_participating);
+        Event(std::vector<Team> teams_participating);
 
         // Destructor:
         virtual ~Event();

@@ -8,9 +8,9 @@
 
 
 Event::Event(){}
-Event::Event(std::vector<Team> p_teams_participating)
+Event::Event(std::vector<Team> teams_participating)
 {
-    teams_participating = p_teams_participating;
+    m_teams_participating = teams_participating;
 }
 Event::~Event(){};
 
@@ -18,7 +18,7 @@ Event::~Event(){};
 void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &results, std::vector<EventsCategories> &categories_in_event)
 {
     std::map<EventsCategories, double> inner_results_map = results.begin()->second;
-    for (auto& [category, points]: inner_results_map)
+    for (auto& [category, _]: inner_results_map)
     {
         bool check = check_if_category_in_vector(category, categories_in_event);
         if (check != true)
@@ -26,7 +26,7 @@ void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &resu
             throw NoSuchCategoryInTheEventError(category);
         }
     }
-    teams_and_results = results;
+    m_teams_and_results = results;
 }
 
 
@@ -45,5 +45,5 @@ void Event::simulate()
 
 std::map<Team, double> Event::get_classification() const
 {
-    return classification;
+    return m_classification;
 }

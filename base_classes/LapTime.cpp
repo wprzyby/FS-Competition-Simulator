@@ -4,35 +4,35 @@
 
 LapTime::LapTime(){};
 LapTime::~LapTime(){};
-LapTime::LapTime(unsigned int p_minutes, unsigned int p_seconds, unsigned int p_miliseconds)
+LapTime::LapTime(unsigned int minutes, unsigned int seconds, unsigned int miliseconds)
 {
-    minutes = p_minutes;
-    seconds = p_seconds;
-    miliseconds = p_miliseconds;
+    minutes = minutes;
+    seconds = seconds;
+    miliseconds = miliseconds;
 }
 
 
 unsigned int LapTime::get_minutes() const
 {
-    return minutes;
+    return m_minutes;
 }
 
 
 unsigned int LapTime::get_seconds() const
 {
-    return seconds;
+    return m_seconds;
 }
 
 
 unsigned int LapTime::get_miliseconds() const
 {
-    return miliseconds;
+    return m_miliseconds;
 }
 
 
 unsigned int LapTime::get_total() const  // This method will be used by interface, Event classes will be given concrete time
 {
-    unsigned int minutes_as_milliseconds = 60*1000*minutes;
-    unsigned int seconds_as_milliseconds = 1000*seconds;
-    return miliseconds + minutes_as_milliseconds + seconds_as_milliseconds;
+    unsigned int minutes_as_milliseconds = 60*1000*m_minutes;
+    unsigned int seconds_as_milliseconds = 1000*m_seconds;
+    return m_miliseconds + minutes_as_milliseconds + seconds_as_milliseconds;
 }

@@ -10,13 +10,14 @@
 
 CostAndManufacturingEvent::CostAndManufacturingEvent(std::vector<Team> &teams)
 {
-    teams_participating = teams;
-    event_categories = CosAndManEveCat;
+    m_teams_participating = teams;
     m_event_type = cost_and_manufacturing;
+    m_event_categories = category_lists.at(cost_and_manufacturing);
 }
 CostAndManufacturingEvent::CostAndManufacturingEvent()
 {
-    event_categories = CosAndManEveCat;
+    m_event_type = cost_and_manufacturing;
+    m_event_categories = category_lists.at(cost_and_manufacturing);
 }
 CostAndManufacturingEvent::~CostAndManufacturingEvent(){}
 
@@ -25,15 +26,15 @@ void CostAndManufacturingEvent::calculate_teams_points(int finalists, std::map<T
 {
 
     // Finding best result among all teams:
-    const double max_points = find_max_points(teams_and_results);
+    const double max_points = find_max_points(m_teams_and_results);
     //
 
     // Calculating teams points and adding them to the classification map:
-    for (auto& [team, results]: teams_and_results)
+    for (auto& [team, results]: m_teams_and_results)
     {
         const double team_total_result = sum_all_teams_results(results);  // summing all team`s point
         const double team_points = get_points(team_total_result, max_points);  // calculating team`s points based on the formula
-        classification.insert({team, team_points});  // inserting team and their final result into classification
+        m_classification.insert({team, team_points});  // inserting team and their final result into classification
     }
     //
 
@@ -51,7 +52,7 @@ void CostAndManufacturingEvent::calculate_teams_points(int finalists, std::map<T
         for (auto& [team, points]: points_to_set)  // modyfing best teams` results
         {
             if (iterator > finalists) {break;}
-            classification.at(team) = points;
+            m_classification.at(team) = points;
             iterator++;
         }
     }

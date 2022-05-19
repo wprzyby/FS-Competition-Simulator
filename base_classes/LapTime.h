@@ -9,12 +9,12 @@ class LapTime  // LapTime is a special class that represents a lap time of a tea
 {
     private:
         // Atributes
-        unsigned int minutes, seconds, miliseconds;
+        unsigned int m_minutes, m_seconds, m_miliseconds;
 
     public:
         // Constructors:
         LapTime();
-        LapTime(unsigned int p_minutes, unsigned int p_seconds, unsigned int p_miliseconds);
+        LapTime(unsigned int minutes, unsigned int seconds, unsigned int miliseconds);
         // Destructor:
         ~LapTime();
 

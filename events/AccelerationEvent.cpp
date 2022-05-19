@@ -10,13 +10,14 @@
 
 AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
 {
-    teams_participating = teams;
-    event_categories = AccEveCat;
+    m_teams_participating = teams;
     m_event_type = acceleration;
+    m_event_categories = category_lists.at(acceleration);
 }
 AccelerationEvent::AccelerationEvent()
 {
-    event_categories = AccEveCat;  // TODO: rewrite according to AutocrossEvent
+    m_event_type = acceleration;
+    m_event_categories = category_lists.at(acceleration);
 }
 AccelerationEvent::~AccelerationEvent(){}
 
@@ -24,7 +25,7 @@ AccelerationEvent::~AccelerationEvent(){}
 void AccelerationEvent::calculate_teams_points()
 {
     std::map<Team, double> teams_and_best_times;
-    for (auto& [team, team_results]: teams_and_results)
+    for (auto& [team, team_results]: m_teams_and_results)
     {
         double time_to_set = find_best_time_for_team(team_results);  // Finding best team`s time
         teams_and_best_times[team] = time_to_set;  // inserting team and their best result into the bufforing map.
@@ -47,7 +48,7 @@ void AccelerationEvent::calculate_teams_points()
         {
             team_final_score = 3.5;
         }
-        classification.insert({team, team_final_score});  // Inserting team and their final score to the classification.
+        m_classification.insert({team, team_final_score});  // Inserting team and their final score to the classification.
     }
 }
 
