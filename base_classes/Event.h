@@ -36,7 +36,7 @@ class Event  // Abstract class
         void set_results(std::map<Team, std::map<EventsCategories, double>> &results, std::vector<EventsCategories> &categories_in_event);
 
         // Simulating the event.
-        void simulate();
+        void simulate();  // FIXME: this is a universal for all but what if there are finals? I think we need to get rid of this.
 
         // Default Constructor:
         Event();

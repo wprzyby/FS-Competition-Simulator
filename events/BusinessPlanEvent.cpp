@@ -24,7 +24,7 @@ BusinessPlanEvent::BusinessPlanEvent()
 BusinessPlanEvent::~BusinessPlanEvent(){}
 
 
-void BusinessPlanEvent::calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={})
+void BusinessPlanEvent::calculate_teams_points(int finalists, std::map<Team, double> points_to_set)
 {
     // Finding best result among all teams:
     const double max_points = find_max_points(m_teams_and_results);
