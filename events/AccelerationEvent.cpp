@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+
 #include "AccelerationEvent.h"
 #include "../base_classes/Team.h"
 #include "../Event_tools.h"
@@ -14,11 +15,13 @@ AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
     m_event_type = acceleration;
     m_event_categories = category_lists.at(acceleration);
 }
+
 AccelerationEvent::AccelerationEvent()
 {
     m_event_type = acceleration;
     m_event_categories = category_lists.at(acceleration);
 }
+
 AccelerationEvent::~AccelerationEvent(){}
 
 
@@ -38,11 +41,11 @@ void AccelerationEvent::calculate_teams_points()
         double team_final_score;
         if (team_best_time == 0)
         {
-            team_final_score = 0;
+            team_final_score = 0;  // Case od DNF or DSQ
         }
         else if (team_best_time < 1.5*best_time_overall)
         {
-            team_final_score = 3.5 + 93*(((1.5*best_time_overall)/team_best_time) - 1);  // Calculating teams` final score.
+            team_final_score = 3.5 + get_additional_points(best_time_overall, team_best_time);  // Calculating teams` final score.
         }
         else
         {
@@ -72,4 +75,4 @@ double AccelerationEvent::get_additional_points(double best_time_overall, double
     return points;
 }
 
-// DONE | Wzorzec dla dynamicznych
+// DONE

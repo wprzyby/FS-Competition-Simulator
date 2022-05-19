@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+
 #include "BusinessPlanEvent.h"
 #include "../base_classes/Team.h"
 #include "../Event_tools.h"
@@ -14,6 +15,7 @@ BusinessPlanEvent::BusinessPlanEvent(std::vector<Team> &teams)
     m_event_type = businessplan;
     m_event_categories = category_lists.at(businessplan);
 }
+
 BusinessPlanEvent::BusinessPlanEvent()
 {
     m_event_type = businessplan;
@@ -78,4 +80,4 @@ double BusinessPlanEvent::get_points(double team_total_result, double max_points
     return points;
 }
 
-// DONE | Wzorzec dla statycznych
+// DONE

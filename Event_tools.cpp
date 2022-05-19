@@ -17,7 +17,7 @@ double find_max(const double number1, const double number2)  // Function finding
 
 double find_min(const double number1, const double number2)  // Function finding lower value among two numbers provided
 {
-    // handling time=0 (in our convention this means DQ/DNF/DNA)
+    // handling time=0 (in our convention this means DSQ/DNF/DNA)
     if (number1 == 0){return number2;}
     if (number2 == 0){return number1;}
 
@@ -79,4 +79,10 @@ bool check_if_category_in_vector(EventsCategories const &category, std::vector<E
         if (category == category_in_event) {result = true; break;}  // if category is in the vector then result is true and the loop is broken
     }
     return false;
+}
+
+
+bool compare(std::pair<EventsCategories, double> &first_vector, std::pair<EventsCategories, double> &second_vector)
+{
+    return first_vector.second < second_vector.second;
 }

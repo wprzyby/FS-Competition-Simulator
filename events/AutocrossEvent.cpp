@@ -22,6 +22,7 @@ AutocrossEvent::AutocrossEvent(std::vector<Team> &teams)
     m_event_categories = category_lists.at(autocross);
 }
 
+
 void AutocrossEvent::calculate_teams_points()
 {
     std::map<Team, double> teams_and_best_times;
@@ -78,4 +79,4 @@ std::string AutocrossEvent::get_file_info_name()
     return name;
 }
 
-
+// DONE

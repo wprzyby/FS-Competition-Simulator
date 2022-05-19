@@ -9,6 +9,7 @@
 #include "../constants.h"
 #include "../exceptions.h"
 
+
 EnduranceEvent::EnduranceEvent(bool run_efficiency)
 {
     m_event_type = endurance;
