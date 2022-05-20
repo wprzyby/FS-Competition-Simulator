@@ -30,7 +30,16 @@ void SkidpadEvent::calculate_teams_points()
     std::map<Team, double> teams_and_best_times;
     for (auto& [team, team_results]: m_teams_and_results)
     {
-        double time_to_set = find_best_time_for_team(team_results);  // Finding best team`s time
+        double first_time = round(0.5*(team_results[first_left_time] + team_results[first_right_time]));  // Calculating first run time with accuracy to miliseconds
+        double second_time = round(0.5*(team_results[second_left_time] + team_results[second_right_time]));  // Calculating second run time with accuracy to miliseconds
+
+        // Inserting team results into buffor map
+        std::map<EventsCategories, double> times;
+        times.insert({skid_first_time, first_time});
+        times.insert({skid_second_time, second_time});
+        //
+
+        double time_to_set = find_best_time_for_team(times);  // Finding best team`s time
         teams_and_best_times[team] = time_to_set;  // inserting team and their best result into the map.
     }
 

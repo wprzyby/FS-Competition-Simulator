@@ -2,47 +2,12 @@
 #include <vector>
 
 #include "catch.hpp"
-#include "../Event_tools.h"
 #include "../exceptions.h"
-#include "../events/AccelerationEvent.h"
-#include "../events/BusinessPlanEvent.h"
-#include "../events/CostAndManufacturingEvent.h"
-#include "../events/EngineeringDesignEvent.h"
-#include "../events/SkidpadEvent.h"
-#include "../base_classes/Event.h"
-#include "../base_classes/Team.h"
-#include "../base_classes/LapTimeParser.h"
 #include "../constants.h"
+#include "tests_constants.h"
 
 
-// Creating the event and teams
-Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 2), team_c("C", "UniveroC", 3), team_d("D", "UniveroD", 4);
-std::vector<Team> teams{team_a, team_b, team_c, team_d};
-AccelerationEvent event(teams);
-//
-
-
-// Creating map of results
-std::map<Team, std::map<EventsCategories, double>> teams_and_results;
-std::map<EventsCategories, double> team_a_results;
-std::map<EventsCategories, double> team_b_results;
-team_a_results.insert({first_acc_time, 12000});
-team_a_results.insert({second_acc_time, 11000});
-team_b_results.insert({first_acc_time, 12000});
-team_b_results.insert({second_acc_time, 13000});
-team_c_results.insert({first_acc_time, 35000});
-team_c_results.insert({second_acc_time, 33000});
-team_d_results.insert({first_acc_time, 0});
-team_d_results.insert({second_acc_time, 0});
-teams_and_results.insert({team_a, team_a_results});
-teams_and_results.insert({team_b, team_b_results});
-teams_and_results.insert({team_c, team_c_results});
-teams_and_results.insert({team_d, team_d_results});
-//
-
-
-
-TEST_CASE("General_Event_Functionalities_Tests", "[Based_on_AccelerationEvent]")
+TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
 {
     SECTION("Testing: find_max() function")
     {
@@ -90,4 +55,110 @@ TEST_CASE("General_Event_Functionalities_Tests", "[Based_on_AccelerationEvent]")
         CHECK(result2 == true);
     }
 
+}
+
+
+TEST_CASE("AccelerationEvent tests.", "[Testing all functionalities]")
+{
+    // Creating and simulating the Event
+    AccelerationEvent acc_event(teams);
+    acc_event.set_results(acc_teams_and_results);
+    acc_event.make_event_classification();
+    std::map<Team, double> results = acc.event.get_classification();
+    //
+
+    // Creating map of correct results
+    std::map<Team, double> acc_correct_results;
+    acc_correct_results.insert({team_a, 50.0});
+    acc_correct_results.insert({team_b, 38.4});
+    acc_correct_results.insert({team_c, 3.5});
+    acc_correct_results.insert({team_d, 0});
+    //
+
+    SECTION("Testing: setting results and calculating points")
+    {
+        CHECK(results[team_a] == acc_correct_results[team_a]);
+        CHECK(results[team_b] == acc_correct_results[team_b]);
+        CHECK(results[team_c] == acc_correct_results[team_c]);
+        CHECK(results[team_d] == acc_correct_results[team_d]);
+    }
+
+
+    SECTION("Testing: making event classification")
+    {
+        std::vector<double> acc_points_vector;
+
+        // Copying sorted points from classification to the vector
+        for (auto& [_, it]: results)
+        {
+            acc_points_vector.push_back(it);
+        }
+        //
+
+        // Checking whether points are truely sorted:
+        CHECK(acc_points_vector[0] >= acc_points_vector[1]);
+        CHECK(acc_points_vector[1] >= acc_points_vector[2]);
+        CHECK(acc_points_vector[2] >= acc_points_vector[3]);
+        //
+    }
+
+
+    SECTION("Testing: EVentType and filename getters")
+    {
+        CHECK(acc_event.get_event_type() == acceleration)
+        CHECK(acc_event.get_file_info_name() == "AccelerationEventInfo.pdf")
+    }
+}
+
+
+TEST_CASE("SkidpadEvent tests.", "[Testing all functionalities]")
+{
+    // Creating and simulating the Event
+    SkidpadEvent skid_event(teams);
+    skid_event.set_results(skid_teams_and_results);
+    skid_event.make_event_classification();
+    std::map<Team, double> skid_results = skid_event.get_classification();
+    //
+
+    // Creating map of correct results
+    std::map<Team, double> skid_correct_results;
+    skid_correct_results.insert({team_a, 10.5});
+    skid_correct_results.insert({team_b, 50.0});
+    skid_correct_results.insert({team_c, 3.5});
+    skid_correct_results.insert({team_d, 23.2});
+    //
+
+    SECTION("Testing: setting results and calculating points")
+    {
+        CHECK(skid_results[team_a] == skid_correct_results[team_a]);
+        CHECK(skid_results[team_b] == skid_correct_results[team_b]);
+        CHECK(skid_results[team_c] == skid_correct_results[team_c]);
+        CHECK(skid_results[team_d] == skid_correct_results[team_d]);
+    }
+
+
+    SECTION("Testing: making event classification")
+    {
+        std::vector<double> skid__points_vector;
+
+        // Copying sorted points from classification to the vector
+        for (auto& [_, it]: skid_results)
+        {
+            skid_points_vector.push_back(it);
+        }
+        //
+
+        // Checking whether points are truely sorted:
+        CHECK(skid_points_vector[0] >= skid_points_vector[1]);
+        CHECK(skid_points_vector[1] >= skid_points_vector[2]);
+        CHECK(skid_points_vector[2] >= skid_points_vector[3]);
+        //
+    }
+
+
+    SECTION("Testing: EVentType and filename getters")
+    {
+        CHECK(skid_event.get_event_type() == skidpad)
+        CHECK(skid_event.get_file_info_name() == "SkidpadEventInfo.pdf")
+    }
 }

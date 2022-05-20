@@ -28,7 +28,7 @@ class Event  // Abstract class
         void make_event_classification();
 
         // Calculating points for each event according to the rules.
-        virtual void calculate_teams_points()=0;
+        virtual void calculate_teams_points()=0;  // TODO: Write a function that approximates the points to the decimal places!
 
 
     public:
