@@ -17,3 +17,8 @@ UnmatchedNumberOfFinalistsError::UnmatchedNumberOfFinalistsError():
 
 NegativeAdditionalPointsError::NegativeAdditionalPointsError():
     std::invalid_argument("Additional points in the event cannot be negative.") {}
+
+
+NegativeAmountOfFinalitsError::NegativeAmountOfFinalitsError():
+    std::invalid_argument("Number of finalists in the event cannot be negative.") {}
+
