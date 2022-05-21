@@ -84,4 +84,82 @@ skid_teams_and_results.insert({team_d, skid_team_d_results});
 //
 
 
+// Creating map of results for BusinessPlanEvent
+std::map<Team, std::map<EventsCategories, double>> bus_teams_and_results;
+std::map<EventsCategories, double> bus_team_a_results;
+std::map<EventsCategories, double> bus_team_b_results;
+std::map<EventsCategories, double> bus_team_c_results;
+
+bus_team_a_results.insert({pitch_video, 9});
+bus_team_a_results.insert({novelty, 8});
+bus_team_a_results.insert({content, 17});
+bus_team_a_results.insert({finances, 7});
+bus_team_a_results.insert({deep_dive_topic, 10});
+bus_team_a_results.insert({demontration_and_structure, 13});
+bus_team_a_results.insert({delivery, 10});
+bus_team_a_results.insert({questions, 10});
+bus_team_a_results.insert({general_impression, 5});
+
+bus_team_b_results.insert({pitch_video, 8});
+bus_team_b_results.insert({novelty, 9});
+bus_team_b_results.insert({content, 19});
+bus_team_b_results.insert({finances, 10});
+bus_team_b_results.insert({deep_dive_topic, 10});
+bus_team_b_results.insert({demontration_and_structure, 14});
+bus_team_b_results.insert({delivery, 8});
+bus_team_b_results.insert({questions, 8});
+bus_team_b_results.insert({general_impression, 4});
+
+bus_team_d_results.insert({pitch_video, 4});
+bus_team_d_results.insert({novelty, 3});
+bus_team_d_results.insert({content, 12});
+bus_team_d_results.insert({finances, 8});
+bus_team_d_results.insert({deep_dive_topic, 6});
+bus_team_d_results.insert({demontration_and_structure, 12});
+bus_team_d_results.insert({delivery, 7});
+bus_team_d_results.insert({questions, 7});
+bus_team_d_results.insert({general_impression, 3});
+
+bus_teams_and_results.insert({team_a, bus_team_a_results});
+bus_teams_and_results.insert({team_b, bus_team_b_results});
+bus_teams_and_results.insert({team_c, bus_team_c_results});
+//
+
+
+// Creating map of results for CostAndManufacturingEvent
+std::map<Team, std::map<EventsCategories, double>> cos_teams_and_results;
+std::map<EventsCategories, double> cos_team_a_results;
+std::map<EventsCategories, double> cos_team_b_results;
+std::map<EventsCategories, double> cos_team_c_results;
+
+cos_team_a_results.insert({format_and_accuracy_of_documents, 5});
+cos_team_a_results.insert({knowledge_of_documents_and_vehicle, 5});
+cos_team_a_results.insert({BOM_discussion, 35});
+cos_team_a_results.insert({cost_understanding, 35});
+cos_team_a_results.insert({real_case, 20});
+
+cos_team_b_results.insert({format_and_accuracy_of_documents, 4});
+cos_team_b_results.insert({knowledge_of_documents_and_vehicle, 5});
+cos_team_b_results.insert({BOM_discussion, 34});
+cos_team_b_results.insert({cost_understanding, 35});
+cos_team_b_results.insert({real_case, 20});
+
+cos_team_c_results.insert({format_and_accuracy_of_documents, 3});
+cos_team_c_results.insert({knowledge_of_documents_and_vehicle, 2});
+cos_team_c_results.insert({BOM_discussion, 30});
+cos_team_c_results.insert({cost_understanding, 28});
+cos_team_c_results.insert({real_case, 17});
+
+cos_team_d_results.insert({format_and_accuracy_of_documents, 4});
+cos_team_d_results.insert({knowledge_of_documents_and_vehicle, 3});
+cos_team_d_results.insert({BOM_discussion, 27});
+cos_team_d_results.insert({cost_understanding, 29});
+cos_team_d_results.insert({real_case, 15});
+
+cos_teams_and_results.insert({team_a, bus_team_a_results});
+cos_teams_and_results.insert({team_b, bus_team_b_results});
+cos_teams_and_results.insert({team_c, bus_team_c_results});
+//
+
+
 #endif

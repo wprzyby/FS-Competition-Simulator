@@ -7,6 +7,8 @@
 #include "tests_constants.h"
 
 
+
+
 TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
 {
     SECTION("Testing: find_max() function")
@@ -58,11 +60,14 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
 }
 
 
+
+
 TEST_CASE("AccelerationEvent tests.", "[Testing all functionalities]")
 {
     // Creating and simulating the Event
     AccelerationEvent acc_event(teams);
     acc_event.set_results(acc_teams_and_results);
+    acc_event.calculate_teams_points();
     acc_event.make_event_classification();
     std::map<Team, double> results = acc.event.get_classification();
     //
@@ -103,7 +108,7 @@ TEST_CASE("AccelerationEvent tests.", "[Testing all functionalities]")
     }
 
 
-    SECTION("Testing: EVentType and filename getters")
+    SECTION("Testing: EventType and filename getters")
     {
         CHECK(acc_event.get_event_type() == acceleration)
         CHECK(acc_event.get_file_info_name() == "AccelerationEventInfo.pdf")
@@ -111,11 +116,14 @@ TEST_CASE("AccelerationEvent tests.", "[Testing all functionalities]")
 }
 
 
+
+
 TEST_CASE("SkidpadEvent tests.", "[Testing all functionalities]")
 {
     // Creating and simulating the Event
     SkidpadEvent skid_event(teams);
     skid_event.set_results(skid_teams_and_results);
+    skid_event.calculate_teams_points();
     skid_event.make_event_classification();
     std::map<Team, double> skid_results = skid_event.get_classification();
     //
@@ -139,7 +147,7 @@ TEST_CASE("SkidpadEvent tests.", "[Testing all functionalities]")
 
     SECTION("Testing: making event classification")
     {
-        std::vector<double> skid__points_vector;
+        std::vector<double> skid_points_vector;
 
         // Copying sorted points from classification to the vector
         for (auto& [_, it]: skid_results)
@@ -156,9 +164,216 @@ TEST_CASE("SkidpadEvent tests.", "[Testing all functionalities]")
     }
 
 
-    SECTION("Testing: EVentType and filename getters")
+    SECTION("Testing: EventType and filename getters")
     {
         CHECK(skid_event.get_event_type() == skidpad)
         CHECK(skid_event.get_file_info_name() == "SkidpadEventInfo.pdf")
     }
 }
+
+
+
+
+TEST_CASE("BusinessPlanEvent tests.", "[Testing all functionalities in case of no finals]")
+{
+    // Creating and simulating the Event
+    BusinessPlanEvent bus_event(teams);
+    bus_event.set_results(bus_teams_and_results);
+    bus_event.calculate_teams_points();
+    bus_event.make_event_classification();
+    std::map<Team, double> bus_results = bus_event.get_classification();
+    //
+
+    // Creating map of correct results
+    std::map<Team, double> bus_correct_results;
+    bus_correct_results.insert({team_a, 69.2});
+    bus_correct_results.insert({team_b, 70.0});
+    bus_correct_results.insert({team_c, 48.2});
+    //
+
+    SECTION("Testing: setting results and calculating points")
+    {
+        CHECK(bus_results[team_a] == bus_correct_results[team_a]);
+        CHECK(bus_results[team_b] == bus_correct_results[team_b]);
+        CHECK(bus_results[team_c] == bus_correct_results[team_c]);
+    }
+
+
+    SECTION("Testing: making event classification")
+    {
+        std::vector<double> bus_points_vector;
+
+        // Copying sorted points from classification to the vector
+        for (auto& [_, it]: bus_results)
+        {
+            bus_points_vector.push_back(it);
+        }
+        //
+
+        // Checking whether points are truely sorted:
+        CHECK(bus_points_vector[0] >= bus_points_vector[1]);
+        CHECK(bus_points_vector[1] >= bus_points_vector[2]);
+        CHECK(bus_points_vector[2] >= bus_points_vector[3]);
+        //
+    }
+
+
+    SECTION("Testing: EventType and filename getters")
+    {
+        CHECK(bus_event.get_event_type() == businessplan)
+        CHECK(bus_event.get_file_info_name() == "BusinessPlanEventInfo.pdf")
+    }
+}
+
+
+
+
+TEST_CASE("BusinessPlanEvent tests.", "[Testing all functionalities in case of finals]")
+{
+    // Creating and simulating the Event
+    BusinessPlanEvent bus_event_finals(teams);
+    bus_event_finals.set_results(bus_teams_and_results);
+    bus_event_finals.calculate_teams_points(1, {team_b, 72.0});
+    bus_event_finals.make_event_classification();
+    std::map<Team, double> bus_results_finals = bus_event_finals.get_classification();
+    //
+
+    // Creating map of correct results
+    std::map<Team, double> bus_correct_results_finals;
+    bus_correct_results_finals.insert({team_a, 70.0});
+    bus_correct_results_finals.insert({team_b, 72.0});
+    bus_correct_results_finals.insert({team_c, 48.8});
+    //
+
+    SECTION("Testing: setting results and calculating points")
+    {
+        CHECK(bus_results_finals[team_a] == bus_correct_results_finals[team_a]);
+        CHECK(bus_results_finals[team_b] == bus_correct_results_finals[team_b]);
+        CHECK(bus_results_finals[team_c] == bus_correct_results_finals[team_c]);
+    }
+
+
+    SECTION("Testing: making event classification")
+    {
+        std::vector<double> bus_points_vector_finals;
+
+        // Copying sorted points from classification to the vector
+        for (auto& [_, it]: bus_results_finals)
+        {
+            bus_points_vector_finals.push_back(it);
+        }
+        //
+
+        // Checking whether points are truely sorted:
+        CHECK(bus_points_vector_finals[0] >= bus_points_vector_finals[1]);
+        CHECK(bus_points_vector_finals[1] >= bus_points_vector_finals[2]);
+        //
+    }
+}
+
+
+
+
+TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in case of no finals]")
+{
+    // Creating and simulating the Event
+    CostAndManufacturingEvent cos_event(teams);
+    cos_event.set_results(cos_teams_and_results);
+    cos_event.calculate_teams_points();
+    cos_event.make_event_classification();
+    std::map<Team, double> cos_results = cos_event.get_classification();
+    //
+
+    // Creating map of correct results
+    std::map<Team, double> cos_correct_results;
+    cos_correct_results.insert({team_a, 95.0});
+    cos_correct_results.insert({team_b, 93.1});
+    cos_correct_results.insert({team_c, 76.0});
+    cos_correct_results.insert({team_d, 74.1});
+    //
+
+    SECTION("Testing: setting results and calculating points")
+    {
+        CHECK(cos_results[team_a] == cos_correct_results[team_a]);
+        CHECK(cos_results[team_b] == cos_correct_results[team_b]);
+        CHECK(cos_results[team_c] == cos_correct_results[team_c]);
+        CHECK(cos_results[team_d] == cos_correct_results[team_d]);
+    }
+
+
+    SECTION("Testing: making event classification")
+    {
+        std::vector<double> cos_points_vector;
+
+        // Copying sorted points from classification to the vector
+        for (auto& [_, it]: cos_results)
+        {
+            cos_points_vector.push_back(it);
+        }
+        //
+
+        // Checking whether points are truely sorted:
+        CHECK(cos_points_vector[0] >= cos_points_vector[1]);
+        CHECK(cos_points_vector[1] >= cos_points_vector[2]);
+        CHECK(cos_points_vector[2] >= cos_points_vector[3]);
+        //
+    }
+
+
+    SECTION("Testing: EventType and filename getters")
+    {
+        CHECK(cos_event.get_event_type() == cost_and_manufacturing)
+        CHECK(cos_event.get_file_info_name() == "CostAndManufacturingEventInfo.pdf")
+    }
+}
+
+
+
+
+TEST_CASE("CostAndManufacturingEventInfo tests.", "[Testing all functionalities in case of finals]")
+{
+    // Creating and simulating the Event
+    CostAndManufacturingEvent cos_event_finals(teams);
+    cos_event_finals.set_results(cos_teams_and_results);
+    cos_event_finals.calculate_teams_points(2, {(team_a, 100.0), (team_b, 97.0)});
+    cos_event_finals.make_event_classification();
+    std::map<Team, double> cos_results_finals = cos_event_finals.get_classification();
+    //
+
+    // Creating map of correct results
+    std::map<Team, double> cos_correct_results_finals;
+    cos_correct_results_finals.insert({team_a, 100.0});
+    cos_correct_results_finals.insert({team_b, 97.0});
+    cos_correct_results_finals.insert({team_c, 95.0});
+    cos_correct_results_finals.insert({team_c, 92.6});
+    //
+
+    SECTION("Testing: setting results and calculating points")
+    {
+        CHECK(cos_results_finals[team_a] == cos_correct_results_finals[team_a]);
+        CHECK(cos_results_finals[team_b] == cos_correct_results_finals[team_b]);
+        CHECK(cos_results_finals[team_c] == cos_correct_results_finals[team_c]);
+        CHECK(cos_results_finals[team_d] == cos_correct_results_finals[team_d]);
+    }
+
+
+    SECTION("Testing: making event classification")
+    {
+        std::vector<double> cos_points_vector_finals;
+
+        // Copying sorted points from classification to the vector
+        for (auto& [_, it]: cos_results_finals)
+        {
+            cos_points_vector_finals.push_back(it);
+        }
+        //
+
+        // Checking whether points are truely sorted:
+        CHECK(cos_points_vector_finals[0] >= cos_points_vector_finals[1]);
+        CHECK(cos_points_vector_finals[1] >= cos_points_vector_finals[2]);
+        CHECK(cos_points_vector_finals[2] >= cos_points_vector_finals[3]);
+        //
+    }
+}
+
+//TODO: Endurance, EngineeringDesign, Autocross tests
