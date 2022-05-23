@@ -57,6 +57,14 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
         CHECK(result2 == true);
     }
 
+    SECTION("Testing: rd_to_n_places() function")
+    {
+        float number1 = rd_to_n_places(1.39, 1);
+        float number2 = rd_to_n_places(24.581, 2);
+        CHECK(result1 == 1.4);
+        CHECK(result2 == 24.58);
+    }
+
 }
 
 

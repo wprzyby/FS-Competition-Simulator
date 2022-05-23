@@ -54,7 +54,7 @@ void CostAndManufacturingEvent::calculate_teams_points(int finalists, std::map<T
             m_classification[team] = team_total_result;
         }
 
-        std::sort(points_scored_by_teams.begin(), points_scored_by_teams.end(), compare);  // sorting points scored by teams
+        std::sort(points_scored_by_teams.begin(), points_scored_by_teams.end(), compare);  // sorting points scored by teams  // FIXME: Same mistake one more time
         double fixed_best_result = points_scored_by_teams[finalists];  // getting best non-finalist result
 
         int iterator = 1;
@@ -65,8 +65,13 @@ void CostAndManufacturingEvent::calculate_teams_points(int finalists, std::map<T
         {
             if (iterator <= finalists)
             {
-                m_classification.at(team) = results_to_set_iterator->second;  // setting best teams` (finalists) results
-                results_to_set_iterator++;  // getting another finalists points to set
+                for (auto& [external_team, external_result]: points_to_set)
+                {
+                    if (external_team == team)  // searching fr current team among points_to_set
+                    {
+                        m_classification.at(team) = external_result;  // setting curent teams result
+                    }
+                }
             }
             else  // setting points according to the rules for non-finalists
             {

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <cmath>
 
 #include "constants.h"
 #include "base_classes/Team.h"
@@ -85,4 +86,10 @@ bool check_if_category_in_vector(EventsCategories const &category, std::vector<E
 bool compare(std::pair<EventsCategories, double> &first_vector, std::pair<EventsCategories, double> &second_vector)
 {
     return first_vector.second < second_vector.second;
+}
+
+
+float rd_to_n_places(float number, int n)
+{
+    return round(number*pow(10, n))/pow(10, n);
 }
