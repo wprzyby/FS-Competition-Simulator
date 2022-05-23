@@ -30,7 +30,7 @@ void EngineeringDesignEvent::calculate_teams_points(int finalists, std::map<Team
     for (auto& [team, results]: m_teams_and_results)
     {
         const double team_points = sum_all_teams_results(results);  // summing all team`s point
-        m_classification.insert({team, team_points});  // inserting team and their final result into classification
+        m_classification.insert({team, rd_to_n_places(team_points, 1)});  // inserting team and their final result into classification
     }
 }
 

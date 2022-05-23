@@ -77,7 +77,7 @@ void BusinessPlanEvent::calculate_teams_points(int finalists, std::map<Team, dou
             }
             else  // setting points according to the rules for non-finalists
             {
-                m_classification.at(team) = get_points(total_result, fixed_best_result);  // setting points from formula with fixed best result
+                m_classification.at(team) = rd_to_n_places(get_points(total_result, fixed_best_result), 1);  // setting points from formula with fixed best result
             }
             iterator++;
         }
