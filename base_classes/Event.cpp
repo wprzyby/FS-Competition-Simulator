@@ -15,18 +15,24 @@ Event::Event(std::vector<Team> teams_participating)
 Event::~Event(){};
 
 
-void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &results, std::vector<EventsCategories> &categories_in_event)
+void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &results)
 {
     std::map<EventsCategories, double> inner_results_map = results.begin()->second;
     for (auto& [category, _]: inner_results_map)
     {
-        bool check = check_if_category_in_vector(category, categories_in_event);
+        bool check = check_if_category_in_vector(category, m_event_categories);
         if (check != true)
         {
             throw NoSuchCategoryInTheEventError(category);
         }
     }
     m_teams_and_results = results;
+}
+
+void Event::set_teams(std::vector<Team> &teams)
+{
+    // TODO: handling improper input (duplicate names etc.)
+    m_teams_participating = teams;
 }
 
 

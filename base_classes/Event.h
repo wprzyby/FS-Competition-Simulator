@@ -33,10 +33,12 @@ class Event  // Abstract class
 
     public:
         // Setting results to the attribute:
-        void set_results(std::map<Team, std::map<EventsCategories, double>> &results, std::vector<EventsCategories> &categories_in_event);
+        void set_results(std::map<Team, std::map<EventsCategories, double>> &results);
 
         // Simulating the event.
         void simulate();
+
+        void set_teams(std::vector<Team> &teams);
 
         // Default Constructor:
         Event();

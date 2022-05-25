@@ -21,7 +21,7 @@ EngineeringDesignEvent::EngineeringDesignEvent()
 }
 EngineeringDesignEvent::~EngineeringDesignEvent(){}
 
-
+// TODO: czemu tu jest finalists?
 void EngineeringDesignEvent::calculate_teams_points(int finalists, std::map<Team, double> points_to_set)
 {
     // Calculating teams points and adding them to the classification map:

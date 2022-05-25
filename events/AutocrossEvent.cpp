@@ -38,7 +38,7 @@ void AutocrossEvent::calculate_teams_points()
     for(auto& [team, team_best_time]: teams_and_best_times)
     {
         double team_final_score;
-
+        // FIXME: potencjalne ryzyko: ujemne czasy
         if(team_best_time == 0)
         {
             team_final_score = 0;
@@ -72,7 +72,7 @@ double AutocrossEvent::get_additional_points(double best_time_overall, double te
 }
 
 
-std::string AutocrossEvent::get_file_info_name()
+std::string AutocrossEvent::get_info_file_name()
 {
     std::string name = "AutocrossEventInfo.pdf";
     return name;
