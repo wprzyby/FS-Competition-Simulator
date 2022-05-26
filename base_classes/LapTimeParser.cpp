@@ -1,9 +1,8 @@
 #include <iostream>
 #include <fstream>
-#include <jsoncpp/json/json.h>
-#include <jsoncpp/json/value.h>
 
 #include "LapTimeParser.h"
+#include "../json.hpp"
 #include "../constants.h"
 
 LapTimeParser::LapTimeParser(LaptimeMode mode)
@@ -29,13 +28,21 @@ void LapTimeParser::load_json_data(std::string file_path)
 }
 
 
-double LapTimeParser::parse_time(EventType event_mode, unsigned minutes, unsigned seconds, unsigned miliseconds, unsigned doo_cnt, unsigned oc_cnt, unsigned uss_cnt) const
+double LapTimeParser::parse_time(EventType event_mode, unsigned minutes, unsigned seconds,
+                                 unsigned miliseconds, unsigned doo_cnt, unsigned oc_cnt,
+                                 unsigned uss_cnt) const
 {
     std::string event = m_enum_conversion_map.at(event_mode);
-    Json::Value doo_penalty_data = m_penalties_data[event]["DOO"];
-    Json::Value oc_penalty_data = m_penalties_data[event]["OC"];
-    Json::Value uss_penalty_data = m_penalties_data[event]["USS"];
+    json doo_penalty_data = m_penalties_data[event]["DOO"];
+    json oc_penalty_data = m_penalties_data[event]["OC"];
+    json uss_penalty_data = m_penalties_data[event]["USS"];
     unsigned laptime = 0;
+
+    // check for DNF written as 0s laptime
+    if(minutes == seconds == miliseconds == 0)
+    {
+        return 0;
+    }
 
     // add base time to laptime
     laptime += minutes * 60 * 1000;
@@ -43,17 +50,17 @@ double LapTimeParser::parse_time(EventType event_mode, unsigned minutes, unsigne
     laptime += miliseconds;
 
     // check for DNF penalty - if DNF, laptime is set to 0
-    if(doo_penalty_data["dnf"].asBool() == true && doo_cnt > 0 ||
-       oc_penalty_data["dnf"].asBool() == true && oc_cnt > 0 ||
-       uss_penalty_data["dnf"].asBool() == true && uss_cnt > 0)
+    if(doo_penalty_data["dnf"].get<bool>() == true && doo_cnt > 0 ||
+       oc_penalty_data["dnf"].get<bool>() == true && oc_cnt > 0 ||
+       uss_penalty_data["dnf"].get<bool>() == true && uss_cnt > 0)
     {
         return 0;
     }
 
     // add necessary penalties to laptime
-    laptime += doo_penalty_data["penalty"].asInt() * doo_cnt;
-    laptime += oc_penalty_data["penalty"].asInt() * oc_cnt;
-    laptime += uss_penalty_data["penalty"].asInt() * uss_cnt;
+    laptime += doo_penalty_data["penalty"].get<int>() * doo_cnt;
+    laptime += oc_penalty_data["penalty"].get<int>() * oc_cnt;
+    laptime += uss_penalty_data["penalty"].get<int>() * uss_cnt;
 
     return format_time(laptime);
 
@@ -76,4 +83,9 @@ double LapTimeParser::format_time(unsigned time) const
             break;
     }
     return ret_val;
+}
+
+void LapTimeParser::set_mode(LaptimeMode mode)
+{
+    m_mode = mode;
 }

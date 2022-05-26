@@ -38,6 +38,8 @@ class Event  // Abstract class
         // Simulating the event.
         void simulate();  // FIXME: this is a universal for all but what if there are finals? I think we need to get rid of this.
 
+        void set_teams(std::vector<Team> &teams);
+
         // Default Constructor:
         Event();
 

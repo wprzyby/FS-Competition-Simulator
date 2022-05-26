@@ -12,7 +12,7 @@ enum EventType {acceleration, autocross, businessplan, cost_and_manufacturing,
 
 
 enum EventsCategories {pitch_video, novelty, content, finances, deep_dive_topic, demontration_and_structure, delivery, questions, general_impression, format_and_accuracy_of_documents,
-knowledge_of_documents_and_vehicle, BOM_discussion, cost_understanding, real_case, overall_vehicle_concept, vehicle_performance, mechanical_structural_engeeniering, tractive_system,
+knowledge_of_documents_and_vehicle, BOM_discussion, cost_understanding, real_case, overall_vehicle_concept, vehicle_performance, mechanical_structural_engineering, tractive_system,
 electronics, driver_interface, autonomous_functionality, design_report, first_left_time, first_right_time, second_left_time, second_right_time,
 first_acc_time, second_acc_time, first_aut_time, second_aut_time, third_aut_time, fourth_aut_time, end_corrected_time, end_uncorrected_time, energy_used, energy_produced,
 skid_first_time, skid_second_time};
@@ -34,7 +34,7 @@ const std::vector<EventsCategories> BuiPlaEveCat = {pitch_video, novelty, conten
 const std::vector<EventsCategories> CosAndManEveCat = {format_and_accuracy_of_documents, knowledge_of_documents_and_vehicle, BOM_discussion, cost_understanding, real_case};
 
 // Categories for EngineeringDesignEvent
-const std::vector<EventsCategories> EngDesEveCat = {overall_vehicle_concept, vehicle_performance, mechanical_structural_engeeniering, tractive_system, electronics, driver_interface, autonomous_functionality, design_report};
+const std::vector<EventsCategories> EngDesEveCat = {overall_vehicle_concept, vehicle_performance, mechanical_structural_engineering, tractive_system, electronics, driver_interface, autonomous_functionality, design_report};
 
 // Categories for SkidpadEvent
 const std::vector<EventsCategories> SkidEveCat = {first_left_time, first_right_time, second_left_time, second_right_time, skid_first_time, skid_second_time};

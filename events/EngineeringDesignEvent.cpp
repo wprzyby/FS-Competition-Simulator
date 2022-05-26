@@ -23,8 +23,8 @@ EngineeringDesignEvent::EngineeringDesignEvent()
 
 EngineeringDesignEvent::~EngineeringDesignEvent(){}
 
-
-void EngineeringDesignEvent::calculate_teams_points(int finalists, std::map<Team, double> points_to_set)
+// TODO: czemu tu jest finalists?
+void EngineeringDesignEvent::calculate_teams_points()
 {
     // Calculating teams points and adding them to the classification map:
     for (auto& [team, results]: m_teams_and_results)
@@ -35,7 +35,7 @@ void EngineeringDesignEvent::calculate_teams_points(int finalists, std::map<Team
 }
 
 
-std::string EngineeringDesignEvent::get_file_info_name()
+std::string EngineeringDesignEvent::get_info_file_name()
 {
     std::string name = "CostAndManufacturingEventInfo.pdf";
     return name;

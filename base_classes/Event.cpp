@@ -31,6 +31,12 @@ void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &resu
     m_teams_and_results = results;
 }
 
+void Event::set_teams(std::vector<Team> &teams)
+{
+    // TODO: handling improper input (duplicate names etc.)
+    m_teams_participating = teams;
+}
+
 
 void Event::make_event_classification()
 {

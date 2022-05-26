@@ -39,7 +39,8 @@ void EnduranceEvent::calculate_teams_points()
         if (m_run_efficiency)
         {
             teams_and_uncorr_times[team] = team_results[end_uncorrected_time];
-            teams_and_eff_factors[team] = team_results[energy_used] * std::pow(team_results[end_uncorrected_time], 2);
+            teams_and_eff_factors[team] = (team_results[energy_used] - team_results[energy_produced] * 0.9)
+                                           * std::pow(team_results[end_uncorrected_time], 2);
         }
     }
 
@@ -119,7 +120,7 @@ double EnduranceEvent::get_efficiency_points(double best_eff_factor, double team
 }
 
 
-std::string EnduranceEvent::get_file_info_name()
+std::string EnduranceEvent::get_info_file_name()
 {
     std::string name = "EnduranceEventInfo.pdf";
     return name;

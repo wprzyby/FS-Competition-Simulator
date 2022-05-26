@@ -25,7 +25,7 @@ class EnduranceEvent : public Event  // EnduranceEvent class that inherits from 
         // Destructor:
         ~EnduranceEvent();
         // Methods
-        virtual std::string get_file_info_name();
+        virtual std::string get_info_file_name();
 };
 
 #endif
