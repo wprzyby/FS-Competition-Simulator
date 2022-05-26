@@ -1,3 +1,5 @@
-# TODO:
-- problem z nazewnictwem jest, bo "classification" eventu to po prostu jakby jego wyniki, czyli results, ale results już używamy dla rezultatów czasowych, wychodzi to np. w testach gdzie jest użyte "results" jako rezultaty wyciągnięte z get_classification()
-- co się dzieje jak wychodzą ujemne punkty??
+To do globally:
+1. Decide the variables types and write 'const' where possible.
+2. Check points rounding implementation
+3. Implement new default constructors for every event class
+4. Implement finalists as constructor call arguments in events with potential finals

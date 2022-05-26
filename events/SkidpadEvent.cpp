@@ -15,11 +15,13 @@ SkidpadEvent::SkidpadEvent(std::vector<Team> &teams)
     m_event_type = skidpad;
     m_event_categories = category_lists.at(skidpad);
 }
+
 SkidpadEvent::SkidpadEvent()
 {
     m_event_type = skidpad;
     m_event_categories = category_lists.at(skidpad);
 }
+
 SkidpadEvent::~SkidpadEvent(){}
 
 
@@ -28,7 +30,16 @@ void SkidpadEvent::calculate_teams_points()
     std::map<Team, double> teams_and_best_times;
     for (auto& [team, team_results]: m_teams_and_results)
     {
-        double time_to_set = find_best_time_for_team(team_results);  // Finding best team`s time
+        double first_time = round(0.5*(team_results[first_left_time] + team_results[first_right_time]));  // Calculating first run time with accuracy to miliseconds
+        double second_time = round(0.5*(team_results[second_left_time] + team_results[second_right_time]));  // Calculating second run time with accuracy to miliseconds
+
+        // Inserting team results into buffor map
+        std::map<EventsCategories, double> times;
+        times.insert({skid_first_time, first_time});
+        times.insert({skid_second_time, second_time});
+        //
+
+        double time_to_set = find_best_time_for_team(times);  // Finding best team`s time
         teams_and_best_times[team] = time_to_set;  // inserting team and their best result into the map.
     }
 
@@ -49,12 +60,12 @@ void SkidpadEvent::calculate_teams_points()
         {
             team_final_score = 3.5;
         }
-        m_classification.insert({team, team_final_score});  // Inserting team and their final score to the classification.
+        m_classification.insert({team, rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
     }
 }
 
 
-std::string SkidpadEvent::get_file_info_name()
+std::string SkidpadEvent::get_info_file_name()
 {
     std::string name = "SkidpadEventInfo.pdf";
     return name;

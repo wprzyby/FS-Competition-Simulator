@@ -28,7 +28,7 @@ class Event  // Abstract class
         void make_event_classification();
 
         // Calculating points for each event according to the rules.
-        virtual void calculate_teams_points()=0;
+        virtual void calculate_teams_points()=0;  // TODO: Write a function that approximates the points to the decimal places!
 
 
     public:
@@ -36,7 +36,7 @@ class Event  // Abstract class
         void set_results(std::map<Team, std::map<EventsCategories, double>> &results);
 
         // Simulating the event.
-        void simulate();
+        void simulate();  // FIXME: this is a universal for all but what if there are finals? I think we need to get rid of this.
 
         void set_teams(std::vector<Team> &teams);
 

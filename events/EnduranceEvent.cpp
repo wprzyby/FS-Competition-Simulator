@@ -9,6 +9,7 @@
 #include "../constants.h"
 #include "../exceptions.h"
 
+
 EnduranceEvent::EnduranceEvent(bool run_efficiency)
 {
     m_event_type = endurance;
@@ -64,7 +65,7 @@ void EnduranceEvent::calculate_teams_points()
             team_endurance_score = base_points;
         }
 
-        m_classification.insert({team, team_endurance_score});
+        m_classification.insert({team, team_endurance_score});  // TODO: Implement rounding points
     }
 
     if (!m_run_efficiency) {return;}

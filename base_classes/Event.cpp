@@ -1,6 +1,8 @@
 #include <iostream>
 #include <vector>
 #include <map>
+#include <algorithm>
+
 #include "Event.h"
 #include "Team.h"
 #include "../exceptions.h"
@@ -38,7 +40,28 @@ void Event::set_teams(std::vector<Team> &teams)
 
 void Event::make_event_classification()
 {
-    //TODO: Implement this method.
+    // Function to sort the map according to value in a (key-value) pairs
+
+    // Declare vector of pairs
+    std::vector<std::pair<Team, double>> classification_as_vector;
+
+    // Copy Team-points pair from classification to vector of pairs
+    for (auto& it: m_classification)
+    {
+        classification_as_vector.push_back(it);
+    }
+
+    // Sort using comparator function
+    std::sort(classification_as_vector.begin(), classification_as_vector.end(), compare);
+
+    // Clear the classification map
+    m_classification.clear();
+
+    // Insert sorted values to the already cleared map
+    for (auto& it: classification_as_vector)
+    {
+        m_classification.insert(it);
+    }
 }
 
 

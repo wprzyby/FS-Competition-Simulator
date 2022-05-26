@@ -1,0 +1,39 @@
+{
+    "tasks": [
+        {
+            "type": "cppbuild",
+            "label": "C/C++: g++.exe kompiluj aktywny plik",
+            "command": "C:\\msys64\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-fdiagnostics-color=always",
+                "-g",
+                "${workspaceFolder}\\*.cpp",
+                "${workspaceFolder}\\..\\Event_tools.cpp",
+                "${workspaceFolder}\\..\\exceptions.cpp",
+                "${workspaceFolder}\\..\\base_classes\\Event.cpp",
+                "${workspaceFolder}\\..\\base_classes\\LapTimeParser.cpp",
+                "${workspaceFolder}\\..\\base_classes\\Team.cpp",
+                "${workspaceFolder}\\..\\events\\AccelerationEvent.cpp",
+                "${workspaceFolder}\\..\\events\\BusinessPlanEvent.cpp",
+                "${workspaceFolder}\\..\\events\\CostAndManufacturingEvent.cpp",
+                "${workspaceFolder}\\..\\events\\EngineeringDesignEvent.cpp",
+                "${workspaceFolder}\\..\\events\\SkidpadEvent.cpp",
+                "-o",
+                "${workspaceFolder}\\${workspaceFolderBasename}.exe",
+                "-Wall"
+            ],
+            "options": {
+                "cwd": "${fileDirname}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "detail": "Zadanie wygenerowane przez debuger."
+        }
+    ],
+    "version": "2.0.0"
+}

@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <cmath>
 
 #include "constants.h"
 #include "base_classes/Team.h"
@@ -17,7 +18,7 @@ double find_max(const double number1, const double number2)  // Function finding
 
 double find_min(const double number1, const double number2)  // Function finding lower value among two numbers provided
 {
-    // handling time=0 (in our convention this means DQ/DNF/DNA)
+    // handling time=0 (in our convention this means DSQ/DNF/DNA)
     if (number1 == 0){return number2;}
     if (number2 == 0){return number1;}
 
@@ -71,7 +72,7 @@ unsigned int find_best_time_overall(std::map<Team, double> teams_and_times)
 }
 
 
-bool check_if_category_in_vector(EventsCategories const &category, std::vector<EventsCategories> &categories_in_event)
+bool check_if_category_in_vector(EventsCategories const &category, std::vector<EventsCategories> const &categories_in_event)
 {
     bool result = false;
     for (auto& category_in_event: categories_in_event)  // getting category from vector
@@ -79,4 +80,16 @@ bool check_if_category_in_vector(EventsCategories const &category, std::vector<E
         if (category == category_in_event) {result = true; break;}  // if category is in the vector then result is true and the loop is broken
     }
     return false;
+}
+
+
+bool compare(std::pair<EventsCategories, double> const &first_vector, std::pair<EventsCategories, double> const &second_vector)
+{
+    return first_vector.second < second_vector.second;
+}
+
+
+float rd_to_n_places(float number, int n)
+{
+    return round(number*pow(10, n))/pow(10, n);
 }
