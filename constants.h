@@ -14,7 +14,8 @@ enum EventType {acceleration, autocross, businessplan, cost_and_manufacturing,
 enum EventsCategories {pitch_video, novelty, content, finances, deep_dive_topic, demontration_and_structure, delivery, questions, general_impression, format_and_accuracy_of_documents,
 knowledge_of_documents_and_vehicle, BOM_discussion, cost_understanding, real_case, overall_vehicle_concept, vehicle_performance, mechanical_structural_engeeniering, tractive_system,
 electronics, driver_interface, autonomous_functionality, design_report, first_left_time, first_right_time, second_left_time, second_right_time,
-firs_acc_time, second_acc_time, first_aut_time, second_aut_time, third_aut_time, fourth_aut_time, end_corrected_time, end_uncorrected_time, energy_used, energy_produced};
+firs_acc_time, second_acc_time, first_aut_time, second_aut_time, third_aut_time, fourth_aut_time, end_corrected_time, end_uncorrected_time, energy_used, energy_produced,
+skid_first_time, skid_second_time};
 
 enum LaptimeMode {m, s, ms};
 
@@ -36,7 +37,7 @@ const std::vector<EventsCategories> CosAndManEveCat = {format_and_accuracy_of_do
 const std::vector<EventsCategories> EngDesEveCat = {overall_vehicle_concept, vehicle_performance, mechanical_structural_engeeniering, tractive_system, electronics, driver_interface, autonomous_functionality, design_report};
 
 // Categories for SkidpadEvent
-const std::vector<EventsCategories> SkidEveCat = {first_left_time, first_right_time, second_left_time, second_right_time};
+const std::vector<EventsCategories> SkidEveCat = {first_left_time, first_right_time, second_left_time, second_right_time, skid_first_time, skid_second_time};
 
 // Categories for AccelerationEvent
 const std::vector<EventsCategories> AccEveCat = {firs_acc_time, second_acc_time};
@@ -45,7 +46,7 @@ const std::vector<EventsCategories> AccEveCat = {firs_acc_time, second_acc_time}
 const std::vector<EventsCategories> AutEveCat = {first_aut_time, second_aut_time, third_aut_time, fourth_aut_time};
 
 // Categories for EnduranceEvent
-const std::vector<EventsCategories> EndEveCat = {end_corrected_time, end_uncorrected_time, energy_used, energy_produced, };
+const std::vector<EventsCategories> EndEveCat = {end_corrected_time, end_uncorrected_time, energy_used, energy_produced};
 
 const std::map<EventType, std::vector<EventsCategories>> category_lists = {{acceleration, AccEveCat},
                                                                             {autocross, AutEveCat},

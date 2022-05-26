@@ -34,4 +34,11 @@ class NoSuchCategoryInTheEventError: public std::invalid_argument
 };
 
 
+class NegativeAmountOfFinalitsError: public std::invalid_argument
+{
+    public:
+        NegativeAmountOfFinalitsError();
+};
+
+
 #endif

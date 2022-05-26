@@ -16,7 +16,7 @@ class BusinessPlanEvent : public Event  // BusinessEvent class that inherits fro
 
     protected:
         // Methods:
-        virtual void calculate_teams_points(int finalists, std::map<Team, double> points_to_set);  // Function that calculates points for teams (based on the map: teams_and_results).
+        virtual void calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={});  // Function that calculates points for teams (based on the map: teams_and_results).
 
 
     public:
