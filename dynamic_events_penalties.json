@@ -43,7 +43,7 @@
             "dnf": false},
         "OC":
             {"penalty": 10000,
-            "dnf": true},
+            "dnf": false},
         "USS":
             {"penalty": 0,
             "dnf": false}
