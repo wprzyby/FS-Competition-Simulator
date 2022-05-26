@@ -72,7 +72,7 @@ unsigned int find_best_time_overall(std::map<Team, double> teams_and_times)
 }
 
 
-bool check_if_category_in_vector(EventsCategories const &category, std::vector<EventsCategories> &categories_in_event)
+bool check_if_category_in_vector(EventsCategories const &category, std::vector<EventsCategories> const &categories_in_event)
 {
     bool result = false;
     for (auto& category_in_event: categories_in_event)  // getting category from vector
@@ -83,7 +83,7 @@ bool check_if_category_in_vector(EventsCategories const &category, std::vector<E
 }
 
 
-bool compare(std::pair<EventsCategories, double> &first_vector, std::pair<EventsCategories, double> &second_vector)
+bool compare(std::pair<EventsCategories, double> const &first_vector, std::pair<EventsCategories, double> const &second_vector)
 {
     return first_vector.second < second_vector.second;
 }

@@ -16,7 +16,7 @@ class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent cla
 
     protected:
         // Methods:
-        virtual void calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={});  // Function that calculates points for teams (based on the map: teams_and_results).
+        virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
 
     public:
@@ -26,7 +26,7 @@ class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent cla
         // Destructor:
         ~CostAndManufacturingEvent();
         // Methods
-        virtual std::string get_file_info_name();
+        virtual std::string get_info_file_name();
 };
 
 #endif

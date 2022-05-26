@@ -13,7 +13,7 @@
 #include "../events/EngineeringDesignEvent.h"
 #include "../events/SkidpadEvent.h"
 #include "../base_classes/Event.h"
-#include "../base_classes/Team.h"
+#include "../constants.h"
 #include "../base_classes/LapTimeParser.h"
 #include "../constants.h"
 

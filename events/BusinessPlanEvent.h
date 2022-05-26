@@ -16,17 +16,19 @@ class BusinessPlanEvent : public Event  // BusinessEvent class that inherits fro
 
     protected:
         // Methods:
-        virtual void calculate_teams_points(int finalists=0, std::map<Team, double> points_to_set={});  // Function that calculates points for teams (based on the map: teams_and_results).
+        // FIXME: adjust for the fixme below
+        virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
 
     public:
         // Constructors:
+        // FIXME: add finalists and their scores to constructor call
         BusinessPlanEvent();
         BusinessPlanEvent(std::vector<Team> &teams);
         // Destructor:
         ~BusinessPlanEvent();
         // Methods:
-        virtual std::string get_file_info_name();
+        virtual std::string get_info_file_name();
 };
 
 #endif

@@ -65,7 +65,7 @@ void SkidpadEvent::calculate_teams_points()
 }
 
 
-std::string SkidpadEvent::get_file_info_name()
+std::string SkidpadEvent::get_info_file_name()
 {
     std::string name = "SkidpadEventInfo.pdf";
     return name;

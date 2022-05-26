@@ -1,6 +1,8 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <algorithm>
+
 #include "CostAndManufacturingEvent.h"
 #include "../base_classes/Team.h"
 #include "../Event_tools.h"
@@ -88,7 +90,7 @@ void CostAndManufacturingEvent::calculate_teams_points(int finalists, std::map<T
 }
 
 
-std::string CostAndManufacturingEvent::get_file_info_name()
+std::string CostAndManufacturingEvent::get_info_file_name()
 {
     std::string name = "CostAndManufacturingEventInfo.pdf";
     return name;

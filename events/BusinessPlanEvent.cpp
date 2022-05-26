@@ -1,6 +1,7 @@
 #include <iostream>
 #include <map>
 #include <vector>
+#include <algorithm>
 
 #include "BusinessPlanEvent.h"
 #include "../base_classes/Team.h"
@@ -25,7 +26,7 @@ BusinessPlanEvent::BusinessPlanEvent()
 BusinessPlanEvent::~BusinessPlanEvent(){}
 
 
-void BusinessPlanEvent::calculate_teams_points(int finalists, std::map<Team, double> points_to_set)
+void BusinessPlanEvent::calculate_teams_points()
 {
     if (finalists == 0)
     {
@@ -91,7 +92,7 @@ void BusinessPlanEvent::calculate_teams_points(int finalists, std::map<Team, dou
 }
 
 
-std::string BusinessPlanEvent::get_file_info_name()
+std::string BusinessPlanEvent::get_info_file_name()
 {
     std::string name = "BusinessPlanEventInfo.pdf";
     return name;
