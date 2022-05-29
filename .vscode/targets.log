@@ -1,0 +1,546 @@
+make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
+System nie mo�e odnale�� okre�lonej �cie�ki.
+
+System nie mo�e odnale�� okre�lonej �cie�ki.
+
+# GNU Make 4.3
+# Built for Windows32
+# Copyright (C) 1988-2020 Free Software Foundation, Inc.
+# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+# This is free software: you are free to change and redistribute it.
+# There is NO WARRANTY, to the extent permitted by law.
+
+# Make data base, printed on Sun May 29 23:10:06 2022
+
+# Variables
+
+# environment
+SYSTEMDRIVE = C:
+# environment
+LC_ALL = C
+# makefile (from 'Makefile', line 15)
+OBJDIR := ./bin
+# environment
+USERPROFILE = C:\Users\Adam
+# environment
+LOCALAPPDATA = C:\Users\Adam\AppData\Local
+# environment
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9844e151-d1e0-4081-ad96-953c94638c58-sock
+# environment
+VSCODE_CWD = C:\Users\Adam\AppData\Local\Programs\Microsoft VS Code
+# environment
+PYTHON = C:\Users\Adam\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.10\Scripts
+# environment
+CHOCOLATEYINSTALL = C:\ProgramData\chocolatey
+# environment
+SYSTEMROOT = C:\WINDOWS
+# environment
+PROCESSOR_LEVEL = 6
+# environment
+PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;
+# makefile (from 'Makefile', line 9)
+DISTFILES := test
+# default
+MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
+# automatic
+@D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
+# makefile (from 'Makefile', line 51)
+PRECOMPILE = 
+# environment
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_8160_JIIQVGHTRTCVDFOF
+# environment
+VSCODE_HANDLES_UNCAUGHT_ERRORS = true
+# default
+.VARIABLES := 
+# automatic
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+# environment
+SPLM_LICENSE_SERVER = 28000@licenses4.meil.pw.edu.pl
+# makefile (from 'Makefile', line 49)
+LINK.o = $(LD) $(LDFLAGS) $(LDLIBS) -o $@
+# automatic
+^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
+# environment
+VSCODE_LOG_STACK = false
+# automatic
+%F = $(notdir $%)
+# environment
+VSCODE_CODE_CACHE_PATH = C:\Users\Adam\AppData\Roaming\Code\CachedData\c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+# environment
+LANG = C
+# default
+.LOADED := 
+# environment
+TMP = C:\Users\Adam\AppData\Local\Temp
+# default
+.INCLUDE_DIRS = .
+# environment
+PROCESSOR_ARCHITEW6432 = AMD64
+# makefile
+MAKEFLAGS = pqrR
+# makefile (from 'Makefile', line 33)
+TAR := tar
+# environment
+ONEDRIVE = C:\Users\Adam\OneDrive
+# makefile
+CURDIR := c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program
+# environment
+VSCODE_PIPE_LOGGING = true
+# environment
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+# makefile (from 'Makefile', line 5)
+SRCS := ./tests/test_autocross.cpp ./tests/test_competition.cpp ./teststest_endurance.cpp ./teststest_engineering_design.cpp ./tests/test_laptimeparser.cpp
+# automatic
+*D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
+# environment
+PROGRAMFILES = C:\Program Files (x86)
+# environment
+MFLAGS = -pqrR
+# default
+.SHELLFLAGS := -c
+# environment
+COMMONPROGRAMW6432 = C:\Program Files\Common Files
+# makefile (from 'Makefile', line 44)
+DEPFLAGS = -MT $@ -MD -MP -MF $(DEPDIR)/$*.Td
+# automatic
++D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
+# makefile (from 'Makefile', line 1)
+MAKEFILE_LIST := Makefile
+# automatic
+@F = $(notdir $@)
+# environment
+VSCODE_VERBOSE_LOGGING = true
+# environment
+VSCODE_PID = 8160
+# automatic
+?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# automatic
+*F = $(notdir $*)
+# environment
+UGII_LANG = english
+# automatic
+<D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
+# makefile (from 'Makefile', line 12)
+DISTOUTPUT := test.tar.gz
+# environment
+VSCODE_NLS_CONFIG = {"locale":"pl","availableLanguages":{"*":"pl"},"_languagePackId":"c8befbfa7cd5d8527d842a3af66dca21.pl","_translationsConfigFile":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\c8befbfa7cd5d8527d842a3af66dca21.pl\\tcf.json","_cacheRoot":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\c8befbfa7cd5d8527d842a3af66dca21.pl","_resolvedLanguagePackCoreLocation":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\c8befbfa7cd5d8527d842a3af66dca21.pl\\c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\c8befbfa7cd5d8527d842a3af66dca21.pl\\corrupted.info","_languagePackSupport":true}
+# environment
+ONEDRIVECONSUMER = C:\Users\Adam\OneDrive
+# default
+MAKE_HOST := Windows32
+# makefile (from 'Makefile', line 20)
+OBJS := ./bin/./tests/test_autocross.o ./bin/./tests/test_competition.o ./bin/./teststest_endurance.o ./bin/./teststest_engineering_design.o ./bin/./tests/test_laptimeparser.o
+# environment
+PROGRAMDATA = C:\ProgramData
+# default
+SHELL := sh.exe
+# environment
+HOMEPATH = \Users\Adam
+# default
+MAKECMDGOALS := all
+# environment
+DRIVERDATA = C:\Windows\System32\Drivers\DriverData
+# environment
+COMSPEC = C:\WINDOWS\system32\cmd.exe
+# environment
+WINDIR = C:\WINDOWS
+# environment
+ESET_OPTIONS = $(subst ,,                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               )
+# environment
+MAKELEVEL := 0
+# default
+MAKE = $(MAKE_COMMAND)
+# environment
+PATH = C:\PROGRA~2\Borland\CBUILD~1\Bin;C:\PROGRA~2\Borland\CBUILD~1\Projects\Bpl;C:\Users\Adam\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.10\Scripts;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;C:\WINDOWS\system32;C:\WINDOWS;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\WindowsPowerShell\v1.0\Modules;C:\Program Files\Git\cmd;C:\Users\Adam\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Adam\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Adam\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.10\Scripts;C:\Users\Adam\AppData\Local\Programs\Python\Python310\Scripts;C:\msys64\mingw64\bin;C:\Program Files\MATLAB\R2021b\bin;C:\ProgramData\chocolatey\bin;C:\Users\Adam\AppData\Roaming\Microsoft\Windows\Start Menu\Programs\Python 3.10\Scripts;C:\Users\Adam\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Adam\AppData\Local\Programs\Python\Python310\Scripts;C:\msys64\mingw64\bin;
+# environment
+COMPUTERNAME = ADAM-KOMPUTER
+# default
+MAKEFILES := 
+# automatic
+^F = $(notdir $^)
+# environment
+PROMPT = $P$G
+# makefile (from 'Makefile', line 42)
+LDLIBS := 
+# environment
+CHOCOLATEYLASTPATHUPDATE = 132983318149047175
+# environment
+LOGONSERVER = \\ADAM-KOMPUTER
+# environment
+VSCODE_LOG_NATIVE = false
+# environment
+USERNAME = Adam
+# environment
+COMMONPROGRAMFILES = C:\Program Files (x86)\Common Files
+# automatic
+?F = $(notdir $?)
+# environment
+PROGRAMW6432 = C:\Program Files
+# environment
+PATHEXT = .COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC
+# automatic
++F = $(notdir $+)
+# environment
+ORIGINAL_XDG_CURRENT_DESKTOP = undefined
+# environment
+USERDOMAIN = ADAM-KOMPUTER
+# 'override' directive
+GNUMAKEFLAGS := 
+# environment
+OS = Windows_NT
+# makefile (from 'Makefile', line 38)
+CPPFLAGS := -g -Wall -Wextra -pedantic
+# makefile
+.DEFAULT_GOAL := all
+# default
+MAKE_VERSION := 4.3
+# 'override' directive
+.SHELLSTATUS := 1
+# environment
+PROGRAMFILES(X86) = C:\Program Files (x86)
+# makefile (from 'Makefile', line 40)
+LDFLAGS := 
+# environment
+USERDOMAIN_ROAMINGPROFILE = ADAM-KOMPUTER
+# environment
+NUMBER_OF_PROCESSORS = 4
+# environment
+PUBLIC = C:\Users\Public
+# makefile (from 'Makefile', line 2)
+BIN := test
+# environment
+APPDATA = C:\Users\Adam\AppData\Roaming
+# environment
+HOMEDRIVE = C:
+# environment
+PROCESSOR_ARCHITECTURE = x86
+# environment
+UGII_BASE_DIR = C:\Program Files\Siemens\NX1953
+# environment
+VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
+# environment
+COMMONPROGRAMFILES(X86) = C:\Program Files (x86)\Common Files
+# environment
+ELECTRON_RUN_AS_NODE = 1
+# environment
+TEMP = C:\Users\Adam\AppData\Local\Temp
+# environment
+VSCODE_IPC_HOOK = \\.\pipe\960edf1ed550c5a578cf488641497e4c-1.67.2-main-sock
+# default
+.RECIPEPREFIX := 
+# automatic
+<F = $(notdir $<)
+# makefile (from 'Makefile', line 22)
+DEPS := ./dep/./tests/test_autocross.d ./dep/./tests/test_competition.d ./dep/./teststest_endurance.d ./dep/./teststest_engineering_design.d ./dep/./tests/test_laptimeparser.d
+# makefile (from 'Makefile', line 17)
+DEPDIR := ./dep
+# default
+SUFFIXES := 
+# environment
+ALLUSERSPROFILE = C:\ProgramData
+# makefile (from 'Makefile', line 31)
+LD := g++
+# environment
+SESSIONNAME = Console
+# makefile (from 'Makefile', line 36)
+CXXFLAGS := -std=c++20
+# default
+.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
+# environment
+PROCESSOR_REVISION = 4e03
+# makefile (from 'Makefile', line 53)
+POSTCOMPILE = mv -f $(DEPDIR)/$*.Td $(DEPDIR)/$*.d
+# makefile (from 'Makefile', line 29)
+CXX := g++
+# makefile (from 'Makefile', line 47)
+COMPILE.cc = $(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c -o $@
+# environment
+PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
+# variable set hash-table stats:
+# Load=121/1024=12%, Rehash=0, Collisions=19/197=10%
+
+# Pattern-specific Variable Values
+
+# No pattern-specific variable values.
+
+# Directories
+
+# dep: could not be stat'd.
+# dep/./tests: could not be stat'd.
+# . (key c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program, mtime 1653857656): 21 files, no impossibilities.
+# tests (key c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program/tests, mtime 1653857656): 16 files, no impossibilities.
+
+# 37 files, no impossibilities in 4 directories.
+
+# Implicit Rules
+
+bin/%.o: %.c
+
+bin/%.o: %.c dep/%.d
+#  recipe to execute (from 'Makefile', line 89):
+	$(PRECOMPILE)
+	$(COMPILE.c) $<
+	$(POSTCOMPILE)
+
+bin/%.o: %.cpp
+
+bin/%.o: %.cpp dep/%.d
+#  recipe to execute (from 'Makefile', line 95):
+	$(PRECOMPILE)
+	$(COMPILE.cc) $<
+	$(POSTCOMPILE)
+
+bin/%.o: %.cc
+
+bin/%.o: %.cc dep/%.d
+#  recipe to execute (from 'Makefile', line 101):
+	$(PRECOMPILE)
+	$(COMPILE.cc) $<
+	$(POSTCOMPILE)
+
+bin/%.o: %.cxx
+
+bin/%.o: %.cxx dep/%.d
+#  recipe to execute (from 'Makefile', line 107):
+	$(PRECOMPILE)
+	$(COMPILE.cc) $<
+	$(POSTCOMPILE)
+
+dep/%.d:
+#  recipe to execute (from 'Makefile', line 112):
+	
+
+# 9 implicit rules, 0 (0.0%) terminal.
+# Files
+
+dep/./tests/test_autocross.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: './tests/test_autocross'
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 112):
+	
+
+dist: test
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 58):
+	$(TAR) -cvzf $(DISTOUTPUT) $^
+
+check:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 78):
+	@echo no tests configured
+
+distclean: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 66):
+	$(RM) $(BIN) $(DISTOUTPUT)
+
+bin/./tests/test_autocross.o: tests/test_autocross.cpp dep/./tests/test_autocross.d
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: './tests/test_autocross'
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# automatic
+# @ := bin/./tests/test_autocross.o
+# automatic
+# * := ./tests/test_autocross
+# automatic
+# < := tests/test_autocross.cpp
+# automatic
+# + := tests/test_autocross.cpp dep/./tests/test_autocross.d
+# automatic
+# % := 
+# automatic
+# ^ := tests/test_autocross.cpp dep/./tests/test_autocross.d
+# automatic
+# ? := tests/test_autocross.cpp dep/./tests/test_autocross.d
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=3/27=11%
+#  recipe to execute (from 'Makefile', line 95):
+	$(PRECOMPILE)
+	$(COMPILE.cc) $<
+	$(POSTCOMPILE)
+
+dep/./tests/test_competition.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: './tests/test_competition'
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 112):
+	
+
+.PRECIOUS: dep/%.d
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+Makefile:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-29 22:54:15
+#  File has been updated.
+#  Successfully updated.
+
+dep/./tests/test_laptimeparser.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: './tests/test_laptimeparser'
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 112):
+	
+
+uninstall:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 74):
+	@echo no uninstall tasks configured
+
+clean:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 62):
+	$(RM) -r $(OBJDIR) $(DEPDIR)
+
+# Not a target:
+bin/./teststest_endurance.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+dep/%.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+tests/test_autocross.cpp:
+#  Implicit rule search has been done.
+#  Last modified 2022-05-29 22:54:16
+#  File has been updated.
+#  Successfully updated.
+
+# Not a target:
+.DEFAULT:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+all: test
+#  Command line target.
+#  Implicit rule search has been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/13=0%
+
+dep/./teststest_engineering_design.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: './teststest_engineering_design'
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 112):
+	
+
+help:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 82):
+	@echo available targets: all dist clean distclean install uninstall check
+
+test: bin/./tests/test_autocross.o bin/./tests/test_competition.o bin/./teststest_endurance.o bin/./teststest_engineering_design.o bin/./tests/test_laptimeparser.o
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has been updated.
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/13=0%
+#  recipe to execute (from 'Makefile', line 85):
+	$(LINK.o) $^
+
+dep/./teststest_endurance.d:
+#  Precious file (prerequisite of .PRECIOUS).
+#  Implicit rule search has been done.
+#  Implicit/static pattern stem: './teststest_endurance'
+#  File does not exist.
+#  File has been updated.
+#  Successfully updated.
+#  recipe to execute (from 'Makefile', line 112):
+	
+
+install:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 70):
+	@echo no install tasks configured
+
+# Not a target:
+bin/./tests/test_laptimeparser.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+bin/./tests/test_competition.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+.PHONY: clean distclean install uninstall check help
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+bin/./teststest_engineering_design.o:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# files hash-table stats:
+# Load=26/1024=3%, Rehash=0, Collisions=0/80=0%
+# VPATH Search Paths
+
+# No 'vpath' search paths.
+
+# No general ('VPATH' variable) search path.
+
+# strcache buffers: 1 (0) / strings = 72 / storage = 1169 B / avg = 16 B
+# current buf: size = 8174 B / used = 1169 B / count = 72 / avg = 16 B
+
+# strcache performance: lookups = 136 / hit rate = 47%
+# hash-table stats:
+# Load=72/8192=1%, Rehash=0, Collisions=0/136=0%
+# Finished Make data base on Sun May 29 23:10:06 2022
+
+ 

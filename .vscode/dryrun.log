@@ -1,0 +1,18 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+ 
+System nie mo�e odnale�� okre�lonej �cie�ki.
+
+System nie mo�e odnale�� okre�lonej �cie�ki.
+
+g++ -MT bin/./tests/test_autocross.o -MD -MP -MF ./dep/./tests/test_autocross.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/./tests/test_autocross.o tests/test_autocross.cpp
+mv -f ./dep/./tests/test_autocross.Td ./dep/./tests/test_autocross.d
+g++ -MT bin/./tests/test_competition.o -MD -MP -MF ./dep/./tests/test_competition.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/./tests/test_competition.o tests/test_competition.cpp
+mv -f ./dep/./tests/test_competition.Td ./dep/./tests/test_competition.d
+g++ -MT bin/./tests/test_laptimeparser.o -MD -MP -MF ./dep/./tests/test_laptimeparser.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/./tests/test_laptimeparser.o tests/test_laptimeparser.cpp
+mv -f ./dep/./tests/test_laptimeparser.Td ./dep/./tests/test_laptimeparser.d
+make: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+ 
+make: *** No rule to make target 'bin/./teststest_endurance.o', needed by 'test'.
+make: *** No rule to make target 'bin/./teststest_engineering_design.o', needed by 'test'.
+

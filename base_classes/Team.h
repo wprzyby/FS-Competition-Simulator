@@ -31,6 +31,8 @@ class Team
 
     bool operator>(const Team second_arg) const;
     bool operator==(const Team& second_argument) const;
+    bool operator<(const Team second_arg) const;
+
 
 };
 
