@@ -46,21 +46,21 @@ void Event::make_event_classification()
     std::vector<std::pair<Team, double>> classification_as_vector;
 
     // Copy Team-points pair from classification to vector of pairs
-    for (auto& it: m_classification)
+    for (auto& [team, points]: m_classification)
     {
-        classification_as_vector.push_back(it);
+        classification_as_vector.push_back({const_cast<Team&>(team), points});
     }
 
     // Sort using comparator function
-    std::sort(classification_as_vector.begin(), classification_as_vector.end(), compare);
+    //std::sort(classification_as_vector.begin(), classification_as_vector.end(), compare);
 
     // Clear the classification map
     m_classification.clear();
 
     // Insert sorted values to the already cleared map
-    for (auto& it: classification_as_vector)
+    for (auto& [team, points]: classification_as_vector)
     {
-        m_classification.insert(it);
+        m_classification.insert({team, points});
     }
 }
 

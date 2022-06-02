@@ -37,7 +37,7 @@ void CostAndManufacturingEvent::calculate_teams_points(int finalists, std::map<T
         {
             const double team_total_result = sum_all_teams_results(results);  // summing all team`s point
             const double team_points = get_points(team_total_result, max_points);  // calculating team`s points based on the formula
-            m_classification.insert({team, team_points});  // inserting team and their final result into classification
+            m_classification.insert({const_cast<Team&>(team), team_points});  // inserting team and their final result into classification
         }
         //
     }

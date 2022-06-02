@@ -53,7 +53,7 @@ void AutocrossEvent::calculate_teams_points()
             team_final_score = base_points;
         }
 
-        m_classification.insert({team, rd_to_n_places(team_final_score, 1)});
+        m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});
     }
 
 }
