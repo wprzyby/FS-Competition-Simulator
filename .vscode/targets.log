@@ -8,7 +8,7 @@ make: *** No rule to make target 'all'.  Stop.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Thu Jun 02 23:39:51 2022
+# Make data base, printed on Thu Jun 02 23:43:39 2022
 
 # Variables
 
@@ -21,7 +21,7 @@ USERPROFILE = C:\Users\Adam
 # environment
 LOCALAPPDATA = C:\Users\Adam\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-5baa98fc-2f82-4fdf-8384-bf904eb85532-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-719136bf-60c2-48df-a9e3-92ef9f316548-sock
 # environment
 VSCODE_CWD = C:\Users\Adam\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -39,7 +39,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9492_UIEOZETIANZUAJUK
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22364_HLBCYGITNCDXABMK
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -95,7 +95,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 9492
+VSCODE_PID = 22364
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -419,6 +419,6 @@ Event.o: base_classes/Event.cpp base_classes/Event.h constants.h base_classes/Te
 # strcache performance: lookups = 80 / hit rate = 48%
 # hash-table stats:
 # Load=41/8192=1%, Rehash=0, Collisions=0/80=0%
-# Finished Make data base on Thu Jun 02 23:39:51 2022
+# Finished Make data base on Thu Jun 02 23:43:39 2022
 
  

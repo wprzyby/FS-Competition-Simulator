@@ -3,6 +3,7 @@ make: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
 g++ -g -std=c++20 tests/catch_config.cpp tests/catch.hpp -c
 g++ -g -std=c++20 tests/test_acceleration.cpp events/AccelerationEvent.h base_classes/Team.h constants.h exceptions.h -c
 g++ -g -std=c++20 base_classes/Event.cpp base_classes/Event.h constants.h base_classes/Team.h -c
+ 
 g++ -g -std=c++20 base_classes/Team.h base_classes/Team.cpp exceptions.h -c
 g++ -g -std=c++20 events/AccelerationEvent.cpp events/AccelerationEvent.h base_classes/Event.h base_classes/Team.h constants.h exceptions.h Event_tools.h -c
 g++ -g -std=c++20 exceptions.h exceptions.cpp -c
