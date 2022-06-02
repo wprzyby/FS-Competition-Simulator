@@ -1,8 +1,6 @@
 make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
 System nie mo�e odnale�� okre�lonej �cie�ki.
 
-System nie mo�e odnale�� okre�lonej �cie�ki.
-
 # GNU Make 4.3
 # Built for Windows32
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -10,7 +8,7 @@ System nie mo�e odnale�� okre�lonej �cie�ki.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Sun May 29 23:10:06 2022
+# Make data base, printed on Thu Jun 02 22:04:05 2022
 
 # Variables
 
@@ -25,7 +23,7 @@ USERPROFILE = C:\Users\Adam
 # environment
 LOCALAPPDATA = C:\Users\Adam\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-9844e151-d1e0-4081-ad96-953c94638c58-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-3d6ef3de-3a89-4306-a55b-2a0aa6dc5a08-sock
 # environment
 VSCODE_CWD = C:\Users\Adam\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -47,7 +45,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # makefile (from 'Makefile', line 51)
 PRECOMPILE = 
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_8160_JIIQVGHTRTCVDFOF
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_4076_GZHIVZVNJYUNCAUO
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -87,7 +85,7 @@ CURDIR := c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program
 # environment
 VSCODE_PIPE_LOGGING = true
 # environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = true
+APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
 # makefile (from 'Makefile', line 5)
 SRCS := ./tests/test_autocross.cpp ./tests/test_competition.cpp ./teststest_endurance.cpp ./teststest_engineering_design.cpp ./tests/test_laptimeparser.cpp
 # automatic
@@ -111,7 +109,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 8160
+VSCODE_PID = 4076
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -541,6 +539,8 @@ bin/./teststest_engineering_design.o:
 # strcache performance: lookups = 136 / hit rate = 47%
 # hash-table stats:
 # Load=72/8192=1%, Rehash=0, Collisions=0/136=0%
-# Finished Make data base on Sun May 29 23:10:06 2022
+# Finished Make data base on Thu Jun 02 22:04:05 2022
 
  
+System nie mo�e odnale�� okre�lonej �cie�ki.
+
