@@ -5,7 +5,6 @@
 
 #include "constants.h"
 #include "base_classes/Team.h"
-#include "base_classes/LapTime.h"
 #include "Event_tools.h"
 
 
@@ -50,7 +49,7 @@ double sum_all_teams_results(std::map<EventsCategories, double> results)
 }
 
 
-unsigned int find_best_time_for_team(std::map<EventsCategories, double> team_and_times)
+double find_best_time_for_team(std::map<EventsCategories, double> team_and_times)
 {
     double best_time = team_and_times.begin()->second;  // getting first time as a refference
     for (auto& [_, time]: team_and_times)
@@ -61,7 +60,7 @@ unsigned int find_best_time_for_team(std::map<EventsCategories, double> team_and
 }
 
 
-unsigned int find_best_time_overall(std::map<Team, double> teams_and_times)
+double find_best_time_overall(std::map<Team, double> &teams_and_times)
 {
     double best_time = teams_and_times.begin()->second;  // getting the first time as a refference
     for (auto& [_, time]: teams_and_times)
@@ -83,9 +82,9 @@ bool check_if_category_in_vector(EventsCategories const &category, std::vector<E
 }
 
 
-bool compare(std::pair<EventsCategories, double> const &first_vector, std::pair<EventsCategories, double> const &second_vector)
+bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<EventsCategories, double> const &second_pair)
 {
-    return first_vector.second < second_vector.second;
+    return first_pair.second < second_pair.second;
 }
 
 

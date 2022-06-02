@@ -45,9 +45,14 @@ bool Team::set_total_points(unsigned int points)
     return true;
 }
 
-bool Team::operator>(const Team second_arg) const
+bool Team::operator>(const Team &second_arg) const
 {
     return m_total_points > second_arg.get_total_points();
+}
+
+bool Team::operator<(const Team &second_arg) const
+{
+    return m_total_points < second_arg.get_total_points();
 }
 
 bool Team::operator==(const Team& second_argument) const

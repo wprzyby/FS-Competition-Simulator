@@ -51,19 +51,19 @@ void AccelerationEvent::calculate_teams_points()
         {
             team_final_score = 3.5;
         }
-        m_classification.insert({team, rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
+        m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
     }
 }
 
 
-std::string AccelerationEvent::get_file_info_name()
+std::string AccelerationEvent::get_info_file_name()
 {
     std::string name = "AccelerationEventInfo.pdf";
     return name;
 }
 
 
-double AccelerationEvent::get_additional_points(double best_time_overall, double team_best_time) const
+double AccelerationEvent::get_additional_points(const double best_time_overall, const double team_best_time) const
 {
     double points = 93*(((1.5*best_time_overall)/team_best_time) - 1);  // calculating additional points
 

@@ -29,7 +29,8 @@ class Team
     bool set_number(unsigned number);
     bool set_total_points(unsigned points);
 
-    bool operator>(const Team second_arg) const;
+    bool operator>(const Team &second_arg) const;
+    bool operator<(const Team &second_arg) const;
     bool operator==(const Team& second_argument) const;
 
 };
