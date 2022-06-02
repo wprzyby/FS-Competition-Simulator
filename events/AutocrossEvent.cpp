@@ -39,7 +39,7 @@ void AutocrossEvent::calculate_teams_points()
     for(auto& [team, team_best_time]: teams_and_best_times)
     {
         double team_final_score;
-        if(team_best_time <= 0)  // FIXME: Check (potencjalnie ujemne czasy)
+        if(team_best_time <= 0)  // FIXME: Check implementation (potencjalnie ujemne czasy)
         {
             team_final_score = 0;
         }

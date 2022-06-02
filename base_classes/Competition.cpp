@@ -6,6 +6,8 @@
 #include "Competition.h"
 #include "../constants.h"
 #include "Team.h"
+#include "../exceptions.h"
+
 
 Competition::Competition()
 {
@@ -14,6 +16,7 @@ Competition::Competition()
     m_events_points = {};
 }
 
+
 bool Competition::set_events(std::vector<std::unique_ptr<Event>> events)
 {
     // FIXME: check if this assignment works
@@ -21,13 +24,23 @@ bool Competition::set_events(std::vector<std::unique_ptr<Event>> events)
     return true;
 }
 
+
 bool Competition::set_teams(std::vector<Team> teams)
 {
-    // no checking of validity of given argument as of now
-    // TODO: checking if every team is unique?
+    // FIXME: Check this implementation
+    // Checking if all teams are uniqe
+    for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
+    {
+        for (std::vector<Team>::iterator other_team = team; other_team != teams.end(); ++other_team)
+        {
+            if (team == other_team){throw DuplicateTeamError();}
+        }
+    }
+    //
     m_teams = teams;
     return true;
 }
+
 
 void Competition::simulate()
 {
@@ -41,6 +54,7 @@ void Competition::simulate()
         m_events_points[type] = event_classification;
     }
 }
+
 
 void Competition::create_classification()
 {

@@ -33,7 +33,7 @@ void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &resu
 
 void Event::set_teams(std::vector<Team> &teams)
 {
-    // TODO: handling improper input (duplicate names etc.)
+    // FIXME: handling improper input (duplicate names etc.) [Na pewno? Event dostaje od competition, tam już jest to sprawdzane więc stąd bym to wyrzucił]
     m_teams_participating = teams;
 }
 

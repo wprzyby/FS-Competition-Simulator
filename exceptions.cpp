@@ -22,3 +22,6 @@ NegativeAdditionalPointsError::NegativeAdditionalPointsError():
 NegativeAmountOfFinalitsError::NegativeAmountOfFinalitsError():
     std::invalid_argument("Number of finalists in the event cannot be negative.") {}
 
+
+DuplicateTeamError::DuplicateTeamError():
+    std::invalid_argument("Found two the same teams (same id, name and univeristy).") {}
