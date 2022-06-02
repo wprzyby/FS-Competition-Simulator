@@ -65,7 +65,7 @@ void EnduranceEvent::calculate_teams_points()
             team_endurance_score = base_points;
         }
 
-        m_classification.insert({team, team_endurance_score});  // TODO: Implement rounding points
+        m_classification.insert({team, rd_to_n_places(team_endurance_score, 1)});
     }
 
     if (!m_run_efficiency) {return;}

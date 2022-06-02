@@ -10,21 +10,22 @@
 class BusinessPlanEvent : public Event  // BusinessEvent class that inherits from the abstract class Event
 {
     private:
+        // Additional atributes
+        std::map<Team, double> m_points_to_set;
+        unsigned int m_finalists;
         // Methods:
         double get_points(double team_total_result, double max_points) const;
 
 
     protected:
         // Methods:
-        // FIXME: adjust for the fixme below
         virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
 
     public:
         // Constructors:
-        // FIXME: add finalists and their scores to constructor call
         BusinessPlanEvent();
-        BusinessPlanEvent(std::vector<Team> &teams);
+        BusinessPlanEvent(std::vector<Team> &teams, unsigned int finalists, std::map<Team, double> points_to_set={});
         // Destructor:
         ~BusinessPlanEvent();
         // Methods:

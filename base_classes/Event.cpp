@@ -52,7 +52,7 @@ void Event::make_event_classification()
     }
 
     // Sort using comparator function
-    //std::sort(classification_as_vector.begin(), classification_as_vector.end(), compare);
+    std::sort(classification_as_vector.begin(), classification_as_vector.end(), compare_teams);
 
     // Clear the classification map
     m_classification.clear();
