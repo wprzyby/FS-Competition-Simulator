@@ -1,7 +1,9 @@
 #include <iostream>
 
+
 #include "Team.h"
 #include "../exceptions.h"
+
 
 Team::Team(const std::string name, const std::string university, const unsigned number) :
 m_university(university), m_number(number)
@@ -14,6 +16,7 @@ m_university(university), m_number(number)
     m_total_points = 0;
 }
 
+
 bool Team::set_name(std::string name)
 {
     // check for empty string
@@ -22,6 +25,7 @@ bool Team::set_name(std::string name)
     m_name = name;
     return true;
 }
+
 
 bool Team::set_university(std::string university)
 {
@@ -32,6 +36,7 @@ bool Team::set_university(std::string university)
     return true;
 }
 
+
 bool Team::set_number(unsigned int number)
 {
     // currently doesn't have any number validity check, any number works
@@ -39,11 +44,13 @@ bool Team::set_number(unsigned int number)
     return true;
 }
 
+
 bool Team::set_total_points(unsigned int points)
 {
     m_total_points = points;
     return true;
 }
+
 
 bool Team::operator>(const Team &second_arg) const
 {
@@ -55,8 +62,9 @@ bool Team::operator<(const Team &second_arg) const
     return m_total_points < second_arg.get_total_points();
 }
 
+
 bool Team::operator==(const Team& second_argument) const
 {
-    if (m_name == second_argument.get_name() || m_number == second_argument.get_number()) {return true;}
+    if ((m_name == second_argument.get_name()) and (m_number == second_argument.get_number()) and (m_university = second_argument.get_university())) {return true;}
     else {return false;}
 }
