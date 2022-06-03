@@ -41,4 +41,11 @@ class NegativeAmountOfFinalitsError: public std::invalid_argument
 };
 
 
+class DuplicateTeamError: public std::invalid_argument
+{
+    public:
+        DuplicateTeamError();
+};
+
+
 #endif

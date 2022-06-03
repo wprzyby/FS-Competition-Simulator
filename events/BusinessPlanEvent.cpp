@@ -10,11 +10,13 @@
 #include "../exceptions.h"
 
 
-BusinessPlanEvent::BusinessPlanEvent(std::vector<Team> &teams)
+BusinessPlanEvent::BusinessPlanEvent(std::vector<Team> &teams, int finalists, std::map<Team, double> points_to_set)
 {
     m_teams_participating = teams;
     m_event_type = businessplan;
     m_event_categories = category_lists.at(businessplan);
+    m_finalists = finalists;
+    m_points_to_set = points_to_set;
 }
 
 BusinessPlanEvent::BusinessPlanEvent()
@@ -28,7 +30,7 @@ BusinessPlanEvent::~BusinessPlanEvent(){}
 
 void BusinessPlanEvent::calculate_teams_points()
 {
-    if (finalists == 0)
+    if (m_finalists == 0)
     {
         // Finding best result among all teams:
         const double max_points = find_max_points(m_teams_and_results);
@@ -43,9 +45,9 @@ void BusinessPlanEvent::calculate_teams_points()
         }
         //
     }
-    else if (finalists > 0)  // In case there are finals:
+    else if (m_finalists > 0)  // In case there are finals:
     {
-        if (points_to_set.size() != finalists)  // Checking if number of provided results matches with number of finalists
+        if (m_points_to_set.size() != m_finalists)  // Checking if number of provided results matches with number of finalists
         {
             throw UnmatchedNumberOfFinalistsError();
         }
@@ -58,17 +60,17 @@ void BusinessPlanEvent::calculate_teams_points()
             m_classification[team] = team_total_result;
         }
 
-        std::sort(points_scored_by_teams.begin(), points_scored_by_teams.end(), compare);  // sorting points scored by teams  // FIXME: IDK why there is a mistake
-        double fixed_best_result = points_scored_by_teams[finalists];  // getting best non-finalist result
+        std::sort(points_scored_by_teams.begin(), points_scored_by_teams.end(), compare);  // sorting points scored by teams
+        double fixed_best_result = points_scored_by_teams[m_finalists];  // getting best non-finalist result
 
         int iterator = 1;
         make_event_classification();  // sorting teams by their total score
 
         for (auto& [team, total_result]: m_classification)
         {
-            if (iterator <= finalists)
+            if (iterator <= m_finalists)
             {
-                for (auto& [external_team, external_result]: points_to_set)
+                for (auto& [external_team, external_result]: m_points_to_set)
                 {
                     if (external_team == team)  // searching fr current team among points_to_set
                     {

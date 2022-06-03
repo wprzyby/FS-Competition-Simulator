@@ -88,6 +88,12 @@ bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<Ev
 }
 
 
+bool compare_teams(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)
+{
+    return first_pair.second < second_pair.second;
+}
+
+
 float rd_to_n_places(float number, int n)
 {
     return round(number*pow(10, n))/pow(10, n);
