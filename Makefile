@@ -1,7 +1,7 @@
 CC := g++
 CFLAGS := -g -std=c++20 -Wall
 test: catch_config.o test_acceleration.o test_autocross.o Event.o Team.o AccelerationEvent.o AutocrossEvent.o exceptions.o Event_tools.o test_businessplan.o BusinessPlanEvent.o test_cost_and_manufacturing.o\
-CostAndManufacturingEvent.o test_endurance.o EnduranceEvent.o test_engineering_design.o EngineeringDesignEvent.o test_event_functionalities.o test_skidpad.o SkidpadEvent.o#test_laptimeparser.o LapTimeParser.o
+CostAndManufacturingEvent.o test_endurance.o EnduranceEvent.o test_engineering_design.o EngineeringDesignEvent.o test_event_functionalities.o test_skidpad.o SkidpadEvent.o test_laptimeparser.o LapTimeParser.o
 	$(CC) $(CFLAGS) $^ -o $@
 
 test_acceleration.o: ./tests/test_acceleration.cpp ./events/AccelerationEvent.h ./base_classes/Team.h constants.h exceptions.h
@@ -42,10 +42,10 @@ EngineeringDesignEvent.o: ./events/EngineeringDesignEvent.cpp ./events/Engineeri
 	$(CC) $(CFLAGS) $^ -c
 test_event_functionalities.o: ./tests/test_event_functionalities.cpp Event_tools.h ./events/AccelerationEvent.h ./base_classes/Team.h constants.h exceptions.h
 	$(CC) $(CFLAGS) $^ -c
-# test_laptimeparser.o: ./tests/test_laptimeparser.cpp ./base_classes/LapTimeParser.h
-# 	$(CC) $(CFLAGS) $^ -c
-# LapTimeParser.o: ./base_classes/LapTimeParser.h ./base_classes/LapTimeParser.cpp constants.h json.hpp
-# 	$(CC) $(CFLAGS) $^ -c
+test_laptimeparser.o: ./tests/test_laptimeparser.cpp ./base_classes/LapTimeParser.h
+ 	$(CC) $(CFLAGS) $^ -c
+LapTimeParser.o: ./base_classes/LapTimeParser.h ./base_classes/LapTimeParser.cpp constants.h json.hpp
+ 	$(CC) $(CFLAGS) $^ -c
 test_skidpad.o: ./tests/test_skidpad.cpp ./events/SkidpadEvent.h ./base_classes/Team.h constants.h exceptions.h
 	$(CC) $(CFLAGS) $^ -c
 SkidpadEvent.o: ./events/SkidpadEvent.cpp ./events/SkidpadEvent.h ./base_classes/Event.h ./base_classes/Team.h constants.h exceptions.h Event_tools.h
@@ -55,19 +55,19 @@ SkidpadEvent.o: ./events/SkidpadEvent.cpp ./events/SkidpadEvent.h ./base_classes
 
 clean:
 # LINUX
-#	rm -f *.gch
-#	rm -f *.o
-#	rm -f main
-#	rm -f ./tests/test
+	rm -f *.gch
+	rm -f *.o
+	rm -f main
+	rm -f ./tests/test
 
 # WINDOWS
-	del -f *.gch
-	del -f *.o
-	cd tests && del -f *.gch
-	cd tests && del -f *.o
-	cd events && del -f *.gch
-	cd events && del -f *.o
-	cd base_classes && del -f *.gch
-	cd base_classes && del -f *.o
-	del -f main
-	del -f test.exe
+#	del -f *.gch
+#	del -f *.o
+#	cd tests && del -f *.gch
+#	cd tests && del -f *.o
+#	cd events && del -f *.gch
+#	cd events && del -f *.o
+#	cd base_classes && del -f *.gch
+#	cd base_classes && del -f *.o
+#	del -f main
+#	del -f test.exe

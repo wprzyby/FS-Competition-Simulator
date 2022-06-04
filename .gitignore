@@ -2,5 +2,6 @@ bin
 dep
 *.o
 *.gch
+*.log
 .vscode
 test
