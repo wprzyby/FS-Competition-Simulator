@@ -25,7 +25,7 @@ class AutocrossEvent : public Event  // AutocrossEvent class that inherits from 
         AutocrossEvent();
         AutocrossEvent(std::vector<Team> &teams);
         // Destructor:
-        ~AutocrossEvent();
+        ~AutocrossEvent(){};
         // Methods
         virtual std::string get_info_file_name();
 };

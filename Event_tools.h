@@ -16,7 +16,7 @@ double find_best_time_overall(std::map<Team, double> &teams_and_times);  // find
 bool check_if_category_in_vector(EventsCategories const &category, std::vector<EventsCategories> const &categories_in_event);
 bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<EventsCategories, double> const &second_pair);  // Returns true if variable of the type double is greater in the second vector
 bool compare_teams(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair);
-float rd_to_n_places(float number, int n);  // rounds given number to n decimal places.  // FIXME: We can also find a better name xD
+double rd_to_n_places(double number, int n);  // rounds given number to n decimal places.  // FIXME: We can also find a better name xD
 
 
 #endif

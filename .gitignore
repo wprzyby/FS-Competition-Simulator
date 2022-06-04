@@ -1,5 +1,6 @@
 bin
 dep
-zdupska.md
 *.o
 *.gch
+.vscode
+test

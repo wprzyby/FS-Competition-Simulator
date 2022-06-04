@@ -39,7 +39,7 @@ void CostAndManufacturingEvent::calculate_teams_points()
         {
             const double team_total_result = sum_all_teams_results(results);  // summing all team`s point
             const double team_points = get_points(team_total_result, max_points);  // calculating team`s points based on the formula
-            m_classification.insert({const_cast<Team&>(team), team_points});  // inserting team and their final result into classification
+            m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_points, 1)});  // inserting team and their final result into classification
         }
         //
     }
@@ -58,30 +58,35 @@ void CostAndManufacturingEvent::calculate_teams_points()
             m_classification[team] = team_total_result;
         }
 
-        std::sort(points_scored_by_teams.begin(), points_scored_by_teams.end(), compare);  // sorting points scored by teams
+        std::sort(points_scored_by_teams.begin(), points_scored_by_teams.end(), std::greater<double>());  // sorting points scored by teams
         double fixed_best_result = points_scored_by_teams[m_finalists];  // getting best non-finalist result
 
-        int iterator = 1;
         make_event_classification();  // sorting teams by their total score
         auto results_to_set_iterator = m_points_to_set.begin();  // setting map with points to set iterator at the first element
 
         for (auto& [team, total_result]: m_classification)
         {
-            if (iterator <= m_finalists)
+            // for (auto& [external_team, external_result]: m_points_to_set)
+            // {
+            //     if (external_team == team)  // searching fr current team among points_to_set
+            //     {
+            //         m_classification.at(team) = external_result;  // setting curent teams result
+            //     }
+            //     else  // setting points according to the rules for non-finalists
+            //     {
+            //         m_classification.at(team) = rd_to_n_places(get_points(total_result, fixed_best_result), 1);  // setting points from formula with fixed best result
+            //     }
+            // }
+            // iterator++;
+
+            try
             {
-                for (auto& [external_team, external_result]: m_points_to_set)
-                {
-                    if (external_team == team)  // searching fr current team among points_to_set
-                    {
-                        m_classification.at(team) = external_result;  // setting curent teams result
-                    }
-                }
+                m_classification.at(team) = m_points_to_set.at(team);
             }
-            else  // setting points according to the rules for non-finalists
+            catch (std::out_of_range)
             {
                 m_classification.at(team) = rd_to_n_places(get_points(total_result, fixed_best_result), 1);  // setting points from formula with fixed best result
             }
-            iterator++;
         }
 
     }

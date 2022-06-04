@@ -24,6 +24,9 @@ class Event  // Abstract class
         // Vector with enum categories in the Event
         std::vector<EventsCategories> m_event_categories;
 
+        // Vector of tuples with teams and points (tuples sorted by points)
+        std::vector<std::pair<Team, double>> m_sorted_classification;
+
         // Function that sorts teams by their total score (not cirtual, as it only sorts the map by the amount of points that teams scored - same for every competition).
         void make_event_classification();
 
@@ -49,8 +52,11 @@ class Event  // Abstract class
         // Destructor:
         virtual ~Event();
 
-        // Getter of final event classification:
+        // Getter of map with final event unsorted classification:
         std::map<Team, double> get_classification() const;
+
+        // Getter of vector with final event sorted classification:
+        std::vector<std::pair<Team, double>> get_sorted_classification() const {return m_sorted_classification;}
 
         // Getter of the name of file with information about the event.
         virtual std::string get_info_file_name()=0;

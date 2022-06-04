@@ -1,4 +1,6 @@
 #include "catch.hpp"
+#include "../exceptions.h"
+#include "../constants.h"
 #include "../base_classes/Event.h"
 #include "../base_classes/Team.h"
 #include "../events/EngineeringDesignEvent.h"
@@ -79,16 +81,16 @@ TEST_CASE("Engineering Design Event functionality")
     correct_results.insert({team_b, 105});
     correct_results.insert({team_c, 0});
 
-    SECTION("Setting duplicate teams")
-    {
-        std::vector<Team> teams = {team_a, team_b, team_c, duplicate_name_team};
+    // SECTION("Setting duplicate teams")
+    // {
+    //     std::vector<Team> teams = {team_a, team_b, team_c, duplicate_name_team};
 
-        REQUIRE_THROWS(event.set_teams(teams));
-        teams = {team_a, team_b, team_c, duplicate_numb_team};
-        REQUIRE_THROWS(event.set_teams(teams));
-        teams = {team_a, team_b, team_c, duplicate_univ_team};
-        REQUIRE_THROWS(event.set_teams(teams));
-    }
+    //     REQUIRE_THROWS(event.set_teams(teams));
+    //     teams = {team_a, team_b, team_c, duplicate_numb_team};
+    //     REQUIRE_THROWS(event.set_teams(teams));
+    //     teams = {team_a, team_b, team_c, duplicate_univ_team};
+    //     REQUIRE_THROWS(event.set_teams(teams));
+    // }
 
     SECTION("Wrong categories in results")
     {
@@ -115,6 +117,7 @@ TEST_CASE("Engineering Design Event functionality")
         CHECK(correct_results.at(team_c) == classification.at(team_c));
 
         // checking if sorted correctly
+        // FIXME: change with accordance to acceleration
         std::vector<double> sorted_points;
         for(auto& [_, points]: classification)
         {

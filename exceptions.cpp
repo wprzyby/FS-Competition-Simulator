@@ -7,8 +7,9 @@ EmptyTeamNameError::EmptyTeamNameError():
     std::invalid_argument("Tried to create team with empty name") {}
 
 
+// TODO: printing nazwy kategorii
 NoSuchCategoryInTheEventError::NoSuchCategoryInTheEventError(const EventsCategories category):
-    std::invalid_argument("Among categories in the Event, there is no such categoty: ") {std::cout << category << std::endl;}
+    std::invalid_argument("Among categories in the Event, there is no such categoty: ") {}
 
 
 UnmatchedNumberOfFinalistsError::UnmatchedNumberOfFinalistsError():

@@ -23,7 +23,7 @@ class EnduranceEvent : public Event  // EnduranceEvent class that inherits from 
         EnduranceEvent(bool run_efficiency=false);
         EnduranceEvent(std::vector<Team> &teams, bool run_efficiency=false);
         // Destructor:
-        ~EnduranceEvent();
+        ~EnduranceEvent() {};
         // Methods
         virtual std::string get_info_file_name();
 };

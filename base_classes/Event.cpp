@@ -19,13 +19,15 @@ Event::~Event(){};
 
 void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &results)
 {
-    std::map<EventsCategories, double> inner_results_map = results.begin()->second;
-    for (auto& [category, _]: inner_results_map)
+    for(auto& [_, categories_and_points]: results)
     {
-        bool check = check_if_category_in_vector(category, m_event_categories);
-        if (check != true)
+        for (auto& [category, _]: categories_and_points)
         {
-            throw NoSuchCategoryInTheEventError(category);
+            bool check = check_if_category_in_vector(category, m_event_categories);
+            if (check == false)
+            {
+                throw NoSuchCategoryInTheEventError(category);
+            }
         }
     }
     m_teams_and_results = results;
@@ -54,14 +56,8 @@ void Event::make_event_classification()
     // Sort using comparator function
     std::sort(classification_as_vector.begin(), classification_as_vector.end(), compare_teams);
 
-    // Clear the classification map
-    m_classification.clear();
-
-    // Insert sorted values to the already cleared map
-    for (auto& [team, points]: classification_as_vector)
-    {
-        m_classification.insert({team, points});
-    }
+    // Assigning sorted vector into the attribute
+    m_sorted_classification = classification_as_vector;
 }
 
 

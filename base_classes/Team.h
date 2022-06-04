@@ -18,7 +18,7 @@ class Team
 
     // getters:
     std::string get_name() const {return m_name;}
-    std::string get_univeristy() const {return m_university;}
+    std::string get_university() const {return m_university;}
     unsigned get_number() const {return m_number;}
     double get_total_points() const {return m_total_points;}
 
@@ -32,7 +32,6 @@ class Team
     bool operator>(const Team &second_arg) const;
     bool operator<(const Team &second_arg) const;
     bool operator==(const Team& second_argument) const;
-    bool operator<(const Team second_arg) const;
 
 
 };

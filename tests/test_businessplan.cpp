@@ -99,6 +99,7 @@ TEST_CASE("BusinessPlanEvent tests.")
         }
         //
 
+        // FIXME: change with accordance to acceleration
         // Checking whether points are truely sorted:
         CHECK(bus_points_vector[0] >= bus_points_vector[1]);
         CHECK(bus_points_vector[1] >= bus_points_vector[2]);

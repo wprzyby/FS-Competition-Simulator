@@ -10,7 +10,7 @@
 TEST_CASE("AccelerationEvent tests.", "[Testing all functionalities]")
 {
 
-    Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 2), team_c("C", "UniveroC", 3), team_d("D", "UniveroD", 4);
+    Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 3), team_c("C", "UniveroC", 2), team_d("D", "UniveroD", 4);
     std::vector<Team> teams{team_a, team_b, team_c, team_d};
 
     std::map<Team, std::map<EventsCategories, double>> acc_teams_and_results;
@@ -51,25 +51,24 @@ TEST_CASE("AccelerationEvent tests.", "[Testing all functionalities]")
         CHECK(results[team_a] == acc_correct_results[team_a]);
         CHECK(results[team_b] == acc_correct_results[team_b]);
         CHECK(results[team_c] == acc_correct_results[team_c]);
-        CHECK(results[team_d] == acc_correct_results[team_d]);
+        CHECK(results.at(team_d) == acc_correct_results[team_d]);
+
+        std::cout<<"PRINTING ACCELERATION\n";
+        std::cout<<results.at(team_a)<<"; "<<acc_correct_results.at(team_a)<<'\n';
+        std::cout<<results.at(team_b)<<"; "<<acc_correct_results.at(team_b)<<'\n';
+        std::cout<<results.at(team_c)<<"; "<<acc_correct_results.at(team_c)<<'\n';
+        std::cout<<results.at(team_d)<<"; "<<acc_correct_results.at(team_d)<<'\n';
     }
 
 
     SECTION("Testing: making event classification")
     {
-        std::vector<double> acc_points_vector;
-
-        // Copying sorted points from classification to the vector
-        for (auto& [_, it]: results)
-        {
-            acc_points_vector.push_back(it);
-        }
-        //
+        std::vector<std::pair<Team, double>> acc_points_vector = acc_event.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(acc_points_vector[0] >= acc_points_vector[1]);
-        CHECK(acc_points_vector[1] >= acc_points_vector[2]);
-        CHECK(acc_points_vector[2] >= acc_points_vector[3]);
+        CHECK(acc_points_vector[0].second >= acc_points_vector[1].second);
+        CHECK(acc_points_vector[1].second >= acc_points_vector[2].second);
+        CHECK(acc_points_vector[2].second >= acc_points_vector[3].second);
         //
     }
 

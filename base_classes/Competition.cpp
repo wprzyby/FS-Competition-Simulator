@@ -7,6 +7,7 @@
 #include "../constants.h"
 #include "Team.h"
 #include "../exceptions.h"
+#include "../Event_tools.h"
 
 
 Competition::Competition()
@@ -17,7 +18,7 @@ Competition::Competition()
 }
 
 
-bool Competition::set_events(std::vector<std::unique_ptr<Event>> events)
+bool Competition::set_events(std::vector<std::unique_ptr<Event>> &events)
 {
     // FIXME: check if this assignment works
     m_events = events;
@@ -77,6 +78,6 @@ void Competition::create_classification()
     }
 
     // sorting the final classification by team's points in descending order
-    std::sort(m_final_classification.begin(), m_final_classification.end(), std::greater<Team>());
+    std::sort(m_final_classification.begin(), m_final_classification.end(), compare_teams);
 
 }

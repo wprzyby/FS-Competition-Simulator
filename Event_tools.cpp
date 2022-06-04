@@ -21,6 +21,7 @@ double find_min(const double number1, const double number2)  // Function finding
     if (number1 == 0){return number2;}
     if (number2 == 0){return number1;}
 
+    // no handling of negative times - inputting negative times not allowed
     if (number1 <= number2){return number1;}
     else {return number2;}
 }
@@ -78,7 +79,7 @@ bool check_if_category_in_vector(EventsCategories const &category, std::vector<E
     {
         if (category == category_in_event) {result = true; break;}  // if category is in the vector then result is true and the loop is broken
     }
-    return false;
+    return result;
 }
 
 
@@ -90,11 +91,11 @@ bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<Ev
 
 bool compare_teams(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)
 {
-    return first_pair.second < second_pair.second;
+    return first_pair.second > second_pair.second;
 }
 
 
-float rd_to_n_places(float number, int n)
+double rd_to_n_places(double number, int n)
 {
     return round(number*pow(10, n))/pow(10, n);
 }

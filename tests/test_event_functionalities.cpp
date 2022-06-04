@@ -13,7 +13,6 @@
 
 
 
-
 TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
 {
 
@@ -101,8 +100,8 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
 
     SECTION("Testing: rd_to_n_places() function")
     {
-        float number1 = rd_to_n_places(1.39, 1);
-        float number2 = rd_to_n_places(24.581, 2);
+        double number1 = rd_to_n_places(1.39, 1);
+        double number2 = rd_to_n_places(24.581, 2);
         CHECK(number1 == 1.4);
         CHECK(number2 == 24.58);
     }
