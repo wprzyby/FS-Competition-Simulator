@@ -37,6 +37,6 @@ void EngineeringDesignEvent::calculate_teams_points()
 
 std::string EngineeringDesignEvent::get_info_file_name()
 {
-    std::string name = "CostAndManufacturingEventInfo.pdf";
+    std::string name = "EngineeringDesignEventInfo.pdf";
     return name;
 }

@@ -7,8 +7,9 @@ make: *** No rule to make target 'all'.  Stop.
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Thu Jun 02 23:43:39 2022
+# Make data base, printed on Sat Jun 04 23:22:32 2022
 
 # Variables
 
@@ -21,7 +22,7 @@ USERPROFILE = C:\Users\Adam
 # environment
 LOCALAPPDATA = C:\Users\Adam\AppData\Local
 # environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-719136bf-60c2-48df-a9e3-92ef9f316548-sock
+VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-fe7e3439-da4b-4a79-8292-3a373bc29094-sock
 # environment
 VSCODE_CWD = C:\Users\Adam\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -39,7 +40,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_22364_HLBCYGITNCDXABMK
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_13240_TUGGLLZHIPTFYFBF
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -95,7 +96,7 @@ MAKEFILE_LIST := Makefile
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 22364
+VSCODE_PID = 13240
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # automatic
@@ -181,7 +182,7 @@ PUBLIC = C:\Users\Public
 # environment
 APPDATA = C:\Users\Adam\AppData\Roaming
 # makefile (from 'Makefile', line 2)
-CFLAGS := -g -std=c++20
+CFLAGS := -g -std=c++20 -Wall
 # environment
 HOMEDRIVE = C:
 # environment
@@ -225,9 +226,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
 
 # Directories
 
-# . (key c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program, mtime 1654200625): 20 files, no impossibilities.
+# . (key c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program, mtime 1654375865): 19 files, no impossibilities.
 
-# 20 files, no impossibilities in 1 directories.
+# 19 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
@@ -241,8 +242,40 @@ constants.h:
 #  Modification time never checked.
 #  File has not been updated.
 
+test_endurance.o: tests/test_endurance.cpp events/EnduranceEvent.h base_classes/Team.h constants.h exceptions.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 36):
+	$(CC) $(CFLAGS) $^ -c
+
+# Not a target:
+tests/test_businessplan.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+EngineeringDesignEvent.o: events/EngineeringDesignEvent.cpp events/EngineeringDesignEvent.h base_classes/Event.h base_classes/Team.h constants.h exceptions.h Event_tools.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 42):
+	$(CC) $(CFLAGS) $^ -c
+
 # Not a target:
 base_classes/Team.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+events/BusinessPlanEvent.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+tests/test_event_functionalities.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -257,7 +290,7 @@ catch_config.o: tests/catch_config.cpp tests/catch.hpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 15):
+#  recipe to execute (from 'Makefile', line 16):
 	$(CC) $(CFLAGS) $^ -c
 
 # Not a target:
@@ -267,7 +300,32 @@ events/AccelerationEvent.h:
 #  File has not been updated.
 
 # Not a target:
+events/SkidpadEvent.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+events/BusinessPlanEvent.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+CostAndManufacturingEvent.o: events/CostAndManufacturingEvent.cpp events/CostAndManufacturingEvent.h base_classes/Event.h base_classes/Team.h constants.h exceptions.h Event_tools.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 34):
+	$(CC) $(CFLAGS) $^ -c
+
+# Not a target:
 tests/catch_config.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+tests/test_endurance.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -276,21 +334,35 @@ AccelerationEvent.o: events/AccelerationEvent.cpp events/AccelerationEvent.h bas
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 13):
+#  recipe to execute (from 'Makefile', line 14):
 	$(CC) $(CFLAGS) $^ -c
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-02 22:08:19
+#  Last modified 2022-06-04 22:53:22
 #  File has been updated.
 #  Successfully updated.
+
+# Not a target:
+events/CostAndManufacturingEvent.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
 
 # Not a target:
 tests/test_acceleration.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
+
+SkidpadEvent.o: events/SkidpadEvent.cpp events/SkidpadEvent.h base_classes/Event.h base_classes/Team.h constants.h exceptions.h Event_tools.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 52):
+	$(CC) $(CFLAGS) $^ -c
+	$(CC) $(CFLAGS) $^ -c
 
 # Not a target:
 exceptions.cpp:
@@ -308,17 +380,23 @@ clean:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 22):
-	rm -f *.gch
-	rm -f *.o
-	rm -f main
-	rm -f ./tests/test
+#  recipe to execute (from 'Makefile', line 64):
+	del -f *.gch
+	del -f *.o
+	cd tests && del -f *.gch
+	cd tests && del -f *.o
+	cd events && del -f *.gch
+	cd events && del -f *.o
+	cd base_classes && del -f *.gch
+	cd base_classes && del -f *.o
+	del -f main
+	del -f test.exe
 
 exceptions.o: exceptions.h exceptions.cpp
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 17):
+#  recipe to execute (from 'Makefile', line 18):
 	$(CC) $(CFLAGS) $^ -c
 
 # Not a target:
@@ -327,15 +405,73 @@ Event_tools.h:
 #  Modification time never checked.
 #  File has not been updated.
 
+# Not a target:
+events/EnduranceEvent.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 Team.o: base_classes/Team.h base_classes/Team.cpp exceptions.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 11):
+#  recipe to execute (from 'Makefile', line 12):
 	$(CC) $(CFLAGS) $^ -c
 
 # Not a target:
+events/EngineeringDesignEvent.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+BusinessPlanEvent.o: events/BusinessPlanEvent.cpp events/BusinessPlanEvent.h base_classes/Event.h base_classes/Team.h constants.h exceptions.h Event_tools.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 28):
+	$(CC) $(CFLAGS) $^ -c
+
+# Not a target:
+tests/test_engineering_design.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+tests/test_cost_and_manufacturing.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+events/AutocrossEvent.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 exceptions.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+EnduranceEvent.o: events/EnduranceEvent.cpp events/Endur 
+anceEvent.h base_classes/Event.h base_classes/Team.h constants.h exceptions.h Event_tools.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 38):
+	$(CC) $(CFLAGS) $^ -c
+
+test_event_functionalities.o: tests/test_event_functionalities.cpp Event_tools.h events/AccelerationEvent.h base_classes/Team.h constants.h exceptions.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 44):
+	$(CC) $(CFLAGS) $^ -c
+
+# Not a target:
+tests/test_autocross.cpp:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -347,31 +483,70 @@ exceptions.h:
 #  File has not been updated.
 
 # Not a target:
+events/SkidpadEvent.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+AutocrossEvent.o: events/AutocrossEvent.cpp events/AutocrossEvent.h base_classes/Event.h base_classes/Team.h constants.h exceptions.h Event_tools.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 24):
+	$(CC) $(CFLAGS) $^ -c
+
+# Not a target:
+events/EngineeringDesignEvent.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
 all:
 #  Command line target.
 #  Implicit rule search has been done.
 #  File does not exist.
 #  File has not been updated.
 
-test_acceleration.o: tests/test_acceleration.cpp events/AccelerationEvent.h base_classes/Team.h events/AccelerationEvent.h constants.h exceptions.h
+test_acceleration.o: tests/test_acceleration.cpp events/AccelerationEvent.h base_classes/Team.h constants.h exceptions.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 7):
+#  recipe to execute (from 'Makefile', line 8):
 	$(CC) $(CFLAGS) $^ -c
 
 Event_tools.o: Event_tools.h Event_tools.cpp base_classes/Team.h constants.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 19):
+#  recipe to execute (from 'Makefile', line 20):
 	$(CC) $(CFLAGS) $^ -c
 
-test: catch_config.o test_acceleration.o Event.o Team.o AccelerationEvent.o exceptions.o Event_tools.o
+test_cost_and_manufacturing.o: tests/test_cost_and_manufacturing.cpp events/CostAndManufacturingEvent.h base_classes/Team.h constants.h exceptions.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 4):
+#  recipe to execute (from 'Makefile', line 32):
+	$(CC) $(CFLAGS) $^ -c
+
+test_businessplan.o: tests/test_businessplan.cpp events/BusinessPlanEvent.h base_classes/Team.h constants.h exceptions.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 26):
+	$(CC) $(CFLAGS) $^ -c
+
+# Not a target:
+events/AutocrossEvent.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+test: catch_config.o test_acceleration.o test_autocross.o Event.o Team.o AccelerationEvent.o AutocrossEvent.o exceptions.o Event_tools.o test_businessplan.o BusinessPlanEvent.o test_cost_and_manufacturing.o CostAndManufacturingEvent.o test_endurance.o EnduranceEvent.o test_engineering_design.o EngineeringDesignEvent.o test_event_functionalities.o test_skidpad.o SkidpadEvent.o
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 5):
 	$(CC) $(CFLAGS) $^ -o $@
 
 # Not a target:
@@ -386,8 +561,34 @@ base_classes/Team.h:
 #  Modification time never checked.
 #  File has not been updated.
 
+test_skidpad.o: tests/test_skidpad.cpp events/SkidpadEvent.h base_classes/Team.h constants.h exceptions.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 50):
+	$(CC) $(CFLAGS) $^ -c
+
 # Not a target:
 events/AccelerationEvent.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+# Not a target:
+events/CostAndManufacturingEvent.h:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+test_autocross.o: tests/test_autocross.cpp events/AutocrossEvent.h base_classes/Team.h events/AutocrossEvent.h constants.h exceptions.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 22):
+	$(CC) $(CFLAGS) $^ -c
+
+# Not a target:
+events/EnduranceEvent.h:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -398,29 +599,40 @@ tests/catch.hpp:
 #  Modification time never checked.
 #  File has not been updated.
 
+test_engineering_design.o: tests/test_engineering_design.cpp events/EngineeringDesignEvent.h base_classes/Team.h constants.h exceptions.h
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 40):
+	$(CC) $(CFLAGS) $^ -c
+
 Event.o: base_classes/Event.cpp base_classes/Event.h constants.h base_classes/Team.h
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 9):
+#  recipe to execute (from 'Makefile', line 10):
 	$(CC) $(CFLAGS) $^ -c
 
+# Not a target:
+tests/test_skidpad.cpp:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
 # files hash-table stats:
-# Load=27/1024=3%, Rehash=0, Collisions=0/79=0%
+# Load=59/1024=6%, Rehash=0, Collisions=0/215=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 41 / storage = 581 B / avg = 14 B
-# current buf: size = 8174 B / used = 581 B / count = 41 / avg = 14 B
+# strcache buffers: 1 (0) / strings = 72 / storage = 1396 B / avg = 19 B
+# current buf: size = 8174 B / used = 1396 B / count = 72 / avg = 19 B
 
-# strcache performance: lookups = 80 / hit rate = 48%
+# strcache performance: lookups = 196 / hit rate = 63%
 # hash-table stats:
-# Load=41/8192=1%, Rehash=0, Collisions=0/80=0%
-# Finished Make data base on Thu Jun 02 23:43:39 2022
+# Load=72/8192=1%, Rehash=0, Collisions=0/196=0%
+# Finished Make data base on Sat Jun 04 23:22:32 2022
 
  
-System nie mo�e odnale�� okre�lonej �cie�ki.
-

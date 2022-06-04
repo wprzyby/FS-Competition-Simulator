@@ -90,20 +90,11 @@ TEST_CASE("BusinessPlanEvent tests.")
 
     SECTION("Testing: making event classification")
     {
-        std::vector<double> bus_points_vector;
+        std::vector<std::pair<Team, double>> points_vector = bus_event.get_sorted_classification();
 
-        // Copying sorted points from classification to the vector
-        for (auto& [_, it]: bus_results)
-        {
-            bus_points_vector.push_back(it);
-        }
-        //
-
-        // FIXME: change with accordance to acceleration
         // Checking whether points are truely sorted:
-        CHECK(bus_points_vector[0] >= bus_points_vector[1]);
-        CHECK(bus_points_vector[1] >= bus_points_vector[2]);
-        CHECK(bus_points_vector[2] >= bus_points_vector[3]);
+        CHECK(points_vector[0].second >= points_vector[1].second);
+        CHECK(points_vector[1].second >= points_vector[2].second);
         //
     }
 
@@ -123,64 +114,13 @@ TEST_CASE("BusinessPlanEvent tests.")
 
     SECTION("Testing: making event classification - finalists")
     {
-        std::vector<double> bus_points_vector_finals;
-
-        // Copying sorted points from classification to the vector
-        for (auto& [_, it]: bus_results_finals)
-        {
-            bus_points_vector_finals.push_back(it);
-        }
-        //
+        std::vector<std::pair<Team, double>> points_vector_finals = bus_event_finals.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(bus_points_vector_finals[0] >= bus_points_vector_finals[1]);
-        CHECK(bus_points_vector_finals[1] >= bus_points_vector_finals[2]);
+        CHECK(points_vector_finals[0].second >= points_vector_finals[1].second);
+        CHECK(points_vector_finals[1].second >= points_vector_finals[2].second);
         //
     }
 }
 
-
-// jakby mnie pojebało:
-
-// TEST_CASE("BusinessPlanEvent tests.", "[Testing all functionalities in case of finals]")
-// {
-//     // Creating and simulating the Event
-//     BusinessPlanEvent bus_event_finals(teams);
-//     bus_event_finals.set_results(bus_teams_and_results);
-//     bus_event_finals.calculate_teams_points(1, {team_b, 72.0});
-//     bus_event_finals.make_event_classification();
-//     std::map<Team, double> bus_results_finals = bus_event_finals.get_classification();
-//     //
-
-//     // Creating map of correct results
-//     std::map<Team, double> bus_correct_results_finals;
-//     bus_correct_results_finals.insert({team_a, 70.0});
-//     bus_correct_results_finals.insert({team_b, 72.0});
-//     bus_correct_results_finals.insert({team_c, 48.8});
-//     //
-
-//     SECTION("Testing: setting results and calculating points")
-//     {
-//         CHECK(bus_results_finals[team_a] == bus_correct_results_finals[team_a]);
-//         CHECK(bus_results_finals[team_b] == bus_correct_results_finals[team_b]);
-//         CHECK(bus_results_finals[team_c] == bus_correct_results_finals[team_c]);
-//     }
-
-
-//     SECTION("Testing: making event classification")
-//     {
-//         std::vector<double> bus_points_vector_finals;
-
-//         // Copying sorted points from classification to the vector
-//         for (auto& [_, it]: bus_results_finals)
-//         {
-//             bus_points_vector_finals.push_back(it);
-//         }
-//         //
-
-//         // Checking whether points are truely sorted:
-//         CHECK(bus_points_vector_finals[0] >= bus_points_vector_finals[1]);
-//         CHECK(bus_points_vector_finals[1] >= bus_points_vector_finals[2]);
-//         //
-//     }
-// }
+// TODO: Tutaj inaczej się liczą punkty - sprawdzić implementację oraz rachunki!

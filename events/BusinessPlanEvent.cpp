@@ -63,7 +63,6 @@ void BusinessPlanEvent::calculate_teams_points()
         std::sort(points_scored_by_teams.begin(), points_scored_by_teams.end(), std::greater<double>());  // sorting points scored by teams
         double fixed_best_result = points_scored_by_teams[m_finalists];  // getting best non-finalist result
 
-        int iterator = 1;
         make_event_classification();  // sorting teams by their total score
 
         for (auto& [team, total_result]: m_classification)

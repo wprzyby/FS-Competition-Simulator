@@ -62,7 +62,6 @@ void CostAndManufacturingEvent::calculate_teams_points()
         double fixed_best_result = points_scored_by_teams[m_finalists];  // getting best non-finalist result
 
         make_event_classification();  // sorting teams by their total score
-        auto results_to_set_iterator = m_points_to_set.begin();  // setting map with points to set iterator at the first element
 
         for (auto& [team, total_result]: m_classification)
         {

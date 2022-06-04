@@ -73,19 +73,11 @@ TEST_CASE("SkidpadEvent tests.", "[Testing all functionalities]")
 
     SECTION("Testing: making event classification")
     {
-        std::vector<double> skid_points_vector;
-
-        // Copying sorted points from classification to the vector
-        for (auto& [_, it]: skid_results)
-        {
-            skid_points_vector.push_back(it);
-        }
-        //
+        std::vector<std::pair<Team, double>> points_vector = skid_event.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(skid_points_vector[0] >= skid_points_vector[1]);
-        CHECK(skid_points_vector[1] >= skid_points_vector[2]);
-        CHECK(skid_points_vector[2] >= skid_points_vector[3]);
+        CHECK(points_vector[0].second >= points_vector[1].second);
+        CHECK(points_vector[1].second >= points_vector[2].second);
         //
     }
 

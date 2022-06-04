@@ -9,7 +9,7 @@
 
 TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in case of no finals]")
 {
-    Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 2), team_c("C", "UniveroC", 3), team_d("D", "UniveroD", 4);
+    Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 3), team_c("C", "UniveroC", 39), team_d("D", "UniveroD", 4);
     std::vector<Team> teams{team_a, team_b, team_c, team_d};
     std::map<Team, std::map<EventsCategories, double>> cos_teams_and_results;
     std::map<EventsCategories, double> cos_team_a_results;
@@ -44,6 +44,7 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
     cos_teams_and_results.insert({team_a, cos_team_a_results});
     cos_teams_and_results.insert({team_b, cos_team_b_results});
     cos_teams_and_results.insert({team_c, cos_team_c_results});
+    cos_teams_and_results.insert({team_d, cos_team_d_results});
 
     // Creating and simulating the Event
     CostAndManufacturingEvent cos_event(teams);
@@ -133,4 +134,4 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
         CHECK(cos_points_vector_finals[2] >= cos_points_vector_finals[3]);
         //
     }
-}
+}  // TODO: Naprawić finały

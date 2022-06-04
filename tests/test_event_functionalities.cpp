@@ -58,9 +58,9 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
         double result1 = find_min(7, 1);
         double result2 = find_min(0, 2);
         double result3 = find_min(4, 0);
-        CHECK(result1 == 7);
-        CHECK(result2 == 2);
-        CHECK(result3 == 3);
+        CHECK(result1 == 1.0);
+        CHECK(result2 == 2.0);
+        CHECK(result3 == 4.0);
     }
 
     SECTION("Testing: find_best_time_for_team() function")
