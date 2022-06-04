@@ -207,3 +207,4 @@ TEST_CASE("Time parsing functionality via LapTimeParser")
                                 number_of_doo, number_of_oc, number_of_uss) == 0);
     }
 }
+// TODO: Upewnić się, że te testy przechodzą

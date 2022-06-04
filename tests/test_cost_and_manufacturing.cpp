@@ -72,7 +72,7 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
     cos_correct_results_finals.insert({team_a, 100.0});
     cos_correct_results_finals.insert({team_b, 97.0});
     cos_correct_results_finals.insert({team_c, 95.0});
-    cos_correct_results_finals.insert({team_c, 92.6});
+    cos_correct_results_finals.insert({team_d, 92.6});
 
     SECTION("Testing: setting results and calculating points")
     {
@@ -85,19 +85,12 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
 
     SECTION("Testing: making event classification")
     {
-        std::vector<double> cos_points_vector;
-
-        // Copying sorted points from classification to the vector
-        for (auto& [_, it]: cos_results)
-        {
-            cos_points_vector.push_back(it);
-        }
-        //
+        std::vector<std::pair<Team, double>> points_vector = cos_event.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(cos_points_vector[0] >= cos_points_vector[1]);
-        CHECK(cos_points_vector[1] >= cos_points_vector[2]);
-        CHECK(cos_points_vector[2] >= cos_points_vector[3]);
+        CHECK(points_vector[0].second >= points_vector[1].second);
+        CHECK(points_vector[1].second >= points_vector[2].second);
+        CHECK(points_vector[2].second >= points_vector[3].second);
         //
     }
 
@@ -121,17 +114,11 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
     {
         std::vector<double> cos_points_vector_finals;
 
-        // Copying sorted points from classification to the vector
-        for (auto& [_, it]: cos_results_finals)
-        {
-            cos_points_vector_finals.push_back(it);
-        }
-        //
+        std::vector<std::pair<Team, double>> points_vector_finals = cos_event_finals.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(cos_points_vector_finals[0] >= cos_points_vector_finals[1]);
-        CHECK(cos_points_vector_finals[1] >= cos_points_vector_finals[2]);
-        CHECK(cos_points_vector_finals[2] >= cos_points_vector_finals[3]);
+        CHECK(points_vector_finals[0].second >= points_vector_finals[1].second);
+        CHECK(points_vector_finals[1].second >= points_vector_finals[2].second);
+        CHECK(points_vector_finals[2].second >= points_vector_finals[3].second);
         //
     }
-}  // TODO: Naprawić finały

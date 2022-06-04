@@ -27,7 +27,7 @@ BusinessPlanEvent::BusinessPlanEvent()
 
 BusinessPlanEvent::~BusinessPlanEvent(){}
 
-// FIXME: calculates wrong number of points
+// FIXME: calculates wrong number of points or test case have incorrectly set points
 void BusinessPlanEvent::calculate_teams_points()
 {
     if (m_finalists == 0)

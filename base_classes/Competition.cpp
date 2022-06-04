@@ -28,7 +28,6 @@ bool Competition::set_events(std::vector<std::unique_ptr<Event>> &events)
 
 bool Competition::set_teams(std::vector<Team> teams)
 {
-    // FIXME: Check this implementation
     // Checking if all teams are uniqe
     for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
     {
