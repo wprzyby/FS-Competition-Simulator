@@ -35,7 +35,7 @@ bool Competition::set_teams(std::vector<Team> teams)
         other_team++;
         while(other_team != teams.end())
         {
-            if (team == other_team){throw DuplicateTeamError();}
+            if (*team == *other_team){throw DuplicateTeamError();}
             other_team++;
         }
     }

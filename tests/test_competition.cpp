@@ -119,7 +119,7 @@ TEST_CASE("Competition basic functionality - using Autocross and EngineeringDesi
     // FIXME: nie działa
     SECTION("Checking expected error throws")
     {
-        Team duplicate_team("a", "univA", 1);
+        Team duplicate_team("a", "univA", 5);
         teams.push_back(duplicate_team);
         REQUIRE_THROWS(competition.set_teams(teams));
     }

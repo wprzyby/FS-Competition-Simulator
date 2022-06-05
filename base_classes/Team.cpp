@@ -49,9 +49,8 @@ bool Team::operator<(const Team &second_arg) const
     return m_number < second_arg.m_number;
 }
 
-
 bool Team::operator==(const Team& second_argument) const
 {
-    if ((m_name == second_argument.get_name()) and (m_number == second_argument.get_number()) and (m_university == second_argument.get_university())) {return true;}
+    if ((m_name == second_argument.m_name) or (m_number == second_argument.m_number) or (m_university == second_argument.m_university)) {return true;}
     else {return false;}
 }
