@@ -12,6 +12,7 @@
                 "${workspaceFolder}\\..\\Event_tools.cpp",
                 "${workspaceFolder}\\..\\base_classes\\Event.cpp",
                 "${workspaceFolder}\\..\\base_classes\\Team.cpp",
+                "${workspaceFolder}\\..\\base_classes\\Competition.cpp",
                 "${workspaceFolder}\\..\\base_classes\\LapTimeParser.cpp",
                 "${workspaceFolder}\\..\\events\\AccelerationEvent.cpp",
                 "${workspaceFolder}\\..\\events\\AutocrossEvent.cpp",

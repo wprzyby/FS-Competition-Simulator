@@ -29,14 +29,17 @@ bool Competition::set_teams(std::vector<Team> teams)
 {
     // Checking if all teams are uniqe
     // FIXME: nie działa
-    // for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
-    // {
-    //     for (std::vector<Team>::iterator other_team = team+1; other_team != teams.end(); ++other_team)
-    //     {
-    //         if (team == other_team){throw DuplicateTeamError();}
-    //     }
-    // }
-    //
+    for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
+    {
+        std::vector<Team>::iterator other_team = team;
+        other_team++;
+        while(other_team != teams.end())
+        {
+            if (team == other_team){throw DuplicateTeamError();}
+            other_team++;
+        }
+    }
+
     m_teams = teams;
     return true;
 }

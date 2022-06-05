@@ -122,5 +122,3 @@ TEST_CASE("BusinessPlanEvent tests.")
         //
     }
 }
-
-// TODO: Tutaj inaczej się liczą punkty - sprawdzić implementację oraz rachunki!
