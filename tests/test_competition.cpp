@@ -47,6 +47,12 @@ TEST_CASE("Competition basic functionality - using Autocross and EngineeringDesi
     team_c_aut_results.insert({third_aut_time, 200000});
     team_c_aut_results.insert({fourth_aut_time, 0});
 
+    aut_results.insert({team_a, team_a_aut_results});
+    aut_results.insert({team_b, team_b_aut_results});
+    aut_results.insert({team_c, team_c_aut_results});
+    autocross_event->set_results(aut_results);
+
+
     std::map<Team, std::map<EventsCategories, double>> des_results;
     std::map<EventsCategories, double> team_a_des_results;
     std::map<EventsCategories, double> team_b_des_results;
@@ -79,32 +85,43 @@ TEST_CASE("Competition basic functionality - using Autocross and EngineeringDesi
     team_c_des_results.insert({autonomous_functionality, 20});
     team_c_des_results.insert({design_report, 10});
 
+    des_results.insert({team_a, team_a_des_results});
+    des_results.insert({team_b, team_b_des_results});
+    des_results.insert({team_c, team_c_des_results});
+    design_event->set_results(des_results);
+
     std::map<Team, double> correct_results;
 
     correct_results.insert({team_a, 100});
     correct_results.insert({team_b, 107.9});
     correct_results.insert({team_c, 109.5});
-    // TODO: set results
 
-    // std::vector<std::unique_ptr<Event>> events = {std::move(autocross_event), std::move(design_event)};
-    // competition.set_events(events);
-    // competition.create_classification();
+    std::vector<std::unique_ptr<Event>> events;
+    events.push_back(std::move(autocross_event));
+    events.push_back(std::move(design_event));
 
-    // SECTION("Checking validity of competition results")
+    competition.set_events(std::move(events));
+    competition.create_classification();
+
+    SECTION("Checking validity of competition results")
+    {
+        std::vector<std::pair<Team, double>> classification = competition.get_final_classification();
+
+        CHECK(classification.at(0).first == team_c);
+        CHECK(classification.at(1).first == team_b);
+        CHECK(classification.at(2).first == team_a);
+
+        CHECK(classification.at(0).second == correct_results.at(team_c));
+        CHECK(classification.at(1).second == correct_results.at(team_b));
+        CHECK(classification.at(2).second == correct_results.at(team_a));
+    }
+
+    // FIXME: nie działa
+    // SECTION("Checking expected error throws")
     // {
-    //     std::vector<std::pair<Team, double>> classification = competition.get_final_classification();
-
-    //     CHECK(classification.at(0).first == team_c);
-    //     CHECK(classification.at(1).first == team_b);
-    //     CHECK(classification.at(2).first == team_a);
-
-    //     CHECK(classification.at(0).second == correct_results.at(team_c));
-    //     CHECK(classification.at(1).second == correct_results.at(team_b));
-    //     CHECK(classification.at(2).second == correct_results.at(team_a));
-
-    //     CHECK(team_a.get_total_points() == correct_results.at(team_a));
-    //     CHECK(team_b.get_total_points() == correct_results.at(team_b));
-    //     CHECK(team_c.get_total_points() == correct_results.at(team_c));
+    //     Team duplicate_team("a", "univA", 1);
+    //     teams.push_back(duplicate_team);
+    //     REQUIRE_THROWS(competition.set_teams(teams));
     // }
 
 }

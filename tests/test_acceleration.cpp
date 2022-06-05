@@ -52,12 +52,6 @@ TEST_CASE("AccelerationEvent tests.", "[Testing all functionalities]")
         CHECK(results[team_b] == acc_correct_results[team_b]);
         CHECK(results[team_c] == acc_correct_results[team_c]);
         CHECK(results.at(team_d) == acc_correct_results[team_d]);
-
-        std::cout<<"PRINTING ACCELERATION\n";
-        std::cout<<results.at(team_a)<<"; "<<acc_correct_results.at(team_a)<<'\n';
-        std::cout<<results.at(team_b)<<"; "<<acc_correct_results.at(team_b)<<'\n';
-        std::cout<<results.at(team_c)<<"; "<<acc_correct_results.at(team_c)<<'\n';
-        std::cout<<results.at(team_d)<<"; "<<acc_correct_results.at(team_d)<<'\n';
     }
 
 

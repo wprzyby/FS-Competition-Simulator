@@ -60,13 +60,14 @@ TEST_CASE("Endurance Event functionality")
     results.insert({team_b, team_b_results});
     results.insert({team_c, team_c_results});
     results.insert({team_d, team_d_results});
+    results.insert({team_e, team_e_results});
 
     std::map<Team, double> correct_results_endurance;
 
     correct_results_endurance.insert({team_a, 325});
     correct_results_endurance.insert({team_b, 124.8});
     correct_results_endurance.insert({team_c, 25});
-    correct_results_endurance.insert({team_d, 25});
+    correct_results_endurance.insert({team_d, 47.9});
     correct_results_endurance.insert({team_e, 0});
 
     std::map<Team, double> correct_results_efficiency;
@@ -102,7 +103,7 @@ TEST_CASE("Endurance Event functionality")
 
     SECTION("Simulation - endurance only")
     {
-        std::vector<Team> teams = {team_a, team_b, team_c, team_d};
+        std::vector<Team> teams = {team_a, team_b, team_c, team_d, team_e};
         event.set_teams(teams);
         event.set_results(results);  // FIXME: Negative additional points: mogą być czy nie? Bo występują w testach. Po wyjątku rzucanym w klasie zakładam że nie
         event.simulate();
@@ -115,22 +116,19 @@ TEST_CASE("Endurance Event functionality")
         CHECK(correct_results_endurance.at(team_e) == classification.at(team_e));
 
         // checking if sorted correctly
-        std::vector<double> sorted_points;
-        for(auto& [_, points]: classification)
-        {
-            sorted_points.push_back(points);
-        }
-        CHECK(sorted_points[0] >= sorted_points[1]);
-        CHECK(sorted_points[1] >= sorted_points[2]);
-        CHECK(sorted_points[2] >= sorted_points[3]);
-        CHECK(sorted_points[3] >= sorted_points[4]);
+        std::vector<std::pair<Team,double>> sorted_points = event.get_sorted_classification();
+
+        CHECK(sorted_points[0].second >= sorted_points[1].second);
+        CHECK(sorted_points[1].second >= sorted_points[2].second);
+        CHECK(sorted_points[2].second >= sorted_points[3].second);
+        CHECK(sorted_points[3].second >= sorted_points[4].second);
     }
 
     SECTION("Simulation - endurance and efficiency")
     {
         EnduranceEvent event_with_eff(true);
 
-        std::vector<Team> teams = {team_a, team_b, team_c, team_d};
+        std::vector<Team> teams = {team_a, team_b, team_c, team_d, team_e};
         event_with_eff.set_teams(teams);
         event_with_eff.set_results(results);
         event_with_eff.simulate();
@@ -143,15 +141,12 @@ TEST_CASE("Endurance Event functionality")
         CHECK(correct_results_endurance.at(team_e) + correct_results_efficiency.at(team_e) == classification.at(team_e));
 
         // checking if sorted correctly
-        std::vector<double> sorted_points;
-        for(auto& [_, points]: classification)
-        {
-            sorted_points.push_back(points);
-        }
-        CHECK(sorted_points[0] >= sorted_points[1]);
-        CHECK(sorted_points[1] >= sorted_points[2]);
-        CHECK(sorted_points[2] >= sorted_points[3]);
-        CHECK(sorted_points[3] >= sorted_points[4]);
+        std::vector<std::pair<Team,double>> sorted_points = event_with_eff.get_sorted_classification();
+
+        CHECK(sorted_points[0].second >= sorted_points[1].second);
+        CHECK(sorted_points[1].second >= sorted_points[2].second);
+        CHECK(sorted_points[2].second >= sorted_points[3].second);
+        CHECK(sorted_points[3].second >= sorted_points[4].second);
     }
 
     SECTION("Getters")

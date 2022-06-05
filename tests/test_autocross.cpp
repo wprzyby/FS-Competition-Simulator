@@ -96,14 +96,7 @@ TEST_CASE("Autocross Event functionality")
         CHECK(correct_results.at(team_d) == classification.at(team_d));
         CHECK(correct_results.at(team_e) == classification.at(team_e));
 
-        std::cout<<"PRINTING AUTOCROSS:\n";
-        std::cout<<classification.at(team_a)<<"; "<<correct_results.at(team_a)<<'\n';
-        std::cout<<classification.at(team_b)<<"; "<<correct_results.at(team_b)<<'\n';
-        std::cout<<classification.at(team_c)<<"; "<<correct_results.at(team_c)<<'\n';
-        std::cout<<classification.at(team_d)<<"; "<<correct_results.at(team_d)<<'\n';
-        std::cout<<classification.at(team_e)<<"; "<<correct_results.at(team_e)<<'\n';
         // checking if sorted correctly
-
         std::vector<std::pair<Team, double>> points_vector = event.get_sorted_classification();
 
         // Checking whether points are truely sorted:

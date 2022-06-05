@@ -122,3 +122,4 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
         CHECK(points_vector_finals[2].second >= points_vector_finals[3].second);
         //
     }
+}

@@ -123,10 +123,9 @@ TEST_CASE("Engineering Design Event functionality")
         // checking if sorted correctly
         std::vector<std::pair<Team, double>> points_vector = event.get_sorted_classification();
 
-        // Checking whether points are truely sorted:
+        // Checking whether points are truly sorted:
         CHECK(points_vector[0].second >= points_vector[1].second);
         CHECK(points_vector[1].second >= points_vector[2].second);
-        CHECK(points_vector[2].second >= points_vector[3].second);
         //
     }
 

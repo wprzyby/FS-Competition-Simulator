@@ -54,7 +54,7 @@ TEST_CASE("BusinessPlanEvent tests.")
     bus_teams_and_results.insert({team_c, bus_team_c_results});
 
     // Creating and simulating the Event
-    BusinessPlanEvent bus_event(teams, 1, {{team_b, 72.0}});
+    BusinessPlanEvent bus_event(teams);
     bus_event.set_results(bus_teams_and_results);
     bus_event.simulate();
     std::map<Team, double> bus_results = bus_event.get_classification();
@@ -67,7 +67,7 @@ TEST_CASE("BusinessPlanEvent tests.")
     bus_correct_results.insert({team_c, 48.2});
     //
 
-    BusinessPlanEvent bus_event_finals(teams);
+    BusinessPlanEvent bus_event_finals(teams, 1, {{team_b, 72.0}});
     bus_event_finals.set_results(bus_teams_and_results);
     bus_event_finals.simulate();
     std::map<Team, double> bus_results_finals = bus_event_finals.get_classification();
