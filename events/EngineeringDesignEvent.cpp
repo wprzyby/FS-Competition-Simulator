@@ -21,8 +21,6 @@ EngineeringDesignEvent::EngineeringDesignEvent()
     m_event_categories = category_lists.at(engineering_design);
 }
 
-EngineeringDesignEvent::~EngineeringDesignEvent(){}
-
 
 void EngineeringDesignEvent::calculate_teams_points()
 {
@@ -32,11 +30,4 @@ void EngineeringDesignEvent::calculate_teams_points()
         const double team_points = sum_all_teams_results(results);  // summing all team`s point
         m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_points, 1)});  // inserting team and their final result into classification
     }
-}
-
-
-std::string EngineeringDesignEvent::get_info_file_name()
-{
-    std::string name = "EngineeringDesignEventInfo.pdf";
-    return name;
 }

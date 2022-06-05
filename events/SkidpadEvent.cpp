@@ -22,8 +22,6 @@ SkidpadEvent::SkidpadEvent()
     m_event_categories = category_lists.at(skidpad);
 }
 
-SkidpadEvent::~SkidpadEvent(){}
-
 
 void SkidpadEvent::calculate_teams_points()
 {
@@ -62,13 +60,6 @@ void SkidpadEvent::calculate_teams_points()
         }
         m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
     }
-}
-
-
-std::string SkidpadEvent::get_info_file_name()
-{
-    std::string name = "SkidpadEventInfo.pdf";
-    return name;
 }
 
 

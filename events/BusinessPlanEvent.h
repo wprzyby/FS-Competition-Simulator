@@ -27,9 +27,7 @@ class BusinessPlanEvent : public Event  // BusinessEvent class that inherits fro
         BusinessPlanEvent();
         BusinessPlanEvent(std::vector<Team> &teams, int finalists=0, std::map<Team, double> points_to_set={});
         // Destructor:
-        ~BusinessPlanEvent();
-        // Methods:
-        virtual std::string get_info_file_name();
+        ~BusinessPlanEvent() {};
 };
 
 #endif

@@ -23,7 +23,6 @@ CostAndManufacturingEvent::CostAndManufacturingEvent()
     m_event_type = cost_and_manufacturing;
     m_event_categories = category_lists.at(cost_and_manufacturing);
 }
-CostAndManufacturingEvent::~CostAndManufacturingEvent(){}
 
 
 void CostAndManufacturingEvent::calculate_teams_points()
@@ -93,13 +92,6 @@ void CostAndManufacturingEvent::calculate_teams_points()
     {
         throw NegativeAmountOfFinalitsError();
     }
-}
-
-
-std::string CostAndManufacturingEvent::get_info_file_name()
-{
-    std::string name = "CostAndManufacturingEventInfo.pdf";
-    return name;
 }
 
 

@@ -25,9 +25,7 @@ class AccelerationEvent : public Event  // AccelerationEvent class that inherits
         AccelerationEvent();
         AccelerationEvent(std::vector<Team> &teams);
         // Destructor:
-        ~AccelerationEvent();
-        // Methods
-        virtual std::string get_info_file_name();
+        ~AccelerationEvent() {};
 };
 
 #endif

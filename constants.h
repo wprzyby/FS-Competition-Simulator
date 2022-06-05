@@ -27,6 +27,14 @@ const std::map<EventType, std::string> DYNAMIC_EVENT_ENUN_TO_STR = {{acceleratio
 
 const std::string DEF_PENALTY_DATA_FILE_PATH = "dynamic_events_penalties.json";
 
+const std::map<EventType, std::string> INFO_FILE_NAMES = {{acceleration, "AccelerationEventInfo.pdf"},
+                                                          {autocross, "AutocrossEventInfo.pdf"},
+                                                          {businessplan, "BusinessPlanEventInfo.pdf"},
+                                                          {cost_and_manufacturing, "CostAndManufacturingEventInfo.pdf"},
+                                                          {endurance, "EnduranceEventInfo.pdf"},
+                                                          {engineering_design, "EngineeringDesignEventInfo.pdf"},
+                                                          {skidpad, "SkidpadEventInfo.pdf"}};
+
 // Categories for BusinessPlanEvent
 const std::vector<EventsCategories> BuiPlaEveCat = {pitch_video, novelty, content, finances, deep_dive_topic, demontration_and_structure, delivery, questions, general_impression};
 

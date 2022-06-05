@@ -70,12 +70,4 @@ double AutocrossEvent::get_additional_points(double best_time_overall, double te
     return points;
 
 }
-
-
-std::string AutocrossEvent::get_info_file_name()
-{
-    std::string name = "AutocrossEventInfo.pdf";
-    return name;
-}
-
 // DONE

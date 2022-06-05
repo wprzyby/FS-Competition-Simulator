@@ -23,9 +23,7 @@ class SkidpadEvent : public Event  // SkidpadEvent class that inherits from the 
         SkidpadEvent();
         SkidpadEvent(std::vector<Team> &teams);
         // Destructor:
-        ~SkidpadEvent();
-        // Methods
-        virtual std::string get_info_file_name();
+        ~SkidpadEvent() {};
 };
 
 #endif

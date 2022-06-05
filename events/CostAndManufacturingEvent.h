@@ -27,9 +27,7 @@ class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent cla
         CostAndManufacturingEvent();
         CostAndManufacturingEvent(std::vector<Team> &teams, int finalists=0, std::map<Team, double> points_to_set={});
         // Destructor:
-        ~CostAndManufacturingEvent();
-        // Methods
-        virtual std::string get_info_file_name();
+        ~CostAndManufacturingEvent() {};
 };
 
 #endif

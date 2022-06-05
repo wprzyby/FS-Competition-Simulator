@@ -19,9 +19,7 @@ class EngineeringDesignEvent : public Event  // EngineeringDesignEvent class tha
         EngineeringDesignEvent();
         EngineeringDesignEvent(std::vector<Team> &teams);
         // Destructor:
-        ~EngineeringDesignEvent();
-        // Methods
-        virtual std::string get_info_file_name();
+        ~EngineeringDesignEvent() {};
 };
 
 #endif

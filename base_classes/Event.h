@@ -58,11 +58,10 @@ class Event  // Abstract class
         // Getter of vector with final event sorted classification:
         std::vector<std::pair<Team, double>> get_sorted_classification() const {return m_sorted_classification;}
 
-        // Getter of the name of file with information about the event.
-        virtual std::string get_info_file_name()=0;
-
         // Getter of the type of event as an enum
         EventType get_event_type() const {return m_event_type;}
+
+        std::string get_info_file_name() const;
 };
 
 // Order of calling out the methods:

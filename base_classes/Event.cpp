@@ -71,3 +71,8 @@ std::map<Team, double> Event::get_classification() const
 {
     return m_classification;
 }
+
+std::string Event::get_info_file_name() const
+{
+    return INFO_FILE_NAMES.at(m_event_type);
+}

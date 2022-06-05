@@ -25,8 +25,6 @@ BusinessPlanEvent::BusinessPlanEvent()
     m_event_categories = category_lists.at(businessplan);
 }
 
-BusinessPlanEvent::~BusinessPlanEvent(){}
-
 // FIXME: calculates wrong number of points or test case have incorrectly set points
 void BusinessPlanEvent::calculate_teams_points()
 {
@@ -83,13 +81,6 @@ void BusinessPlanEvent::calculate_teams_points()
         throw NegativeAmountOfFinalitsError();
     }
 
-}
-
-
-std::string BusinessPlanEvent::get_info_file_name()
-{
-    std::string name = "BusinessPlanEventInfo.pdf";
-    return name;
 }
 
 
