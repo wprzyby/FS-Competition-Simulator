@@ -16,7 +16,7 @@ class Competition
         std::vector<std::unique_ptr<Event>> m_events;
         std::vector<Team> m_teams;
         std::map<EventType, std::map<Team, double>> m_events_points;
-        std::map<Team, unsigned> m_competition_points;
+        std::map<Team, double> m_competition_points;
         std::vector< std::pair<Team, double> > m_final_classification;
 
         void simulate();
@@ -32,7 +32,7 @@ class Competition
 
         // setters:
         // (boolean returns to communicate whether the setter succeeded or failed)
-        bool set_events(std::vector<std::unique_ptr<Event>> &events);
+        bool set_events(std::vector<std::unique_ptr<Event>> events);
         bool set_teams(std::vector<Team> teams);
 
         // essential competition functionality:
