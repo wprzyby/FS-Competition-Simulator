@@ -9,14 +9,6 @@
 #include "../Event_tools.h"
 
 
-Event::Event(){}
-Event::Event(std::vector<Team> teams_participating)
-{
-    m_teams_participating = teams_participating;
-}
-Event::~Event(){};
-
-
 void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &results)
 {
     for(auto& [_, categories_and_points]: results)

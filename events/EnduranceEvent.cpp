@@ -28,7 +28,6 @@ EnduranceEvent::EnduranceEvent(std::vector<Team> &teams, bool run_efficiency)
 
 void EnduranceEvent::calculate_teams_points()
 {
-    // TODO: rozdzielić energy used na energy used i energy produced
     std::map<Team, double> teams_and_corr_times;
     std::map<Team, double> teams_and_uncorr_times;
     std::map<Team, double> teams_and_eff_factors;

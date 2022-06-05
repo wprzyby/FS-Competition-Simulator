@@ -10,6 +10,8 @@
 #include "../Event_tools.h"
 
 
+// TODO: zmienić boole na voidy
+// TODO: zmienić ten konstruktor żeby brał drużyny i/lub eventy
 Competition::Competition()
 {
     m_teams = {};
@@ -19,7 +21,6 @@ Competition::Competition()
 
 bool Competition::set_events(std::vector<std::unique_ptr<Event>> events)
 {
-    // FIXME: check if this assignment works
     m_events = std::move(events);
     return true;
 }
@@ -27,16 +28,18 @@ bool Competition::set_events(std::vector<std::unique_ptr<Event>> events)
 
 bool Competition::set_teams(std::vector<Team> teams)
 {
-    // Checking if all teams are uniqe
-    // FIXME: nie działa
-    // for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
-    // {
-    //     for (std::vector<Team>::iterator other_team = team+1; other_team != teams.end(); ++other_team)
-    //     {
-    //         if (team == other_team){throw DuplicateTeamError();}
-    //     }
-    // }
-    //
+    // Checking if all teams are unique
+    for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
+    {
+        std::vector<Team>::iterator other_team = team;
+        other_team++;
+        while(other_team != teams.end())
+        {
+            if (*team == *other_team){throw DuplicateTeamError();}
+            other_team++;
+        }
+    }
+
     m_teams = teams;
     return true;
 }

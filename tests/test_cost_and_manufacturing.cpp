@@ -61,6 +61,7 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
     cos_correct_results.insert({team_d, 74.1});
     //
 
+    // Creating and simulating the event in case of finals
     CostAndManufacturingEvent cos_event_finals(teams, 2, {{team_a, 100.0}, {team_b, 97.0}});
     cos_event_finals.set_results(cos_teams_and_results);
     cos_event_finals.simulate();

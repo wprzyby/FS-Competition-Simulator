@@ -64,24 +64,11 @@ void CostAndManufacturingEvent::calculate_teams_points()
 
         for (auto& [team, total_result]: m_classification)
         {
-            // for (auto& [external_team, external_result]: m_points_to_set)
-            // {
-            //     if (external_team == team)  // searching fr current team among points_to_set
-            //     {
-            //         m_classification.at(team) = external_result;  // setting curent teams result
-            //     }
-            //     else  // setting points according to the rules for non-finalists
-            //     {
-            //         m_classification.at(team) = rd_to_n_places(get_points(total_result, fixed_best_result), 1);  // setting points from formula with fixed best result
-            //     }
-            // }
-            // iterator++;
-
             try
             {
                 m_classification.at(team) = m_points_to_set.at(team);
             }
-            catch (std::out_of_range)
+            catch (std::out_of_range const&)
             {
                 m_classification.at(team) = rd_to_n_places(get_points(total_result, fixed_best_result), 1);  // setting points from formula with fixed best result
             }

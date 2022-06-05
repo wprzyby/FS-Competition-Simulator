@@ -78,17 +78,6 @@ TEST_CASE("Endurance Event functionality")
     correct_results_efficiency.insert({team_d, 0});
     correct_results_efficiency.insert({team_e, 0});
 
-    // SECTION("Setting duplicate teams")
-    // {
-    //     std::vector<Team> teams = {team_a, team_b, team_c, team_d, duplicate_name_team};
-
-    //     REQUIRE_THROWS(event.set_teams(teams));
-    //     teams = {team_a, team_b, team_c, team_d, duplicate_numb_team};
-    //     REQUIRE_THROWS(event.set_teams(teams));
-    //     teams = {team_a, team_b, team_c, team_d, duplicate_univ_team};
-    //     REQUIRE_THROWS(event.set_teams(teams));
-    // }
-
     SECTION("Wrong categories in results")
     {
         Team team_x("x", "univX", 10);
@@ -105,7 +94,7 @@ TEST_CASE("Endurance Event functionality")
     {
         std::vector<Team> teams = {team_a, team_b, team_c, team_d, team_e};
         event.set_teams(teams);
-        event.set_results(results);  // FIXME: Negative additional points: mogą być czy nie? Bo występują w testach. Po wyjątku rzucanym w klasie zakładam że nie
+        event.set_results(results);
         event.simulate();
         std::map<Team, double> classification = event.get_classification();
 
@@ -155,4 +144,4 @@ TEST_CASE("Endurance Event functionality")
         CHECK(event.get_info_file_name() == "EnduranceEventInfo.pdf");
     }
 
-} // TODO: Naprawić te testy!
+}
