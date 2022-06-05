@@ -35,12 +35,12 @@ void EnduranceEvent::calculate_teams_points()
 
     for(auto& [team, team_results]: m_teams_and_results)
     {
-        teams_and_corr_times[team] = team_results[end_corrected_time];
+        teams_and_corr_times[team] = team_results.at(end_corrected_time);
         if (m_run_efficiency)
         {
-            teams_and_uncorr_times[team] = team_results[end_uncorrected_time];
-            teams_and_eff_factors[team] = (team_results[energy_used] - team_results[energy_produced] * 0.9)
-                                           * std::pow(team_results[end_uncorrected_time], 2);
+            teams_and_uncorr_times[team] = team_results.at(end_uncorrected_time);
+            teams_and_eff_factors[team] = (team_results.at(energy_used) - team_results.at(energy_produced) * 0.9)
+                                           * std::pow(team_results.at(end_uncorrected_time), 2);
         }
     }
 
@@ -88,7 +88,7 @@ void EnduranceEvent::calculate_teams_points()
             team_efficiency_score = get_efficiency_points(best_eff_factor, teams_and_eff_factors.at(team));
         }
 
-        m_classification.at(team) += team_efficiency_score;
+        m_classification.at(team) += rd_to_n_places(team_efficiency_score, 1);
     }
 
 }
@@ -96,7 +96,7 @@ void EnduranceEvent::calculate_teams_points()
 
 double EnduranceEvent::get_endurance_points(double best_time_overall, double team_best_time) const
 {
-    double points = 300 * ( ( (best_time_overall / team_best_time) - 1 ) / 0.333 );
+    double points = 300 * ( ( (best_time_overall*1.333 / team_best_time) - 1 ) / 0.333 );
 
     if (points < 0)
     {
@@ -117,11 +117,4 @@ double EnduranceEvent::get_efficiency_points(double best_eff_factor, double team
     }
 
     return points;
-}
-
-
-std::string EnduranceEvent::get_info_file_name()
-{
-    std::string name = "EnduranceEventInfo.pdf";
-    return name;
 }
