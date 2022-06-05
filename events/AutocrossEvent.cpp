@@ -34,12 +34,13 @@ void AutocrossEvent::calculate_teams_points()
     }
 
     double best_time_overall = find_best_time_overall(teams_and_best_times);
+    // TODO: wziąć to z constants.h i jeśli się powtarza w innych eventach to też
     double base_points = 4.5;
 
     for(auto& [team, team_best_time]: teams_and_best_times)
     {
         double team_final_score;
-        if(team_best_time <= 0)  // FIXME: Check implementation (potencjalnie ujemne czasy)
+        if(team_best_time <= 0)
         {
             team_final_score = 0;
         }

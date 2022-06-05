@@ -116,7 +116,6 @@ TEST_CASE("Competition basic functionality - using Autocross and EngineeringDesi
         CHECK(classification.at(2).second == correct_results.at(team_a));
     }
 
-    // FIXME: nie działa
     SECTION("Checking expected error throws")
     {
         Team duplicate_team("a", "univA", 5);
@@ -125,4 +124,3 @@ TEST_CASE("Competition basic functionality - using Autocross and EngineeringDesi
     }
 
 }
-// TODO: Naprawić testy!

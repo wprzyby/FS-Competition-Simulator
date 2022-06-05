@@ -9,6 +9,7 @@
 #include "../exceptions.h"
 
 
+// TODO: sprawdzić czy to się da zrobić listą inicjalizacji
 AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
 {
     m_teams_participating = teams;

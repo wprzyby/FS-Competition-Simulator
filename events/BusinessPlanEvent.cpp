@@ -25,7 +25,6 @@ BusinessPlanEvent::BusinessPlanEvent()
     m_event_categories = category_lists.at(businessplan);
 }
 
-// FIXME: calculates wrong number of points or test case have incorrectly set points
 void BusinessPlanEvent::calculate_teams_points()
 {
     if (m_finalists == 0)
@@ -69,7 +68,7 @@ void BusinessPlanEvent::calculate_teams_points()
             {
                 m_classification.at(team) = m_points_to_set.at(team);
             }
-            catch (std::out_of_range)
+            catch (std::out_of_range const&)
             {
                 m_classification.at(team) = rd_to_n_places(get_points(total_result, fixed_best_result), 1);  // setting points from formula with fixed best result
             }

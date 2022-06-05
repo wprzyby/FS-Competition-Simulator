@@ -94,7 +94,7 @@ TEST_CASE("Endurance Event functionality")
     {
         std::vector<Team> teams = {team_a, team_b, team_c, team_d, team_e};
         event.set_teams(teams);
-        event.set_results(results);  // FIXME: Negative additional points: mogą być czy nie? Bo występują w testach. Po wyjątku rzucanym w klasie zakładam że nie
+        event.set_results(results);
         event.simulate();
         std::map<Team, double> classification = event.get_classification();
 

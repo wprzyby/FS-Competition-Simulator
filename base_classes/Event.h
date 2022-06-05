@@ -44,13 +44,13 @@ class Event  // Abstract class
         void set_teams(std::vector<Team> &teams);
 
         // Default Constructor:
-        Event();
+        Event() {};
 
         // Constructor:
-        Event(std::vector<Team> teams_participating);  // FIXME: Shouldn`t we use initialization lists in all constructors?
+        Event(std::vector<Team> teams_participating): m_teams_participating(teams_participating) {}
 
         // Destructor:
-        virtual ~Event();
+        virtual ~Event() {};
 
         // Getter of map with final event unsorted classification:
         std::map<Team, double> get_classification() const;

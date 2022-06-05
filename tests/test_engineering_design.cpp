@@ -129,18 +129,6 @@ TEST_CASE("Engineering Design Event functionality")
         //
     }
 
-    // SECTION("Setting invalid results - negative points")
-    // {
-    //     results.insert({negative_points_team, negative_points_team_results});  // TODO: Zaimplementować
-    //     REQUIRE_THROWS(event.set_results(results));
-    // }
-
-    // SECTION("Setting invalid results - points over allowed max")
-    // {
-    //     results.insert({points_over_maximum_team, points_over_maximum_team_results});  // TODO: Zaimplementować
-    //     REQUIRE_THROWS(event.set_results(results));
-    // }
-
     SECTION("Getters")
     {
         CHECK(event.get_event_type() == engineering_design);
