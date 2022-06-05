@@ -1,73 +1,131 @@
-CC := g++
-CFLAGS := -g -std=c++20 -Wall
-test: catch_config.o test_acceleration.o test_autocross.o Event.o Team.o AccelerationEvent.o AutocrossEvent.o exceptions.o Event_tools.o test_businessplan.o BusinessPlanEvent.o test_cost_and_manufacturing.o\
-CostAndManufacturingEvent.o test_endurance.o EnduranceEvent.o test_engineering_design.o EngineeringDesignEvent.o test_event_functionalities.o test_skidpad.o SkidpadEvent.o test_laptimeparser.o LapTimeParser.o
-	$(CC) $(CFLAGS) $^ -o $@
 
-test_acceleration.o: ./tests/test_acceleration.cpp ./events/AccelerationEvent.h ./base_classes/Team.h constants.h exceptions.h
-	$(CC) $(CFLAGS) $^ -c
-Event.o: ./base_classes/Event.cpp ./base_classes/Event.h constants.h ./base_classes/Team.h
-	$(CC) $(CFLAGS) $^ -c
-Team.o: ./base_classes/Team.h ./base_classes/Team.cpp exceptions.h
-	$(CC) $(CFLAGS) $^ -c
-AccelerationEvent.o: ./events/AccelerationEvent.cpp ./events/AccelerationEvent.h ./base_classes/Event.h ./base_classes/Team.h constants.h exceptions.h Event_tools.h
-	$(CC) $(CFLAGS) $^ -c
-catch_config.o: ./tests/catch_config.cpp ./tests/catch.hpp
-	$(CC) $(CFLAGS) $^ -c
-exceptions.o: exceptions.h exceptions.cpp
-	$(CC) $(CFLAGS) $^ -c
-Event_tools.o: Event_tools.h Event_tools.cpp ./base_classes/Team.h constants.h
-	$(CC) $(CFLAGS) $^ -c
-test_autocross.o: ./tests/test_autocross.cpp ./events/AutocrossEvent.h ./base_classes/Team.h ./events/AutocrossEvent.h constants.h exceptions.h
-	$(CC) $(CFLAGS) $^ -c
-AutocrossEvent.o: ./events/AutocrossEvent.cpp ./events/AutocrossEvent.h ./base_classes/Event.h ./base_classes/Team.h constants.h exceptions.h Event_tools.h
-	$(CC) $(CFLAGS) $^ -c
-test_businessplan.o: ./tests/test_businessplan.cpp ./events/BusinessPlanEvent.h ./base_classes/Team.h constants.h exceptions.h
-	$(CC) $(CFLAGS) $^ -c
-BusinessPlanEvent.o: ./events/BusinessPlanEvent.cpp ./events/BusinessPlanEvent.h ./base_classes/Event.h ./base_classes/Team.h constants.h exceptions.h Event_tools.h
-	$(CC) $(CFLAGS) $^ -c
-# test_competition.o: ./tests/test_competition.cpp ./base_classes/Competition.h ./events/AutocrossEvent.h ./events/EngineeringDesignEvent.h ./base_classes/Team.h constants.h exceptions.h
-# 	$(CC) $(CFLAGS) $^ -c
-test_cost_and_manufacturing.o: ./tests/test_cost_and_manufacturing.cpp ./events/CostAndManufacturingEvent.h ./base_classes/Team.h constants.h exceptions.h
-	$(CC) $(CFLAGS) $^ -c
-CostAndManufacturingEvent.o: ./events/CostAndManufacturingEvent.cpp ./events/CostAndManufacturingEvent.h ./base_classes/Event.h ./base_classes/Team.h constants.h exceptions.h Event_tools.h
-	$(CC) $(CFLAGS) $^ -c
-test_endurance.o: ./tests/test_endurance.cpp ./events/EnduranceEvent.h ./base_classes/Team.h constants.h exceptions.h
-	$(CC) $(CFLAGS) $^ -c
-EnduranceEvent.o: ./events/EnduranceEvent.cpp ./events/EnduranceEvent.h ./base_classes/Event.h ./base_classes/Team.h constants.h exceptions.h Event_tools.h
-	$(CC) $(CFLAGS) $^ -c
-test_engineering_design.o: ./tests/test_engineering_design.cpp ./events/EngineeringDesignEvent.h ./base_classes/Team.h constants.h exceptions.h
-	$(CC) $(CFLAGS) $^ -c
-EngineeringDesignEvent.o: ./events/EngineeringDesignEvent.cpp ./events/EngineeringDesignEvent.h ./base_classes/Event.h ./base_classes/Team.h constants.h exceptions.h Event_tools.h
-	$(CC) $(CFLAGS) $^ -c
-test_event_functionalities.o: ./tests/test_event_functionalities.cpp Event_tools.h ./events/AccelerationEvent.h ./base_classes/Team.h constants.h exceptions.h
-	$(CC) $(CFLAGS) $^ -c
-test_laptimeparser.o: ./tests/test_laptimeparser.cpp ./base_classes/LapTimeParser.h
- 	$(CC) $(CFLAGS) $^ -c
-LapTimeParser.o: ./base_classes/LapTimeParser.h ./base_classes/LapTimeParser.cpp constants.h json.hpp
- 	$(CC) $(CFLAGS) $^ -c
-test_skidpad.o: ./tests/test_skidpad.cpp ./events/SkidpadEvent.h ./base_classes/Team.h constants.h exceptions.h
-	$(CC) $(CFLAGS) $^ -c
-SkidpadEvent.o: ./events/SkidpadEvent.cpp ./events/SkidpadEvent.h ./base_classes/Event.h ./base_classes/Team.h constants.h exceptions.h Event_tools.h
-	$(CC) $(CFLAGS) $^ -c
-# Competition.o: ./base_classes/Competition.h ./base_classes/Competition.cpp ./base_classes/Team.h ./base_classes/Event.h constants.h
-	$(CC) $(CFLAGS) $^ -c
+# output binary
+BIN := test
 
+# base classes directory
+BC := base_classes
+# events directory
+EV := events/
+# tests directory
+TS := tests/
+
+# source files
+SRCS := \
+    $(BC)/Competition.cpp $(BC)/Event.cpp $(BC)/LapTimeParser.cpp $(BC)/Team.cpp\
+	$(EV)/AccelerationEvent.cpp $(EV)/AutocrossEvent.cpp $(EV)/BusinessPlanEvent.cpp $(EV)/CostAndManufacturingEvent.cpp $(EV)/EnduranceEvent.cpp $(EV)/EngineeringDesignEvent.cpp $(EV)/SkidpadEvent.cpp\
+	$(TS)/test_acceleration.cpp $(TS)/test_autocross.cpp $(TS)/test_businessplan.cpp $(TS)/test_competition.cpp $(TS)/test_cost_and_manufacturing.cpp $(TS)/test_endurance.cpp $(TS)/test_engineering_design.cpp $(TS)/test_event_functionalities.cpp $(TS)/test_laptimeparser.cpp $(TS)/test_skidpad.cpp $(TS)/catch_config.cpp\
+	Event_tools.cpp exceptions.cpp
+
+# files included in the tarball generated by 'make dist' (e.g. add LICENSE file)
+DISTFILES := $(BIN)
+
+# filename of the tar archive generated by 'make dist'
+DISTOUTPUT := $(BIN).tar.gz
+
+# intermediate directory for generated object files
+OBJDIR := ./bin
+# intermediate directory for generated dependency files
+DEPDIR := ./dep
+
+# object files, auto generated from source files
+OBJS := $(patsubst %,$(OBJDIR)/%.o,$(basename $(SRCS)))
+# dependency files, auto generated from source files
+DEPS := $(patsubst %,$(DEPDIR)/%.d,$(basename $(SRCS)))
+
+# compilers (at least gcc and clang) don't create the subdirectories automatically
+$(shell mkdir -p $(dir $(OBJS)) >/dev/null)
+$(shell mkdir -p $(dir $(DEPS)) >/dev/null)
+
+# C compiler
+CC := gcc
+# C++ compiler
+CXX := g++
+# linker
+LD := g++
+# tar
+TAR := tar
+
+# C flags
+CFLAGS := -std=c11
+# C++ flags
+CXXFLAGS := -std=c++20
+# C/C++ flags
+CPPFLAGS := -g -Wall -Wextra -pedantic
+# linker flags
+LDFLAGS :=
+# linker flags: libraries to link (e.g. -lfoo)
+LDLIBS :=
+# flags required for dependency generation; passed to compilers
+DEPFLAGS = -MT $@ -MD -MP -MF $(DEPDIR)/$*.Td
+
+# compile C source files
+COMPILE.c = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c -o $@
+# compile C++ source files
+COMPILE.cc = $(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c -o $@
+# link object files to binary
+LINK.o = $(LD) $(LDFLAGS) $(LDLIBS) -o $@
+# precompile step
+PRECOMPILE =
+# postcompile step
+POSTCOMPILE = mv -f $(DEPDIR)/$*.Td $(DEPDIR)/$*.d
+
+test: $(BIN)
+
+dist: $(DISTFILES)
+	$(TAR) -cvzf $(DISTOUTPUT) $^
+
+.PHONY: clean
 clean:
-# LINUX
-	rm -f *.gch
-	rm -f *.o
-	rm -f main
-	rm -f ./tests/test
+	$(RM) -r $(OBJDIR) $(DEPDIR)
 
-# WINDOWS
-#	del -f *.gch
-#	del -f *.o
-#	cd tests && del -f *.gch
-#	cd tests && del -f *.o
-#	cd events && del -f *.gch
-#	cd events && del -f *.o
-#	cd base_classes && del -f *.gch
-#	cd base_classes && del -f *.o
-#	del -f main
-#	del -f test.exe
+.PHONY: distclean
+distclean: clean
+	$(RM) $(BIN) $(DISTOUTPUT)
+
+.PHONY: install
+install:
+	@echo no install tasks configured
+
+.PHONY: uninstall
+uninstall:
+	@echo no uninstall tasks configured
+
+.PHONY: check
+check:
+	@echo no tests configured
+
+.PHONY: help
+help:
+	@echo available targets: all dist clean distclean install uninstall check
+
+$(BIN): $(OBJS)
+	$(LINK.o) $^
+
+$(OBJDIR)/%.o: %.c
+$(OBJDIR)/%.o: %.c $(DEPDIR)/%.d
+	$(PRECOMPILE)
+	$(COMPILE.c) $<
+	$(POSTCOMPILE)
+
+$(OBJDIR)/%.o: %.cpp
+$(OBJDIR)/%.o: %.cpp $(DEPDIR)/%.d
+	$(PRECOMPILE)
+	$(COMPILE.cc) $<
+	$(POSTCOMPILE)
+
+$(OBJDIR)/%.o: %.cc
+$(OBJDIR)/%.o: %.cc $(DEPDIR)/%.d
+	$(PRECOMPILE)
+	$(COMPILE.cc) $<
+	$(POSTCOMPILE)
+
+$(OBJDIR)/%.o: %.cxx
+$(OBJDIR)/%.o: %.cxx $(DEPDIR)/%.d
+	$(PRECOMPILE)
+	$(COMPILE.cc) $<
+	$(POSTCOMPILE)
+
+.PRECIOUS: $(DEPDIR)/%.d
+$(DEPDIR)/%.d: ;
+
+-include $(DEPS)
