@@ -13,7 +13,6 @@ m_university(university), m_number(number)
         throw EmptyTeamNameError();
     }
     m_name = name;
-    m_total_points = 0;
 }
 
 
@@ -42,19 +41,6 @@ bool Team::set_number(unsigned int number)
     // currently doesn't have any number validity check, any number works
     m_number = number;
     return true;
-}
-
-
-bool Team::set_total_points(unsigned int points)
-{
-    m_total_points = points;
-    return true;
-}
-
-
-bool Team::operator>(const Team &second_arg) const
-{
-    return m_total_points > second_arg.m_total_points;
 }
 
 // operator implemented for interacting with std::map

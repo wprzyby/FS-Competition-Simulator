@@ -39,7 +39,7 @@ double LapTimeParser::parse_time(EventType event_mode, unsigned minutes, unsigne
     unsigned laptime = 0;
 
     // check for DNF written as 0s laptime
-    if(minutes == seconds == miliseconds == 0)
+    if(minutes == 0 and seconds == 0 and miliseconds == 0)
     {
         return 0;
     }
@@ -50,9 +50,9 @@ double LapTimeParser::parse_time(EventType event_mode, unsigned minutes, unsigne
     laptime += miliseconds;
 
     // check for DNF penalty - if DNF, laptime is set to 0
-    if(doo_penalty_data["dnf"].get<bool>() == true && doo_cnt > 0 ||
-       oc_penalty_data["dnf"].get<bool>() == true && oc_cnt > 0 ||
-       uss_penalty_data["dnf"].get<bool>() == true && uss_cnt > 0)
+    if((doo_penalty_data["dnf"].get<bool>() == true and doo_cnt > 0) or
+       (oc_penalty_data["dnf"].get<bool>() == true and oc_cnt > 0) or
+       (uss_penalty_data["dnf"].get<bool>() == true and uss_cnt > 0))
     {
         return 0;
     }
