@@ -1,0 +1,61 @@
+make.exe --dry-run --always-make --keep-going --print-directory
+make: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+g++ -MT bin/base_classes/Competition.o -MD -MP -MF ./dep/base_classes/Competition.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/base_classes/Competition.o base_classes/Competition.cpp
+mv -f ./dep/base_classes/Competition.Td ./dep/base_classes/Competition.d
+g++ -MT bin/base_classes/Event.o -MD -MP -MF ./dep/base_classes/Event.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/base_classes/Event.o base_classes/Event.cpp
+mv -f ./dep/base_classes/Event.Td ./dep/base_classes/Event.d
+g++ -MT bin/base_classes/LapTimeParser.o -MD -MP -MF ./dep/base_classes/LapTimeParser.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/base_classes/LapTimeParser.o base_classes/LapTimeParser.cpp
+mv -f ./dep/base_classes/LapTimeParser.Td ./dep/base_classes/LapTimeParser.d
+g++ -MT bin/base_classes/Team.o -MD -MP -MF ./dep/base_classes/Team.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/base_classes/Team.o base_classes/Team.cpp
+mv -f ./dep/base_classes/Team.Td ./dep/base_classes/Team.d
+g++ -MT bin/events//AccelerationEvent.o -MD -MP -MF ./dep/events//AccelerationEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//AccelerationEvent.o events//AccelerationEvent.cpp
+mv -f ./dep/events//AccelerationEvent.Td ./dep/events//AccelerationEvent.d
+g++ -MT bin/events//AutocrossEvent.o -MD -MP -MF ./dep/events//AutocrossEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//AutocrossEvent.o events//AutocrossEvent.cpp
+mv -f ./dep/events//AutocrossEvent.Td ./dep/events//AutocrossEvent.d
+g++ -MT bin/events//BusinessPlanEvent.o -MD -MP -MF ./dep/events//BusinessPlanEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//BusinessPlanEvent.o events//BusinessPlanEvent.cpp
+mv -f ./dep/events//BusinessPlanEvent.Td ./dep/events//BusinessPlanEvent.d
+g++ -MT bin/events//CostAndManufacturingEvent.o -MD -MP -MF ./dep/events//CostAndManufacturingEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//CostAndManufacturingEvent.o events//CostAndManufacturingEvent.cpp
+mv -f ./dep/events//CostAndManufacturingEvent.Td ./dep/events//CostAndManufacturingEvent.d
+g++ -MT bin/events//EnduranceEvent.o -MD -MP -MF ./dep/events//EnduranceEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//EnduranceEvent.o events//EnduranceEvent.cpp
+mv -f ./dep/events//EnduranceEvent.Td ./dep/events//EnduranceEvent.d
+g++ -MT bin/events//EngineeringDesignEvent.o -MD -MP -MF ./dep/events//EngineeringDesignEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//EngineeringDesignEvent.o events//EngineeringDesignEvent.cpp
+mv -f ./dep/events//EngineeringDesignEvent.Td ./dep/events//EngineeringDesignEvent.d
+g++ -MT bin/events//SkidpadEvent.o -MD -MP -MF ./dep/events//SkidpadEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//SkidpadEvent.o events//SkidpadEvent.cpp
+mv -f ./dep/events//SkidpadEvent.Td ./dep/events//SkidpadEvent.d
+g++ -MT bin/tests//test_acceleration.o -MD -MP -MF ./dep/tests//test_acceleration.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_acceleration.o tests//test_acceleration.cpp
+mv -f ./dep/tests//test_acceleration.Td ./dep/tests//test_acceleration.d
+g++ -MT bin/tests//test_autocross.o -MD -MP -MF ./dep/tests//test_autocross.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_autocross.o tests//test_autocross.cpp
+mv -f ./dep/tests//test_autocross.Td ./dep/tests//test_autocross.d
+g++ -MT bin/tests//test_businessplan.o -MD -MP -MF ./dep/tests//test_businessplan.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_businessplan.o tests//test_businessplan.cpp
+mv -f ./dep/tests//test_businessplan.Td ./dep/tests//test_businessplan.d
+g++ -MT bin/tests//test_competition.o -MD -MP -MF ./dep/tests//test_competition.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_competition.o tests//test_competition.cpp
+mv -f ./dep/tests//test_competition.Td ./dep/tests//test_competition.d
+g++ -MT bin/tests//test_cost_and_manufacturing.o -MD -MP -MF ./dep/tests//test_cost_and_manufacturing.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_cost_and_manufacturing.o tests//test_cost_and_manufacturing.cpp
+mv -f ./dep/tests//test_cost_and_manufacturing.Td ./dep/tests//test_cost_and_manufacturing.d
+g++ -MT bin/tests//test_endurance.o -MD -MP -MF ./dep/tests//test_endurance.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_endurance.o tests//test_endurance.cpp
+mv -f ./dep/tests//test_endurance.Td ./dep/tests//test_endurance.d
+g++ -MT bin/tests//test_engineering_design.o -MD -MP -MF ./dep/tests//test_engineering_design.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_engineering_design.o tests//test_engineering_design.cpp
+mv -f ./dep/tests//test_engineering_design.Td ./dep/tests//test_engineering_design.d
+g++ -MT bin/tests//test_event_functionalities.o -MD -MP -MF ./dep/tests//test_event_functionalities.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_event_functionalities.o tests//test_event_functionalities.cpp
+mv -f ./dep/tests//test_event_functionalities.Td ./dep/tests//test_event_functionalities.d
+g++ -MT bin/tests//test_laptimeparser.o -MD -MP -MF ./dep/tests//test_laptimeparser.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_laptimeparser.o tests//test_laptimeparser.cpp
+mv -f ./dep/tests//test_laptimeparser.Td ./dep/tests//test_laptimeparser.d
+g++ -MT bin/tests//test_skidpad.o -MD -MP -MF ./dep/tests//test_skidpad.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_skidpad.o tests//test_skidpad.cpp
+mv -f ./dep/tests//test_skidpad.Td ./dep/tests//test_skidpad.d
+g++ -MT bin/tests//catch_config.o -MD -MP -MF ./dep/tests//catch_config.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//catch_config.o tests//catch_config.cpp
+mv -f ./dep/tests//catch_config.Td ./dep/tests//catch_config.d
+g++ -MT bin/Event_tools.o -MD -MP -MF ./dep/Event_tools.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/Event_tools.o Event_tools.cpp
+mv -f ./dep/Event_tools.Td ./dep/Event_tools.d
+g++ -MT bin/exceptions.o -MD -MP -MF ./dep/exceptions.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/exceptions.o exceptions.cpp
+mv -f ./dep/exceptions.Td ./dep/exceptions.d
+g++ -MT bin/json_config.o -MD -MP -MF ./dep/json_config.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/json_config.o json_config.cpp
+mv -f ./dep/json_config.Td ./dep/json_config.d
+g++ -MT bin/enums//enums.o -MD -MP -MF ./dep/enums//enums.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/enums//enums.o enums//enums.cpp
+mv -f ./dep/enums//enums.Td ./dep/enums//enums.d
+g++   -o test bin/base_classes/Competition.o bin/base_classes/Event.o bin/base_classes/LapTimeParser.o bin/base_classes/Team.o bin/events//AccelerationEvent.o bin/events//AutocrossEvent.o bin/events//BusinessPlanEvent.o bin/events//CostAndManufacturingEvent.o bin/events//EnduranceEvent.o bin/events//EngineeringDesignEvent.o bin/events//SkidpadEvent.o bin/tests//test_acceleration.o bin/tests//test_autocross.o bin/tests//test_businessplan.o bin/tests//test_competition.o bin/tests//test_cost_and_manufacturing.o bin/tests//test_endurance.o bin/tests//test_engineering_design.o bin/tests//test_event_functionalities.o bin/tests//test_laptimeparser.o bin/tests//test_skidpad.o bin/tests//catch_config.o bin/Event_tools.o bin/exceptions.o bin/json_config.o bin/enums//enums.o
+make: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+ 
+System nie mo�e odnale�� okre�lonej �cie�ki.
+System nie mo�e odnale�� okre�lonej �cie�ki.
+make: Circular test <- test dependency dropped.
+
