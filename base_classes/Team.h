@@ -28,9 +28,11 @@ class Team
     bool set_number(unsigned number);
     bool set_total_points(unsigned points);
 
+    // Overloaded operators
     bool operator<(const Team &second_arg) const;
     bool operator==(const Team& second_argument) const;
-
+    friend std::ostream& operator<<(std::ostream& os, const Team& team);
+    //
 
 };
 
