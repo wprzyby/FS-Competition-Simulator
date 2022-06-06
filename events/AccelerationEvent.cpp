@@ -36,17 +36,19 @@ void AccelerationEvent::calculate_teams_points()
     }
 
     double best_time_overall = find_best_time_overall(teams_and_best_times);  // Finding the best time overall
+    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
 
     for (auto& [team, team_best_time]: teams_and_best_times)
     {
         double team_final_score;
+
         if (team_best_time == 0)
         {
             team_final_score = 0;  // Case od DNF or DSQ
         }
         else if (team_best_time < 1.5*best_time_overall)
         {
-            team_final_score = 3.5 + get_additional_points(best_time_overall, team_best_time);  // Calculating teams` final score.
+            team_final_score = base_points + get_additional_points(best_time_overall, team_best_time);  // Calculating teams` final score.
         }
         else
         {

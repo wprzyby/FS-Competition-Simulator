@@ -53,4 +53,8 @@ const std::map<EventType, std::vector<EventsCategories>> category_lists = {{acce
                                                                             {engineering_design, EngDesEveCat},
                                                                             {skidpad, SkidEveCat}};
 
+const std::map<EventType, double> BASE_COMPLETION_POINTS = {{acceleration, 3.5},
+                                                            {autocross, 4.5},
+                                                            {endurance, 25},
+                                                            {skidpad, 3.5}};
 #endif
