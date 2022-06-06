@@ -23,10 +23,9 @@ class Team
 
     // setters:
     // (boolean returns to communicate whether the setter succeeded or failed)
-    bool set_name(std::string name);
-    bool set_university(std::string university);
-    bool set_number(unsigned number);
-    bool set_total_points(unsigned points);
+    void set_name(std::string name);
+    void set_university(std::string university);
+    void set_number(unsigned number);
 
     bool operator<(const Team &second_arg) const;
     bool operator==(const Team& second_argument) const;

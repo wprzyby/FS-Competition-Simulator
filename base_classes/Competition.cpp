@@ -12,23 +12,20 @@
 #include "../enums/enums.h"
 
 
-// TODO: zmienić boole na voidy
-// TODO: zmienić ten konstruktor żeby brał drużyny i/lub eventy
-Competition::Competition()
+Competition::Competition(std::vector<Team> &teams, std::vector<std::unique_ptr<Event>> events)
 {
-    m_teams = {};
-    m_events_points = {};
+    set_teams(teams);
+    set_events(std::move(events));
 }
 
 
-bool Competition::set_events(std::vector<std::unique_ptr<Event>> events)
+void Competition::set_events(std::vector<std::unique_ptr<Event>> events)
 {
     m_events = std::move(events);
-    return true;
 }
 
 
-bool Competition::set_teams(std::vector<Team> teams)
+void Competition::set_teams(std::vector<Team> &teams)
 {
     // Checking if all teams are unique
     for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
@@ -43,7 +40,6 @@ bool Competition::set_teams(std::vector<Team> teams)
     }
 
     m_teams = teams;
-    return true;
 }
 
 
