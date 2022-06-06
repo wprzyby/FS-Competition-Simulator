@@ -4,10 +4,12 @@
 
 
 #include "Competition.h"
-#include "../constants.h"
 #include "Team.h"
-#include "../exceptions.h"
+
 #include "../Event_tools.h"
+#include "../constants.h"
+#include "../exceptions.h"
+#include "../enums/enums.h"
 
 
 // TODO: zmienić boole na voidy

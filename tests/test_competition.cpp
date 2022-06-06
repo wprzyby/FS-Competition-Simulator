@@ -1,9 +1,11 @@
-#include "catch.hpp"
 #include "../base_classes/Event.h"
 #include "../base_classes/Team.h"
 #include "../base_classes/Competition.h"
 #include "../events/AutocrossEvent.h"
 #include "../events/EngineeringDesignEvent.h"
+
+#include "catch.hpp"
+#include "../enums/enums.h"
 
 #include <map>
 #include <memory>

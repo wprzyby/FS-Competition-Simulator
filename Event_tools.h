@@ -5,6 +5,7 @@
 #include <iostream>
 #include "base_classes/Team.h"
 #include "constants.h"
+#include "enums/enums.h"
 
 
 double find_max(const double number1, const double number2);

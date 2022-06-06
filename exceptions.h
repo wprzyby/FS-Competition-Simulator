@@ -4,6 +4,7 @@
 
 #include <stdexcept>
 #include "constants.h"
+#include "enums/enums.h"
 
 
 class EmptyTeamNameError: public std::invalid_argument
@@ -45,6 +46,13 @@ class DuplicateTeamError: public std::invalid_argument
 {
     public:
         DuplicateTeamError();
+};
+
+
+class InvalidModeError: public std::invalid_argument
+{
+    public:
+        InvalidModeError();
 };
 
 

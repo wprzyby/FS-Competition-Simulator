@@ -1,8 +1,10 @@
 #ifndef SKIDPAD_EVENT_H
 #define SKIDPAD_EVENT_H
+
 #include <map>
 #include <vector>
 #include <iostream>
+
 #include "../base_classes/Team.h"
 #include "../base_classes/Event.h"
 

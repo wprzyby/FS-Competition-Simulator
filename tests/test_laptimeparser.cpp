@@ -1,5 +1,7 @@
-#include "catch.hpp"
 #include "../base_classes/LapTimeParser.h"
+
+#include "catch.hpp"
+#include "../enums/enums.h"
 
 /*
 PENALTIES USED IN TESTS ARE FROM FORMULA STUDENT RULES 2022

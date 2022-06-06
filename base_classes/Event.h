@@ -3,8 +3,12 @@
 #include <map>
 #include <iostream>
 #include <vector>
-#include "../constants.h"
+
 #include "Team.h"
+
+#include "../constants.h"
+#include "../enums/enums.h"
+
 
 
 class Event  // Abstract class

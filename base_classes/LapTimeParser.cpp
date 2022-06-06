@@ -2,10 +2,13 @@
 #include <fstream>
 
 #include "LapTimeParser.h"
+
 #include "../json.hpp"
 #include "../constants.h"
+#include "../exceptions.h"
+#include "../enums/enums.h"
 
-LapTimeParser::LapTimeParser(LaptimeMode mode)
+LapTimeParser::LapTimeParser(LapTimeMode mode)
 {
     load_json_data(DEF_PENALTY_DATA_FILE_PATH);
     m_mode = mode;
@@ -13,7 +16,7 @@ LapTimeParser::LapTimeParser(LaptimeMode mode)
 }
 
 
-LapTimeParser::LapTimeParser(std::string config_path, LaptimeMode mode)
+LapTimeParser::LapTimeParser(std::string config_path, LapTimeMode mode)
 {
     load_json_data(config_path);
     m_mode = mode;
@@ -81,11 +84,14 @@ double LapTimeParser::format_time(unsigned time) const
         case ms:
             ret_val = time;
             break;
+        // selecting value out of scope
+        case LapTimeModeTotalCount:
+            throw InvalidModeError();
     }
     return ret_val;
 }
 
-void LapTimeParser::set_mode(LaptimeMode mode)
+void LapTimeParser::set_mode(LapTimeMode mode)
 {
     m_mode = mode;
 }
