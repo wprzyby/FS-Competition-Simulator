@@ -15,7 +15,7 @@
 EnduranceEvent::EnduranceEvent(bool run_efficiency)
 {
     m_event_type = endurance;
-    m_event_categories = category_lists.at(endurance);
+    m_event_categories = CATEGORY_LISTS.at(endurance);
     m_run_efficiency = run_efficiency;
 }
 
@@ -23,7 +23,7 @@ EnduranceEvent::EnduranceEvent(std::vector<Team> &teams, bool run_efficiency)
 {
     m_teams_participating = teams;
     m_event_type = endurance;
-    m_event_categories = category_lists.at(endurance);
+    m_event_categories = CATEGORY_LISTS.at(endurance);
     m_run_efficiency = run_efficiency;
 }
 
@@ -46,7 +46,7 @@ void EnduranceEvent::calculate_teams_points()
     }
 
     double best_time_overall = find_best_time_overall(teams_and_corr_times);
-    double base_points = 25;
+    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
 
     // calculating points for each team from the endurance part of the event
     for(auto& [team, team_time]: teams_and_corr_times)

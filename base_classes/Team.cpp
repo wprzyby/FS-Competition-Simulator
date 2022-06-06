@@ -1,46 +1,40 @@
 #include <iostream>
+#include <stdexcept>
 
 #include "Team.h"
 
 #include "../exceptions.h"
 
 
-Team::Team(const std::string name, const std::string university, const unsigned number) :
-m_university(university), m_number(number)
+Team::Team(const std::string name, const std::string university, const unsigned number) : m_number(number)
 {
-    if (name.empty())
-    {
-        throw EmptyTeamNameError();
-    }
+    set_name(name);
+    set_university(university);
+}
+
+
+void Team::set_name(std::string name)
+{
+    // check for empty string
+    if (name.empty()) {throw EmptyNameError("team");}
+
     m_name = name;
 }
 
 
-bool Team::set_name(std::string name)
+void Team::set_university(std::string university)
 {
     // check for empty string
-    if (name.empty()) {return false;}
-
-    m_name = name;
-    return true;
-}
-
-
-bool Team::set_university(std::string university)
-{
-    // check for empty string
-    if (university.empty()) {return false;}
+    if (university.empty()) {throw EmptyNameError("university");}
 
     m_university = university;
-    return true;
 }
 
 
-bool Team::set_number(unsigned int number)
+void Team::set_number(unsigned int number)
 {
     // currently doesn't have any number validity check, any number works
     m_number = number;
-    return true;
 }
 
 // operator implemented for interacting with std::map
@@ -56,10 +50,8 @@ bool Team::operator==(const Team& second_argument) const
     else {return false;}
 }
 
-// Operator for Team introduction (printing pourposes)
 std::ostream& operator<<(std::ostream& os, const Team& team)
 {
-    os << team.get_university() << ":" << team.get_name() << ", car no. " << team.get_number();
+    os << team.m_name << " (" << team.m_number << ", " << team.m_university<< ") ";
     return os;
 }
-//

@@ -13,7 +13,7 @@
 
 TEST_CASE("Competition basic functionality - using Autocross and EngineeringDesign Events")
 {
-    Competition competition;
+
 
     std::unique_ptr<Event>  autocross_event = std::make_unique<AutocrossEvent>();
     std::unique_ptr<Event> design_event = std::make_unique<EngineeringDesignEvent>();
@@ -24,7 +24,7 @@ TEST_CASE("Competition basic functionality - using Autocross and EngineeringDesi
     Team team_c("c", "univC", 3);
     std::vector<Team> teams = {team_a, team_b, team_c};
 
-    competition.set_teams(teams);
+    // competition.set_teams(teams);
     autocross_event->set_teams(teams);
     design_event->set_teams(teams);
 
@@ -102,7 +102,8 @@ TEST_CASE("Competition basic functionality - using Autocross and EngineeringDesi
     events.push_back(std::move(autocross_event));
     events.push_back(std::move(design_event));
 
-    competition.set_events(std::move(events));
+    // competition.set_events(std::move(events));
+    Competition competition(teams, std::move(events));
     competition.create_classification();
 
     SECTION("Checking validity of competition results")

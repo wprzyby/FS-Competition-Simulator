@@ -16,13 +16,13 @@ SkidpadEvent::SkidpadEvent(std::vector<Team> &teams)
 {
     m_teams_participating = teams;
     m_event_type = skidpad;
-    m_event_categories = category_lists.at(skidpad);
+    m_event_categories = CATEGORY_LISTS.at(skidpad);
 }
 
 SkidpadEvent::SkidpadEvent()
 {
     m_event_type = skidpad;
-    m_event_categories = category_lists.at(skidpad);
+    m_event_categories = CATEGORY_LISTS.at(skidpad);
 }
 
 
@@ -45,6 +45,7 @@ void SkidpadEvent::calculate_teams_points()
     }
 
     double best_time_overall = find_best_time_overall(teams_and_best_times);  // Finding the best time overall
+    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
 
     for (auto& [team, team_best_time]: teams_and_best_times)
     {
@@ -55,11 +56,11 @@ void SkidpadEvent::calculate_teams_points()
         }
         else if (team_best_time < 1.5*best_time_overall)  // Calculating every team score if time < 1.5 times best time
         {
-            team_final_score = 3.5 + get_additional_points(best_time_overall, team_best_time);
+            team_final_score = base_points + get_additional_points(best_time_overall, team_best_time);
         }
         else  // Team score if time >= 1.5 best time
         {
-            team_final_score = 3.5;
+            team_final_score = base_points;
         }
         m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
     }

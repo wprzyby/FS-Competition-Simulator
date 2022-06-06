@@ -14,14 +14,14 @@
 AutocrossEvent::AutocrossEvent()
 {
     m_event_type = autocross;
-    m_event_categories = category_lists.at(autocross);
+    m_event_categories = CATEGORY_LISTS.at(autocross);
 }
 
 AutocrossEvent::AutocrossEvent(std::vector<Team> &teams)
 {
     m_teams_participating = teams;
     m_event_type = autocross;
-    m_event_categories = category_lists.at(autocross);
+    m_event_categories = CATEGORY_LISTS.at(autocross);
 }
 
 
@@ -36,12 +36,12 @@ void AutocrossEvent::calculate_teams_points()
     }
 
     double best_time_overall = find_best_time_overall(teams_and_best_times);
-    // TODO: wziąć to z constants.h i jeśli się powtarza w innych eventach to też
-    double base_points = 4.5;
+    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
 
     for(auto& [team, team_best_time]: teams_and_best_times)
     {
         double team_final_score;
+
         if(team_best_time <= 0)
         {
             team_final_score = 0;

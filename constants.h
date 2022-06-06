@@ -55,7 +55,7 @@ const std::vector<EventsCategories> AutEveCat = {first_aut_time, second_aut_time
 // Categories for EnduranceEvent
 const std::vector<EventsCategories> EndEveCat = {end_corrected_time, end_uncorrected_time, energy_used, energy_produced};
 
-const std::map<EventType, std::vector<EventsCategories>> category_lists = {{acceleration, AccEveCat},
+const std::map<EventType, std::vector<EventsCategories>> CATEGORY_LISTS = {{acceleration, AccEveCat},
                                                                             {autocross, AutEveCat},
                                                                             {businessplan, BuiPlaEveCat},
                                                                             {cost_and_manufacturing, CosAndManEveCat},
@@ -63,6 +63,13 @@ const std::map<EventType, std::vector<EventsCategories>> category_lists = {{acce
                                                                             {engineering_design, EngDesEveCat},
                                                                             {skidpad, SkidEveCat}};
 
-const std::string DEFAULT_SAVE_FILE_PATH = "./text_files/simulations.txt";
+const std::map<EventType, double> BASE_COMPLETION_POINTS = {{acceleration, 3.5},
+                                                            {autocross, 4.5},
+                                                            {endurance, 25},
+                                                            {skidpad, 3.5}};
+
+const std::vector<EventsCategories> TIMED_CATEGORIES = {first_left_time, first_right_time, second_left_time, second_right_time, first_acc_time,
+                                                        second_acc_time, first_aut_time, second_aut_time, third_aut_time, fourth_aut_time,
+                                                        end_corrected_time, end_uncorrected_time, skid_first_time, skid_second_time};
 
 #endif

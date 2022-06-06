@@ -16,14 +16,14 @@ CostAndManufacturingEvent::CostAndManufacturingEvent(std::vector<Team> &teams, i
 {
     m_teams_participating = teams;
     m_event_type = cost_and_manufacturing;
-    m_event_categories = category_lists.at(cost_and_manufacturing);
+    m_event_categories = CATEGORY_LISTS.at(cost_and_manufacturing);
     m_finalists = finalists;
     m_points_to_set = points_to_set;
 }
 CostAndManufacturingEvent::CostAndManufacturingEvent()
 {
     m_event_type = cost_and_manufacturing;
-    m_event_categories = category_lists.at(cost_and_manufacturing);
+    m_event_categories = CATEGORY_LISTS.at(cost_and_manufacturing);
 }
 
 

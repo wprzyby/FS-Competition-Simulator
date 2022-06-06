@@ -4,8 +4,8 @@
 #include <stdexcept>
 
 
-EmptyTeamNameError::EmptyTeamNameError():
-    std::invalid_argument("Tried to create team with empty name") {}
+EmptyNameError::EmptyNameError(std::string name_of_attribute):
+    std::invalid_argument("Tried to create " + name_of_attribute + " with empty name") {}
 
 
 NoSuchCategoryInTheEventError::NoSuchCategoryInTheEventError(const EventsCategories category):

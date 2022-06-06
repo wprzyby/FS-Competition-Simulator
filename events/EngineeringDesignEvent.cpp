@@ -15,13 +15,13 @@ EngineeringDesignEvent::EngineeringDesignEvent(std::vector<Team> &teams)
 {
     m_teams_participating = teams;
     m_event_type = engineering_design;
-    m_event_categories = category_lists.at(engineering_design);
+    m_event_categories = CATEGORY_LISTS.at(engineering_design);
 }
 
 EngineeringDesignEvent::EngineeringDesignEvent()
 {
     m_event_type = engineering_design;
-    m_event_categories = category_lists.at(engineering_design);
+    m_event_categories = CATEGORY_LISTS.at(engineering_design);
 }
 
 
