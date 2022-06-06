@@ -16,13 +16,13 @@ SkidpadEvent::SkidpadEvent(std::vector<Team> &teams)
 {
     m_teams_participating = teams;
     m_event_type = skidpad;
-    m_event_categories = category_lists.at(skidpad);
+    m_event_categories = CATEGORY_LISTS.at(skidpad);
 }
 
 SkidpadEvent::SkidpadEvent()
 {
     m_event_type = skidpad;
-    m_event_categories = category_lists.at(skidpad);
+    m_event_categories = CATEGORY_LISTS.at(skidpad);
 }
 
 

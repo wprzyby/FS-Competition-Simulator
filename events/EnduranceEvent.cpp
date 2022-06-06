@@ -15,7 +15,7 @@
 EnduranceEvent::EnduranceEvent(bool run_efficiency)
 {
     m_event_type = endurance;
-    m_event_categories = category_lists.at(endurance);
+    m_event_categories = CATEGORY_LISTS.at(endurance);
     m_run_efficiency = run_efficiency;
 }
 
@@ -23,7 +23,7 @@ EnduranceEvent::EnduranceEvent(std::vector<Team> &teams, bool run_efficiency)
 {
     m_teams_participating = teams;
     m_event_type = endurance;
-    m_event_categories = category_lists.at(endurance);
+    m_event_categories = CATEGORY_LISTS.at(endurance);
     m_run_efficiency = run_efficiency;
 }
 

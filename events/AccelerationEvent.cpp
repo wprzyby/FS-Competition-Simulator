@@ -16,13 +16,13 @@ AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
 {
     m_teams_participating = teams;
     m_event_type = acceleration;
-    m_event_categories = category_lists.at(acceleration);
+    m_event_categories = CATEGORY_LISTS.at(acceleration);
 }
 
 AccelerationEvent::AccelerationEvent()
 {
     m_event_type = acceleration;
-    m_event_categories = category_lists.at(acceleration);
+    m_event_categories = CATEGORY_LISTS.at(acceleration);
 }
 
 

@@ -14,14 +14,14 @@
 AutocrossEvent::AutocrossEvent()
 {
     m_event_type = autocross;
-    m_event_categories = category_lists.at(autocross);
+    m_event_categories = CATEGORY_LISTS.at(autocross);
 }
 
 AutocrossEvent::AutocrossEvent(std::vector<Team> &teams)
 {
     m_teams_participating = teams;
     m_event_type = autocross;
-    m_event_categories = category_lists.at(autocross);
+    m_event_categories = CATEGORY_LISTS.at(autocross);
 }
 
 

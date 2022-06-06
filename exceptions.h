@@ -7,10 +7,10 @@
 #include "enums/enums.h"
 
 
-class EmptyTeamNameError: public std::invalid_argument
+class EmptyNameError: public std::invalid_argument
 {
     public:
-        EmptyTeamNameError();
+        EmptyNameError(std::string name_of_attribute);
 };
 
 

@@ -16,7 +16,7 @@ BusinessPlanEvent::BusinessPlanEvent(std::vector<Team> &teams, int finalists, st
 {
     m_teams_participating = teams;
     m_event_type = businessplan;
-    m_event_categories = category_lists.at(businessplan);
+    m_event_categories = CATEGORY_LISTS.at(businessplan);
     m_finalists = finalists;
     m_points_to_set = points_to_set;
 }
@@ -24,7 +24,7 @@ BusinessPlanEvent::BusinessPlanEvent(std::vector<Team> &teams, int finalists, st
 BusinessPlanEvent::BusinessPlanEvent()
 {
     m_event_type = businessplan;
-    m_event_categories = category_lists.at(businessplan);
+    m_event_categories = CATEGORY_LISTS.at(businessplan);
 }
 
 void BusinessPlanEvent::calculate_teams_points()
