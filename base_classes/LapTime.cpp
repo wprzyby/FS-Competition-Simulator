@@ -1,6 +1,6 @@
 #include <iostream>
-#include "LapTime.h"
 
+#include "LapTime.h"
 
 LapTime::LapTime(){};
 LapTime::~LapTime(){};

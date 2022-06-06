@@ -1,7 +1,7 @@
 #include <iostream>
 
-
 #include "Team.h"
+
 #include "../exceptions.h"
 
 

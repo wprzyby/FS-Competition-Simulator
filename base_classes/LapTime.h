@@ -1,9 +1,7 @@
 #ifndef LAPTIME_H
 #define LAPTIME_H
 
-
 #include <iostream>
-
 
 class LapTime  // LapTime is a special class that represents a lap time of a team in an event.
 {

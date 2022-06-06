@@ -2,13 +2,15 @@
 #include <vector>
 #include <map>
 
-#include "catch.hpp"
 #include "../base_classes/Team.h"
 #include "../events/AccelerationEvent.h"
-#include "../Event_tools.h"
 
+
+#include "catch.hpp"
+#include "../Event_tools.h"
 #include "../exceptions.h"
 #include "../constants.h"
+#include "../enums/enums.h"
 
 
 

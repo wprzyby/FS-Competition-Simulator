@@ -2,11 +2,13 @@
 #include <vector>
 #include <map>
 
-#include "catch.hpp"
 #include "../events/BusinessPlanEvent.h"
 #include "../base_classes/Team.h"
+
+#include "catch.hpp"
 #include "../exceptions.h"
 #include "../constants.h"
+#include "../enums/enums.h"
 
 
 TEST_CASE("BusinessPlanEvent tests.")
@@ -24,7 +26,7 @@ TEST_CASE("BusinessPlanEvent tests.")
     bus_team_a_results.insert({content, 17});
     bus_team_a_results.insert({finances, 7});
     bus_team_a_results.insert({deep_dive_topic, 10});
-    bus_team_a_results.insert({demontration_and_structure, 13});
+    bus_team_a_results.insert({demonstration_and_structure, 13});
     bus_team_a_results.insert({delivery, 10});
     bus_team_a_results.insert({questions, 10});
     bus_team_a_results.insert({general_impression, 5});
@@ -34,7 +36,7 @@ TEST_CASE("BusinessPlanEvent tests.")
     bus_team_b_results.insert({content, 19});
     bus_team_b_results.insert({finances, 10});
     bus_team_b_results.insert({deep_dive_topic, 10});
-    bus_team_b_results.insert({demontration_and_structure, 14});
+    bus_team_b_results.insert({demonstration_and_structure, 14});
     bus_team_b_results.insert({delivery, 8});
     bus_team_b_results.insert({questions, 8});
     bus_team_b_results.insert({general_impression, 4});
@@ -44,7 +46,7 @@ TEST_CASE("BusinessPlanEvent tests.")
     bus_team_c_results.insert({content, 12});
     bus_team_c_results.insert({finances, 8});
     bus_team_c_results.insert({deep_dive_topic, 6});
-    bus_team_c_results.insert({demontration_and_structure, 12});
+    bus_team_c_results.insert({demonstration_and_structure, 12});
     bus_team_c_results.insert({delivery, 7});
     bus_team_c_results.insert({questions, 7});
     bus_team_c_results.insert({general_impression, 3});

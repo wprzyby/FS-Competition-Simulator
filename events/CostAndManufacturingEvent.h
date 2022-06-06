@@ -1,8 +1,10 @@
 #ifndef COST_AND_MANUFACTURING_EVENT_H
 #define COST_AND_MANUFACTURING_EVENT_H
+
 #include <map>
 #include <vector>
 #include <iostream>
+
 #include "../base_classes/Team.h"
 #include "../base_classes/Event.h"
 

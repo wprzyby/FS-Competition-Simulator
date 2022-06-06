@@ -6,9 +6,11 @@
 #include <memory>
 #include <map>
 
-#include "../constants.h"
 #include "Team.h"
 #include "Event.h"
+
+#include "../constants.h"
+#include "../enums/enums.h"
 
 class Competition
 {

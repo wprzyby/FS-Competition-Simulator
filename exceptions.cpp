@@ -1,5 +1,6 @@
 #include "exceptions.h"
 #include "constants.h"
+#include "enums/enums.h"
 #include <stdexcept>
 
 
@@ -7,9 +8,8 @@ EmptyTeamNameError::EmptyTeamNameError():
     std::invalid_argument("Tried to create team with empty name") {}
 
 
-// TODO: printing nazwy kategorii
 NoSuchCategoryInTheEventError::NoSuchCategoryInTheEventError(const EventsCategories category):
-    std::invalid_argument("Among categories in the Event, there is no such categoty: ") {}
+    std::invalid_argument("Among categories in the Event, there is no such categoty as: " + static_cast<std::string>(events_str[category])) {}
 
 
 UnmatchedNumberOfFinalistsError::UnmatchedNumberOfFinalistsError():
@@ -25,4 +25,8 @@ NegativeAmountOfFinalitsError::NegativeAmountOfFinalitsError():
 
 
 DuplicateTeamError::DuplicateTeamError():
-    std::invalid_argument("Found two the same teams (same id, name and univeristy).") {}
+    std::invalid_argument("Found two teams with the same name/university/ID") {}
+
+
+InvalidModeError::InvalidModeError():
+    std::invalid_argument("Invalid operation mode was selected") {}
