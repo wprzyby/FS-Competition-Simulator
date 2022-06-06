@@ -5,4 +5,3 @@ To do globally:
 4. GUI and info files
 5. Other calculators
 6. Saving state of the programme to file
-7. 
