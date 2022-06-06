@@ -52,6 +52,6 @@ bool Team::operator==(const Team& second_argument) const
 
 std::ostream& operator<<(std::ostream& os, const Team& team)
 {
-    os << team.m_name << " (" << team.m_number << ", " << team.m_university<< ") ";
+    os << team.m_name << " (" << team.m_number << ", " << team.m_university<< ")";
     return os;
 }

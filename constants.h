@@ -44,7 +44,7 @@ const std::vector<EventsCategories> CosAndManEveCat = {format_and_accuracy_of_do
 const std::vector<EventsCategories> EngDesEveCat = {overall_vehicle_concept, vehicle_performance, mechanical_structural_engineering, tractive_system, electronics, driver_interface, autonomous_functionality, design_report};
 
 // Categories for SkidpadEvent
-const std::vector<EventsCategories> SkidEveCat = {first_left_time, first_right_time, second_left_time, second_right_time, skid_first_time, skid_second_time};
+const std::vector<EventsCategories> SkidEveCat = {first_left_time, first_right_time, second_left_time, second_right_time};
 
 // Categories for AccelerationEvent
 const std::vector<EventsCategories> AccEveCat = {first_acc_time, second_acc_time};
@@ -70,6 +70,8 @@ const std::map<EventType, double> BASE_COMPLETION_POINTS = {{acceleration, 3.5},
 
 const std::vector<EventsCategories> TIMED_CATEGORIES = {first_left_time, first_right_time, second_left_time, second_right_time, first_acc_time,
                                                         second_acc_time, first_aut_time, second_aut_time, third_aut_time, fourth_aut_time,
-                                                        end_corrected_time, end_uncorrected_time, skid_first_time, skid_second_time};
+                                                        end_corrected_time, end_uncorrected_time};
+
+const std::string DEFAULT_SAVE_FILE_PATH = "./text_files/simulations.txt";
 
 #endif

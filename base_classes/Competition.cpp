@@ -53,6 +53,7 @@ void Competition::simulate()
         EventType type = event_ptr->get_event_type();
 
         m_events_points[type] = event_classification;
+        m_final_events_classification[type] = event_ptr->get_sorted_classification();
     }
 }
 

@@ -7,21 +7,21 @@
 #include <memory>
 #include <stdexcept>
 
-#include "constants.h"
-#include "enums/enums.h"
+#include "../constants.h"
+#include "../enums/enums.h"
 #include "ui_tools.h"
-#include "base_classes/Competition.h"
-#include "base_classes/Event.h"
-#include "base_classes/LapTimeParser.h"
-#include "base_classes/Team.h"
+#include "../base_classes/Competition.h"
+#include "../base_classes/Event.h"
+#include "../base_classes/LapTimeParser.h"
+#include "../base_classes/Team.h"
 
-#include "events/AccelerationEvent.h"
-#include "events/AutocrossEvent.h"
-#include "events/BusinessPlanEvent.h"
-#include "events/CostAndManufacturingEvent.h"
-#include "events/EnduranceEvent.h"
-#include "events/EngineeringDesignEvent.h"
-#include "events/SkidpadEvent.h"
+#include "../events/AccelerationEvent.h"
+#include "../events/AutocrossEvent.h"
+#include "../events/BusinessPlanEvent.h"
+#include "../events/CostAndManufacturingEvent.h"
+#include "../events/EnduranceEvent.h"
+#include "../events/EngineeringDesignEvent.h"
+#include "../events/SkidpadEvent.h"
 
 
 std::vector<Team> input_teams()
@@ -116,7 +116,7 @@ std::map<Team, std::map<EventsCategories, double>> input_event_results(EventType
         for(auto category: categories)
         {
             double input_value = 0;
-            std::cout<< '\n' <<  category << ": \n";
+            std::cout<< '\n' <<  category << ":";
             auto find_result = std::find(std::begin(TIMED_CATEGORIES), std::end(TIMED_CATEGORIES), category);
             if (find_result != std::end(TIMED_CATEGORIES))
             {
@@ -126,7 +126,7 @@ std::map<Team, std::map<EventsCategories, double>> input_event_results(EventType
                 unsigned number_of_doo = 0;
                 unsigned number_of_oc = 0;
                 unsigned number_of_uss = 0;
-                std::cout<< "Minutes: ";
+                std::cout<< "\nMinutes: ";
                 std::cin>> minutes;
                 std::cout<< "Seconds: ";
                 std::cin>> seconds;
@@ -140,7 +140,10 @@ std::map<Team, std::map<EventsCategories, double>> input_event_results(EventType
                 std::cin>> number_of_uss;
                 input_value = parser.parse_time(type, minutes, seconds, miliseconds, number_of_doo, number_of_oc, number_of_uss);
             }
-            else {std::cin>> input_value;}
+            else
+            {
+                std::cin>> input_value;
+            }
 
             single_team_results.insert({category, input_value});
         }

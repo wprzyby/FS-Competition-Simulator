@@ -3,17 +3,18 @@
 #include <memory>
 #include <vector>
 
-#include "base_classes/Competition.h"
-#include "base_classes/Event.h"
-#include "base_classes/LapTimeParser.h"
-#include "base_classes/Team.h"
+#include "../base_classes/Competition.h"
+#include "../base_classes/Event.h"
+#include "../base_classes/LapTimeParser.h"
+#include "../base_classes/Team.h"
+#include "FileSaver.h"
 
 #include "ui_tools.h"
-#include "enums/enums.h"
-#include "constants.h"
+#include "../enums/enums.h"
+#include "../constants.h"
 
 int main() {
-    // 1. Witaj, podaj drużyny
+
     std::vector<Team> teams = {};
     std::vector<EventType> event_types = {};
     std::vector<std::unique_ptr<Event>> events;
@@ -42,12 +43,22 @@ int main() {
     competition.create_classification();
     std::vector<std::pair<Team, double>> final_classification = competition.get_final_classification();
 
+    std::cout<<"--------------------------------------------\n";
+    std::cout<<"FINAL CLASSIFICATION\n";
+
     int idx = 1;
     for(auto& [team, points]: final_classification)
     {
         std::cout<< idx << ". " << team << " -> " << points << "pts" << '\n';
         ++idx;
     }
+
+    std::cout<< "Save classification to file? [y/n]:";
+    std::string save_choice;
+    std::cin>> save_choice;
+    if(save_choice != "y") {return 0;}
+    FileSaver saver(std::move(competition));
+    saver.save_info();
 
     return 0;
 }

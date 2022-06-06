@@ -15,7 +15,7 @@ class FileSaver
         void save_events_classifications() const;
 
     public:
-        FileSaver(const Competition& competition, std::string filepath=DEFAULT_SAVE_FILE_PATH);
+        FileSaver(Competition competition, std::string filepath=DEFAULT_SAVE_FILE_PATH);
         void save_info() const;
         ~FileSaver(){}
 };

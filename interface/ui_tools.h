@@ -6,10 +6,10 @@
 #include <vector>
 #include <memory>
 
-#include "base_classes/Event.h"
-#include "base_classes/Team.h"
-#include "enums/enums.h"
-#include "constants.h"
+#include "../base_classes/Event.h"
+#include "../base_classes/Team.h"
+#include "../enums/enums.h"
+#include "../constants.h"
 
 
 std::vector<Team> input_teams();
