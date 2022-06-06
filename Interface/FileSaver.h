@@ -2,8 +2,8 @@
 #define FILE_SAVER_H
 
 #include <iostream>
-#include "./base_classes/Competition.h"
-#include "./base_classes/Event.h"
+#include "../base_classes/Competition.h"
+#include "../base_classes/Event.h"
 
 class FileSaver
 {
