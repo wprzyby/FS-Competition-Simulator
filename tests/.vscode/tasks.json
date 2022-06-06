@@ -9,7 +9,7 @@
                 "-g",
                 "${workspaceFolder}\\*.cpp",
                 "${workspaceFolder}\\..\\exceptions.cpp",
-                "${workspaceFolder}\\..\\Event_tools.cpp",
+                "${workspaceFolder}\\..\\event_tools.cpp",
                 "${workspaceFolder}\\..\\base_classes\\Event.cpp",
                 "${workspaceFolder}\\..\\base_classes\\Team.cpp",
                 "${workspaceFolder}\\..\\base_classes\\Competition.cpp",

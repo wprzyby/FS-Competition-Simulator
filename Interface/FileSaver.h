@@ -2,6 +2,7 @@
 #define FILE_SAVER_H
 
 #include <iostream>
+#include "../constants.h"
 #include "../base_classes/Competition.h"
 #include "../base_classes/Event.h"
 
@@ -14,7 +15,7 @@ class FileSaver
         void save_events_classifications() const;
 
     public:
-        FileSaver(const Competition& competition, std::string filepath="./text_files/simulations.txt");
+        FileSaver(const Competition& competition, std::string filepath=DEFAULT_SAVE_FILE_PATH);
         void save_info() const;
         ~FileSaver(){}
 };

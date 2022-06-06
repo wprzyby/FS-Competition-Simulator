@@ -9,7 +9,7 @@
 #include "../constants.h"
 #include "../exceptions.h"
 #include "../enums/enums.h"
-#include "../Event_tools.h"
+#include "../event_tools.h"
 
 
 void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &results)

@@ -63,4 +63,6 @@ const std::map<EventType, std::vector<EventsCategories>> category_lists = {{acce
                                                                             {engineering_design, EngDesEveCat},
                                                                             {skidpad, SkidEveCat}};
 
+const std::string DEFAULT_SAVE_FILE_PATH = "./text_files/simulations.txt";
+
 #endif
