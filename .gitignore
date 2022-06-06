@@ -6,3 +6,4 @@ CMakeCache.txt
 cmake_install.cmake
 run_tests
 Makefile
+main_executable

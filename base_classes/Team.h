@@ -29,9 +29,10 @@ class Team
 
     bool operator<(const Team &second_arg) const;
     bool operator==(const Team& second_argument) const;
-
+    friend std::ostream& operator<<(std::ostream& os, const Team& team);
 
 };
 
+std::ostream& operator<<(std::ostream& os, const Team& team);
 
 #endif

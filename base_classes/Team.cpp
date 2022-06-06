@@ -48,3 +48,9 @@ bool Team::operator==(const Team& second_argument) const
     if ((m_name == second_argument.m_name) or (m_number == second_argument.m_number) or (m_university == second_argument.m_university)) {return true;}
     else {return false;}
 }
+
+std::ostream& operator<<(std::ostream& os, const Team& team)
+{
+    os << team.m_name << " (" << team.m_number << ", " << team.m_university<< ") ";
+    return os;
+}
