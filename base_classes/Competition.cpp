@@ -6,7 +6,7 @@
 #include "Competition.h"
 #include "Team.h"
 
-#include "../Event_tools.h"
+#include "../event_tools.h"
 #include "../constants.h"
 #include "../exceptions.h"
 #include "../enums/enums.h"

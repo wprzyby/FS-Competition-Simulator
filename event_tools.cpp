@@ -6,7 +6,7 @@
 #include "constants.h"
 #include "enums/enums.h"
 #include "base_classes/Team.h"
-#include "Event_tools.h"
+#include "event_tools.h"
 
 
 double find_max(const double number1, const double number2)  // Function finding bigger value among two numbers provided

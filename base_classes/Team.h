@@ -27,9 +27,11 @@ class Team
     void set_university(std::string university);
     void set_number(unsigned number);
 
+    // Overloaded operators
     bool operator<(const Team &second_arg) const;
     bool operator==(const Team& second_argument) const;
     friend std::ostream& operator<<(std::ostream& os, const Team& team);
+    //
 
 };
 

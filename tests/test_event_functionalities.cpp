@@ -7,7 +7,7 @@
 
 
 #include "catch.hpp"
-#include "../Event_tools.h"
+#include "../event_tools.h"
 #include "../exceptions.h"
 #include "../constants.h"
 #include "../enums/enums.h"

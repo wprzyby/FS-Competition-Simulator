@@ -24,6 +24,16 @@ const std::map<EventType, std::string> INFO_FILE_NAMES = {{acceleration, "Accele
                                                           {engineering_design, "EngineeringDesignEventInfo.pdf"},
                                                           {skidpad, "SkidpadEventInfo.pdf"}};
 
+
+const std::map<EventType, std::string> INFO_EVENT_NAMES = {{acceleration, "Acceleration Event"},
+                                                          {autocross, "Autocross Event"},
+                                                          {businessplan, "Business Plan Event"},
+                                                          {cost_and_manufacturing, "Cost And Manufacturing Event"},
+                                                          {endurance, "Endurance Event"},
+                                                          {engineering_design, "Engineering Design Event"},
+                                                          {skidpad, "Skidpad Event"}};
+
+
 // Categories for BusinessPlanEvent
 const std::vector<EventsCategories> BuiPlaEveCat = {pitch_video, novelty, content, finances, deep_dive_topic, demonstration_and_structure, delivery, questions, general_impression};
 
