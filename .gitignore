@@ -7,3 +7,4 @@ cmake_install.cmake
 run_tests
 Makefile
 main_executable
+output_files/*
