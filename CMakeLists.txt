@@ -4,7 +4,7 @@ project(competiton_simulation)
 add_compile_options(-std=c++20 -Wall -Wextra)
 include_directories(base_classes enums events tests)
 
-file(GLOB TEST_SOURCES "base_classes/*.cpp" "events/*.cpp" "tests/*.cpp" "enums/*.cpp" "./*.cpp")
+file(GLOB TEST_SOURCES "base_classes/*.cpp" "events/*.cpp" "tests/*.cpp" "enums/*.cpp" "./*.cpp")  # FIXME: Scieżki do pliku na Windows
 file(GLOB MAIN_SOURCES "base_classes/*.cpp" "events/*.cpp" "enums/*.cpp" "./*.cpp" "interface/*.cpp")
 
 add_custom_target(tests)
