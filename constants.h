@@ -72,6 +72,6 @@ const std::vector<EventsCategories> TIMED_CATEGORIES = {first_left_time, first_r
                                                         second_acc_time, first_aut_time, second_aut_time, third_aut_time, fourth_aut_time,
                                                         end_corrected_time, end_uncorrected_time};
 
-const std::string DEFAULT_SAVE_FILE_PATH = "./text_files/simulations.txt";
+const std::string DEFAULT_SAVE_FILE_PATH = "./output_files/simulations.txt";
 
 #endif

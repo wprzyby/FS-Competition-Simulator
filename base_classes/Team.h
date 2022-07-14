@@ -22,7 +22,6 @@ class Team
     unsigned get_number() const {return m_number;}
 
     // setters:
-    // (boolean returns to communicate whether the setter succeeded or failed)
     void set_name(std::string name);
     void set_university(std::string university);
     void set_number(unsigned number);
