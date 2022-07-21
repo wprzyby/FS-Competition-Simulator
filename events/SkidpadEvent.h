@@ -1,12 +1,10 @@
-#ifndef SKIDPAD_EVENT_H
-#define SKIDPAD_EVENT_H
+#pragma once
 
 #include <map>
 #include <vector>
 #include <iostream>
 
-#include "../base_classes/Team.h"
-#include "../base_classes/Event.h"
+#include <compsim_classes/event_base.h>
 
 
 class SkidpadEvent : public Event  // SkidpadEvent class that inherits from the abstract class Event
@@ -27,7 +25,3 @@ class SkidpadEvent : public Event  // SkidpadEvent class that inherits from the 
         // Destructor:
         ~SkidpadEvent() {};
 };
-
-#endif
-
-// DONE

@@ -1,14 +1,13 @@
-#include "../base_classes/Event.h"
-#include "../base_classes/Team.h"
-#include "../events/EngineeringDesignEvent.h"
-
-#include "catch.hpp"
-#include "../exceptions.h"
-#include "../constants.h"
-#include "../enums/enums.h"
-
 #include <map>
 #include <vector>
+
+#include "catch.hpp"
+#include <compsim_classes/Team.h>
+#include <compsim_classes/exceptions.h>
+#include <compsim_enums/enums.h>
+
+#include <events/EngineeringDesignEvent.h>
+
 
 TEST_CASE("Engineering Design Event functionality")
 {

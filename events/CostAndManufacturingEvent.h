@@ -1,12 +1,10 @@
-#ifndef COST_AND_MANUFACTURING_EVENT_H
-#define COST_AND_MANUFACTURING_EVENT_H
+#pragma once
 
 #include <map>
 #include <vector>
 #include <iostream>
 
-#include "../base_classes/Team.h"
-#include "../base_classes/Event.h"
+#include <compsim_classes/event_base.h>
 
 
 class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent class that inherits from the abstract class Event
@@ -31,7 +29,3 @@ class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent cla
         // Destructor:
         ~CostAndManufacturingEvent() {};
 };
-
-#endif
-
-// DONE

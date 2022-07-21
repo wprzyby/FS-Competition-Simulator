@@ -1,16 +1,28 @@
-cmake_minimum_required(VERSION 2.8.9)
-project(competiton_simulation)
+cmake_minimum_required(VERSION 3.13)
+
+project(competiton_simulator)
 
 add_compile_options(-std=c++20 -Wall -Wextra)
-include_directories(base_classes enums events tests)
 
-file(GLOB TEST_SOURCES "base_classes/*.cpp" "events/*.cpp" "tests/*.cpp" "enums/*.cpp" "./*.cpp")  # FIXME: Scieżki do pliku na Windows
-file(GLOB MAIN_SOURCES "base_classes/*.cpp" "events/*.cpp" "enums/*.cpp" "./*.cpp" "interface/*.cpp")
-
-add_custom_target(tests)
-add_executable(run_tests ${TEST_SOURCES})
-add_dependencies(tests run_tests)
+set(MAIN_SOURCES main.cpp)
 
 add_custom_target(main)
-add_executable(main_executable ${MAIN_SOURCES})
-add_dependencies(main main_executable)
+add_executable(${PROJECT_NAME} ${MAIN_SOURCES})
+add_dependencies(main ${PROJECT_NAME})
+
+target_include_directories(${PROJECT_NAME} PUBLIC
+                           "${PROJECT_SOURCE_DIR}"
+                           "${PROJECT_SOURCE_DIR}/compsim_enums"
+                           "${PROJECT_SOURCE_DIR}/compsim_classes"
+                           "${PROJECT_SOURCE_DIR}/events"
+                           "${PROJECT_SOURCE_DIR}/laptime_parser"
+                           "${PROJECT_SOURCE_DIR}/interface")
+
+add_subdirectory(compsim_enums)
+add_subdirectory(compsim_classes)
+add_subdirectory(events)
+add_subdirectory(laptime_parser)
+add_subdirectory(interface)
+add_subdirectory(tests)
+
+target_link_libraries(${PROJECT_NAME} compsim_enums compsim_classes events laptime_parser interface)

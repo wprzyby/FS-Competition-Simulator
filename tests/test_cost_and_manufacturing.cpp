@@ -1,13 +1,13 @@
 #include <iostream>
 #include <vector>
 
-#include "../base_classes/Team.h"
-#include "../events/CostAndManufacturingEvent.h"
-
 #include "catch.hpp"
-#include "../exceptions.h"
-#include "../constants.h"
-#include "../enums/enums.h"
+#include <compsim_classes/Team.h>
+#include <compsim_classes/exceptions.h>
+#include <compsim_enums/enums.h>
+
+#include <events/CostAndManufacturingEvent.h>
+
 
 
 TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in case of no finals]")

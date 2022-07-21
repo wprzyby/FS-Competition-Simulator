@@ -1,11 +1,9 @@
-#ifndef AUTOCROSS_EVENT_H
-#define AUTOCROSS_EVENT_H
+#pragma once
 #include <map>
 #include <vector>
 #include <iostream>
 
-#include "../base_classes/Team.h"
-#include "../base_classes/Event.h"
+#include <compsim_classes/event_base.h>
 
 
 class AutocrossEvent : public Event  // AutocrossEvent class that inherits from the abstract class Event
@@ -28,7 +26,3 @@ class AutocrossEvent : public Event  // AutocrossEvent class that inherits from 
         // Destructor:
         ~AutocrossEvent() {};
 };
-
-#endif
-
-// DONE

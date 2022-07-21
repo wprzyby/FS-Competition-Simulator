@@ -1,10 +1,8 @@
-#ifndef EXCEPTIONS_H
-#define EXCEPTIONS_H
-
+#pragma once
 
 #include <stdexcept>
 #include "constants.h"
-#include "enums/enums.h"
+#include <compsim_enums/enums.h>
 
 
 class EmptyNameError: public std::invalid_argument
@@ -54,6 +52,3 @@ class InvalidModeError: public std::invalid_argument
     public:
         InvalidModeError();
 };
-
-
-#endif

@@ -2,14 +2,13 @@
 #include <memory>
 #include <algorithm>
 
-
 #include "Competition.h"
 #include "Team.h"
 
-#include "../event_tools.h"
-#include "../constants.h"
-#include "../exceptions.h"
-#include "../enums/enums.h"
+#include "event_tools.h"
+#include "constants.h"
+#include "exceptions.h"
+#include <compsim_enums/enums.h>
 
 
 Competition::Competition(std::vector<Team> &teams, std::vector<std::unique_ptr<Event>> events)

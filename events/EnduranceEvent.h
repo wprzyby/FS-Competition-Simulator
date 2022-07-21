@@ -1,12 +1,10 @@
-#ifndef ENDURANCE_EVENT_H
-#define ENDURANCE_EVENT_H
+#pragma once
 
 #include <map>
 #include <vector>
 #include <iostream>
 
-#include "../base_classes/Team.h"
-#include "../base_classes/Event.h"
+#include <compsim_classes/event_base.h>
 
 
 class EnduranceEvent : public Event  // EnduranceEvent class that inherits from the abstract class Event
@@ -27,7 +25,3 @@ class EnduranceEvent : public Event  // EnduranceEvent class that inherits from 
         // Destructor:
         ~EnduranceEvent() {};
 };
-
-#endif
-
-// DONE

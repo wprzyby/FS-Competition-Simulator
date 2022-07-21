@@ -1,5 +1,8 @@
 #include <iostream>
 #include <fstream>
+
+#include <compsim_classes/Competition.h>
+
 #include "FileSaver.h"
 
 

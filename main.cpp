@@ -3,15 +3,15 @@
 #include <memory>
 #include <vector>
 
-#include "../base_classes/Competition.h"
-#include "../base_classes/Event.h"
-#include "../base_classes/LapTimeParser.h"
-#include "../base_classes/Team.h"
-#include "FileSaver.h"
+#include <compsim_classes/Competition.h>
+#include <compsim_classes/Event.h>
+#include <compsim_classes/Team.h>
+#include <interface/FileSaver.h>
+#include <interface/ui_tools.h>
+#include <laptime_parser/LapTimeParser.h>
+#include <compsim_enums/enums.h>
 
-#include "ui_tools.h"
-#include "../enums/enums.h"
-#include "../constants.h"
+#include "constants.h"
 
 int main() {
 
@@ -28,12 +28,14 @@ int main() {
     std::cout<< "EVENT TYPES:" << std::endl;
 
     event_types = input_event_types();
+    std::string config_path = DEF_PENALTY_CONFIG_FILE_PATH;
 
     for (auto& event_type: event_types)
     {
         std::cout<< "--------------------------------------------" << std::endl;
         std::cout<< "Setting results for " << event_type << " event:" << std::endl;
-        std::map<Team, std::map<EventsCategories, double>> results = input_event_results(event_type, teams);
+
+        std::map<Team, std::map<EventsCategories, double>> results = input_event_results(event_type, teams, config_path);
         std::unique_ptr<Event> event = create_event(event_type, teams);
         event->set_results(results);
         events.push_back(std::move(event));
@@ -57,7 +59,7 @@ int main() {
     std::string save_choice;
     std::cin>> save_choice;
     if(save_choice != "y") {return 0;}
-    FileSaver saver(std::move(competition));
+    FileSaver saver(std::move(competition), DEFAULT_SAVE_FILE_PATH);
     saver.save_info();
 
     return 0;

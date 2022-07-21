@@ -1,5 +1,4 @@
-#ifndef ENUMS_H
-#define ENUMS_H
+#pragma once
 
 #include <iostream>
 
@@ -66,5 +65,3 @@ char const* const LapTimeMode_str[]
 std::ostream& operator<<(std::ostream& os, enum EventType e);
 std::ostream& operator<<(std::ostream& os, enum EventsCategories e);
 std::ostream& operator<<(std::ostream& os, enum LapTimeMode e);
-
-#endif

@@ -1,11 +1,9 @@
-#ifndef BUSINESS_PLAN_EVENT_H
-#define BUSINESS_PLAN_EVENT_H
+#pragma once
 #include <map>
 #include <vector>
 #include <iostream>
 
-#include "../base_classes/Team.h"
-#include "../base_classes/Event.h"
+#include <compsim_classes/event_base.h>
 
 
 class BusinessPlanEvent : public Event  // BusinessEvent class that inherits from the abstract class Event
@@ -30,7 +28,3 @@ class BusinessPlanEvent : public Event  // BusinessEvent class that inherits fro
         // Destructor:
         ~BusinessPlanEvent() {};
 };
-
-#endif
-
-// DONE

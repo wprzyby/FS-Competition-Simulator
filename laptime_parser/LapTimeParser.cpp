@@ -3,17 +3,10 @@
 
 #include "LapTimeParser.h"
 
-#include "../json.hpp"
-#include "../constants.h"
-#include "../exceptions.h"
-#include "../enums/enums.h"
-
-LapTimeParser::LapTimeParser(LapTimeMode mode)
-{
-    load_json_data(DEF_PENALTY_DATA_FILE_PATH);
-    m_mode = mode;
-    m_enum_conversion_map = DYNAMIC_EVENT_ENUN_TO_STR;
-}
+#include "json.hpp"
+#include "constants.h"
+#include <compsim_classes/exceptions.h>
+#include <compsim_enums/enums.h>
 
 
 LapTimeParser::LapTimeParser(std::string config_path, LapTimeMode mode)

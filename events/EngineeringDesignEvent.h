@@ -1,12 +1,10 @@
-#ifndef ENGINERING_DESIGN_EVENT_H
-#define ENGINERING_DESIGN_EVENT_H
+#pragma once
 
 #include <map>
 #include <vector>
 #include <iostream>
 
-#include "../base_classes/Team.h"
-#include "../base_classes/Event.h"
+#include <compsim_classes/event_base.h>
 
 
 class EngineeringDesignEvent : public Event  // EngineeringDesignEvent class that inherits from the abstract class Event
@@ -23,7 +21,3 @@ class EngineeringDesignEvent : public Event  // EngineeringDesignEvent class tha
         // Destructor:
         ~EngineeringDesignEvent() {};
 };
-
-#endif
-
-// DONE

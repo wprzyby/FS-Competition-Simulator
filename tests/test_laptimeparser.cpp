@@ -1,7 +1,7 @@
-#include "../base_classes/LapTimeParser.h"
+#include <laptime_parser/LapTimeParser.h>
 
 #include "catch.hpp"
-#include "../enums/enums.h"
+#include <compsim_enums/enums.h>
 
 /*
 PENALTIES USED IN TESTS ARE FROM FORMULA STUDENT RULES 2022
@@ -11,7 +11,8 @@ ARE CHANGED TO COMPLY WITH CHANGING FS RULES, THESE TESTS BECOME INVALID
 
 TEST_CASE("Time parsing functionality via LapTimeParser")
 {
-    LapTimeParser parser;
+    std::string config_path = "../dynamic_events_penalties.json";
+    LapTimeParser parser(config_path);
     unsigned minutes = 0;
     unsigned seconds = 0;
     unsigned miliseconds = 0;

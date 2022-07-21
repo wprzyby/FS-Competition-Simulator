@@ -2,16 +2,11 @@
 #include <vector>
 #include <map>
 
-#include "../base_classes/Team.h"
-#include "../events/AccelerationEvent.h"
-
-
 #include "catch.hpp"
-#include "../event_tools.h"
-#include "../exceptions.h"
-#include "../constants.h"
-#include "../enums/enums.h"
-
+#include <compsim_classes/event_base.h>
+#include <events/AccelerationEvent.h>
+#include <events/constants.h>
+#include <compsim_enums/enums.h>
 
 
 

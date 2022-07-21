@@ -1,13 +1,14 @@
 #include <iostream>
 #include <vector>
 
-#include "../base_classes/Team.h"
-#include "../events/AccelerationEvent.h"
-
 #include "catch.hpp"
-#include "../exceptions.h"
-#include "../constants.h"
-#include "../enums/enums.h"
+#include <compsim_classes/Team.h>
+#include <compsim_classes/exceptions.h>
+#include <compsim_enums/enums.h>
+
+#include <events/AccelerationEvent.h>
+
+
 
 
 TEST_CASE("AccelerationEvent tests.", "[Testing all functionalities]")

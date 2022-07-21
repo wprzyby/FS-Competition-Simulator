@@ -2,13 +2,12 @@
 #include <map>
 #include <vector>
 
-#include "EngineeringDesignEvent.h"
-#include "../base_classes/Team.h"
+#include <compsim_classes/event_base.h>
+#include <compsim_enums/enums.h>
 
-#include "../event_tools.h"
-#include "../constants.h"
-#include "../enums/enums.h"
-#include "../exceptions.h"
+#include "EngineeringDesignEvent.h"
+#include "constants.h"
+
 
 
 EngineeringDesignEvent::EngineeringDesignEvent(std::vector<Team> &teams)

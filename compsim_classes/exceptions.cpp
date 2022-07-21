@@ -1,6 +1,6 @@
 #include "exceptions.h"
 #include "constants.h"
-#include "enums/enums.h"
+#include <compsim_enums/enums.h>
 #include <stdexcept>
 
 

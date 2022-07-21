@@ -1,13 +1,12 @@
-#ifndef EVENT_H
-#define EVENT_H
+#pragma once
+
 #include <map>
 #include <iostream>
 #include <vector>
 
 #include "Team.h"
-
-#include "../constants.h"
-#include "../enums/enums.h"
+#include "constants.h"
+#include <compsim_enums/enums.h>
 
 
 
@@ -72,5 +71,3 @@ class Event  // Abstract class
 // event.set_results(results);
 // event.simulate();
 // event.get_classification();
-
-#endif

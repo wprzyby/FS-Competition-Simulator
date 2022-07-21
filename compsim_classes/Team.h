@@ -1,5 +1,4 @@
-#ifndef TEAM_H
-#define TEAM_H
+#pragma once
 
 #include <iostream>
 
@@ -35,5 +34,3 @@ class Team
 };
 
 std::ostream& operator<<(std::ostream& os, const Team& team);
-
-#endif

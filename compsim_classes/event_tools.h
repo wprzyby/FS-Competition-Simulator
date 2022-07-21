@@ -1,11 +1,11 @@
-#ifndef EVENT_TOOLS_H
-#define EVENT_TOOLS_H
+#pragma once
+
 #include <map>
 #include <vector>
 #include <iostream>
-#include "base_classes/Team.h"
+#include "Team.h"
 #include "constants.h"
-#include "enums/enums.h"
+#include <compsim_enums/enums.h>
 
 
 double find_max(const double number1, const double number2);
@@ -18,6 +18,3 @@ bool check_if_category_in_vector(EventsCategories const &category, std::vector<E
 bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<EventsCategories, double> const &second_pair);  // Returns true if variable of the type double is greater in the second vector
 bool compare_teams(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair);
 double rd_to_n_places(double number, int n);  // rounds given number to n decimal places.
-
-
-#endif

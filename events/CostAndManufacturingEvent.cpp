@@ -3,13 +3,12 @@
 #include <vector>
 #include <algorithm>
 
-#include "CostAndManufacturingEvent.h"
-#include "../base_classes/Team.h"
+#include <compsim_enums/enums.h>
+#include <compsim_classes/event_base.h>
 
-#include "../event_tools.h"
-#include "../constants.h"
-#include "../enums/enums.h"
-#include "../exceptions.h"
+#include "CostAndManufacturingEvent.h"
+#include "constants.h"
+
 
 
 CostAndManufacturingEvent::CostAndManufacturingEvent(std::vector<Team> &teams, int finalists, std::map<Team, double> points_to_set)

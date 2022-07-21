@@ -7,21 +7,16 @@
 #include <memory>
 #include <stdexcept>
 
-#include "../constants.h"
-#include "../enums/enums.h"
 #include "ui_tools.h"
-#include "../base_classes/Competition.h"
-#include "../base_classes/Event.h"
-#include "../base_classes/LapTimeParser.h"
-#include "../base_classes/Team.h"
+#include "constants.h"
 
-#include "../events/AccelerationEvent.h"
-#include "../events/AutocrossEvent.h"
-#include "../events/BusinessPlanEvent.h"
-#include "../events/CostAndManufacturingEvent.h"
-#include "../events/EnduranceEvent.h"
-#include "../events/EngineeringDesignEvent.h"
-#include "../events/SkidpadEvent.h"
+#include <compsim_enums/enums.h>
+#include <compsim_classes/Competition.h>
+#include <compsim_classes/Event.h>
+#include <compsim_classes/Team.h>
+#include <laptime_parser/LapTimeParser.h>
+#include <events/events.h>
+#include <events/constants.h>
 
 
 std::vector<Team> input_teams()
@@ -100,10 +95,10 @@ std::vector<EventType> input_event_types()
 }
 
 
-std::map<Team, std::map<EventsCategories, double>> input_event_results(EventType type, std::vector<Team> &teams)
+std::map<Team, std::map<EventsCategories, double>> input_event_results(EventType type, std::vector<Team> &teams, std::string config_path)
 {
     std::vector<EventsCategories> categories = CATEGORY_LISTS.at(type);
-    LapTimeParser parser(ms);
+    LapTimeParser parser(config_path, ms);
     std::map<EventsCategories, double> single_team_results;
     std::map<Team, std::map<EventsCategories, double>> results;
 

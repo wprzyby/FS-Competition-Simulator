@@ -1,15 +1,11 @@
-#ifndef ACCELERATION_EVENT_H
-#define ACCELERATION_EVENT_H
+#pragma once
 
 #include <map>
 #include <vector>
 #include <iostream>
 
-#include "../base_classes/Team.h"
-#include "../base_classes/Event.h"
+#include <compsim_classes/event_base.h>
 
-#include "../constants.h"
-#include "../enums/enums.h"
 
 
 class AccelerationEvent : public Event  // AccelerationEvent class that inherits from the abstract class Event
@@ -32,6 +28,3 @@ class AccelerationEvent : public Event  // AccelerationEvent class that inherits
         ~AccelerationEvent() {};
 };
 
-#endif
-
-// DONE

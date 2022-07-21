@@ -2,8 +2,7 @@
 #include <stdexcept>
 
 #include "Team.h"
-
-#include "../exceptions.h"
+#include "exceptions.h"
 
 
 Team::Team(const std::string name, const std::string university, const unsigned number) : m_number(number)

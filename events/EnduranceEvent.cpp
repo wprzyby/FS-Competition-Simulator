@@ -3,13 +3,12 @@
 #include <map>
 #include <cmath>
 
-#include "EnduranceEvent.h"
-#include "../base_classes/Team.h"
+#include <compsim_classes/event_base.h>
+#include <compsim_enums/enums.h>
 
-#include "../event_tools.h"
-#include "../constants.h"
-#include "../enums/enums.h"
-#include "../exceptions.h"
+#include "EnduranceEvent.h"
+#include "constants.h"
+
 
 
 EnduranceEvent::EnduranceEvent(bool run_efficiency)

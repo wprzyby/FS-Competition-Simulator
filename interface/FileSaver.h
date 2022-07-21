@@ -1,10 +1,9 @@
-#ifndef FILE_SAVER_H
-#define FILE_SAVER_H
+#pragma once
 
 #include <iostream>
-#include "../constants.h"
-#include "../base_classes/Competition.h"
-#include "../base_classes/Event.h"
+#include "constants.h"
+#include <compsim_classes/Competition.h>
+#include <compsim_classes/Event.h>
 
 class FileSaver
 {
@@ -15,9 +14,7 @@ class FileSaver
         void save_events_classifications() const;
 
     public:
-        FileSaver(Competition competition, std::string filepath=DEFAULT_SAVE_FILE_PATH);
+        FileSaver(Competition competition, std::string filepath);
         void save_info() const;
         ~FileSaver(){}
 };
-
-#endif

@@ -4,9 +4,9 @@
 #include <cmath>
 
 #include "constants.h"
-#include "enums/enums.h"
-#include "base_classes/Team.h"
+#include "Team.h"
 #include "event_tools.h"
+#include <compsim_enums/enums.h>
 
 
 double find_max(const double number1, const double number2)  // Function finding bigger value among two numbers provided

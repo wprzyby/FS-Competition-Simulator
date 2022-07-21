@@ -1,5 +1,4 @@
-#ifndef COMPETITION_H
-#define COMPETITION_H
+#pragma once
 
 #include <iostream>
 #include <vector>
@@ -9,8 +8,8 @@
 #include "Team.h"
 #include "Event.h"
 
-#include "../constants.h"
-#include "../enums/enums.h"
+#include "constants.h"
+#include <compsim_enums/enums.h>
 
 class Competition
 {
@@ -42,8 +41,3 @@ class Competition
         // essential competition functionality:
         void create_classification();
 };
-
-
-
-
-#endif

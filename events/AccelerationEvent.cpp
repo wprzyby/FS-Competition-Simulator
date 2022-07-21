@@ -2,13 +2,13 @@
 #include <map>
 #include <vector>
 
-#include "AccelerationEvent.h"
-#include "../base_classes/Team.h"
+#include <compsim_classes/event_base.h>
+#include <compsim_enums/enums.h>
 
-#include "../event_tools.h"
-#include "../constants.h"
-#include "../enums/enums.h"
-#include "../exceptions.h"
+#include "AccelerationEvent.h"
+#include "constants.h"
+
+
 
 
 AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
