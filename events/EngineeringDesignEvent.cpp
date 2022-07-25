@@ -9,18 +9,19 @@
 #include "constants.h"
 
 
-
-EngineeringDesignEvent::EngineeringDesignEvent(std::vector<Team> &teams)
+EngineeringDesignEvent::EngineeringDesignEvent(std::vector<Team> &teams, std::string which_driverless)
 {
     m_teams_participating = teams;
+    if (m_which_driverless == "DC")
+    {
+    m_event_type = engineering_design_DC;
+    m_event_categories = CATEGORY_LISTS.at(engineering_design_DC);
+    }
+    else
+    {
     m_event_type = engineering_design;
     m_event_categories = CATEGORY_LISTS.at(engineering_design);
-}
-
-EngineeringDesignEvent::EngineeringDesignEvent()
-{
-    m_event_type = engineering_design;
-    m_event_categories = CATEGORY_LISTS.at(engineering_design);
+    }
 }
 
 

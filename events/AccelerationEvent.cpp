@@ -9,21 +9,24 @@
 #include "constants.h"
 
 
-
-
-AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
+AccelerationEvent::AccelerationEvent(std::vector<Team> &teams, std::string which_driverless)
 {
     m_teams_participating = teams;
-    m_event_type = acceleration;
-    m_event_categories = CATEGORY_LISTS.at(acceleration);
-}
-
-AccelerationEvent::AccelerationEvent()
-{
-    if (m_which_driverless == "DV") {m_event_type = acceleration_DV;}
-    else if (m_which_driverless == "DC") {m_event_type = acceleration_DC;}
-    else {m_event_type = acceleration;}
-    m_event_categories = CATEGORY_LISTS.at(acceleration);
+    if (m_which_driverless == "DV")
+    {
+        m_event_type = acceleration_DV;
+        m_event_categories = CATEGORY_LISTS.at(acceleration_DV);
+    }
+    else if (m_which_driverless == "DC")
+    {
+        m_event_type = acceleration_DC;
+        m_event_categories = CATEGORY_LISTS.at(acceleration_DC);
+    }
+    else
+    {
+        m_event_type = acceleration;
+        m_event_categories = CATEGORY_LISTS.at(acceleration_DC);
+    }
 }
 
 

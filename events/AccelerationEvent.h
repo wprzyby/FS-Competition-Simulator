@@ -23,8 +23,8 @@ class AccelerationEvent : public Event  // AccelerationEvent class that inherits
 
     public:
         // Constructors:
-        AccelerationEvent();
-        AccelerationEvent(std::vector<Team> &teams);
+        AccelerationEvent() {};
+        AccelerationEvent(std::vector<Team> &teams, std::string which_driverless);
         // Destructor:
         ~AccelerationEvent() {};
 };

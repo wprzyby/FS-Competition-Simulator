@@ -16,7 +16,7 @@ class Event  // Abstract class
         // Enum with Event type
         EventType m_event_type;
 
-        // String provided by user in order to set propper enum Event type
+        // String provided by user in order to set propper enum Event type ("" - No driverless, "DV" - classic driverless, "DC" - Driverless Cup)
         std::string m_which_driverless;
 
         // Vector of the Teams that are participating in the event (required to be provided externally).
