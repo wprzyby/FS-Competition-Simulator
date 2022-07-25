@@ -11,6 +11,7 @@
 
 AccelerationEvent::AccelerationEvent(std::vector<Team> &teams, std::string which_driverless)
 {
+    m_which_driverless = which_driverless;
     m_teams_participating = teams;
     if (m_which_driverless == "DV")
     {
@@ -52,16 +53,13 @@ void AccelerationEvent::calculate_teams_points()
             {
                 team_final_score = 0;  // Case od DNF or DSQ
             }
-            else if (team_best_time < 1.5*best_time_overall)
+            else if ((m_event_type == acceleration) and (team_best_time < 1.5*best_time_overall))  // FIXME: Split this
             {
-                if (m_event_type == acceleration)
-                {
-                    team_final_score = base_points + get_additional_points(best_time_overall, team_best_time);  // Calculating teams` final score.
-                }
-                else if (m_event_type == acceleration_DC)
-                {
-                    team_final_score = base_points + get_additional_points_DC(best_time_overall, team_best_time);
-                }
+                team_final_score = base_points + get_additional_points(best_time_overall, team_best_time);  // Calculating teams` final score in non - driverless.
+            }
+            else if ((m_event_type == acceleration_DC) and (team_best_time < 2*best_time_overall))
+            {
+                team_final_score = base_points + get_additional_points_DC(best_time_overall, team_best_time);
             }
             else
             {

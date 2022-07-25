@@ -1,61 +1,170 @@
 make.exe --dry-run --always-make --keep-going --print-directory
 make: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
-g++ -MT bin/base_classes/Competition.o -MD -MP -MF ./dep/base_classes/Competition.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/base_classes/Competition.o base_classes/Competition.cpp
-mv -f ./dep/base_classes/Competition.Td ./dep/base_classes/Competition.d
-g++ -MT bin/base_classes/Event.o -MD -MP -MF ./dep/base_classes/Event.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/base_classes/Event.o base_classes/Event.cpp
-mv -f ./dep/base_classes/Event.Td ./dep/base_classes/Event.d
-g++ -MT bin/base_classes/LapTimeParser.o -MD -MP -MF ./dep/base_classes/LapTimeParser.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/base_classes/LapTimeParser.o base_classes/LapTimeParser.cpp
-mv -f ./dep/base_classes/LapTimeParser.Td ./dep/base_classes/LapTimeParser.d
-g++ -MT bin/base_classes/Team.o -MD -MP -MF ./dep/base_classes/Team.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/base_classes/Team.o base_classes/Team.cpp
-mv -f ./dep/base_classes/Team.Td ./dep/base_classes/Team.d
-g++ -MT bin/events//AccelerationEvent.o -MD -MP -MF ./dep/events//AccelerationEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//AccelerationEvent.o events//AccelerationEvent.cpp
-mv -f ./dep/events//AccelerationEvent.Td ./dep/events//AccelerationEvent.d
-g++ -MT bin/events//AutocrossEvent.o -MD -MP -MF ./dep/events//AutocrossEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//AutocrossEvent.o events//AutocrossEvent.cpp
-mv -f ./dep/events//AutocrossEvent.Td ./dep/events//AutocrossEvent.d
-g++ -MT bin/events//BusinessPlanEvent.o -MD -MP -MF ./dep/events//BusinessPlanEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//BusinessPlanEvent.o events//BusinessPlanEvent.cpp
-mv -f ./dep/events//BusinessPlanEvent.Td ./dep/events//BusinessPlanEvent.d
-g++ -MT bin/events//CostAndManufacturingEvent.o -MD -MP -MF ./dep/events//CostAndManufacturingEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//CostAndManufacturingEvent.o events//CostAndManufacturingEvent.cpp
-mv -f ./dep/events//CostAndManufacturingEvent.Td ./dep/events//CostAndManufacturingEvent.d
-g++ -MT bin/events//EnduranceEvent.o -MD -MP -MF ./dep/events//EnduranceEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//EnduranceEvent.o events//EnduranceEvent.cpp
-mv -f ./dep/events//EnduranceEvent.Td ./dep/events//EnduranceEvent.d
-g++ -MT bin/events//EngineeringDesignEvent.o -MD -MP -MF ./dep/events//EngineeringDesignEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//EngineeringDesignEvent.o events//EngineeringDesignEvent.cpp
-mv -f ./dep/events//EngineeringDesignEvent.Td ./dep/events//EngineeringDesignEvent.d
-g++ -MT bin/events//SkidpadEvent.o -MD -MP -MF ./dep/events//SkidpadEvent.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/events//SkidpadEvent.o events//SkidpadEvent.cpp
-mv -f ./dep/events//SkidpadEvent.Td ./dep/events//SkidpadEvent.d
-g++ -MT bin/tests//test_acceleration.o -MD -MP -MF ./dep/tests//test_acceleration.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_acceleration.o tests//test_acceleration.cpp
-mv -f ./dep/tests//test_acceleration.Td ./dep/tests//test_acceleration.d
-g++ -MT bin/tests//test_autocross.o -MD -MP -MF ./dep/tests//test_autocross.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_autocross.o tests//test_autocross.cpp
-mv -f ./dep/tests//test_autocross.Td ./dep/tests//test_autocross.d
-g++ -MT bin/tests//test_businessplan.o -MD -MP -MF ./dep/tests//test_businessplan.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_businessplan.o tests//test_businessplan.cpp
-mv -f ./dep/tests//test_businessplan.Td ./dep/tests//test_businessplan.d
-g++ -MT bin/tests//test_competition.o -MD -MP -MF ./dep/tests//test_competition.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_competition.o tests//test_competition.cpp
-mv -f ./dep/tests//test_competition.Td ./dep/tests//test_competition.d
-g++ -MT bin/tests//test_cost_and_manufacturing.o -MD -MP -MF ./dep/tests//test_cost_and_manufacturing.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_cost_and_manufacturing.o tests//test_cost_and_manufacturing.cpp
-mv -f ./dep/tests//test_cost_and_manufacturing.Td ./dep/tests//test_cost_and_manufacturing.d
-g++ -MT bin/tests//test_endurance.o -MD -MP -MF ./dep/tests//test_endurance.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_endurance.o tests//test_endurance.cpp
-mv -f ./dep/tests//test_endurance.Td ./dep/tests//test_endurance.d
-g++ -MT bin/tests//test_engineering_design.o -MD -MP -MF ./dep/tests//test_engineering_design.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_engineering_design.o tests//test_engineering_design.cpp
-mv -f ./dep/tests//test_engineering_design.Td ./dep/tests//test_engineering_design.d
-g++ -MT bin/tests//test_event_functionalities.o -MD -MP -MF ./dep/tests//test_event_functionalities.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_event_functionalities.o tests//test_event_functionalities.cpp
-mv -f ./dep/tests//test_event_functionalities.Td ./dep/tests//test_event_functionalities.d
-g++ -MT bin/tests//test_laptimeparser.o -MD -MP -MF ./dep/tests//test_laptimeparser.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_laptimeparser.o tests//test_laptimeparser.cpp
-mv -f ./dep/tests//test_laptimeparser.Td ./dep/tests//test_laptimeparser.d
-g++ -MT bin/tests//test_skidpad.o -MD -MP -MF ./dep/tests//test_skidpad.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//test_skidpad.o tests//test_skidpad.cpp
-mv -f ./dep/tests//test_skidpad.Td ./dep/tests//test_skidpad.d
-g++ -MT bin/tests//catch_config.o -MD -MP -MF ./dep/tests//catch_config.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/tests//catch_config.o tests//catch_config.cpp
-mv -f ./dep/tests//catch_config.Td ./dep/tests//catch_config.d
-g++ -MT bin/Event_tools.o -MD -MP -MF ./dep/Event_tools.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/Event_tools.o Event_tools.cpp
-mv -f ./dep/Event_tools.Td ./dep/Event_tools.d
-g++ -MT bin/exceptions.o -MD -MP -MF ./dep/exceptions.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/exceptions.o exceptions.cpp
-mv -f ./dep/exceptions.Td ./dep/exceptions.d
-g++ -MT bin/json_config.o -MD -MP -MF ./dep/json_config.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/json_config.o json_config.cpp
-mv -f ./dep/json_config.Td ./dep/json_config.d
-g++ -MT bin/enums//enums.o -MD -MP -MF ./dep/enums//enums.Td -std=c++20 -g -Wall -Wextra -pedantic -c -o bin/enums//enums.o enums//enums.cpp
-mv -f ./dep/enums//enums.Td ./dep/enums//enums.d
-g++   -o test bin/base_classes/Competition.o bin/base_classes/Event.o bin/base_classes/LapTimeParser.o bin/base_classes/Team.o bin/events//AccelerationEvent.o bin/events//AutocrossEvent.o bin/events//BusinessPlanEvent.o bin/events//CostAndManufacturingEvent.o bin/events//EnduranceEvent.o bin/events//EngineeringDesignEvent.o bin/events//SkidpadEvent.o bin/tests//test_acceleration.o bin/tests//test_autocross.o bin/tests//test_businessplan.o bin/tests//test_competition.o bin/tests//test_cost_and_manufacturing.o bin/tests//test_endurance.o bin/tests//test_engineering_design.o bin/tests//test_event_functionalities.o bin/tests//test_laptimeparser.o bin/tests//test_skidpad.o bin/tests//catch_config.o bin/Event_tools.o bin/exceptions.o bin/json_config.o bin/enums//enums.o
+"C:\Program Files\CMake\bin\cmake.exe" -SC:\Users\Adam\Programowanie\C++\PROI\Projekt\Program -BC:\Users\Adam\Programowanie\C++\PROI\Projekt\Program --check-build-system CMakeFiles\Makefile.cmake 0
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_progress_start C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\\CMakeFiles\progress.marks
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f CMakeFiles\Makefile2 all
+ 
+make[1]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f compsim_enums\CMakeFiles\compsim_enums.dir\build.make compsim_enums/CMakeFiles/compsim_enums.dir/depend
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_depends "MinGW Makefiles" C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_enums C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_enums C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_enums\CMakeFiles\compsim_enums.dir\DependInfo.cmake --color=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f compsim_enums\CMakeFiles\compsim_enums.dir\build.make compsim_enums/CMakeFiles/compsim_enums.dir/build
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=9 "Building CXX object compsim_enums/CMakeFiles/compsim_enums.dir/enums.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_enums && C:\msys64\mingw64\bin\g++.exe   -std=c++20 -Wall -Wextra -MD -MT compsim_enums/CMakeFiles/compsim_enums.dir/enums.cpp.obj -MF CMakeFiles\compsim_enums.dir\enums.cpp.obj.d -o CMakeFiles\compsim_enums.dir\enums.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_enums\enums.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --bold --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=10 "Linking CXX static library libcompsim_enums.a"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_enums && "C:\Program Files\CMake\bin\cmake.exe" -P CMakeFiles\compsim_enums.dir\cmake_clean_target.cmake
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_enums && "C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\compsim_enums.dir\link.txt --verbose=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+ 
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=9,10 "Built target compsim_enums"
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f laptime_parser\CMakeFiles\laptime_parser.dir\build.make laptime_parser/CMakeFiles/laptime_parser.dir/depend
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_depends "MinGW Makefiles" C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\laptime_parser C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\laptime_parser C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\laptime_parser\CMakeFiles\laptime_parser.dir\DependInfo.cmake --color=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f laptime_parser\CMakeFiles\laptime_parser.dir\build.make laptime_parser/CMakeFiles/laptime_parser.dir/build
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=22 "Building CXX object laptime_parser/CMakeFiles/laptime_parser.dir/LapTimeParser.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\laptime_parser && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/laptime_parser.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT laptime_parser/CMakeFiles/laptime_parser.dir/LapTimeParser.cpp.obj -MF CMakeFiles\laptime_parser.dir\LapTimeParser.cpp.obj.d -o CMakeFiles\laptime_parser.dir\LapTimeParser.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\laptime_parser\LapTimeParser.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=23 "Building CXX object laptime_parser/CMakeFiles/laptime_parser.dir/json_config.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\laptime_parser && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/laptime_parser.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT laptime_parser/CMakeFiles/laptime_parser.dir/json_config.cpp.obj -MF CMakeFiles\laptime_parser.dir\json_config.cpp.obj.d -o CMakeFiles\laptime_parser.dir\json_config.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\laptime_parser\json_config.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --bold --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=24 "Linking CXX static library liblaptime_parser.a"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\laptime_parser && "C:\Program Files\CMake\bin\cmake.exe" -P CMakeFiles\laptime_parser.dir\cmake_clean_target.cmake
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\laptime_parser && "C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\laptime_parser.dir\link.txt --verbose=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=22,23,24 "Built target laptime_parser"
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f compsim_classes\CMakeFiles\compsim_classes.dir\build.make compsim_classes/CMakeFiles/compsim_classes.dir/depend
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_depends "MinGW Makefiles" C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes\CMakeFiles\compsim_classes.dir\DependInfo.cmake --color=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f compsim_classes\CMakeFiles\compsim_classes.dir\build.make compsim_classes/CMakeFiles/compsim_classes.dir/build
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=3 "Building CXX object compsim_classes/CMakeFiles/compsim_classes.dir/Competition.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/compsim_classes.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT compsim_classes/CMakeFiles/compsim_classes.dir/Competition.cpp.obj -MF CMakeFiles\compsim_classes.dir\Competition.cpp.obj.d -o CMakeFiles\compsim_classes.dir\Competition.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes\Competition.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=4 "Building CXX object compsim_classes/CMakeFiles/compsim_classes.dir/Event.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/compsim_classes.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT compsim_classes/CMakeFiles/compsim_classes.dir/Event.cpp.obj -MF CMakeFiles\compsim_classes.dir\Event.cpp.obj.d -o CMakeFiles\compsim_classes.dir\Event.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes\Event.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=5 "Building CXX object compsim_classes/CMakeFiles/compsim_classes.dir/Team.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/compsim_classes.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT compsim_classes/CMakeFiles/compsim_classes.dir/Team.cpp.obj -MF CMakeFiles\compsim_classes.dir\Team.cpp.obj.d -o CMakeFiles\compsim_classes.dir\Team.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes\Team.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=6 "Building CXX object compsim_classes/CMakeFiles/compsim_classes.dir/exceptions.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/compsim_classes.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT compsim_classes/CMakeFiles/compsim_classes.dir/exceptions.cpp.obj -MF CMakeFiles\compsim_classes.dir\exceptions.cpp.obj.d -o CMakeFiles\compsim_classes.dir\exceptions.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes\exceptions.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=7 "Building CXX object compsim_classes/CMakeFiles/compsim_classes.dir/event_tools.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/compsim_classes.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT compsim_classes/CMakeFiles/compsim_classes.dir/event_tools.cpp.obj -MF CMakeFiles\compsim_classes.dir\event_tools.cpp.obj.d -o CMakeFiles\compsim_classes.dir\event_tools.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes\event_tools.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --bold --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=8 "Linking CXX static library libcompsim_classes.a"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes && "C:\Program Files\CMake\bin\cmake.exe" -P CMakeFiles\compsim_classes.dir\cmake_clean_target.cmake
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\compsim_classes && "C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\compsim_classes.dir\link.txt --verbose=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=3,4,5,6,7,8 "Built target compsim_classes"
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f events\CMakeFiles\events.dir\build.make events/CMakeFiles/events.dir/depend
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_depends "MinGW Makefiles" C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events\CMakeFiles\events.dir\DependInfo.cmake --color=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+ 
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f events\CMakeFiles\events.dir\build.make events/CMakeFiles/events.dir/build
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=11 "Building CXX object events/CMakeFiles/events.dir/AccelerationEvent.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/events.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT events/CMakeFiles/events.dir/AccelerationEvent.cpp.obj -MF CMakeFiles\events.dir\AccelerationEvent.cpp.obj.d -o CMakeFiles\events.dir\AccelerationEvent.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events\AccelerationEvent.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=12 "Building CXX object events/CMakeFiles/events.dir/AutocrossEvent.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/events.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT events/CMakeFiles/events.dir/AutocrossEvent.cpp.obj -MF CMakeFiles\events.dir\AutocrossEvent.cpp.obj.d -o CMakeFiles\events.dir\AutocrossEvent.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events\AutocrossEvent.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=13 "Building CXX object events/CMakeFiles/events.dir/BusinessPlanEvent.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/events.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT events/CMakeFiles/events.dir/BusinessPlanEvent.cpp.obj -MF CMakeFiles\events.dir\BusinessPlanEvent.cpp.obj.d -o CMakeFiles\events.dir\BusinessPlanEvent.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events\BusinessPlanEvent.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=14 "Building CXX object events/CMakeFiles/events.dir/CostAndManufacturingEvent.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/events.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT events/CMakeFiles/events.dir/CostAndManufacturingEvent.cpp.obj -MF CMakeFiles\events.dir\CostAndManufacturingEvent.cpp.obj.d -o CMakeFiles\events.dir\CostAndManufacturingEvent.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events\CostAndManufacturingEvent.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=15 "Building CXX object events/CMakeFiles/events.dir/EnduranceEvent.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/events.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT events/CMakeFiles/events.dir/EnduranceEvent.cpp.obj -MF CMakeFiles\events.dir\EnduranceEvent.cpp.obj.d -o CMakeFiles\events.dir\EnduranceEvent.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events\EnduranceEvent.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=16 "Building CXX object events/CMakeFiles/events.dir/EngineeringDesignEvent.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/events.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT events/CMakeFiles/events.dir/EngineeringDesignEvent.cpp.obj -MF CMakeFiles\events.dir\EngineeringDesignEvent.cpp.obj.d -o CMakeFiles\events.dir\EngineeringDesignEvent.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events\EngineeringDesignEvent.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=17 "Building CXX object events/CMakeFiles/events.dir/SkidpadEvent.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/events.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT events/CMakeFiles/events.dir/SkidpadEvent.cpp.obj -MF CMakeFiles\events.dir\SkidpadEvent.cpp.obj.d -o CMakeFiles\events.dir\SkidpadEvent.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events\SkidpadEvent.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --bold --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=18 "Linking CXX static library libevents.a"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events && "C:\Program Files\CMake\bin\cmake.exe" -P CMakeFiles\events.dir\cmake_clean_target.cmake
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\events && "C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\events.dir\link.txt --verbose=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=11,12,13,14,15,16,17,18 "Built target events"
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f interface\CMakeFiles\interface.dir\build.make interface/CMakeFiles/interface.dir/depend
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_depends "MinGW Makefiles" C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\interface C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\interface C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\interface\CMakeFiles\interface.dir\DependInfo.cmake --color=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f interface\CMakeFiles\interface.dir\build.make interface/CMakeFiles/interface.dir/build
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=19 "Building CXX object interface/CMakeFiles/interface.dir/FileSaver.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\interface && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/interface.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT interface/CMakeFiles/interface.dir/FileSaver.cpp.obj -MF CMakeFiles\interface.dir\FileSaver.cpp.obj.d -o CMakeFiles\interface.dir\FileSaver.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\interface\FileSaver.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=20 "Building CXX object interface/CMakeFiles/interface.dir/ui_tools.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\interface && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/interface.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT interface/CMakeFiles/interface.dir/ui_tools.cpp.obj -MF CMakeFiles\interface.dir\ui_tools.cpp.obj.d -o CMakeFiles\interface.dir\ui_tools.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\interface\ui_tools.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --bold --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=21 "Linking CXX static library libinterface.a"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\interface && "C:\Program Files\CMake\bin\cmake.exe" -P CMakeFiles\interface.dir\cmake_clean_target.cmake
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\interface && "C:\Program Files\CMake\bin\cmake.exe" -E cmake_link_script CMakeFiles\interface.dir\link.txt --verbose=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+ 
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=19,20,21 "Built target interface"
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f CMakeFiles\competiton_simulator.dir\build.make CMakeFiles/competiton_simulator.dir/depend
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_depends "MinGW Makefiles" C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles\competiton_simulator.dir\DependInfo.cmake --color=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f CMakeFiles\competiton_simulator.dir\build.make CMakeFiles/competiton_simulator.dir/build
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=1 "Building CXX object CMakeFiles/competiton_simulator.dir/main.cpp.obj"
+C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/competiton_simulator.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT CMakeFiles/competiton_simulator.dir/main.cpp.obj -MF CMakeFiles\competiton_simulator.dir\main.cpp.obj.d -o CMakeFiles\competiton_simulator.dir\main.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\main.cpp
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+ 
+make[2]: *** No rule to make target 'compsim_enums/libcompsim_enums.a', needed by 'competiton_simulator.exe'.
+make[2]: *** No rule to make target 'compsim_classes/libcompsim_classes.a', needed by 'competiton_simulator.exe'.
+make[2]: *** No rule to make target 'events/libevents.a', needed by 'competiton_simulator.exe'.
+make[2]: *** No rule to make target 'laptime_parser/liblaptime_parser.a', needed by 'competiton_simulator.exe'.
+make[2]: *** No rule to make target 'interface/libinterface.a', needed by 'competiton_simulator.exe'.
+make[1]: *** [CMakeFiles\Makefile2:221: CMakeFiles/competiton_simulator.dir/all] Error 2
+
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f tests\CMakeFiles\run_tests.dir\build.make tests/CMakeFiles/run_tests.dir/depend
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_depends "MinGW Makefiles" C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\CMakeFiles\run_tests.dir\DependInfo.cmake --color=
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f tests\CMakeFiles\run_tests.dir\build.make tests/CMakeFiles/run_tests.dir/build
+ 
+make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=25 "Building CXX object tests/CMakeFiles/run_tests.dir/catch_config.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/catch_config.cpp.obj -MF CMakeFiles\run_tests.dir\catch_config.cpp.obj.d -o CMakeFiles\run_tests.dir\catch_config.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\catch_config.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=26 "Building CXX object tests/CMakeFiles/run_tests.dir/test_acceleration.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/test_acceleration.cpp.obj -MF CMakeFiles\run_tests.dir\test_acceleration.cpp.obj.d -o CMakeFiles\run_tests.dir\test_acceleration.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\test_acceleration.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=27 "Building CXX object tests/CMakeFiles/run_tests.dir/test_autocross.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/test_autocross.cpp.obj -MF CMakeFiles\run_tests.dir\test_autocross.cpp.obj.d -o CMakeFiles\run_tests.dir\test_autocross.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\test_autocross.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=28 "Building CXX object tests/CMakeFiles/run_tests.dir/test_businessplan.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/test_businessplan.cpp.obj -MF CMakeFiles\run_tests.dir\test_businessplan.cpp.obj.d -o CMakeFiles\run_tests.dir\test_businessplan.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\test_businessplan.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=29 "Building CXX object tests/CMakeFiles/run_tests.dir/test_competition.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/test_competition.cpp.obj -MF CMakeFiles\run_tests.dir\test_competition.cpp.obj.d -o CMakeFiles\run_tests.dir\test_competition.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\test_competition.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=30 "Building CXX object tests/CMakeFiles/run_tests.dir/test_cost_and_manufacturing.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/test_cost_and_manufacturing.cpp.obj -MF CMakeFiles\run_tests.dir\test_cost_and_manufacturing.cpp.obj.d -o CMakeFiles\run_tests.dir\test_cost_and_manufacturing.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\test_cost_and_manufacturing.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=31 "Building CXX object tests/CMakeFiles/run_tests.dir/test_endurance.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/test_endurance.cpp.obj -MF CMakeFiles\run_tests.dir\test_endurance.cpp.obj.d -o CMakeFiles\run_tests.dir\test_endurance.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\test_endurance.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=32 "Building CXX object tests/CMakeFiles/run_tests.dir/test_engineering_design.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/test_engineering_design.cpp.obj -MF CMakeFiles\run_tests.dir\test_engineering_design.cpp.obj.d -o CMakeFiles\run_tests.dir\test_engineering_design.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\test_engineering_design.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=33 "Building CXX object tests/CMakeFiles/run_tests.dir/test_event_functionalities.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/test_event_functionalities.cpp.obj -MF CMakeFiles\run_tests.dir\test_event_functionalities.cpp.obj.d -o CMakeFiles\run_tests.dir\test_event_functionalities.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\test_event_functionalities.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=34 "Building CXX object tests/CMakeFiles/run_tests.dir/test_laptimeparser.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/test_laptimeparser.cpp.obj -MF CMakeFiles\run_tests.dir\test_laptimeparser.cpp.obj.d -o CMakeFiles\run_tests.dir\test_laptimeparser.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\test_laptimeparser.cpp
+"C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=35 "Building CXX object tests/CMakeFiles/run_tests.dir/test_skidpad.cpp.obj"
+cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/test_skidpad.cpp.obj -MF CMakeFiles\run_tests.dir\test_skidpad.cpp.obj.d -o CMakeFiles\run_tests.dir\test_skidpad.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\test_skidpad.cpp
+make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
+ 
+make[2]: *** No rule to make target 'events/libevents.a', needed by 'tests/run_tests.exe'.
+make[2]: *** No rule to make target 'laptime_parser/liblaptime_parser.a', needed by 'tests/run_tests.exe'.
+make[2]: *** No rule to make target 'compsim_classes/libcompsim_classes.a', needed by 'tests/run_tests.exe'.
+make[2]: *** No rule to make target 'compsim_enums/libcompsim_enums.a', needed by 'tests/run_tests.exe'.
+
+make[1]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
 make: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
  
-System nie mo�e odnale�� okre�lonej �cie�ki.
-System nie mo�e odnale�� okre�lonej �cie�ki.
-make: Circular test <- test dependency dropped.
+make[1]: *** [CMakeFiles\Makefile2:410: tests/CMakeFiles/run_tests.dir/all] Error 2
+make: *** [Makefile:90: all] Error 2
 

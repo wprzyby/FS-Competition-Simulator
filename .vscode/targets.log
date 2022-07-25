@@ -1,8 +1,4 @@
 make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --question
-System nie mo�e odnale�� okre�lonej �cie�ki.
-
-System nie mo�e odnale�� okre�lonej �cie�ki.
-
 # GNU Make 4.3
 # Built for Windows32
 # Copyright (C) 1988-2020 Free Software Foundation, Inc.
@@ -10,7 +6,7 @@ System nie mo�e odnale�� okre�lonej �cie�ki.
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Mon Jun 06 20:50:30 2022
+# Make data base, printed on Mon Jul 25 21:49:38 2022
 
 # Variables
 
@@ -18,14 +14,10 @@ System nie mo�e odnale�� okre�lonej �cie�ki.
 SYSTEMDRIVE = C:
 # environment
 LC_ALL = C
-# makefile (from 'Makefile', line 29)
-OBJDIR := ./bin
 # environment
 USERPROFILE = C:\Users\Adam
 # environment
 LOCALAPPDATA = C:\Users\Adam\AppData\Local
-# environment
-VSCODE_IPC_HOOK_EXTHOST = \\.\pipe\vscode-ipc-2214edef-a9bb-47e9-9dd8-a064a15203d5-sock
 # environment
 VSCODE_CWD = C:\Users\Adam\AppData\Local\Programs\Microsoft VS Code
 # environment
@@ -38,34 +30,27 @@ SYSTEMROOT = C:\WINDOWS
 PROCESSOR_LEVEL = 6
 # environment
 PSMODULEPATH = C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules;
-# makefile (from 'Makefile', line 23)
-DISTFILES := test
 # default
 MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
-# makefile (from 'Makefile', line 71)
-PRECOMPILE = 
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9108_JVZQESORJPOZYNJD
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_124_OFZDCQXMCMLZHYGR
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # automatic
-%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
+%D = $(patsubst %/,%,$(patsubst  
+%\,%,$(dir $%)))
 # environment
 SPLM_LICENSE_SERVER = 28000@licenses4.meil.pw.edu.pl
-# makefile (from 'Makefile', line 69)
-LINK.o = $(LD) $(LDFLAGS) $(LDLIBS) -o $@
 # automatic
 ^D = $(patsubst %/,%,$(patsubst %\,%,$(dir $^)))
-# environment
-VSCODE_LOG_STACK = false
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\Adam\AppData\Roaming\Code\CachedData\c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5
+VSCODE_CODE_CACHE_PATH = C:\Users\Adam\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
 # environment
 LANG = C
 # default
@@ -74,24 +59,18 @@ LANG = C
 TMP = C:\Users\Adam\AppData\Local\Temp
 # default
 .INCLUDE_DIRS = .
+# makefile (from 'Makefile', line 50)
+CMAKE_COMMAND = "C:\Program Files\CMake\bin\cmake.exe"
 # environment
 PROCESSOR_ARCHITEW6432 = AMD64
-# makefile (from 'Makefile', line 65)
-COMPILE.c = $(CC) $(DEPFLAGS) $(CFLAGS) $(CPPFLAGS) -c -o $@
 # makefile
 MAKEFLAGS = pqrR
-# makefile (from 'Makefile', line 49)
-TAR := tar
 # environment
 ONEDRIVE = C:\Users\Adam\OneDrive
 # makefile
 CURDIR := c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program
 # environment
-VSCODE_PIPE_LOGGING = true
-# environment
 APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# makefile (from 'Makefile', line 15)
-SRCS := base_classes/Competition.cpp base_classes/Event.cpp base_classes/LapTimeParser.cpp base_classes/Team.cpp events//AccelerationEvent.cpp events//AutocrossEvent.cpp events//BusinessPlanEvent.cpp events//CostAndManufacturingEvent.cpp events//EnduranceEvent.cpp events//EngineeringDesignEvent.cpp events//SkidpadEvent.cpp tests//test_acceleration.cpp tests//test_autocross.cpp tests//test_businessplan.cpp tests//test_competition.cpp tests//test_cost_and_manufacturing.cpp tests//test_endurance.cpp tests//test_engineering_design.cpp tests//test_event_functionalities.cpp tests//test_laptimeparser.cpp tests//test_skidpad.cpp tests//catch_config.cpp Event_tools.cpp exceptions.cpp json_config.cpp enums//enums.cpp
 # automatic
 *D = $(patsubst %/,%,$(patsubst %\,%,$(dir $*)))
 # environment
@@ -102,40 +81,36 @@ MFLAGS = -pqrR
 .SHELLFLAGS := -c
 # environment
 COMMONPROGRAMW6432 = C:\Program Files\Common Files
-# makefile (from 'Makefile', line 62)
-DEPFLAGS = -MT $@ -MD -MP -MF $(DEPDIR)/$*.Td
 # automatic
 +D = $(patsubst %/,%,$(patsubst %\,%,$(dir $+)))
 # makefile (from 'Makefile', line 1)
 MAKEFILE_LIST := Makefile
+# makefile (from 'Makefile', line 62)
+CMAKE_BINARY_DIR = C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
-VSCODE_PID = 9108
+VSCODE_PID = 124
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
+# makefile (from 'Makefile', line 59)
+CMAKE_SOURCE_DIR = C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program
 # automatic
 *F = $(notdir $*)
 # environment
 UGII_LANG = english
 # automatic
 <D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
-# makefile (from 'Makefile', line 26)
-DISTOUTPUT := test.tar.gz
 # environment
-VSCODE_NLS_CONFIG = {"locale":"pl","availableLanguages":{"*":"pl"},"_languagePackId":"c8befbfa7cd5d8527d842a3af66dca21.pl","_translationsConfigFile":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\c8befbfa7cd5d8527d842a3af66dca21.pl\\tcf.json","_cacheRoot":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\c8befbfa7cd5d8527d842a3af66dca21.pl","_resolvedLanguagePackCoreLocation":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\c8befbfa7cd5d8527d842a3af66dca21.pl\\c3511e6c69bb39013c4a4b7b9566ec1ca73fc4d5","_corruptedFile":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\c8befbfa7cd5d8527d842a3af66dca21.pl\\corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"pl","availableLanguages":{"*":"pl"},"_languagePackId":"cf3bc3cdc28c5de88f031278e7d77ef8.pl","_translationsConfigFile":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl\\tcf.json","_cacheRoot":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl","_resolvedLanguagePackCoreLocation":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl\\3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl\\corrupted.info","_languagePackSupport":true}
 # environment
 ONEDRIVECONSUMER = C:\Users\Adam\OneDrive
 # default
 MAKE_HOST := Windows32
-# makefile (from 'Makefile', line 34)
-OBJS := ./bin/base_classes/Competition.o ./bin/base_classes/Event.o ./bin/base_classes/LapTimeParser.o ./bin/base_classes/Team.o ./bin/events//AccelerationEvent.o ./bin/events//AutocrossEvent.o ./bin/events//BusinessPlanEvent.o ./bin/events//CostAndManufacturingEvent.o ./bin/events//EnduranceEvent.o ./bin/events//EngineeringDesignEvent.o ./bin/events//SkidpadEvent.o ./bin/tests//test_acceleration.o ./bin/tests//test_autocross.o ./bin/tests//test_businessplan.o ./bin/tests//test_competition.o ./bin/tests//test_cost_and_manufacturing.o ./bin/tests//test_endurance.o ./bin/tests//test_engineering_design.o ./bin/tests//test_event_functionalities.o ./bin/tests//test_laptimeparser.o ./bin/tests//test_skidpad.o ./bin/tests//catch_config.o ./bin/Event_tools.o ./bin/exceptions.o ./bin/json_config.o ./bin/enums//enums.o
 # environment
 PROGRAMDATA = C:\ProgramData
-# default
-SHELL := sh.exe
+# makefile (from 'Makefile', line 47)
+SHELL = cmd.exe
 # environment
 HOMEPATH = \Users\Adam
 # default
@@ -162,18 +137,10 @@ MAKEFILES :=
 ^F = $(notdir $^)
 # environment
 PROMPT = $P$G
-# makefile (from 'Makefile', line 60)
-LDLIBS := 
 # environment
 CHOCOLATEYLASTPATHUPDATE = 132983318149047175
-# makefile (from 'Makefile', line 6)
-BC := base_classes
-# makefile (from 'Makefile', line 10)
-TS := tests/
 # environment
 LOGONSERVER = \\ADAM-KOMPUTER
-# environment
-VSCODE_LOG_NATIVE = false
 # environment
 USERNAME = Adam
 # environment
@@ -194,40 +161,32 @@ USERDOMAIN = ADAM-KOMPUTER
 GNUMAKEFLAGS := 
 # environment
 OS = Windows_NT
-# makefile (from 'Makefile', line 12)
-EN := enums/
 # makefile (from 'Makefile', line 56)
-CPPFLAGS := -g -Wall -Wextra -pedantic
+EQUALS = =
 # makefile
-.DEFAULT_GOAL := test
+.DEFAULT_GOAL := default_target
+# makefile (from 'Makefile', line 53)
+RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 # default
 MAKE_VERSION := 4.3
-# 'override' directive
-.SHELLSTATUS := 1
 # environment
 PROGRAMFILES(X86) = C:\Program Files (x86)
-# makefile (from 'Makefile', line 58)
-LDFLAGS := 
 # environment
 USERDOMAIN_ROAMINGPROFILE = ADAM-KOMPUTER
 # environment
 NUMBER_OF_PROCESSORS = 4
 # environment
 PUBLIC = C:\Users\Public
-# makefile (from 'Makefile', line 3)
-BIN := test
+# makefile (from 'Makefile', line 35)
+MAKESILENT = -s
 # environment
 APPDATA = C:\Users\Adam\AppData\Roaming
-# makefile (from 'Makefile', line 52)
-CFLAGS := -std=c11
 # environment
 HOMEDRIVE = C:
 # environment
 PROCESSOR_ARCHITECTURE = x86
 # environment
 UGII_BASE_DIR = C:\Program Files\Siemens\NX1953
-# makefile (from 'Makefile', line 8)
-EV := events/
 # environment
 VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
 # environment
@@ -237,41 +196,25 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = C:\Users\Adam\AppData\Local\Temp
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\960edf1ed550c5a578cf488641497e4c-1.67.2-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\960edf1ed550c5a578cf488641497e4c-1.69.2-main-sock
 # default
 .RECIPEPREFIX := 
 # automatic
 <F = $(notdir $<)
-# makefile (from 'Makefile', line 36)
-DEPS := ./dep/base_classes/Competition.d ./dep/base_classes/Event.d ./dep/base_classes/LapTimeParser.d ./dep/base_classes/Team.d ./dep/events//AccelerationEvent.d ./dep/events//AutocrossEvent.d ./dep/events//BusinessPlanEvent.d ./dep/events//CostAndManufacturingEvent.d ./dep/events//EnduranceEvent.d ./dep/events//EngineeringDesignEvent.d ./dep/events//SkidpadEvent.d ./dep/tests//test_acceleration.d ./dep/tests//test_autocross.d ./dep/tests//test_businessplan.d ./dep/tests//test_competition.d ./dep/tests//test_cost_and_manufacturing.d ./dep/tests//test_endurance.d ./dep/tests//test_engineering_design.d ./dep/tests//test_event_functionalities.d ./dep/tests//test_laptimeparser.d ./dep/tests//test_skidpad.d ./dep/tests//catch_config.d ./dep/Event_tools.d ./dep/exceptions.d ./dep/json_config.d ./dep/enums//enums.d
-# makefile (from 'Makefile', line 31)
-DEPDIR := ./dep
 # default
 SUFFIXES := 
 # environment
 ALLUSERSPROFILE = C:\ProgramData
-# makefile (from 'Makefile', line 47)
-LD := g++
 # environment
 SESSIONNAME = Console
-# makefile (from 'Makefile', line 54)
-CXXFLAGS := -std=c++20
 # default
 .FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync load
 # environment
 PROCESSOR_REVISION = 4e03
-# makefile (from 'Makefile', line 73)
-POSTCOMPILE = mv -f $(DEPDIR)/$*.Td $(DEPDIR)/$*.d
-# makefile (from 'Makefile', line 45)
-CXX := g++
-# makefile (from 'Makefile', line 43)
-CC := gcc
-# makefile (from 'Makefile', line 67)
-COMPILE.cc = $(CXX) $(DEPFLAGS) $(CXXFLAGS) $(CPPFLAGS) -c -o $@
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
 # variable set hash-table stats:
-# Load=128/1024=12%, Rehash=0, Collisions=29/214=14%
+# Load=101/1024=10%, Rehash=0, Collisions=10/136=7%
 
 # Pattern-specific Variable Values
 
@@ -279,225 +222,122 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
 
 # Directories
 
-# dep: could not be stat'd.
-# . (key c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program, mtime 1654541244): 21 files, no impossibilities.
+# RCS: could not be stat'd.
+# SCCS: could not be stat'd.
+# . (key c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program, mtime 1658774186): 23 files, no impossibilities.
 
-# 21 files, no impossibilities in 2 directories.
+# 23 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
-bin/%.o: %.c
+%: %,v
 
-bin/%.o: %.c dep/%.d
-#  recipe to execute (from 'Makefile', line 109):
-	$(PRECOMPILE)
-	$(COMPILE.c) $<
-	$(POSTCOMPILE)
+%: RCS/%
 
-bin/%.o: %.cpp
+%: RCS/%,v
 
-bin/%.o: %.cpp dep/%.d
-#  recipe to execute (from 'Makefile', line 115):
-	$(PRECOMPILE)
-	$(COMPILE.cc) $<
-	$(POSTCOMPILE)
+%: SCCS/s.%
 
-bin/%.o: %.cc
+%: s.%
 
-bin/%.o: %.cc dep/%.d
-#  recipe to execute (from 'Makefile', line 121):
-	$(PRECOMPILE)
-	$(COMPILE.cc) $<
-	$(POSTCOMPILE)
+%.hpux_make_needs_suffix_list:
 
-bin/%.o: %.cxx
-
-bin/%.o: %.cxx dep/%.d
-#  recipe to execute (from 'Makefile', line 127):
-	$(PRECOMPILE)
-	$(COMPILE.cc) $<
-	$(POSTCOMPILE)
-
-dep/%.d:
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-# 9 implicit rules, 0 (0.0%) terminal.
+# 6 implicit rules, 0 (0.0%) terminal.
 # Files
 
-# Not a target:
-bin/tests//test_engineering_design.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-dist: test
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 78):
-	$(TAR) -cvzf $(DISTOUTPUT) $^
-
-dep/tests//test_acceleration.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//test_acceleration'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-check:
+compsim_enums/fast:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 98):
-	@echo no tests configured
+#  recipe to execute (from 'Makefile', line 154):
+	$(MAKE) $(MAKESILENT) -f compsim_enums\CMakeFiles\compsim_enums.dir\build.make compsim_enums/CMakeFiles/compsim_enums.dir/build
 
-# Not a target:
-bin/base_classes/Competition.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-distclean: clean
+depend:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 86):
-	$(RM) $(BIN) $(DISTOUTPUT)
+#  recipe to execute (from 'Makefile', line 115):
+	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 1
 
-dep/exceptions.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'exceptions'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-# Not a target:
-bin/tests//test_autocross.o:
+compsim_classes/fast:
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 167):
+	$(MAKE) $(MAKESILENT) -f compsim_classes\CMakeFiles\compsim_classes.dir\build.make compsim_classes/CMakeFiles/compsim_classes.dir/build
+
+laptime_parser/fast:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 193):
+	$(MAKE) $(MAKESILENT) -f laptime_parser\CMakeFiles\laptime_parser.dir\build.make laptime_parser/CMakeFiles/laptime_parser.dir/build
+
+default_target: all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
 #  File has not been updated.
 
-dep/events//EngineeringDesignEvent.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'events//EngineeringDesignEvent'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-dep/base_classes/Team.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'base_classes/Team'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-dep/events//BusinessPlanEvent.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'events//BusinessPlanEvent'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-dep/tests//test_engineering_design.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//test_engineering_design'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-dep/events//SkidpadEvent.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'events//SkidpadEvent'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-.PRECIOUS: dep/%.d
+main.cpp.obj:
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
+#  recipe to execute (from 'Makefile', line 240):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\competiton_simulator.dir\build.make CMakeFiles/competiton_simulator.dir/main.cpp.obj
+
+edit_cache/fast: edit_cache
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+run_tests: cmake_check_build_system
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 227):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 run_tests
 
 # Not a target:
 Makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-06-06 20:42:52
+#  Last modified 2022-07-25 20:35:21
 #  File has been updated.
 #  Successfully updated.
 
-dep/base_classes/LapTimeParser.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'base_classes/LapTimeParser'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-# Not a target:
-bin/events//EngineeringDesignEvent.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-bin/events//EnduranceEvent.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-bin/enums//enums.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-uninstall:
+rebuild_cache:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 94):
-	@echo no uninstall tasks configured
+#  recipe to execute (from 'Makefile', line 79):
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
+	"C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 
-dep/json_config.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'json_config'
+test/fast:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 219):
+	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\test.dir\build.make tests/CMakeFiles/test.dir/build
 
-# Not a target:
-bin/tests//test_competition.o:
+.SILENT:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
+#  File has not been updated.
+
+main.s: main.cpp.s
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
 #  File has not been updated.
 
 clean:
@@ -505,83 +345,89 @@ clean:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 82):
-	$(RM) -r $(OBJDIR) $(DEPDIR)
+#  recipe to execute (from 'Makefile', line 96):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 clean
 
-dep/tests//test_endurance.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//test_endurance'
+cmake_force:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-# Not a target:
-bin/tests//test_cost_and_manufacturing.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-dep/%.d:
-#  Precious file (prerequisite of .PRECIOUS).
+compsim_enums: cmake_check_build_system
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-bin/events//SkidpadEvent.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-bin/events//AccelerationEvent.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-bin/Event_tools.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-bin/tests//test_event_functionalities.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-bin/base_classes/Team.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-bin/events//CostAndManufacturingEvent.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-bin/tests//test_acceleration.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-dep/tests//test_businessplan.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//test_businessplan'
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 149):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 compsim_enums
+
+preinstall/fast:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 110):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+
+edit_cache:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 69):
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake cache editor..."
+	"C:\Program Files\CMake\bin\cmake-gui.exe" -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+
+laptime_parser: cmake_check_build_system
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 188):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 laptime_parser
+
+rebuild_cache/fast: rebuild_cache
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+# Not a target:
+.hpux_make_needs_suffix_list:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+events: cmake_check_build_system
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 175):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 events
+
+preinstall: all
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 105):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 preinstall
+
+main.i: main.cpp.i
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+run_tests/fast:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 232):
+	$(MAKE) $(MAKESILENT) -f tests\CMakeFiles\run_tests.dir\build.make tests/CMakeFiles/run_tests.dir/build
 
 # Not a target:
 .DEFAULT:
@@ -589,273 +435,202 @@ dep/tests//test_businessplan.d:
 #  Modification time never checked.
 #  File has not been updated.
 
-dep/events//AccelerationEvent.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'events//AccelerationEvent'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-dep/events//CostAndManufacturingEvent.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'events//CostAndManufacturingEvent'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-# Not a target:
-all:
+all: cmake_check_build_system
+#  Phony target (prerequisite of .PHONY).
 #  Command line target.
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has not been updated.
-
-# Not a target:
-bin/tests//catch_config.o:
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-dep/base_classes/Event.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'base_classes/Event'
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-dep/tests//test_cost_and_manufacturing.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//test_cost_and_manufacturing'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
+#  Needs to be updated (-q is set).
+# variable set hash-table stats:
+# Load=0/32=0%, Rehash=0, Collisions=0/6=0%
+#  recipe to execute (from 'Makefile', line 89):
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\\CMakeFiles\progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 all
+	$(CMAKE_COMMAND) -E cmake_progress_start C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles 0
 
 help:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 102):
-	@echo available targets: all dist clean distclean install uninstall check
+#  recipe to execute (from 'Makefile', line 261):
+	@echo The following are some of the valid targets for this Makefile:
+	@echo ... all (the default if no target is provided)
+	@echo ... clean
+	@echo ... depend
+	@echo ... edit_cache
+	@echo ... rebuild_cache
+	@echo ... main
+	@echo ... test
+	@echo ... competiton_simulator
+	@echo ... compsim_classes
+	@echo ... compsim_enums
+	@echo ... events
+	@echo ... interface
+	@echo ... laptime_parser
+	@echo ... run_tests
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
 
-# Not a target:
-bin/json_config.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-dep/tests//test_autocross.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//test_autocross'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-dep/tests//test_skidpad.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//test_skidpad'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-# Not a target:
-bin/events//BusinessPlanEvent.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-test: bin/base_classes/Competition.o bin/base_classes/Event.o bin/base_classes/LapTimeParser.o bin/base_classes/Team.o bin/events//AccelerationEvent.o bin/events//AutocrossEvent.o bin/events//BusinessPlanEvent.o bin/events//CostAndManufacturingEvent.o bin/events//EnduranceEvent.o bin/events//EngineeringDesignEvent.o bin/events//SkidpadEvent.o bin/tests//test_acceleration.o bin/tests//test_autocross.o bin/tests//test_businessplan.o bin/tests//test_competition.o bin/tests//test_cost_and_manufacturing.o bin/tests//test_endurance.o bin/tests//test_engineering_design.o bin/tests//test_event_functionalities.o bin/tests//test_laptimeparser.o bin/tests//test_skidpad.o bin/tests//catch_config.o bin/Event_tools.o bin/exceptions.o bin/json_config.o bin/enums//enums.o test
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'Makefile', line 105):
-	$(LINK.o) $^
-
-dep/base_classes/Competition.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'base_classes/Competition'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-# Not a target:
-bin/tests//test_laptimeparser.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-# Not a target:
-bin/base_classes/Event.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-dep/enums//enums.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'enums//enums'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-# Not a target:
-bin/tests//test_businessplan.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-dep/tests//test_event_functionalities.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//test_event_functionalities'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-dep/events//EnduranceEvent.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'events//EnduranceEvent'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-# Not a target:
-bin/tests//test_skidpad.o:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-dep/tests//catch_config.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//catch_config'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-install:
+main.cpp.s:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 90):
-	@echo no install tasks configured
+#  recipe to execute (from 'Makefile', line 256):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\competiton_simulator.dir\build.make CMakeFiles/competiton_simulator.dir/main.cpp.s
 
-# Not a target:
-bin/events//AutocrossEvent.o:
+clean/fast: clean
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+main/fast:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 128):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
+
+main: cmake_check_build_system
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 123):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 main
+
+competiton_simulator/fast:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 141):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\competiton_simulator.dir\build.make CMakeFiles/competiton_simulator.dir/build
+
+test: cmake_check_build_system
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 214):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 test
+
+main.cpp.i:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 248):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\competiton_simulator.dir\build.make CMakeFiles/competiton_simulator.dir/main.cpp.i
+
+interface/fast:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 206):
+	$(MAKE) $(MAKESILENT) -f interface\CMakeFiles\interface.dir\build.make interface/CMakeFiles/interface.dir/build
+
+.NOTPARALLEL:
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-# Not a target:
-bin/base_classes/LapTimeParser.o:
+competiton_simulator: cmake_check_build_system
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
+#  File does not exist.
 #  File has not been updated.
+#  recipe to execute (from 'Makefile', line 136):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 competiton_simulator
 
-dep/tests//test_competition.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//test_competition'
+cmake_check_build_system:
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  Implicit/static pattern stem: ''
 #  File does not exist.
 #  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
+#  Needs to be updated (-q is set).
+# automatic
+# @ := cmake_check_build_system
+# automatic
+# * := 
+# automatic
+# < := 
+# automatic
+# + := 
+# automatic
+# % := 
+# automatic
+# ^ := 
+# automatic
+# ? := 
+# automatic
+# | := 
+# variable set hash-table stats:
+# Load=8/32=25%, Rehash=0, Collisions=1/14=7%
+#  recipe to execute (from 'Makefile', line 290):
+	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles\Makefile.cmake 0
 
-# Not a target:
-bin/tests//test_endurance.o:
+main.obj: main.cpp.obj
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+
+.SUFFIXES: .hpux_make_needs_suffix_list
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-dep/events//AutocrossEvent.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'events//AutocrossEvent'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-dep/tests//test_laptimeparser.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'tests//test_laptimeparser'
-#  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
-
-# Not a target:
-bin/exceptions.o:
+.PHONY: default_target cmake_force edit_cache edit_cache/fast rebuild_cache rebuild_cache/fast all clean clean/fast preinstall preinstall/fast depend main main/fast competiton_simulator competiton_simulator/fast compsim_enums compsim_enums/fast compsim_classes compsim_classes/fast events events/fast laptime_parser laptime_parser/fast interface interface/fast test test/fast run_tests run_tests/fast main.obj main.cpp.obj main.i main.cpp.i main.s main.cpp.s help cmake_check_build_system
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
 
-.PHONY: clean distclean install uninstall check help
+events/fast:
+#  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-dep/Event_tools.d:
-#  Precious file (prerequisite of .PRECIOUS).
-#  Implicit rule search has been done.
-#  Implicit/static pattern stem: 'Event_tools'
 #  File does not exist.
-#  File has been updated.
-#  Successfully updated.
-#  recipe to execute (from 'Makefile', line 132):
-	
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 180):
+	$(MAKE) $(MAKESILENT) -f events\CMakeFiles\events.dir\build.make events/CMakeFiles/events.dir/build
+
+interface: cmake_check_build_system
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 201):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 interface
+
+compsim_classes: cmake_check_build_system
+#  Phony target (prerequisite of .PHONY).
+#  Implicit rule search has not been done.
+#  File does not exist.
+#  File has not been updated.
+#  recipe to execute (from 'Makefile', line 162):
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 compsim_classes
 
 # files hash-table stats:
-# Load=67/1024=7%, Rehash=0, Collisions=2/178=1%
+# Load=45/1024=4%, Rehash=0, Collisions=0/157=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 119 / storage = 2504 B / avg = 21 B
-# current buf: size = 8174 B / used = 2504 B / count = 119 / avg = 21 B
+# strcache buffers: 1 (0) / strings = 71 / storage = 839 B / avg = 11 B
+# current buf: size = 8174 B / used = 839 B / count = 71 / avg = 11 B
 
-# strcache performance: lookups = 196 / hit rate = 39%
+# strcache performance: lookups = 261 / hit rate = 72%
 # hash-table stats:
-# Load=119/8192=1%, Rehash=0, Collisions=0/196=0%
-# Finished Make data base on Mon Jun 06 20:50:30 2022
+# Load=71/8192=1%, Rehash=0, Collisions=0/261=0%
+# Finished Make data base on Mon Jul 25 21:49:38 2022
 
  
-make: *** No rule to make target 'all'.  Stop.
-

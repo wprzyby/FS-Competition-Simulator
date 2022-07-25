@@ -11,6 +11,7 @@
 
 EngineeringDesignEvent::EngineeringDesignEvent(std::vector<Team> &teams, std::string which_driverless)
 {
+    m_which_driverless = which_driverless;
     m_teams_participating = teams;
     if (m_which_driverless == "DC")
     {
