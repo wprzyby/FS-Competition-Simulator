@@ -36,3 +36,6 @@ X(energy_used)
 X(energy_produced)
 X(skid_first_time)
 X(skid_second_time)
+X(tra_corrected_time),
+X(tra_uncorrected_time),
+X(tra_laps)
