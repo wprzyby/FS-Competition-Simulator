@@ -20,7 +20,9 @@ AccelerationEvent::AccelerationEvent(std::vector<Team> &teams)
 
 AccelerationEvent::AccelerationEvent()
 {
-    m_event_type = acceleration;
+    if (m_which_driverless == "DV") {m_event_type = acceleration_DV;}
+    else if (m_which_driverless == "DC") {m_event_type = acceleration_DC;}
+    else {m_event_type = acceleration;}
     m_event_categories = CATEGORY_LISTS.at(acceleration);
 }
 
@@ -37,23 +39,37 @@ void AccelerationEvent::calculate_teams_points()
     double best_time_overall = find_best_time_overall(teams_and_best_times);  // Finding the best time overall
     double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
 
-    for (auto& [team, team_best_time]: teams_and_best_times)
+    if ((m_event_type == acceleration) or (m_event_type == acceleration_DC))
     {
-        double team_final_score;
+        for (auto& [team, team_best_time]: teams_and_best_times)
+        {
+            double team_final_score;
 
-        if (team_best_time == 0)
-        {
-            team_final_score = 0;  // Case od DNF or DSQ
+            if (team_best_time == 0)
+            {
+                team_final_score = 0;  // Case od DNF or DSQ
+            }
+            else if (team_best_time < 1.5*best_time_overall)
+            {
+                if (m_event_type == acceleration)
+                {
+                    team_final_score = base_points + get_additional_points(best_time_overall, team_best_time);  // Calculating teams` final score.
+                }
+                else if (m_event_type == acceleration_DC)
+                {
+                    team_final_score = base_points + get_additional_points_DC(best_time_overall, team_best_time);
+                }
+            }
+            else
+            {
+                team_final_score = 3.5;
+            }
+            m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
         }
-        else if (team_best_time < 1.5*best_time_overall)
-        {
-            team_final_score = base_points + get_additional_points(best_time_overall, team_best_time);  // Calculating teams` final score.
-        }
-        else
-        {
-            team_final_score = 3.5;
-        }
-        m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
+    }
+    else
+    {
+        //TODO: Find out a way how to handle DV Driverless
     }
 }
 
@@ -70,4 +86,17 @@ double AccelerationEvent::get_additional_points(const double best_time_overall, 
     return points;
 }
 
-// DONE
+
+double AccelerationEvent::get_additional_points_DC(const double best_time_overall, const double team_best_time) const
+{
+    double points = 71.5*(2*(best_time_overall/team_best_time) - 1);  // calculating additional points
+
+    if (points < 0)  // Checking if additional points are not negative
+    {
+        throw NegativeAdditionalPointsError();
+    }
+
+    return points;
+}
+
+

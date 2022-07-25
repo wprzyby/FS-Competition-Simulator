@@ -13,6 +13,7 @@ class AccelerationEvent : public Event  // AccelerationEvent class that inherits
     private:
         // Methods:
         double get_additional_points(double best_time_overall, double team_best_time) const;
+        double get_additional_points_DC(const double best_time_overall, const double team_best_time) const;
 
 
     protected:

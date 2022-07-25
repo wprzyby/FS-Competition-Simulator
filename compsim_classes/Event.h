@@ -13,7 +13,11 @@
 class Event  // Abstract class
 {
     protected:
+        // Enum with Event type
         EventType m_event_type;
+
+        // String provided by user in order to set propper enum Event type
+        std::string m_which_driverless;
 
         // Vector of the Teams that are participating in the event (required to be provided externally).
         std::vector<Team> m_teams_participating;
@@ -50,7 +54,7 @@ class Event  // Abstract class
         Event() {};
 
         // Constructor:
-        Event(std::vector<Team> teams_participating): m_teams_participating(teams_participating) {}
+        Event(std::vector<Team> teams_participating, std::string which_driverless): m_teams_participating(teams_participating), m_which_driverless(which_driverless) {}
 
         // Destructor:
         virtual ~Event() {};
