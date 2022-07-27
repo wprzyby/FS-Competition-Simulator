@@ -77,10 +77,40 @@ void SkidpadEvent::calculate_teams_points()
             m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
         }
     }
-    else
+    else  // TODO: Investigate if this works
     {
-        // TODO: Implement Skidpad DV
-        // Calculate teams without DNF or DSQ (using function in quiz tools)
+        int non_zero_times = count_non_zero_times(teams_and_best_times);  // Counting teams that were not DNFed or DSQed
+
+        // Sorting the teams by their times
+        for (auto& [team, team_best_time]: teams_and_best_times)
+        {
+            m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting teams and their times to classification map
+        }
+        //
+
+        int current_place = 1;
+        std::map<Team, double> buffor_m_classification;
+
+        // Calculating points for every team
+        for (auto& [team, team_best_time]: m_sorted_classification)
+        {
+            double team_final_score;
+            if (team_best_time == 0)  // In case of only DNFs and only DSQs
+            {
+                team_final_score = 0;  // Team`s time is zero so the final score is zero
+            }
+            else
+            {
+                team_final_score = get_additional_points_DV(current_place, non_zero_times);  // Calculating team`s points according to the rules
+            }
+            buffor_m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their points to classification
+            current_place++;  // Incrementing the current place
+        }
+        //
+
+        m_classification = buffor_m_classification;  // Re-writing the m_classification atrribute (in order not to duplicate teams)
+        m_sorted_classification.clear(); // Clearing the m_sorted_classification atrribute (as it doesn`t store points)
+
     }
 }
 
@@ -109,5 +139,19 @@ double SkidpadEvent::get_additional_points_DC(double best_time_overall, double t
 
     return points;
 }
+
+
+double SkidpadEvent::get_additional_points_DV(int team_place, int non_zero_times) const
+{
+    double points = (75*(1 + non_zero_times - team_place))/non_zero_times;  // calculating additional points
+
+    if (points <= 0)  // Checking if additional points are not negative or zero
+    {
+        throw NegativeAdditionalPointsError();
+    }
+
+    return points;
+}
+
 
 // DONE

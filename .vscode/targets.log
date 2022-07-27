@@ -5,8 +5,9 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Mon Jul 25 21:49:38 2022
+# Make data base, printed on Wed Jul 27 12:38:20 2022
 
 # Variables
 
@@ -35,14 +36,13 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_124_OFZDCQXMCMLZHYGR
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_11656_MTYZVDCFIRVZZAME
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
 .VARIABLES := 
 # automatic
-%D = $(patsubst %/,%,$(patsubst  
-%\,%,$(dir $%)))
+%D = $(patsubst %/,%,$(patsubst %\,%,$(dir $%)))
 # environment
 SPLM_LICENSE_SERVER = 28000@licenses4.meil.pw.edu.pl
 # automatic
@@ -90,7 +90,7 @@ CMAKE_BINARY_DIR = C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 124
+VSCODE_PID = 11656
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # makefile (from 'Makefile', line 59)
@@ -453,7 +453,8 @@ help:
 #  Phony target (prerequisite of .PHONY).
 #  Implicit rule search has not been done.
 #  File does not exist.
-#  File has not been updated.
+#  File  
+has not been updated.
 #  recipe to execute (from 'Makefile', line 261):
 	@echo The following are some of the valid targets for this Makefile:
 	@echo ... all (the default if no target is provided)
@@ -631,6 +632,6 @@ compsim_classes: cmake_check_build_system
 # strcache performance: lookups = 261 / hit rate = 72%
 # hash-table stats:
 # Load=71/8192=1%, Rehash=0, Collisions=0/261=0%
-# Finished Make data base on Mon Jul 25 21:49:38 2022
+# Finished Make data base on Wed Jul 27 12:38:20 2022
 
  

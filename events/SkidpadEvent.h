@@ -13,6 +13,7 @@ class SkidpadEvent : public Event  // SkidpadEvent class that inherits from the 
         // Methods:
         double get_additional_points(double best_time_overall, double team_best_time) const;
         double get_additional_points_DC(double best_time_overall, double team_best_time) const;
+        double get_additional_points_DV(int team_place, int non_zero_times) const;
 
 
     protected:
