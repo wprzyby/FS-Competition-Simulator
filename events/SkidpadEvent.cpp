@@ -84,12 +84,13 @@ void SkidpadEvent::calculate_teams_points()
         // Sorting the teams by their times
         for (auto& [team, team_best_time]: teams_and_best_times)
         {
-            m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting teams and their times to classification map
+            m_classification.insert({const_cast<Team&>(team), team_best_time});  // Inserting teams and their times to classification map
         }
         //
 
         int current_place = 1;
-        std::map<Team, double> buffor_m_classification;
+        std::map<Team, double> buffor_m_classification;  // creating buffor classification map
+        make_event_classification();  // Sorting teams results by their times
 
         // Calculating points for every team
         for (auto& [team, team_best_time]: m_sorted_classification)
@@ -103,12 +104,12 @@ void SkidpadEvent::calculate_teams_points()
             {
                 team_final_score = get_additional_points_DV(current_place, non_zero_times);  // Calculating team`s points according to the rules
             }
-            buffor_m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their points to classification
+            buffor_m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their points to buffor classification
             current_place++;  // Incrementing the current place
         }
         //
 
-        m_classification = buffor_m_classification;  // Re-writing the m_classification atrribute (in order not to duplicate teams)
+        m_classification = buffor_m_classification;  // Re-writing the m_classification atrribute (in order not to duplicate teams and their scores)
         m_sorted_classification.clear(); // Clearing the m_sorted_classification atrribute (as it doesn`t store points)
 
     }

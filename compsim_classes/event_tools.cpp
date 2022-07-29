@@ -100,3 +100,14 @@ double rd_to_n_places(double number, int n)
 {
     return round(number*pow(10, n))/pow(10, n);
 }
+
+
+int count_non_zero_times(std::map<Team, double> &teams_and_best_times)
+{
+    int counter = 0;
+    for (auto& [team, time]: teams_and_best_times)
+    {
+        if (time != 0) {counter++;}
+    }
+    return counter;
+}
