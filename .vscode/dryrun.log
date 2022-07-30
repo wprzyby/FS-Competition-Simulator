@@ -4,19 +4,6 @@ make: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
 "C:\Program Files\CMake\bin\cmake.exe" -E cmake_progress_start C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\\CMakeFiles\progress.marks
 C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f CMakeFiles\Makefile2 all
  
-make[2]: *** No rule to make target 'compsim_enums/libcompsim_enums.a', needed by 'competiton_simulator.exe'.
-make[2]: *** No rule to make target 'compsim_classes/libcompsim_classes.a', needed by 'competiton_simulator.exe'.
-make[2]: *** No rule to make target 'events/libevents.a', needed by 'competiton_simulator.exe'.
-make[2]: *** No rule to make target 'laptime_parser/liblaptime_parser.a', needed by 'competiton_simulator.exe'.
-make[2]: *** No rule to make target 'interface/libinterface.a', needed by 'competiton_simulator.exe'.
-make[1]: *** [CMakeFiles\Makefile2:221: CMakeFiles/competiton_simulator.dir/all] Error 2
-make[2]: *** No rule to make target 'events/libevents.a', needed by 'tests/run_tests.exe'.
-make[2]: *** No rule to make target 'laptime_parser/liblaptime_parser.a', needed by 'tests/run_tests.exe'.
-make[2]: *** No rule to make target 'compsim_classes/libcompsim_classes.a', needed by 'tests/run_tests.exe'.
-make[2]: *** No rule to make target 'compsim_enums/libcompsim_enums.a', needed by 'tests/run_tests.exe'.
-make[1]: *** [CMakeFiles\Makefile2:410: tests/CMakeFiles/run_tests.dir/all] Error 2
-make: *** [Makefile:90: all] Error 2
-
 make[1]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
 C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f compsim_enums\CMakeFiles\compsim_enums.dir\build.make compsim_enums/CMakeFiles/compsim_enums.dir/depend
 make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
@@ -121,6 +108,19 @@ make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Progra
 "C:\Program Files\CMake\bin\cmake.exe" -E cmake_depends "MinGW Makefiles" C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\CMakeFiles\run_tests.dir\DependInfo.cmake --color=
 make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
 C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f tests\CMakeFiles\run_tests.dir\build.make tests/CMakeFiles/run_tests.dir/build
+ 
+make[2]: *** No rule to make target 'compsim_enums/libcompsim_enums.a', needed by 'competiton_simulator.exe'.
+make[2]: *** No rule to make target 'compsim_classes/libcompsim_classes.a', needed by 'competiton_simulator.exe'.
+make[2]: *** No rule to make target 'events/libevents.a', needed by 'competiton_simulator.exe'.
+make[2]: *** No rule to make target 'laptime_parser/liblaptime_parser.a', needed by 'competiton_simulator.exe'.
+make[2]: *** No rule to make target 'interface/libinterface.a', needed by 'competiton_simulator.exe'.
+make[1]: *** [CMakeFiles\Makefile2:221: CMakeFiles/competiton_simulator.dir/all] Error 2
+make[2]: *** No rule to make target 'events/libevents.a', needed by 'tests/run_tests.exe'.
+make[2]: *** No rule to make target 'laptime_parser/liblaptime_parser.a', needed by 'tests/run_tests.exe'.
+make[2]: *** No rule to make target 'compsim_classes/libcompsim_classes.a', needed by 'tests/run_tests.exe'.
+make[2]: *** No rule to make target 'compsim_enums/libcompsim_enums.a', needed by 'tests/run_tests.exe'.
+make[1]: *** [CMakeFiles\Makefile2:410: tests/CMakeFiles/run_tests.dir/all] Error 2
+
 make[2]: Entering directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
 "C:\Program Files\CMake\bin\cmake.exe" -E cmake_echo_color --switch= --green --progress-dir=C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles --progress-num=25 "Building CXX object tests/CMakeFiles/run_tests.dir/catch_config.cpp.obj"
 cd /d C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests && C:\msys64\mingw64\bin\g++.exe  @CMakeFiles/run_tests.dir/includes_CXX.rsp -std=c++20 -Wall -Wextra -MD -MT tests/CMakeFiles/run_tests.dir/catch_config.cpp.obj -MF CMakeFiles\run_tests.dir\catch_config.cpp.obj.d -o CMakeFiles\run_tests.dir\catch_config.cpp.obj -c C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\tests\catch_config.cpp
@@ -148,3 +148,5 @@ make[2]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program
 make[1]: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
 make: Leaving directory 'c:/Users/Adam/Programowanie/C++/PROI/Projekt/Program'
  
+make: *** [Makefile:90: all] Error 2
+

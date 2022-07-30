@@ -5,11 +5,14 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Fri Jul 29 08:42:59 2022
+# Make data base, printed on Sat Jul 30 07:52:02 2022
 
 # Variables
 
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -35,7 +38,9 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_15884_JDNEREFBIKWQONIY
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_14868_NSXOFOFHMBFDDRTF
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -89,7 +94,7 @@ CMAKE_BINARY_DIR = C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 15884
+VSCODE_PID = 14868
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # makefile (from 'Makefile', line 59)
@@ -213,7 +218,7 @@ PROCESSOR_REVISION = 4e03
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
 # variable set hash-table stats:
-# Load=101/1024=10%, Rehash=0, Collisions=10/136=7%
+# Load=103/1024=10%, Rehash=0, Collisions=11/138=8%
 
 # Pattern-specific Variable Values
 
@@ -497,7 +502,8 @@ main/fast:
 
 main: cmake_check_build_system
 #  Phony target (prerequisite of .PHONY).
-#  Implicit rule search has not been done.
+#  Implicit rule search has not been done 
+.
 #  File does not exist.
 #  File has not been updated.
 #  recipe to execute (from 'Makefile', line 123):
@@ -630,6 +636,6 @@ compsim_classes: cmake_check_build_system
 # strcache performance: lookups = 261 / hit rate = 72%
 # hash-table stats:
 # Load=71/8192=1%, Rehash=0, Collisions=0/261=0%
-# Finished Make data base on Fri Jul 29 08:42:59 2022
+# Finished Make data base on Sat Jul 30 07:52:02 2022
 
  

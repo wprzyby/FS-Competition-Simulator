@@ -54,7 +54,7 @@ class Event  // Abstract class
         Event() {};
 
         // Constructor:
-        Event(std::vector<Team> teams_participating, std::string which_driverless);  // FIXME: Nie wiem czy kurwa nie zepsułem czegoś usunięciem tych list, trzeba poszukać xD
+        Event(std::vector<Team> teams_participating, std::string which_driverless="");  // FIXME: Nie wiem czy kurwa nie zepsułem czegoś usunięciem tych list, trzeba poszukać xD
 
         // Destructor:
         virtual ~Event() {};

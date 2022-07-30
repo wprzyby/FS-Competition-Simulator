@@ -25,7 +25,7 @@ class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent cla
     public:
         // Constructors:
         CostAndManufacturingEvent();
-        CostAndManufacturingEvent(std::vector<Team> &teams, int finalists=0, std::map<Team, double> points_to_set={});
+        CostAndManufacturingEvent(std::vector<Team> &teams, std::string which_driverless="", int finalists=0, std::map<Team, double> points_to_set={});
         // Destructor:
         ~CostAndManufacturingEvent() {};
 };
