@@ -10,6 +10,11 @@ set(tests_src_files
     test_event_functionalities.cpp
     test_laptimeparser.cpp
     test_skidpad.cpp
+    tets_acceleration_DC.cpp
+    tets_acceleration_DV.cpp
+    test_engineering_design_driverless.cpp
+    test_skidpad_DV.cpp
+    test_skidpad_DC.cpp
 )
 
 add_custom_target(test)

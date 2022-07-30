@@ -9,7 +9,7 @@
 #include <events/SkidpadEvent.h>
 
 
-TEST_CASE("SkidpadEvent tests.", "[Non - driverless]")
+TEST_CASE("SkidpadEvent tests DV.", "[Driverless DV]")
 {
     Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 2), team_c("C", "UniveroC", 3), team_d("D", "UniveroD", 4);
     std::vector<Team> teams{team_a, team_b, team_c, team_d};
@@ -50,7 +50,7 @@ TEST_CASE("SkidpadEvent tests.", "[Non - driverless]")
     skid_teams_and_results.insert({team_d, skid_team_d_results});
 
     // Creating and simulating the Event
-    SkidpadEvent skid_event(teams);
+    SkidpadEvent skid_event(teams, "DV");
     skid_event.set_results(skid_teams_and_results);
     skid_event.simulate();
     std::map<Team, double> skid_results = skid_event.get_classification();
@@ -58,10 +58,10 @@ TEST_CASE("SkidpadEvent tests.", "[Non - driverless]")
 
     // Creating map of correct results
     std::map<Team, double> skid_correct_results;
-    skid_correct_results.insert({team_a, 10.5});
-    skid_correct_results.insert({team_b, 50.0});
-    skid_correct_results.insert({team_c, 3.5});
-    skid_correct_results.insert({team_d, 23.2});
+    skid_correct_results.insert({team_a, 37.5});
+    skid_correct_results.insert({team_b, 75});
+    skid_correct_results.insert({team_c, 18.8});
+    skid_correct_results.insert({team_d, 56.3});
     //
 
     SECTION("Testing: setting results and calculating points")
@@ -86,8 +86,7 @@ TEST_CASE("SkidpadEvent tests.", "[Non - driverless]")
 
     SECTION("Testing: EventType and filename getters")
     {
-        CHECK(skid_event.get_event_type() == skidpad);
+        CHECK(skid_event.get_event_type() == skidpad_DV);
         CHECK(skid_event.get_info_file_name() == "SkidpadEventInfo.pdf");
     }
 }
- // TODO: Naprawić kurwa kompilację tych testów zjebanych

@@ -9,7 +9,7 @@
 #include <events/AccelerationEvent.h>
 
 
-TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
+TEST_CASE("AccelerationEvent DC tests.", "[Driverless Cup]")
 {
 
     Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 3), team_c("C", "UniveroC", 2), team_d("D", "UniveroD", 4);
@@ -42,8 +42,8 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
 
     // Creating map of correct results
     std::map<Team, double> acc_correct_results;
-    acc_correct_results.insert({team_a, 50.0});
-    acc_correct_results.insert({team_b, 38.4});
+    acc_correct_results.insert({team_a, 71.5});
+    acc_correct_results.insert({team_b, 59.6});
     acc_correct_results.insert({team_c, 3.5});
     acc_correct_results.insert({team_d, 0});
     //
@@ -71,7 +71,7 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
 
     SECTION("Testing: EventType and filename getters")
     {
-        CHECK(acc_event.get_event_type() == acceleration);
+        CHECK(acc_event.get_event_type() == acceleration_DC);
         CHECK(acc_event.get_info_file_name() == "AccelerationEventInfo.pdf");
     }
 }

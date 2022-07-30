@@ -4,8 +4,8 @@
 2. Investigate LapTimeParser and Windows issues. [Wojtek & Adam, 11.07 - 18.07]
     DONE
 3. Extend to include Driverless (implementation and tests). [Wojtek & Adam, 18.07 - 31.07]
-    - Adam: Engineering Design Event (tests), Skidpad (tests), Acceleration (tests), Trackdrive (Class and methods)
-    - Wojtek: Autocross, Endurance, Trackdrive (penalties)
+    - Adam: Engineering Design Event (done), Skidpad (done), Acceleration (done), Trackdrive (Class and methods, tests)
+    - Wojtek: Autocross, Endurance, Trackdrive (penalties, tests)
 4. Other calculators (already existing and yet to be written). [Wojtek & Adam, 1.08 - 14.08]
     - ...
 5. GUI. [Wojtek & Adam, 15.08 - 30.09]

@@ -103,4 +103,17 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
         CHECK(number2 == 24.58);
     }
 
+    SECTION("Testing count_non_zero_times() function")
+    {
+        std::map<Team, double> test_map;
+        Team team1("asdas","asdsa", 1), team2("asda2s","asds2a", 2), team3("asd3as","as3dsa", 3), team4("asd4as","4asdsa", 4), team5("asdaadfs","a4sdsa", 5);
+        test_map.insert({team1, 4});
+        test_map.insert({team2, 4});
+        test_map.insert({team3, 0});
+        test_map.insert({team4, 4});
+        test_map.insert({team5, 0});
+        int non_zeros = count_non_zero_times(test_map);
+        CHECK(non_zeros == 3);
+    }
+
 }

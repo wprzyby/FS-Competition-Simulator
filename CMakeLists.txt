@@ -16,7 +16,8 @@ target_include_directories(${PROJECT_NAME} PUBLIC
                            "${PROJECT_SOURCE_DIR}/compsim_classes"
                            "${PROJECT_SOURCE_DIR}/events"
                            "${PROJECT_SOURCE_DIR}/laptime_parser"
-                           "${PROJECT_SOURCE_DIR}/interface")
+                           "${PROJECT_SOURCE_DIR}/interface"
+                           "${PROJECT_SOURCE_DIR}/tests")
 
 add_subdirectory(compsim_enums)
 add_subdirectory(compsim_classes)

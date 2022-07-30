@@ -9,7 +9,7 @@
 #include <events/AccelerationEvent.h>
 
 
-TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
+TEST_CASE("AccelerationEvent DV tests.", "[Driverless]")
 {
 
     Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 3), team_c("C", "UniveroC", 2), team_d("D", "UniveroD", 4);
@@ -34,7 +34,7 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
     acc_teams_and_results.insert({team_d, acc_team_d_results});
 
     // Creating and simulating the Event
-    AccelerationEvent acc_event(teams);
+    AccelerationEvent acc_event(teams, "DV");
     acc_event.set_results(acc_teams_and_results);
     acc_event.simulate();
     std::map<Team, double> results = acc_event.get_classification();
@@ -42,9 +42,9 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
 
     // Creating map of correct results
     std::map<Team, double> acc_correct_results;
-    acc_correct_results.insert({team_a, 50.0});
-    acc_correct_results.insert({team_b, 38.4});
-    acc_correct_results.insert({team_c, 3.5});
+    acc_correct_results.insert({team_a, 75});
+    acc_correct_results.insert({team_b, 50});
+    acc_correct_results.insert({team_c, 25});
     acc_correct_results.insert({team_d, 0});
     //
 
@@ -71,7 +71,7 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
 
     SECTION("Testing: EventType and filename getters")
     {
-        CHECK(acc_event.get_event_type() == acceleration);
+        CHECK(acc_event.get_event_type() == acceleration_DV);
         CHECK(acc_event.get_info_file_name() == "AccelerationEventInfo.pdf");
     }
 }
