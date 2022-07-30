@@ -22,7 +22,7 @@ class TrackdriveEvent : public Event  // TrackdriveEvent class that inherits fro
 
     public:
         // Constructors:
-        TrackdriveEvent() {};
+        TrackdriveEvent();
         TrackdriveEvent(std::vector<Team> &teams, std::string which_driverless="DC");
         // Destructor:
         ~TrackdriveEvent() {};

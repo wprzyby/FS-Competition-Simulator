@@ -17,6 +17,7 @@ TrackdriveEvent::TrackdriveEvent()
     m_which_driverless = "DC";
 }
 
+
 TrackdriveEvent::TrackdriveEvent(std::vector<Team> &teams, std::string which_driverless)
 {
     m_teams_participating = teams;

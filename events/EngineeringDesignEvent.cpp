@@ -13,7 +13,7 @@ EngineeringDesignEvent::EngineeringDesignEvent(std::vector<Team> &teams, std::st
 {
     m_which_driverless = which_driverless;
     m_teams_participating = teams;
-    if (m_which_driverless == "DC")
+    if ((m_which_driverless == "DC") or (m_which_driverless == "DV"))
     {
     m_event_type = engineering_design_DC;
     m_event_categories = CATEGORY_LISTS.at(engineering_design_DC);
