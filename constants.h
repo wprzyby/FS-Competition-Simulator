@@ -72,3 +72,4 @@ const std::string DEF_PENALTY_CONFIG_FILE_PATH = "../dynamic_events_penalties.js
 //                                                         end_corrected_time, end_uncorrected_time};
 
 const std::string DEFAULT_SAVE_FILE_PATH = "../output_files/simulations.txt";
+// Small test to see wheteher git works properly after moving files on local computer
