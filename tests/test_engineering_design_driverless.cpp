@@ -78,7 +78,7 @@ TEST_CASE("Engineering Design Event DV functionality")
 
     // SECTION("Setting duplicate teams")
     // {
-    //     std::vector<Team> teams = {team_a, team_b, team_c, duplicate_name_team};  // FIXME: Czemu to jest zakomentowane? W wykłych testach też.
+    //     std::vector<Team> teams = {team_a, team_b, team_c, duplicate_name_team};  // FIXME: Czemu to jest zakomentowane? bo kurwa nie działa
 
     //     REQUIRE_THROWS(event.set_teams(teams));
     //     teams = {team_a, team_b, team_c, duplicate_numb_team};

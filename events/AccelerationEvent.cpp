@@ -53,7 +53,7 @@ void AccelerationEvent::calculate_teams_points()
             {
                 team_final_score = 0;  // Case od DNF or DSQ
             }
-            else if ((m_event_type == acceleration) and (team_best_time < 1.5*best_time_overall))  // FIXME: Split this
+            else if ((m_event_type == acceleration) and (team_best_time < 1.5*best_time_overall))  // FIXME: use switch ... case if possible
             {
                 team_final_score = base_points + get_additional_points(best_time_overall, team_best_time);  // Calculating teams` final score in non - driverless.
             }
@@ -81,7 +81,7 @@ void AccelerationEvent::calculate_teams_points()
 
         int current_place = 1;
         std::map<Team, double> buffor_m_classification;  // creating buffor classification map
-        make_event_classification();  // Sorting teams results by their times
+        make_event_classification();  // Sorting teams results by their times  // FIXME: Change make_event_classification to use an external method that will be used here
 
         // Calculating points for every team
         for (auto& [team, team_best_time]: m_sorted_classification)
