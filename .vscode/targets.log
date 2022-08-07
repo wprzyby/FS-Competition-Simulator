@@ -5,12 +5,13 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
- 
 
-# Make data base, printed on Tue Aug 02 22:53:31 2022
+# Make data base, printed on Sat Aug 06 12:16:35 2022
 
 # Variables
 
+# environment
+FPS_BROWSER_APP_PROFILE_STRING = Internet Explorer
 # environment
 SYSTEMDRIVE = C:
 # environment
@@ -36,7 +37,9 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_9652_RGIUGDLMSBTSJSZC
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_11216_DFVDIWEQAQFKVDKC
+# environment
+FPS_BROWSER_USER_PROFILE_STRING = Default
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -50,7 +53,7 @@ SPLM_LICENSE_SERVER = 28000@licenses4.meil.pw.edu.pl
 # automatic
 %F = $(notdir $%)
 # environment
-VSCODE_CODE_CACHE_PATH = C:\Users\Adam\AppData\Roaming\Code\CachedData\3b889b090b5ad5793f524b5d1d39fda662b96a2a
+VSCODE_CODE_CACHE_PATH = C:\Users\Adam\AppData\Roaming\Code\CachedData\da76f93349a72022ca4670c1b84860304616aaa2
 # environment
 LANG = C
 # default
@@ -90,7 +93,7 @@ CMAKE_BINARY_DIR = C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 9652
+VSCODE_PID = 11216
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # makefile (from 'Makefile', line 59)
@@ -102,7 +105,7 @@ UGII_LANG = english
 # automatic
 <D = $(patsubst %/,%,$(patsubst %\,%,$(dir $<)))
 # environment
-VSCODE_NLS_CONFIG = {"locale":"pl","availableLanguages":{"*":"pl"},"_languagePackId":"cf3bc3cdc28c5de88f031278e7d77ef8.pl","_translationsConfigFile":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl\\tcf.json","_cacheRoot":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl","_resolvedLanguagePackCoreLocation":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl\\3b889b090b5ad5793f524b5d1d39fda662b96a2a","_corruptedFile":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl\\corrupted.info","_languagePackSupport":true}
+VSCODE_NLS_CONFIG = {"locale":"pl","availableLanguages":{"*":"pl"},"_languagePackId":"cf3bc3cdc28c5de88f031278e7d77ef8.pl","_translationsConfigFile":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl\\tcf.json","_cacheRoot":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl","_resolvedLanguagePackCoreLocation":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl\\da76f93349a72022ca4670c1b84860304616aaa2","_corruptedFile":"C:\\Users\\Adam\\AppData\\Roaming\\Code\\clp\\cf3bc3cdc28c5de88f031278e7d77ef8.pl\\corrupted.info","_languagePackSupport":true}
 # environment
 ONEDRIVECONSUMER = C:\Users\Adam\OneDrive
 # default
@@ -196,7 +199,7 @@ ELECTRON_RUN_AS_NODE = 1
 # environment
 TEMP = C:\Users\Adam\AppData\Local\Temp
 # environment
-VSCODE_IPC_HOOK = \\.\pipe\960edf1ed550c5a578cf488641497e4c-1.69.2-main-sock
+VSCODE_IPC_HOOK = \\.\pipe\960edf1ed550c5a578cf488641497e4c-1.70.0-main-sock
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -214,7 +217,7 @@ PROCESSOR_REVISION = 4e03
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
 # variable set hash-table stats:
-# Load=101/1024=10%, Rehash=0, Collisions=10/136=7%
+# Load=103/1024=10%, Rehash=0, Collisions=11/138=8%
 
 # Pattern-specific Variable Values
 
@@ -224,9 +227,9 @@ PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
 
 # RCS: could not be stat'd.
 # SCCS: could not be stat'd.
-# . (key c:/Users/Adam/Programowanie/C++/Proton DYNAMIC/Quizes/Competition Simulator, mtime 1658774186): 23 files, no impossibilities.
+# . (key c:/Users/Adam/Programowanie/C++/Proton DYNAMIC/Quizes/Competition Simulator, mtime 1659564743): 21 files, no impossibilities.
 
-# 23 files, no impossibilities in 3 directories.
+# 21 files, no impossibilities in 3 directories.
 
 # Implicit Rules
 
@@ -317,7 +320,8 @@ rebuild_cache:
 #  Implicit rule search has not been done.
 #  File does not exist.
 #  File has not been updated.
-#  recipe to execute (from 'Makefile', line 79):
+#  
+ recipe to execute (from 'Makefile', line 79):
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --cyan "Running CMake to regenerate build system..."
 	"C:\Program Files\CMake\bin\cmake.exe" --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 
@@ -625,12 +629,12 @@ compsim_classes: cmake_check_build_system
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 71 / storage = 839 B / avg = 11 B
-# current buf: size = 8174 B / used = 839 B / count = 71 / avg = 11 B
+# strcache buffers: 1 (0) / strings = 69 / storage = 811 B / avg = 11 B
+# current buf: size = 8174 B / used = 811 B / count = 69 / avg = 11 B
 
-# strcache performance: lookups = 261 / hit rate = 72%
+# strcache performance: lookups = 259 / hit rate = 73%
 # hash-table stats:
-# Load=71/8192=1%, Rehash=0, Collisions=0/261=0%
-# Finished Make data base on Tue Aug 02 22:53:31 2022
+# Load=69/8192=1%, Rehash=0, Collisions=0/259=0%
+# Finished Make data base on Sat Aug 06 12:16:35 2022
 
  

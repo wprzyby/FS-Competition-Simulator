@@ -4,16 +4,6 @@
 #include "tools.h"
 
 
-// class NegativeDeltaError(Exception):
-//     def __init__(self, line):
-//         super().__init__(colored("""Delta of the square polynominal is negative. Provided parameters are incorrect.""", "red"))
-//         self.line = line
-
-
-// def line():
-//     return inspect.currentframe().f_back.f_lineno
-
-
 double rdsigfigs(double N, double n);
 
 
@@ -127,7 +117,12 @@ std::map<std::string, float> calculate_time_and_initial_speed(int sigfigs, float
 
 std::map<std::string, float> calculate_time_and_end_speed(int sigfigs, float acceleration, float distance, float initial_speed)
 {
-    float delta_sq = sqrt(4*initial_speed*initial_speed + 8*acceleration*distance);  //TODO: Exception (negative delta handling)
+    float delta_sq = sqrt(4*initial_speed*initial_speed + 8*acceleration*distance);
+    if (delta_sq == -nan("0x400000"))
+    {
+        throw NegativeDeltaError();
+    }
+    // TODO: Exception Handling: Investigate if this works!
     float time_1 = (-2*initial_speed + delta_sq)/(2*acceleration);
     float time_2 = (-2*initial_speed - delta_sq)/(2*acceleration);
 

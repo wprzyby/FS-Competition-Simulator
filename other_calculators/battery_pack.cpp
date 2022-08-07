@@ -29,7 +29,11 @@ std::map<std::string, float> calculate_current(float power, int cells, float cel
     float voltage = cells*cell_voltage;
     float resistance = stack_resistance/stacks_number;
     float delta_sqrt = sqrt(voltage*voltage - 4*power*resistance);
-    // TODO: Exception Handling: Negative delta
+    if (delta_sqrt == -nan("0x400000"))
+    {
+        throw NegativeDeltaError ();
+    }
+    // TODO: Exception Handling: Investigate if this works!
     float current = (voltage - delta_sqrt)/(2*resistance);
     float voltage_drop = voltage - current*resistance;
 

@@ -2,6 +2,8 @@
 #include <iomanip>
 #include <cmath>
 #include <bits/stdc++.h>
+#include <compsim_enums/enums.h>
+#include <compsim_classes/event_base.h>
 
 
 double rdsigfigs(double N, double n)  // rounding to n siginificant figures, taken from: https://www.geeksforgeeks.org/round-off-number-given-number-significant-digits/
@@ -31,4 +33,13 @@ double rdsigfigs(double N, double n)  // rounding to n siginificant figures, tak
     m = pow(10, d);
     j = j / m;
     return j;
+}
+
+
+template <typename T>
+T absolute(T number)
+{
+    if number < 0:
+        number = -number
+    return number
 }
