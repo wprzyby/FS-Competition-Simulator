@@ -4,13 +4,13 @@ make: Entering directory 'c:/Users/Adam/Programowanie/C++/Proton DYNAMIC/Quizes/
 "C:\Program Files\CMake\bin\cmake.exe" -E cmake_progress_start C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\CMakeFiles C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program\\CMakeFiles\progress.marks
 C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe -s -f CMakeFiles\Makefile2 all
  
+make[1]: Entering directory 'c:/Users/Adam/Programowanie/C++/Proton DYNAMIC/Quizes/Competition Simulator'
+make[1]: Leaving directory 'c:/Users/Adam/Programowanie/C++/Proton DYNAMIC/Quizes/Competition Simulator'
+make: Leaving directory 'c:/Users/Adam/Programowanie/C++/Proton DYNAMIC/Quizes/Competition Simulator'
+ 
 make[1]: CMakeFiles\Makefile2: No such file or directory
 make[1]: *** No rule to make target 'CMakeFiles\Makefile2'.
 make[1]: Failed to remake makefile 'CMakeFiles\Makefile2'.
 make[1]: *** No rule to make target 'all'.
 make: *** [Makefile:90: all] Error 2
 
-make[1]: Entering directory 'c:/Users/Adam/Programowanie/C++/Proton DYNAMIC/Quizes/Competition Simulator'
-make[1]: Leaving directory 'c:/Users/Adam/Programowanie/C++/Proton DYNAMIC/Quizes/Competition Simulator'
-make: Leaving directory 'c:/Users/Adam/Programowanie/C++/Proton DYNAMIC/Quizes/Competition Simulator'
- 
