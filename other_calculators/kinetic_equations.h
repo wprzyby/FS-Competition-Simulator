@@ -15,6 +15,7 @@ std::map<std::string, float> calculate_acceleration_and_end_speed(int sigfigs, f
 std::map<std::string, float> calculate_time_and_initial_speed(int sigfigs, float acceleration, float distance, float end_speed);
 std::map<std::string, float> calculate_time_and_end_speed(int sigfigs, float acceleration, float distance, float initial_speed);
 std::map<std::string, float> calculate_initial_speed_and_end_speed(int sigfigs, float acceleration, float distance, float time);
+float distance_during_reaction_time (float speed, float reaction_time, int sigfigs);
 
 
 #endif
