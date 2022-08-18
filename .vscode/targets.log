@@ -6,7 +6,7 @@ make.exe all --print-data-base --no-builtin-variables --no-builtin-rules --quest
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
 
-# Make data base, printed on Tue Aug 16 14:04:15 2022
+# Make data base, printed on Thu Aug 18 10:01:32 2022
 
 # Variables
 
@@ -35,7 +35,7 @@ MAKE_COMMAND := C:/ProgramData/chocolatey/lib/make/tools/install/bin/make.exe
 # automatic
 @D = $(patsubst %/,%,$(patsubst %\,%,$(dir $@)))
 # environment
-CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_1948_LQDAYPUVVVRXJETZ
+CHROME_CRASHPAD_PIPE_NAME = \\.\pipe\crashpad_14196_XJHLYABJRXQFCCND
 # environment
 VSCODE_HANDLES_UNCAUGHT_ERRORS = true
 # default
@@ -89,7 +89,7 @@ CMAKE_BINARY_DIR = C:\Users\Adam\Programowanie\C++\PROI\Projekt\Program
 # automatic
 @F = $(notdir $@)
 # environment
-VSCODE_PID = 1948
+VSCODE_PID = 14196
 # automatic
 ?D = $(patsubst %/,%,$(patsubst %\,%,$(dir $?)))
 # makefile (from 'Makefile', line 59)
@@ -162,12 +162,11 @@ GNUMAKEFLAGS :=
 OS = Windows_NT
 # makefile (from 'Makefile', line 56)
 EQUALS = =
-# environment
-__COMPAT_LAYER = DetectorsAppHealth
 # makefile
 .DEFAULT_GOAL := default_target
 # makefile (from 'Makefile', line 53)
-RM = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
+R 
+M = "C:\Program Files\CMake\bin\cmake.exe" -E rm -f
 # default
 MAKE_VERSION := 4.3
 # environment
@@ -215,7 +214,7 @@ PROCESSOR_REVISION = 4e03
 # environment
 PROCESSOR_IDENTIFIER = Intel64 Family 6 Model 78 Stepping 3, GenuineIntel
 # variable set hash-table stats:
-# Load=102/1024=10%, Rehash=0, Collisions=10/137=7%
+# Load=101/1024=10%, Rehash=0, Collisions=10/136=7%
 
 # Pattern-specific Variable Values
 
@@ -632,6 +631,6 @@ compsim_classes: cmake_check_build_system
 # strcache performance: lookups = 259 / hit rate = 73%
 # hash-table stats:
 # Load=69/8192=1%, Rehash=0, Collisions=0/259=0%
-# Finished Make data base on Tue Aug 16 14:04:15 2022
+# Finished Make data base on Thu Aug 18 10:01:32 2022
 
  

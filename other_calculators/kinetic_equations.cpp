@@ -155,3 +155,9 @@ std::map<std::string, float> calculate_initial_speed_and_end_speed(int sigfigs, 
 
     return results;
 }
+
+
+float distance_during_reaction_time (float speed, float reaction_time, int sigfigs)
+{
+    return rdsigfigs(reaction_time*speed, sigfigs);
+}
