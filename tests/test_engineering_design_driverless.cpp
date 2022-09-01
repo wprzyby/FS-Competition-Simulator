@@ -11,7 +11,7 @@
 
 TEST_CASE("Engineering Design Event DV functionality")
 {
-    EngineeringDesignEvent event;
+    EngineeringDesignEvent event("DV");
 
     Team team_a("a", "univA", 1);
     Team team_b("b", "univB", 2);

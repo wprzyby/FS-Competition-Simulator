@@ -22,7 +22,7 @@ class SkidpadEvent : public Event  // SkidpadEvent class that inherits from the 
 
 
     public:
-        SkidpadEvent() {};
+        SkidpadEvent(std::string which_driverless="");
         SkidpadEvent(std::vector<Team> &teams, std::string which_driverless="");
         // Destructor:
         ~SkidpadEvent() {};

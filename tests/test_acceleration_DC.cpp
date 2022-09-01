@@ -34,7 +34,7 @@ TEST_CASE("AccelerationEvent DC tests.", "[Driverless Cup]")
     acc_teams_and_results.insert({team_d, acc_team_d_results});
 
     // Creating and simulating the Event
-    AccelerationEvent acc_event(teams);
+    AccelerationEvent acc_event(teams, "DC");
     acc_event.set_results(acc_teams_and_results);
     acc_event.simulate();
     std::map<Team, double> results = acc_event.get_classification();
@@ -50,10 +50,10 @@ TEST_CASE("AccelerationEvent DC tests.", "[Driverless Cup]")
 
     SECTION("Testing: setting results and calculating points")
     {
-        CHECK(results[team_a] == acc_correct_results[team_a]);
-        CHECK(results[team_b] == acc_correct_results[team_b]);
-        CHECK(results[team_c] == acc_correct_results[team_c]);
-        CHECK(results.at(team_d) == acc_correct_results[team_d]);
+        CHECK(results.at(team_a) == acc_correct_results.at(team_a));
+        CHECK(results.at(team_b) == acc_correct_results.at(team_b));
+        CHECK(results.at(team_c) == acc_correct_results.at(team_c));
+        CHECK(results.at(team_d) == acc_correct_results.at(team_d));
     }
 
 

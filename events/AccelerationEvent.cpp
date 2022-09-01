@@ -8,11 +8,8 @@
 #include "AccelerationEvent.h"
 #include "constants.h"
 
-
-AccelerationEvent::AccelerationEvent(std::vector<Team> &teams, std::string which_driverless)
+AccelerationEvent::AccelerationEvent(std::string which_driverless) : Event(which_driverless)
 {
-    m_which_driverless = which_driverless;
-    m_teams_participating = teams;
     if (m_which_driverless == "DV")
     {
         m_event_type = acceleration_DV;
@@ -26,7 +23,28 @@ AccelerationEvent::AccelerationEvent(std::vector<Team> &teams, std::string which
     else
     {
         m_event_type = acceleration;
+        m_event_categories = CATEGORY_LISTS.at(acceleration);
+    }
+    // TODO: tutaj się powtarza identyczny kod w obu konstruktorach, przemyśleć
+}
+
+
+AccelerationEvent::AccelerationEvent(std::vector<Team> &teams, std::string which_driverless) : Event(teams, which_driverless)
+{
+    if (m_which_driverless == "DV")
+    {
+        m_event_type = acceleration_DV;
+        m_event_categories = CATEGORY_LISTS.at(acceleration_DV);
+    }
+    else if (m_which_driverless == "DC")
+    {
+        m_event_type = acceleration_DC;
         m_event_categories = CATEGORY_LISTS.at(acceleration_DC);
+    }
+    else
+    {
+        m_event_type = acceleration;
+        m_event_categories = CATEGORY_LISTS.at(acceleration);
     }
 }
 

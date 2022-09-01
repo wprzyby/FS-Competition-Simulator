@@ -9,11 +9,8 @@
 #include "SkidpadEvent.h"
 #include "constants.h"
 
-
-SkidpadEvent::SkidpadEvent(std::vector<Team> &teams, std::string which_driverless)
+SkidpadEvent::SkidpadEvent(std::string which_driverless) : Event(which_driverless)
 {
-    m_which_driverless = which_driverless;
-    m_teams_participating = teams;
     if (m_which_driverless == "DV")
     {
         m_event_type = skidpad_DV;
@@ -27,7 +24,28 @@ SkidpadEvent::SkidpadEvent(std::vector<Team> &teams, std::string which_driverles
     else
     {
         m_event_type = skidpad;
+        m_event_categories = CATEGORY_LISTS.at(skidpad);
+    }
+    // TODO: tutaj się powtarza identyczny kod w obu konstruktorach, przemyśleć
+}
+
+
+SkidpadEvent::SkidpadEvent(std::vector<Team> &teams, std::string which_driverless) : Event(teams, which_driverless)
+{
+    if (m_which_driverless == "DV")
+    {
+        m_event_type = skidpad_DV;
+        m_event_categories = CATEGORY_LISTS.at(skidpad_DV);
+    }
+    else if (m_which_driverless == "DC")
+    {
+        m_event_type = skidpad_DC;
         m_event_categories = CATEGORY_LISTS.at(skidpad_DC);
+    }
+    else
+    {
+        m_event_type = skidpad;
+        m_event_categories = CATEGORY_LISTS.at(skidpad);
     }
 }
 
