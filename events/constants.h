@@ -47,7 +47,11 @@ const std::map<EventType, std::vector<EventsCategories>> CATEGORY_LISTS = {{acce
                                                                             {trackdrive, TraDriCat}};
 
 const std::map<EventType, double> BASE_COMPLETION_POINTS = {{acceleration, 3.5},
+                                                            {acceleration_DC, 3.5},
+                                                            {acceleration_DV, 0},
                                                             {autocross, 4.5},
                                                             {endurance, 25},
-                                                            {skidpad, 3.5}};
+                                                            {skidpad, 3.5},
+                                                            {skidpad_DC, 3.5},
+                                                            {skidpad_DV, 0}};
 

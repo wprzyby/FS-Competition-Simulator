@@ -86,23 +86,15 @@ void AccelerationEvent::calculate_teams_points()
             m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
         }
     }
-    else  // TODO: Investigate if this works
+    else
     {
         int non_zero_times = count_non_zero_times(teams_and_best_times);  // Counting teams that were not DNFed or DSQed
 
-        // Sorting the teams by their times
-        for (auto& [team, team_best_time]: teams_and_best_times)
-        {
-            m_classification.insert({const_cast<Team&>(team), team_best_time});  // Inserting teams and their times to classification map
-        }
-        //
-
         int current_place = 1;
-        std::map<Team, double> buffor_m_classification;  // creating buffor classification map
-        make_event_classification();  // Sorting teams results by their times  // FIXME: Change make_event_classification to use an external method that will be used here
+        std::vector<std::pair<Team, double>> sorted_teams_and_times = sort_teams_and_points(teams_and_best_times, false);
 
         // Calculating points for every team
-        for (auto& [team, team_best_time]: m_sorted_classification)
+        for (auto& [team, team_best_time]: sorted_teams_and_times)
         {
             double team_final_score;
             if (team_best_time == 0)  // In case of only DNFs and only DSQs
@@ -112,15 +104,12 @@ void AccelerationEvent::calculate_teams_points()
             else
             {
                 team_final_score = get_additional_points_DV(current_place, non_zero_times);  // Calculating team`s points according to the rules
+                current_place++;  // Incrementing the current place
             }
-            buffor_m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their points to buffor classification
-            current_place++;  // Incrementing the current place
+            m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their points to buffor classification
+
         }
         //
-
-        m_classification = buffor_m_classification;  // Re-writing the m_classification atrribute (in order not to duplicate teams and their scores)
-        m_sorted_classification.clear(); // Clearing the m_sorted_classification atrribute (as it doesn`t store points)
-
     }
 }
 
@@ -153,7 +142,7 @@ double AccelerationEvent::get_additional_points_DC(const double best_time_overal
 
 double AccelerationEvent::get_additional_points_DV(int team_place, int non_zero_times) const
 {
-    double points = (75*(1 + non_zero_times - team_place))/non_zero_times;  // calculating additional points
+    double points = (75*(1 + non_zero_times - team_place))/static_cast<double>(non_zero_times);  // calculating additional points
 
     if (points <= 0)  // Checking if additional points are not negative or zero
     {

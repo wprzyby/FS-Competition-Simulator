@@ -42,8 +42,8 @@ TEST_CASE("AccelerationEvent DC tests.", "[Driverless Cup]")
 
     // Creating map of correct results
     std::map<Team, double> acc_correct_results;
-    acc_correct_results.insert({team_a, 71.5});
-    acc_correct_results.insert({team_b, 59.6});
+    acc_correct_results.insert({team_a, 75.0});
+    acc_correct_results.insert({team_b, 63.1});
     acc_correct_results.insert({team_c, 3.5});
     acc_correct_results.insert({team_d, 0});
     //

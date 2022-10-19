@@ -90,9 +90,14 @@ bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<Ev
 }
 
 
-bool compare_teams(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)
+bool higher_team(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)
 {
     return first_pair.second > second_pair.second;
+}
+
+bool lower_team(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)
+{
+    return first_pair.second < second_pair.second;
 }
 
 
@@ -110,4 +115,27 @@ int count_non_zero_times(std::map<Team, double> &teams_and_best_times)
         if (time != 0) {counter++;}
     }
     return counter;
+}
+
+
+std::vector<std::pair<Team, double>> sort_teams_and_points(std::map<Team, double> &map_to_sort, bool descending)
+{
+    // converts a Team to points map into a sorted vector of [Team, points] pairs
+    std::vector<std::pair<Team, double>> teams_and_points_vector;
+
+    for (auto& [team, points]: map_to_sort)
+    {
+        teams_and_points_vector.push_back({const_cast<Team&>(team), points});
+    }
+
+    if (descending)
+    {
+        std::sort(teams_and_points_vector.begin(), teams_and_points_vector.end(), higher_team);
+    }
+    else
+    {
+        std::sort(teams_and_points_vector.begin(), teams_and_points_vector.end(), lower_team);
+    }
+
+    return teams_and_points_vector;
 }

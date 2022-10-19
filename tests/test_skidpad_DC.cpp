@@ -58,10 +58,10 @@ TEST_CASE("SkidpadEvent test DC", "[Driverless Cup]")
 
     // Creating map of correct results
     std::map<Team, double> skid_correct_results;
-    skid_correct_results.insert({team_a, 32.1});
-    skid_correct_results.insert({team_b, 71.5});
+    skid_correct_results.insert({team_a, 35.6});
+    skid_correct_results.insert({team_b, 75});
     skid_correct_results.insert({team_c, 3.5});
-    skid_correct_results.insert({team_d, 44.8});
+    skid_correct_results.insert({team_d, 48.3});
     //
 
     SECTION("Testing: setting results and calculating points")
