@@ -8,19 +8,34 @@
 #include "EngineeringDesignEvent.h"
 #include "constants.h"
 
-
-
-EngineeringDesignEvent::EngineeringDesignEvent(std::vector<Team> &teams)
+EngineeringDesignEvent::EngineeringDesignEvent(std::string which_driverless) : Event(which_driverless)
 {
-    m_teams_participating = teams;
+    if ((m_which_driverless == "DC") or (m_which_driverless == "DV"))
+    {
+    m_event_type = engineering_design_DC;
+    m_event_categories = CATEGORY_LISTS.at(engineering_design_DC);
+    }
+    else
+    {
     m_event_type = engineering_design;
     m_event_categories = CATEGORY_LISTS.at(engineering_design);
+    }
+    // TODO: tutaj się powtarza identyczny kod w obu konstruktorach, przemyśleć
 }
 
-EngineeringDesignEvent::EngineeringDesignEvent()
+
+EngineeringDesignEvent::EngineeringDesignEvent(std::vector<Team> &teams, std::string which_driverless) : Event(teams, which_driverless)
 {
+    if ((m_which_driverless == "DC") or (m_which_driverless == "DV"))
+    {
+    m_event_type = engineering_design_DC;
+    m_event_categories = CATEGORY_LISTS.at(engineering_design_DC);
+    }
+    else
+    {
     m_event_type = engineering_design;
     m_event_categories = CATEGORY_LISTS.at(engineering_design);
+    }
 }
 
 

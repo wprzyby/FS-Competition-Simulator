@@ -52,3 +52,10 @@ class InvalidModeError: public std::invalid_argument
     public:
         InvalidModeError();
 };
+
+
+class NegativeDeltaError: public std::invalid_argument
+{
+    public:
+        NegativeDeltaError();
+};

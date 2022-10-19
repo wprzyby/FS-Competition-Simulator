@@ -1,13 +1,13 @@
 # To do globally
 
-1. Decide the variables types and write 'const' where possible. [Wojtek, 11.07 - 18.07]
-2. Investigate LapTimeParser and Windows issues. [Wojtek & Adam, 11.07 - 18.07]
-    - Compilations works
-    - Yet to create folder packages to be included in the main CMakeLists
-3. Extend to include Driverless (implementation and tests). [Wojtek & Adam, 18.07 - 31.07]
-    - ...
-4. Other calculators (already existing and yet to be written). [Wojtek & Adam, 1.08 - 14.08]
-    - ...
+1. Decide the variables types and write 'const' where possible.
+2. Investigate LapTimeParser and Windows issues. [DONE]
+3. Extend to include Driverless (implementation and tests).
+    - Adam: Trackdrive (tests)
+    - Wojtek: Autocross, Endurance, Trackdrive (penalties, tests)
+    - Run tests and fix all potential issues!
+4. Other calculators [DONE]
+    - Made up my mind that there is no need for additional calculators. Already implemented (kinematic, battery pack, RC) are enough.
 5. GUI. [Wojtek & Adam, 15.08 - 30.09]
 6. Testing, consultations, further improvements, potential delays. [Wojtek & Adam, OCT 2022 - NOV 2022]
 7. Prepare info files (can be done by someone else). [NOV 2022 - DEC 2022]

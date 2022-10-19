@@ -9,7 +9,7 @@
 #include <events/AccelerationEvent.h>
 
 
-TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
+TEST_CASE("AccelerationEvent DC tests.", "[Driverless Cup]")
 {
 
     Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 3), team_c("C", "UniveroC", 2), team_d("D", "UniveroD", 4);
@@ -34,7 +34,7 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
     acc_teams_and_results.insert({team_d, acc_team_d_results});
 
     // Creating and simulating the Event
-    AccelerationEvent acc_event(teams);
+    AccelerationEvent acc_event(teams, "DC");
     acc_event.set_results(acc_teams_and_results);
     acc_event.simulate();
     std::map<Team, double> results = acc_event.get_classification();
@@ -42,18 +42,18 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
 
     // Creating map of correct results
     std::map<Team, double> acc_correct_results;
-    acc_correct_results.insert({team_a, 50.0});
-    acc_correct_results.insert({team_b, 38.4});
+    acc_correct_results.insert({team_a, 75.0});
+    acc_correct_results.insert({team_b, 63.1});
     acc_correct_results.insert({team_c, 3.5});
     acc_correct_results.insert({team_d, 0});
     //
 
     SECTION("Testing: setting results and calculating points")
     {
-        CHECK(results[team_a] == acc_correct_results[team_a]);
-        CHECK(results[team_b] == acc_correct_results[team_b]);
-        CHECK(results[team_c] == acc_correct_results[team_c]);
-        CHECK(results.at(team_d) == acc_correct_results[team_d]);
+        CHECK(results.at(team_a) == acc_correct_results.at(team_a));
+        CHECK(results.at(team_b) == acc_correct_results.at(team_b));
+        CHECK(results.at(team_c) == acc_correct_results.at(team_c));
+        CHECK(results.at(team_d) == acc_correct_results.at(team_d));
     }
 
 
@@ -71,7 +71,7 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
 
     SECTION("Testing: EventType and filename getters")
     {
-        CHECK(acc_event.get_event_type() == acceleration);
+        CHECK(acc_event.get_event_type() == acceleration_DC);
         CHECK(acc_event.get_info_file_name() == "AccelerationEventInfo.pdf");
     }
 }

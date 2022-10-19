@@ -30,3 +30,7 @@ DuplicateTeamError::DuplicateTeamError():
 
 InvalidModeError::InvalidModeError():
     std::invalid_argument("Invalid operation mode was selected") {}
+
+
+NegativeDeltaError::NegativeDeltaError():
+    std::invalid_argument("Incorrect input values: Delta turned out to be negative") {}

@@ -13,6 +13,8 @@ class AccelerationEvent : public Event  // AccelerationEvent class that inherits
     private:
         // Methods:
         double get_additional_points(double best_time_overall, double team_best_time) const;
+        double get_additional_points_DC(const double best_time_overall, const double team_best_time) const;
+        double get_additional_points_DV(int team_place, int non_zero_times) const;
 
 
     protected:
@@ -22,8 +24,8 @@ class AccelerationEvent : public Event  // AccelerationEvent class that inherits
 
     public:
         // Constructors:
-        AccelerationEvent();
-        AccelerationEvent(std::vector<Team> &teams);
+        AccelerationEvent(std::string which_driverless="");
+        AccelerationEvent(std::vector<Team> &teams, std::string which_driverless="");
         // Destructor:
         ~AccelerationEvent() {};
 };

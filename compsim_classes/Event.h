@@ -13,10 +13,14 @@
 class Event  // Abstract class
 {
     protected:
+        // Enum with Event type
         EventType m_event_type;
 
         // Vector of the Teams that are participating in the event (required to be provided externally).
         std::vector<Team> m_teams_participating;
+
+        // String provided by user in order to set propper enum Event type ("" - No driverless, "DV" - classic driverless, "DC" - Driverless Cup)
+        std::string m_which_driverless;
 
         // Map with teams and second map of categories in desired Event.
         std::map<Team, std::map<EventsCategories, double>> m_teams_and_results;
@@ -47,10 +51,10 @@ class Event  // Abstract class
         void set_teams(std::vector<Team> &teams);
 
         // Default Constructor:
-        Event() {};
+        Event(std::string which_driverless=""): m_which_driverless(which_driverless) {}
 
         // Constructor:
-        Event(std::vector<Team> teams_participating): m_teams_participating(teams_participating) {}
+        Event(std::vector<Team> teams_participating, std::string which_driverless=""): m_teams_participating(teams_participating), m_which_driverless(which_driverless) {}  // FIXME: Nie wiem czy kurwa nie zepsułem czegoś usunięciem tych list, trzeba poszukać xD
 
         // Destructor:
         virtual ~Event() {};

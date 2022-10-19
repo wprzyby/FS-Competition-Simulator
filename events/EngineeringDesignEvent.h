@@ -16,8 +16,8 @@ class EngineeringDesignEvent : public Event  // EngineeringDesignEvent class tha
 
     public:
         // Constructors:
-        EngineeringDesignEvent();
-        EngineeringDesignEvent(std::vector<Team> &teams);
+        EngineeringDesignEvent(std::string which_driverless="");
+        EngineeringDesignEvent(std::vector<Team> &teams, std::string which_driverless="");
         // Destructor:
         ~EngineeringDesignEvent() {};
 };

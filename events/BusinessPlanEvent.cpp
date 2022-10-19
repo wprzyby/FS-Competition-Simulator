@@ -11,7 +11,7 @@
 
 
 
-BusinessPlanEvent::BusinessPlanEvent(std::vector<Team> &teams, int finalists, std::map<Team, double> points_to_set)
+BusinessPlanEvent::BusinessPlanEvent(std::vector<Team> &teams, int finalists, std::map<Team, double> points_to_set, std::string which_driverless)
 {
     m_teams_participating = teams;
     m_event_type = businessplan;

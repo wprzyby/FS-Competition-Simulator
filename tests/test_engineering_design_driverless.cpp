@@ -9,9 +9,9 @@
 #include <events/EngineeringDesignEvent.h>
 
 
-TEST_CASE("Engineering Design Event functionality")
+TEST_CASE("Engineering Design Event DV functionality")
 {
-    EngineeringDesignEvent event;
+    EngineeringDesignEvent event("DV");
 
     Team team_a("a", "univA", 1);
     Team team_b("b", "univB", 2);
@@ -36,45 +36,35 @@ TEST_CASE("Engineering Design Event functionality")
     team_a_results.insert({mechanical_structural_engineering, 5});
     team_a_results.insert({tractive_system, 1});
     team_a_results.insert({electronics, 15});
-    team_a_results.insert({driver_interface, 0});
     team_a_results.insert({autonomous_functionality, 5});
-    team_a_results.insert({design_report, 10});
 
     team_b_results.insert({overall_vehicle_concept, 30});
     team_b_results.insert({vehicle_performance, 18});
     team_b_results.insert({mechanical_structural_engineering, 2});
     team_b_results.insert({tractive_system, 10});
     team_b_results.insert({electronics, 5});
-    team_b_results.insert({driver_interface, 10});
     team_b_results.insert({autonomous_functionality, 20});
-    team_b_results.insert({design_report, 10});
 
     team_c_results.insert({overall_vehicle_concept, 0});
     team_c_results.insert({vehicle_performance, 0});
     team_c_results.insert({mechanical_structural_engineering, 0});
     team_c_results.insert({tractive_system, 0});
     team_c_results.insert({electronics, 0});
-    team_c_results.insert({driver_interface, 0});
     team_c_results.insert({autonomous_functionality, 0});
-    team_c_results.insert({design_report, 0});
 
     negative_points_team_results.insert({overall_vehicle_concept, 0});
     negative_points_team_results.insert({vehicle_performance, -1});
     negative_points_team_results.insert({mechanical_structural_engineering, -5});
     negative_points_team_results.insert({tractive_system, 3});
     negative_points_team_results.insert({electronics, 2});
-    negative_points_team_results.insert({driver_interface, 0});
     negative_points_team_results.insert({autonomous_functionality, 1});
-    negative_points_team_results.insert({design_report, 0});
 
     points_over_maximum_team_results.insert({overall_vehicle_concept, 40});
     points_over_maximum_team_results.insert({vehicle_performance, 0});
     points_over_maximum_team_results.insert({mechanical_structural_engineering, 20});
     points_over_maximum_team_results.insert({tractive_system, 5});
     points_over_maximum_team_results.insert({electronics, 5});
-    points_over_maximum_team_results.insert({driver_interface, 0});
     points_over_maximum_team_results.insert({autonomous_functionality, 1});
-    points_over_maximum_team_results.insert({design_report, 0});
 
     results.insert({team_a, team_a_results});
     results.insert({team_b, team_b_results});
@@ -82,13 +72,13 @@ TEST_CASE("Engineering Design Event functionality")
 
     std::map<Team, double> correct_results;
 
-    correct_results.insert({team_a, 61});
-    correct_results.insert({team_b, 105});
+    correct_results.insert({team_a, 51});
+    correct_results.insert({team_b, 85});
     correct_results.insert({team_c, 0.0});
 
     // SECTION("Setting duplicate teams")
     // {
-    //     std::vector<Team> teams = {team_a, team_b, team_c, duplicate_name_team};
+    //     std::vector<Team> teams = {team_a, team_b, team_c, duplicate_name_team};  // FIXME: Czemu to jest zakomentowane? bo kurwa nie działa
 
     //     REQUIRE_THROWS(event.set_teams(teams));
     //     teams = {team_a, team_b, team_c, duplicate_numb_team};
@@ -101,7 +91,7 @@ TEST_CASE("Engineering Design Event functionality")
     {
         Team team_x("x", "univX", 10);
         std::map<EventsCategories, double> team_x_results;
-        team_x_results.insert({driver_interface, 100000});
+        team_x_results.insert({vehicle_performance, 100000});
         team_x_results.insert({pitch_video, 5});
         team_x_results.insert({first_acc_time, 100000});
         results.insert({team_x, team_x_results});
@@ -132,8 +122,7 @@ TEST_CASE("Engineering Design Event functionality")
 
     SECTION("Getters")
     {
-        CHECK(event.get_event_type() == engineering_design);
+        CHECK(event.get_event_type() == engineering_design_DC);
         CHECK(event.get_info_file_name() == "EngineeringDesignEventInfo.pdf");
     }
-
 }
