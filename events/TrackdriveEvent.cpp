@@ -6,7 +6,7 @@
 #include <compsim_enums/enums.h>
 #include <compsim_classes/event_base.h>
 
-#include "SkidpadEvent.h"
+#include "TrackdriveEvent.h"
 #include "constants.h"
 
 
@@ -18,7 +18,7 @@ TrackdriveEvent::TrackdriveEvent()
 }
 
 
-TrackdriveEvent::TrackdriveEvent(std::vector<Team> &teams, std::string which_driverless)
+TrackdriveEvent::TrackdriveEvent(std::vector<Team> &teams)
 {
     m_teams_participating = teams;
     m_event_type = trackdrive;

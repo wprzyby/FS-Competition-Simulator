@@ -1,6 +1,7 @@
 *.log
 .vscode/settings.json
 .vscode/launch.json
+.cache
 CMakeFiles
 CMakeCache.txt
 cmake_install.cmake
