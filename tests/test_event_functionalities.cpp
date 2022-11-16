@@ -81,8 +81,8 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
 
     SECTION("Testing: check_if_category_in_vector() function")
     {
-        bool result1 = check_if_category_in_vector(first_acc_time, AccEveCat);
-        bool result2 = check_if_category_in_vector(tractive_system, AccEveCat);
+        bool result1 = is_category_in_vector(first_acc_time, AccEveCat);
+        bool result2 = is_category_in_vector(tractive_system, AccEveCat);
         CHECK(result1 == true);
         CHECK(result2 == false);
     }

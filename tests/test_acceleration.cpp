@@ -50,10 +50,10 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
 
     SECTION("Testing: setting results and calculating points")
     {
-        CHECK(results[team_a] == acc_correct_results[team_a]);
-        CHECK(results[team_b] == acc_correct_results[team_b]);
-        CHECK(results[team_c] == acc_correct_results[team_c]);
-        CHECK(results.at(team_d) == acc_correct_results[team_d]);
+        CHECK(results.at(team_a) == acc_correct_results.at(team_a));
+        CHECK(results.at(team_b) == acc_correct_results.at(team_b));
+        CHECK(results.at(team_c) == acc_correct_results.at(team_c));
+        CHECK(results.at(team_d) == acc_correct_results.at(team_d));
     }
 
 
@@ -62,16 +62,9 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
         std::vector<std::pair<Team, double>> acc_points_vector = acc_event.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(acc_points_vector[0].second >= acc_points_vector[1].second);
-        CHECK(acc_points_vector[1].second >= acc_points_vector[2].second);
-        CHECK(acc_points_vector[2].second >= acc_points_vector[3].second);
+        CHECK(acc_points_vector.at(0).second >= acc_points_vector.at(1).second);
+        CHECK(acc_points_vector.at(1).second >= acc_points_vector.at(2).second);
+        CHECK(acc_points_vector.at(2).second >= acc_points_vector.at(3).second);
         //
-    }
-
-
-    SECTION("Testing: EventType and filename getters")
-    {
-        CHECK(acc_event.get_event_type() == acceleration);
-        CHECK(acc_event.get_info_file_name() == "AccelerationEventInfo.pdf");
     }
 }

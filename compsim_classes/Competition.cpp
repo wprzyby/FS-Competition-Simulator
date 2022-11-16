@@ -77,6 +77,6 @@ void Competition::create_classification()
     }
 
     // sorting the final classification by team's points in descending order
-    std::sort(m_final_classification.begin(), m_final_classification.end(), higher_team);
+    std::sort(m_final_classification.begin(), m_final_classification.end(), better_team);
 
 }

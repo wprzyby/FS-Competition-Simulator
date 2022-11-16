@@ -110,10 +110,10 @@ TEST_CASE("Endurance Event functionality")
         // checking if sorted correctly
         std::vector<std::pair<Team,double>> sorted_points = event.get_sorted_classification();
 
-        CHECK(sorted_points[0].second >= sorted_points[1].second);
-        CHECK(sorted_points[1].second >= sorted_points[2].second);
-        CHECK(sorted_points[2].second >= sorted_points[3].second);
-        CHECK(sorted_points[3].second >= sorted_points[4].second);
+        CHECK(sorted_points.at(0).second >= sorted_points.at(1).second);
+        CHECK(sorted_points.at(1).second >= sorted_points.at(2).second);
+        CHECK(sorted_points.at(2).second >= sorted_points.at(3).second);
+        CHECK(sorted_points.at(3).second >= sorted_points.at(4).second);
     }
 
     SECTION("Simulation - endurance and efficiency")
@@ -135,16 +135,9 @@ TEST_CASE("Endurance Event functionality")
         // checking if sorted correctly
         std::vector<std::pair<Team,double>> sorted_points = event_with_eff.get_sorted_classification();
 
-        CHECK(sorted_points[0].second >= sorted_points[1].second);
-        CHECK(sorted_points[1].second >= sorted_points[2].second);
-        CHECK(sorted_points[2].second >= sorted_points[3].second);
-        CHECK(sorted_points[3].second >= sorted_points[4].second);
+        CHECK(sorted_points.at(0).second >= sorted_points.at(1).second);
+        CHECK(sorted_points.at(1).second >= sorted_points.at(2).second);
+        CHECK(sorted_points.at(2).second >= sorted_points.at(3).second);
+        CHECK(sorted_points.at(3).second >= sorted_points.at(4).second);
     }
-
-    SECTION("Getters")
-    {
-        CHECK(event.get_event_type() == endurance);
-        CHECK(event.get_info_file_name() == "EnduranceEventInfo.pdf");
-    }
-
 }

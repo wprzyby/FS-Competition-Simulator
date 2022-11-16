@@ -10,23 +10,6 @@
 #include "constants.h"
 
 
-
-EnduranceEvent::EnduranceEvent(bool run_efficiency)
-{
-    m_event_type = endurance;
-    m_event_categories = CATEGORY_LISTS.at(endurance);
-    m_run_efficiency = run_efficiency;
-}
-
-EnduranceEvent::EnduranceEvent(std::vector<Team> &teams, bool run_efficiency)
-{
-    m_teams_participating = teams;
-    m_event_type = endurance;
-    m_event_categories = CATEGORY_LISTS.at(endurance);
-    m_run_efficiency = run_efficiency;
-}
-
-
 void EnduranceEvent::calculate_teams_points()
 {
     std::map<Team, double> teams_and_corr_times;
@@ -44,30 +27,10 @@ void EnduranceEvent::calculate_teams_points()
         }
     }
 
-    double best_time_overall = find_best_time_overall(teams_and_corr_times);
-    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
+    double base_points = BASE_COMPLETION_POINTS.at(endurance);
+    double time_threshold_coefficient = 1.333;
 
-    // calculating points for each team from the endurance part of the event
-    for(auto& [team, team_time]: teams_and_corr_times)
-    {
-        double team_endurance_score;
-
-        if(team_time == 0)
-        {
-            team_endurance_score = 0;
-        }
-        else if(team_time < best_time_overall * 1.333)
-        {
-            team_endurance_score = get_endurance_points(best_time_overall, team_time) + base_points;
-        }
-        else
-        {
-            team_endurance_score = base_points;
-        }
-
-        m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_endurance_score, 1)});
-    }
-
+    fill_points_std_dynamic(base_points, time_threshold_coefficient, teams_and_corr_times, &get_endurance_points);
     if (!m_run_efficiency) {return;}
 
     double best_uncorr_time = find_best_time_overall(teams_and_uncorr_times);
@@ -94,7 +57,7 @@ void EnduranceEvent::calculate_teams_points()
 }
 
 
-double EnduranceEvent::get_endurance_points(double best_time_overall, double team_best_time) const
+double EnduranceEvent::get_endurance_points(double best_time_overall, double team_best_time)
 {
     double points = 300 * ( ( (best_time_overall*1.333 / team_best_time) - 1 ) / 0.333 );
 
@@ -107,7 +70,7 @@ double EnduranceEvent::get_endurance_points(double best_time_overall, double tea
 }
 
 
-double EnduranceEvent::get_efficiency_points(double best_eff_factor, double team_eff_factor) const
+double EnduranceEvent::get_efficiency_points(double best_eff_factor, double team_eff_factor)
 {
     double points = 75 * ( 2 - (team_eff_factor / best_eff_factor) );
 

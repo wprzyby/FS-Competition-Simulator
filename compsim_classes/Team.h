@@ -6,9 +6,9 @@
 class Team
 {
     private:
-    std::string m_name;
-    std::string m_university;
-    unsigned m_number;
+      std::string m_name;
+      std::string m_university;
+      unsigned m_number;
 
 
     public:

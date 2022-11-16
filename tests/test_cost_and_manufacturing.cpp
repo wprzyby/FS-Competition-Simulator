@@ -80,10 +80,10 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
 
     SECTION("Testing: setting results and calculating points")
     {
-        CHECK(cos_results[team_a] == cos_correct_results[team_a]);
-        CHECK(cos_results[team_b] == cos_correct_results[team_b]);
-        CHECK(cos_results[team_c] == cos_correct_results[team_c]);
-        CHECK(cos_results[team_d] == cos_correct_results[team_d]);
+        CHECK(cos_results.at(team_a) == cos_correct_results.at(team_a));
+        CHECK(cos_results.at(team_b) == cos_correct_results.at(team_b));
+        CHECK(cos_results.at(team_c) == cos_correct_results.at(team_c));
+        CHECK(cos_results.at(team_d) == cos_correct_results.at(team_d));
     }
 
 
@@ -92,25 +92,19 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
         std::vector<std::pair<Team, double>> points_vector = cos_event.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(points_vector[0].second >= points_vector[1].second);
-        CHECK(points_vector[1].second >= points_vector[2].second);
-        CHECK(points_vector[2].second >= points_vector[3].second);
+        CHECK(points_vector.at(0).second >= points_vector.at(1).second);
+        CHECK(points_vector.at(1).second >= points_vector.at(2).second);
+        CHECK(points_vector.at(2).second >= points_vector.at(3).second);
         //
     }
 
 
-    SECTION("Testing: EventType and filename getters")
-    {
-        CHECK(cos_event.get_event_type() == cost_and_manufacturing);
-        CHECK(cos_event.get_info_file_name() == "CostAndManufacturingEventInfo.pdf");
-    }
-
     SECTION("Testing: setting results and calculating points - finals")
     {
-        CHECK(cos_results_finals[team_a] == cos_correct_results_finals[team_a]);
-        CHECK(cos_results_finals[team_b] == cos_correct_results_finals[team_b]);
-        CHECK(cos_results_finals[team_c] == cos_correct_results_finals[team_c]);
-        CHECK(cos_results_finals[team_d] == cos_correct_results_finals[team_d]);
+        CHECK(cos_results_finals.at(team_a) == cos_correct_results_finals.at(team_a));
+        CHECK(cos_results_finals.at(team_b) == cos_correct_results_finals.at(team_b));
+        CHECK(cos_results_finals.at(team_c) == cos_correct_results_finals.at(team_c));
+        CHECK(cos_results_finals.at(team_d) == cos_correct_results_finals.at(team_d));
     }
 
 
@@ -121,9 +115,9 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
         std::vector<std::pair<Team, double>> points_vector_finals = cos_event_finals.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(points_vector_finals[0].second >= points_vector_finals[1].second);
-        CHECK(points_vector_finals[1].second >= points_vector_finals[2].second);
-        CHECK(points_vector_finals[2].second >= points_vector_finals[3].second);
+        CHECK(points_vector_finals.at(0).second >= points_vector_finals.at(1).second);
+        CHECK(points_vector_finals.at(1).second >= points_vector_finals.at(2).second);
+        CHECK(points_vector_finals.at(2).second >= points_vector_finals.at(3).second);
         //
     }
 }

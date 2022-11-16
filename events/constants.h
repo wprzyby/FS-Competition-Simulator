@@ -54,4 +54,3 @@ const std::map<EventType, double> BASE_COMPLETION_POINTS = {{acceleration, 3.5},
                                                             {skidpad, 3.5},
                                                             {skidpad_DC, 3.5},
                                                             {skidpad_DV, 0}};
-

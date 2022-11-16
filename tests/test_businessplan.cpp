@@ -83,9 +83,9 @@ TEST_CASE("BusinessPlanEvent tests.")
 
     SECTION("Testing: setting results and calculating points")
     {
-        CHECK(bus_results[team_a] == bus_correct_results[team_a]);
-        CHECK(bus_results[team_b] == bus_correct_results[team_b]);
-        CHECK(bus_results[team_c] == bus_correct_results[team_c]);
+        CHECK(bus_results.at(team_a) == bus_correct_results.at(team_a));
+        CHECK(bus_results.at(team_b) == bus_correct_results.at(team_b));
+        CHECK(bus_results.at(team_c) == bus_correct_results.at(team_c));
     }
 
 
@@ -94,23 +94,17 @@ TEST_CASE("BusinessPlanEvent tests.")
         std::vector<std::pair<Team, double>> points_vector = bus_event.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(points_vector[0].second >= points_vector[1].second);
-        CHECK(points_vector[1].second >= points_vector[2].second);
+        CHECK(points_vector.at(0).second >= points_vector.at(1).second);
+        CHECK(points_vector.at(1).second >= points_vector.at(2).second);
         //
     }
 
 
-    SECTION("Testing: EventType and filename getters")
-    {
-        CHECK(bus_event.get_event_type() == businessplan);
-        CHECK(bus_event.get_info_file_name() == "BusinessPlanEventInfo.pdf");
-    }
-
     SECTION("Testing: setting results and calculating points - finalists")
     {
-        CHECK(bus_results_finals[team_a] == bus_correct_results_finals[team_a]);
-        CHECK(bus_results_finals[team_b] == bus_correct_results_finals[team_b]);
-        CHECK(bus_results_finals[team_c] == bus_correct_results_finals[team_c]);
+        CHECK(bus_results_finals.at(team_a) == bus_correct_results_finals.at(team_a));
+        CHECK(bus_results_finals.at(team_b) == bus_correct_results_finals.at(team_b));
+        CHECK(bus_results_finals.at(team_c) == bus_correct_results_finals.at(team_c));
     }
 
     SECTION("Testing: making event classification - finalists")
@@ -118,8 +112,8 @@ TEST_CASE("BusinessPlanEvent tests.")
         std::vector<std::pair<Team, double>> points_vector_finals = bus_event_finals.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(points_vector_finals[0].second >= points_vector_finals[1].second);
-        CHECK(points_vector_finals[1].second >= points_vector_finals[2].second);
+        CHECK(points_vector_finals.at(0).second >= points_vector_finals.at(1).second);
+        CHECK(points_vector_finals.at(1).second >= points_vector_finals.at(2).second);
         //
     }
 }

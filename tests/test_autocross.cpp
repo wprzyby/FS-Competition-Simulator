@@ -100,10 +100,10 @@ TEST_CASE("Autocross Event functionality")
         std::vector<std::pair<Team, double>> points_vector = event.get_sorted_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(points_vector[0].second >= points_vector[1].second);
-        CHECK(points_vector[1].second >= points_vector[2].second);
-        CHECK(points_vector[2].second >= points_vector[3].second);
-        CHECK(points_vector[3].second >= points_vector[4].second);
+        CHECK(points_vector.at(0).second >= points_vector.at(1).second);
+        CHECK(points_vector.at(1).second >= points_vector.at(2).second);
+        CHECK(points_vector.at(2).second >= points_vector.at(3).second);
+        CHECK(points_vector.at(3).second >= points_vector.at(4).second);
         //
     }
 
@@ -118,14 +118,6 @@ TEST_CASE("Autocross Event functionality")
 
         REQUIRE_THROWS(event.set_results(results));
     }
-
-    SECTION("Getters")
-    {
-        CHECK(event.get_event_type() == autocross);
-        CHECK(event.get_info_file_name() == "AutocrossEventInfo.pdf");
-    }
-
-
 }
 
 

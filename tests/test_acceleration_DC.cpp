@@ -34,7 +34,7 @@ TEST_CASE("AccelerationEvent DC tests.", "[Driverless Cup]")
     acc_teams_and_results.insert({team_d, acc_team_d_results});
 
     // Creating and simulating the Event
-    AccelerationEvent acc_event(teams, "DC");
+    DCAccelerationEvent acc_event(teams);
     acc_event.set_results(acc_teams_and_results);
     acc_event.simulate();
     std::map<Team, double> results = acc_event.get_classification();
@@ -68,10 +68,4 @@ TEST_CASE("AccelerationEvent DC tests.", "[Driverless Cup]")
         //
     }
 
-
-    SECTION("Testing: EventType and filename getters")
-    {
-        CHECK(acc_event.get_event_type() == acceleration_DC);
-        CHECK(acc_event.get_info_file_name() == "AccelerationEventInfo.pdf");
-    }
 }

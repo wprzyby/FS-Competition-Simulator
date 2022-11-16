@@ -11,7 +11,7 @@
 
 TEST_CASE("Engineering Design Event DV functionality")
 {
-    EngineeringDesignEvent event("DV");
+    EngineeringDesignEvent event;
 
     Team team_a("a", "univA", 1);
     Team team_b("b", "univB", 2);
@@ -118,11 +118,5 @@ TEST_CASE("Engineering Design Event DV functionality")
         CHECK(points_vector[0].second >= points_vector[1].second);
         CHECK(points_vector[1].second >= points_vector[2].second);
         //
-    }
-
-    SECTION("Getters")
-    {
-        CHECK(event.get_event_type() == engineering_design_DC);
-        CHECK(event.get_info_file_name() == "EngineeringDesignEventInfo.pdf");
     }
 }
