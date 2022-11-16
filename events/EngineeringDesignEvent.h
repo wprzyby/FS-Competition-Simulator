@@ -15,6 +15,13 @@ class EngineeringDesignEvent : public Event {
     public:
       EngineeringDesignEvent() {init_event_type(engineering_design);}
       EngineeringDesignEvent(std::vector<Team> &teams)
-                            : Event(teams) {}
+                            : Event(teams) {init_event_type(engineering_design);}
       ~EngineeringDesignEvent() {};
+};
+
+class DCEngineeringDesignEvent: public EngineeringDesignEvent {
+    public:
+      DCEngineeringDesignEvent() {init_event_type(engineering_design_DC);}
+      DCEngineeringDesignEvent(std::vector<Team> &teams)
+                            : EngineeringDesignEvent(teams) {init_event_type(engineering_design);}
 };
