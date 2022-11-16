@@ -13,13 +13,12 @@ class EnduranceEvent : public Event  // EnduranceEvent class that inherits from 
       bool m_run_efficiency;
 
     protected:
-      virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
+      virtual void fill_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
     public:
       EnduranceEvent(bool run_efficiency=false): m_run_efficiency(run_efficiency) {init_event_type(endurance);}
       EnduranceEvent(std::vector<Team> &teams, bool run_efficiency=false)
                     : Event(teams), m_run_efficiency(run_efficiency) {init_event_type(endurance);}
-      ~EnduranceEvent() {};
 
     private:
       static double get_endurance_points(double best_time_overall, double team_best_time);

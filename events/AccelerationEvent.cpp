@@ -9,7 +9,7 @@
 #include "constants.h"
 
 
-void AccelerationEvent::calculate_teams_points()
+void AccelerationEvent::fill_teams_points()
 {
     double base_points = BASE_COMPLETION_POINTS.at(acceleration);
     double time_threshold_coefficient = 1.5;
@@ -32,7 +32,7 @@ double AccelerationEvent::get_additional_points(const double best_time_overall, 
 }
 
 
-void DCAccelerationEvent::calculate_teams_points()
+void DCAccelerationEvent::fill_teams_points()
 {
     double base_points = BASE_COMPLETION_POINTS.at(acceleration_DC);
     double time_threshold_coefficient = 2.0;
@@ -53,7 +53,7 @@ double DCAccelerationEvent::get_additional_points(double best_time_overall, doub
     return points;
 }
 
-void DVAccelerationEvent::calculate_teams_points() {
+void DVAccelerationEvent::fill_teams_points() {
 
     std::map<Team, double> teams_and_best_times = find_teams_best_times();
     int non_zero_times = count_non_zero_times(teams_and_best_times);  // Counting teams that were not DNFed or DSQed
@@ -71,7 +71,7 @@ void DVAccelerationEvent::calculate_teams_points() {
             current_place++;  // Incrementing the current place
         }
 
-        m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their points to buffor classification
+        m_teams_and_points.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their points to buffor classification
     }
 }
 

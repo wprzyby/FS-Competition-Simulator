@@ -53,7 +53,7 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
     CostAndManufacturingEvent cos_event(teams);
     cos_event.set_results(cos_teams_and_results);
     cos_event.simulate();
-    std::map<Team, double> cos_results = cos_event.get_classification();
+    std::map<Team, double> cos_results = cos_event.get_teams_and_points();
     //
 
     // Creating map of correct results
@@ -68,7 +68,7 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
     CostAndManufacturingEvent cos_event_finals(teams, 2, {{team_a, 100.0}, {team_b, 97.0}});
     cos_event_finals.set_results(cos_teams_and_results);
     cos_event_finals.simulate();
-    std::map<Team, double> cos_results_finals = cos_event_finals.get_classification();
+    std::map<Team, double> cos_results_finals = cos_event_finals.get_teams_and_points();
     //
 
     // Creating map of correct results
@@ -89,7 +89,7 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
 
     SECTION("Testing: making event classification")
     {
-        std::vector<std::pair<Team, double>> points_vector = cos_event.get_sorted_classification();
+        std::vector<std::pair<Team, double>> points_vector = cos_event.get_classification();
 
         // Checking whether points are truely sorted:
         CHECK(points_vector.at(0).second >= points_vector.at(1).second);
@@ -112,7 +112,7 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
     {
         std::vector<double> cos_points_vector_finals;
 
-        std::vector<std::pair<Team, double>> points_vector_finals = cos_event_finals.get_sorted_classification();
+        std::vector<std::pair<Team, double>> points_vector_finals = cos_event_finals.get_classification();
 
         // Checking whether points are truely sorted:
         CHECK(points_vector_finals.at(0).second >= points_vector_finals.at(1).second);

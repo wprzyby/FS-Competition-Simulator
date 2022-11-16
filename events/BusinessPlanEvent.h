@@ -13,14 +13,13 @@ class BusinessPlanEvent : public Event  // BusinessEvent class that inherits fro
       std::map<Team, double> m_points_to_set;
 
     protected:
-      void calculate_teams_points() override;  // Function that calculates points for teams (based on the map: teams_and_results).
+      void fill_teams_points() override;  // Function that calculates points for teams (based on the map: teams_and_results).
 
     public:
       BusinessPlanEvent(int finalists=0, std::map<Team, double> points_to_set={})
                         : m_finalists(finalists), m_points_to_set(points_to_set) {init_event_type(businessplan);}
       BusinessPlanEvent(std::vector<Team> &teams, int finalists=0, std::map<Team, double> points_to_set={})
                         : Event(teams), m_finalists(finalists), m_points_to_set(points_to_set) {init_event_type(businessplan);}
-      ~BusinessPlanEvent() {};
 
     private:
       double get_points(double team_total_result, double max_points) const;

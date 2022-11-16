@@ -37,7 +37,7 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
     AccelerationEvent acc_event(teams);
     acc_event.set_results(acc_teams_and_results);
     acc_event.simulate();
-    std::map<Team, double> results = acc_event.get_classification();
+    std::map<Team, double> results = acc_event.get_teams_and_points();
     //
 
     // Creating map of correct results
@@ -59,7 +59,7 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
 
     SECTION("Testing: making event classification")
     {
-        std::vector<std::pair<Team, double>> acc_points_vector = acc_event.get_sorted_classification();
+        std::vector<std::pair<Team, double>> acc_points_vector = acc_event.get_classification();
 
         // Checking whether points are truely sorted:
         CHECK(acc_points_vector.at(0).second >= acc_points_vector.at(1).second);

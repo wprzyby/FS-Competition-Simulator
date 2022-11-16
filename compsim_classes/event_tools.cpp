@@ -84,10 +84,10 @@ bool is_category_in_vector(EventsCategories const &category, std::vector<EventsC
 }
 
 
-bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<EventsCategories, double> const &second_pair)
-{
-    return first_pair.second < second_pair.second;
-}
+// bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<EventsCategories, double> const &second_pair)
+// {
+//     return first_pair.second < second_pair.second;
+// }
 
 
 bool better_team(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)

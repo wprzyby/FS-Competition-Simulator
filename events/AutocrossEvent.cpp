@@ -8,7 +8,7 @@
 #include "AutocrossEvent.h"
 #include "constants.h"
 
-void AutocrossEvent::calculate_teams_points()
+void AutocrossEvent::fill_teams_points()
 {
     double base_points = BASE_COMPLETION_POINTS.at(autocross);
     double time_threshold_coefficient = 1.25;

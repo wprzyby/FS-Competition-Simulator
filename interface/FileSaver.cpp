@@ -46,7 +46,7 @@ void FileSaver::save_events_classifications() const
         file.open(m_filepath, std::ios::out);
         file << "--------------------------------------------------------------------------------------------------------------------------------------------------------------";
         file << "\n";
-        for(auto& [event_type, results]: m_competition.get_events_classification())  // Iterating through every event
+        for(auto& [event_type, results]: m_competition.get_events_classifications())  // Iterating through every event
         {
             file << "\n| " << INFO_EVENT_NAMES.at(event_type) << " |\n";  // Printing event`s name
             int counter = 1;

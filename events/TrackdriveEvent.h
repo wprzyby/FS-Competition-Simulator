@@ -8,17 +8,16 @@
 
 
 
-class TrackdriveEvent : public Event  // TrackdriveEvent class that inherits from the abstract class Event
+class TrackdriveEvent : public Event
 {
     private:
       static double get_additional_points(double best_time_overall, double team_best_time);
 
     protected:
-      void calculate_teams_points() override;  // Function that calculates points for teams (based on the map: teams_and_results).
+      void fill_teams_points() override;  
 
     public:
       TrackdriveEvent(): Event() {}
       TrackdriveEvent(std::vector<Team> &teams): Event(teams) {}
-      ~TrackdriveEvent() {};
 };
 

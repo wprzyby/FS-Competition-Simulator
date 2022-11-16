@@ -99,7 +99,7 @@ TEST_CASE("Endurance Event functionality")
         event.set_teams(teams);
         event.set_results(results);
         event.simulate();
-        std::map<Team, double> classification = event.get_classification();
+        std::map<Team, double> classification = event.get_teams_and_points();
 
         CHECK(correct_results_endurance.at(team_a) == classification.at(team_a));
         CHECK(correct_results_endurance.at(team_b) == classification.at(team_b));
@@ -108,7 +108,7 @@ TEST_CASE("Endurance Event functionality")
         CHECK(correct_results_endurance.at(team_e) == classification.at(team_e));
 
         // checking if sorted correctly
-        std::vector<std::pair<Team,double>> sorted_points = event.get_sorted_classification();
+        std::vector<std::pair<Team,double>> sorted_points = event.get_classification();
 
         CHECK(sorted_points.at(0).second >= sorted_points.at(1).second);
         CHECK(sorted_points.at(1).second >= sorted_points.at(2).second);
@@ -124,7 +124,7 @@ TEST_CASE("Endurance Event functionality")
         event_with_eff.set_teams(teams);
         event_with_eff.set_results(results);
         event_with_eff.simulate();
-        std::map<Team, double> classification = event_with_eff.get_classification();
+        std::map<Team, double> classification = event_with_eff.get_teams_and_points();
 
         CHECK(correct_results_endurance.at(team_a) + correct_results_efficiency.at(team_a) == classification.at(team_a));
         CHECK(correct_results_endurance.at(team_b) + correct_results_efficiency.at(team_b) == classification.at(team_b));
@@ -133,7 +133,7 @@ TEST_CASE("Endurance Event functionality")
         CHECK(correct_results_endurance.at(team_e) + correct_results_efficiency.at(team_e) == classification.at(team_e));
 
         // checking if sorted correctly
-        std::vector<std::pair<Team,double>> sorted_points = event_with_eff.get_sorted_classification();
+        std::vector<std::pair<Team,double>> sorted_points = event_with_eff.get_classification();
 
         CHECK(sorted_points.at(0).second >= sorted_points.at(1).second);
         CHECK(sorted_points.at(1).second >= sorted_points.at(2).second);

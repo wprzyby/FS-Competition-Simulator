@@ -115,14 +115,14 @@ TEST_CASE("Engineering Design Event functionality")
         event.set_teams(teams);
         event.set_results(results);
         event.simulate();
-        std::map<Team, double> classification = event.get_classification();
+        std::map<Team, double> classification = event.get_teams_and_points();
 
         CHECK(correct_results.at(team_a) == classification.at(team_a));
         CHECK(correct_results.at(team_b) == classification.at(team_b));
         CHECK(correct_results.at(team_c) == classification.at(team_c));
 
         // checking if sorted correctly
-        std::vector<std::pair<Team, double>> points_vector = event.get_sorted_classification();
+        std::vector<std::pair<Team, double>> points_vector = event.get_classification();
 
         // Checking whether points are truly sorted:
         CHECK(points_vector.at(0).second >= points_vector.at(1).second);

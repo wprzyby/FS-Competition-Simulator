@@ -29,7 +29,7 @@ std::map<Team, double> SkidpadEvent::find_teams_best_times() {
     return teams_and_best_times;
 }
 
-void SkidpadEvent::calculate_teams_points()
+void SkidpadEvent::fill_teams_points()
 {
     double base_points = BASE_COMPLETION_POINTS.at(skidpad);
     double time_threshold_coefficient = 1.25;
@@ -50,7 +50,7 @@ double SkidpadEvent::get_additional_points(double best_time_overall, double team
     return points;
 }
 
-void DCSkidpadEvent::calculate_teams_points() {
+void DCSkidpadEvent::fill_teams_points() {
     double base_points = BASE_COMPLETION_POINTS.at(skidpad_DC);
     double time_threshold_coefficient = 1.5;
     std::map<Team, double> teams_and_best_times = find_teams_best_times();
@@ -71,7 +71,7 @@ double DCSkidpadEvent::get_additional_points(double best_time_overall, double te
 }
 
 
-void DVSkidpadEvent::calculate_teams_points() {
+void DVSkidpadEvent::fill_teams_points() {
     std::map<Team, double> teams_and_best_times = find_teams_best_times();
     int non_zero_times = count_non_zero_times(teams_and_best_times);  // Counting teams that were not DNFed or DSQed
 
@@ -88,7 +88,7 @@ void DVSkidpadEvent::calculate_teams_points() {
             current_place++;  // Incrementing the current place
         }
 
-        m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their points to buffor classification
+        m_teams_and_points.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their points to buffor classification
     }
 }
 

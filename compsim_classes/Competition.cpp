@@ -47,12 +47,12 @@ void Competition::simulate()
     for(auto& event_ptr: m_events)
     {
         event_ptr->simulate();
-        std::map<Team, double> event_classification = event_ptr->get_classification();
+        std::map<Team, double> event_classification = event_ptr->get_teams_and_points();
 
         EventType type = event_ptr->get_event_type();
 
-        m_events_points[type] = event_classification;
-        m_final_events_classification[type] = event_ptr->get_sorted_classification();
+        m_events_and_teams_points[type] = event_classification;
+        m_events_and_classifications[type] = event_ptr->get_classification();
     }
 }
 
@@ -62,21 +62,21 @@ void Competition::create_classification()
     simulate();
 
     // summing points from each event for every team to obtain total competition points
-    for(auto& [_, event_points]: m_events_points)
+    for(auto& [_, event_points]: m_events_and_teams_points)
         {
             for(auto& [team, points]: event_points)
             {
-                m_competition_points[team] += points;
+                m_teams_and_comp_points[team] += points;
             }
         }
 
     // assigning final points to teams, adding {team, total_points} pair to final classification
     for(auto& team: m_teams)
     {
-        m_final_classification.push_back({team, m_competition_points.at(team)});
+        m_comp_classification.push_back({team, m_teams_and_comp_points.at(team)});
     }
 
     // sorting the final classification by team's points in descending order
-    std::sort(m_final_classification.begin(), m_final_classification.end(), better_team);
+    std::sort(m_comp_classification.begin(), m_comp_classification.end(), better_team);
 
 }

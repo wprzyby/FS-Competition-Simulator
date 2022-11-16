@@ -53,7 +53,7 @@ TEST_CASE("SkidpadEvent test DC", "[Driverless Cup]")
     DCSkidpadEvent skid_event(teams);
     skid_event.set_results(skid_teams_and_results);
     skid_event.simulate();
-    std::map<Team, double> skid_results = skid_event.get_classification();
+    std::map<Team, double> skid_results = skid_event.get_teams_and_points();
     //
 
     // Creating map of correct results
@@ -75,7 +75,7 @@ TEST_CASE("SkidpadEvent test DC", "[Driverless Cup]")
 
     SECTION("Testing: making event classification")
     {
-        std::vector<std::pair<Team, double>> points_vector = skid_event.get_sorted_classification();
+        std::vector<std::pair<Team, double>> points_vector = skid_event.get_classification();
 
         // Checking whether points are truely sorted:
         CHECK(points_vector[0].second >= points_vector[1].second);

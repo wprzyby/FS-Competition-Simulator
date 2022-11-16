@@ -17,12 +17,11 @@ class SkidpadEvent : public Event  // SkidpadEvent class that inherits from the 
 
     protected:
         std::map<Team, double> find_teams_best_times() override;
-        void calculate_teams_points() override;  // Function that calculates points for teams (based on the map: teams_and_results).
+        void fill_teams_points() override;  // Function that calculates points for teams (based on the map: teams_and_results).
 
     public:
         SkidpadEvent() {init_event_type(skidpad);}
         SkidpadEvent(std::vector<Team> &teams): Event(teams) {init_event_type(skidpad);}
-        ~SkidpadEvent() {};
 };
 
 
@@ -31,7 +30,7 @@ class DVSkidpadEvent: public SkidpadEvent {
       double static get_additional_points(int team_place, int non_zero_times);
 
     protected:
-      void calculate_teams_points() override;
+      void fill_teams_points() override;
 
     public:
       DVSkidpadEvent() {init_event_type(skidpad_DV);}
@@ -43,7 +42,7 @@ class DCSkidpadEvent: public SkidpadEvent {
       double static get_additional_points(double best_time_overall, double team_best_time);
 
     protected:
-      void calculate_teams_points() override;
+      void fill_teams_points() override;
 
     public:
       DCSkidpadEvent() {init_event_type(skidpad_DC);}

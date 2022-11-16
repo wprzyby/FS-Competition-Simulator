@@ -87,13 +87,13 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
         CHECK(result2 == false);
     }
 
-    SECTION("Testing: compare() function")
-    {
-        bool result1 = compare({first_acc_time, 1421412}, {first_acc_time, 1});
-        bool result2 = compare({first_acc_time, 12}, {first_acc_time, 321321});
-        CHECK(result1 == false);
-        CHECK(result2 == true);
-    }
+    // SECTION("Testing: compare() function")
+    // {
+    //     bool result1 = compare({first_acc_time, 1421412}, {first_acc_time, 1});
+    //     bool result2 = compare({first_acc_time, 12}, {first_acc_time, 321321});
+    //     CHECK(result1 == false);
+    //     CHECK(result2 == true);
+    // }
 
     SECTION("Testing: rd_to_n_places() function")
     {

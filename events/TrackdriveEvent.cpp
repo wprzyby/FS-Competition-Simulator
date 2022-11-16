@@ -10,7 +10,7 @@
 #include "constants.h"
 
 
-void TrackdriveEvent::calculate_teams_points()
+void TrackdriveEvent::fill_teams_points()
 {
     std::map<Team, double> teams_and_best_times;
     for (auto& [team, team_results]: m_teams_and_results)
@@ -47,7 +47,7 @@ void TrackdriveEvent::calculate_teams_points()
         {
             team_final_score = base_points;
         }
-        m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
+        m_teams_and_points.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
    }
 }
 

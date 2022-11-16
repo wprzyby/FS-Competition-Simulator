@@ -10,7 +10,7 @@
 #include "constants.h"
 
 
-void BusinessPlanEvent::calculate_teams_points()
+void BusinessPlanEvent::fill_teams_points()
 {
     if (m_finalists == 0) {
         // Finding best result among all teams:
@@ -22,7 +22,7 @@ void BusinessPlanEvent::calculate_teams_points()
         {
             const double team_total_result = sum_all_teams_results(results);  // summing all team`s point
             const double team_points = get_points(team_total_result, max_points);  // calculating team`s points based on the formula
-            m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_points, 1)});  // inserting team and their final result into classification
+            m_teams_and_points.insert({const_cast<Team&>(team), rd_to_n_places(team_points, 1)});  // inserting team and their final result into classification
         }
         //
     } else if (m_finalists > 0) {
@@ -34,20 +34,20 @@ void BusinessPlanEvent::calculate_teams_points()
         for (auto& [team, results]: m_teams_and_results) {
             const double team_total_result = sum_all_teams_results(results);  // summing all team`s point
             points_scored_by_teams.push_back(team_total_result);  // appending teams` points to the vector
-            m_classification[team] = team_total_result;
+            m_teams_and_points[team] = team_total_result;
         }
 
         std::sort(points_scored_by_teams.begin(), points_scored_by_teams.end(), std::greater<double>());  // sorting points scored by teams
         double fixed_best_result = points_scored_by_teams.at(m_finalists);  // getting best non-finalist result
 
         // TODO: po chuj to tu jest
-        fill_sorted_classification();  // sorting teams by their total score
+        fill_classification();  // sorting teams by their total score
 
-        for (auto& [team, total_result]: m_classification) {
+        for (auto& [team, total_result]: m_teams_and_points) {
             try {
-                m_classification.at(team) = m_points_to_set.at(team);
+                m_teams_and_points.at(team) = m_points_to_set.at(team);
             } catch (std::out_of_range const&) {
-                m_classification.at(team) = rd_to_n_places(get_points(total_result, fixed_best_result), 1);  // setting points from formula with fixed best result
+                m_teams_and_points.at(team) = rd_to_n_places(get_points(total_result, fixed_best_result), 1);  // setting points from formula with fixed best result
             }
         }
 

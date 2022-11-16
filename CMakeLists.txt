@@ -6,6 +6,8 @@ add_compile_options(-std=c++20 -Wall -Wextra)
 
 set(MAIN_SOURCES main.cpp)
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 add_custom_target(main)
 add_executable(${PROJECT_NAME} ${MAIN_SOURCES})
 add_dependencies(main ${PROJECT_NAME})

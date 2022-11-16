@@ -58,7 +58,7 @@ TEST_CASE("BusinessPlanEvent tests.")
     BusinessPlanEvent bus_event(teams);
     bus_event.set_results(bus_teams_and_results);
     bus_event.simulate();
-    std::map<Team, double> bus_results = bus_event.get_classification();
+    std::map<Team, double> bus_results = bus_event.get_teams_and_points();
     //
 
     // Creating map of correct results
@@ -71,7 +71,7 @@ TEST_CASE("BusinessPlanEvent tests.")
     BusinessPlanEvent bus_event_finals(teams, 1, {{team_b, 72.0}});
     bus_event_finals.set_results(bus_teams_and_results);
     bus_event_finals.simulate();
-    std::map<Team, double> bus_results_finals = bus_event_finals.get_classification();
+    std::map<Team, double> bus_results_finals = bus_event_finals.get_teams_and_points();
     //
 
     // Creating map of correct results
@@ -91,7 +91,7 @@ TEST_CASE("BusinessPlanEvent tests.")
 
     SECTION("Testing: making event classification")
     {
-        std::vector<std::pair<Team, double>> points_vector = bus_event.get_sorted_classification();
+        std::vector<std::pair<Team, double>> points_vector = bus_event.get_classification();
 
         // Checking whether points are truely sorted:
         CHECK(points_vector.at(0).second >= points_vector.at(1).second);
@@ -109,7 +109,7 @@ TEST_CASE("BusinessPlanEvent tests.")
 
     SECTION("Testing: making event classification - finalists")
     {
-        std::vector<std::pair<Team, double>> points_vector_finals = bus_event_finals.get_sorted_classification();
+        std::vector<std::pair<Team, double>> points_vector_finals = bus_event_finals.get_classification();
 
         // Checking whether points are truely sorted:
         CHECK(points_vector_finals.at(0).second >= points_vector_finals.at(1).second);

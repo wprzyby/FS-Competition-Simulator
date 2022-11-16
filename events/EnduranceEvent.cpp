@@ -10,7 +10,7 @@
 #include "constants.h"
 
 
-void EnduranceEvent::calculate_teams_points()
+void EnduranceEvent::fill_teams_points()
 {
     std::map<Team, double> teams_and_corr_times;
     std::map<Team, double> teams_and_uncorr_times;
@@ -42,7 +42,7 @@ void EnduranceEvent::calculate_teams_points()
     {
         double team_efficiency_score;
 
-        if(m_classification.at(team) == 0 || team_uncorr_time > 1.333*best_uncorr_time || team_uncorr_time == 0)
+        if(m_teams_and_points.at(team) == 0 || team_uncorr_time > 1.333*best_uncorr_time || team_uncorr_time == 0)
         {
             team_efficiency_score = 0;
         }
@@ -51,7 +51,7 @@ void EnduranceEvent::calculate_teams_points()
             team_efficiency_score = get_efficiency_points(best_eff_factor, teams_and_eff_factors.at(team));
         }
 
-        m_classification.at(team) += rd_to_n_places(team_efficiency_score, 1);
+        m_teams_and_points.at(team) += rd_to_n_places(team_efficiency_score, 1);
     }
 
 }

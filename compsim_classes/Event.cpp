@@ -35,8 +35,8 @@ void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &resu
 
 
 void Event::simulate() {
-    calculate_teams_points();
-    fill_sorted_classification();
+    fill_teams_points();
+    fill_classification();
 }
 
 
@@ -50,9 +50,9 @@ std::map<Team, double> Event::find_teams_best_times() {
 }
 
 
-void Event::fill_sorted_classification() {
+void Event::fill_classification() {
     // creates classification in the form of a vector of [Team, points] pairs sorted according to points
-    m_sorted_classification = sort_teams_and_points(m_classification, true);
+    m_classification = sort_teams_and_points(m_teams_and_points, true);
 }
 
 
@@ -80,6 +80,6 @@ void Event::fill_points_std_dynamic(double base_pts, double time_thresh_coeffici
             team_final_score = base_pts;
         }
 
-        m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
+        m_teams_and_points.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
     }
 }
