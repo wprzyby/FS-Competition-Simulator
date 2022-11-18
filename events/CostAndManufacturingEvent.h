@@ -1,5 +1,6 @@
 #pragma once
 
+#include "compsim_enums/enums.h"
 #include <map>
 #include <vector>
 #include <iostream>
@@ -10,22 +11,19 @@
 class CostAndManufacturingEvent : public Event  // CostAndManufacturingEvent class that inherits from the abstract class Event
 {
     private:
-        // Additional atributes
-        std::map<Team, double> m_points_to_set;
-        unsigned int m_finalists;
-        // Methods:
-        double get_points(double team_total_result, double max_points) const;
-
+      unsigned int m_finalists;
+      std::map<Team, double> m_points_to_set;
 
     protected:
-        // Methods:
-        virtual void calculate_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
-
+      virtual void fill_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
 
     public:
-        // Constructors:
-        CostAndManufacturingEvent();
-        CostAndManufacturingEvent(std::vector<Team> &teams, int finalists=0, std::map<Team, double> points_to_set={}, std::string which_driverless="");
-        // Destructor:
-        ~CostAndManufacturingEvent() {};
+      CostAndManufacturingEvent(int finalists=0, std::map<Team, double> points_to_set={})
+                                : m_finalists(finalists), m_points_to_set(points_to_set) {init_event_type(cost_and_manufacturing);}
+      CostAndManufacturingEvent(std::vector<Team> &teams, int finalists=0, std::map<Team, double> points_to_set={})
+                                :Event(teams), m_finalists(finalists), m_points_to_set(points_to_set) {init_event_type(cost_and_manufacturing);}
+
+    private:
+      double get_points(double team_total_result, double max_points) const;
+
 };

@@ -73,7 +73,7 @@ double find_best_time_overall(std::map<Team, double> &teams_and_times)
 }
 
 
-bool check_if_category_in_vector(EventsCategories const &category, std::vector<EventsCategories> const &categories_in_event)
+bool is_category_in_vector(EventsCategories const &category, std::vector<EventsCategories> const &categories_in_event)
 {
     bool result = false;
     for (auto& category_in_event: categories_in_event)  // getting category from vector
@@ -84,18 +84,18 @@ bool check_if_category_in_vector(EventsCategories const &category, std::vector<E
 }
 
 
-bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<EventsCategories, double> const &second_pair)
-{
-    return first_pair.second < second_pair.second;
-}
+// bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<EventsCategories, double> const &second_pair)
+// {
+//     return first_pair.second < second_pair.second;
+// }
 
 
-bool higher_team(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)
+bool better_team(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)
 {
     return first_pair.second > second_pair.second;
 }
 
-bool lower_team(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)
+bool worse_team(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)
 {
     return first_pair.second < second_pair.second;
 }
@@ -130,11 +130,11 @@ std::vector<std::pair<Team, double>> sort_teams_and_points(std::map<Team, double
 
     if (descending)
     {
-        std::sort(teams_and_points_vector.begin(), teams_and_points_vector.end(), higher_team);
+        std::sort(teams_and_points_vector.begin(), teams_and_points_vector.end(), better_team);
     }
     else
     {
-        std::sort(teams_and_points_vector.begin(), teams_and_points_vector.end(), lower_team);
+        std::sort(teams_and_points_vector.begin(), teams_and_points_vector.end(), worse_team);
     }
 
     return teams_and_points_vector;

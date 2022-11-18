@@ -158,6 +158,12 @@ std::unique_ptr<Event> create_event(EventType type, std::vector<Team> teams)
         case acceleration:
             ret_val = std::make_unique<AccelerationEvent>(teams);
             break;
+        case acceleration_DV:
+            ret_val = std::make_unique<DVAccelerationEvent>(teams);
+            break;
+        case acceleration_DC:
+            ret_val = std::make_unique<DCAccelerationEvent>(teams);
+            break;
         case autocross:
             ret_val = std::make_unique<AutocrossEvent>(teams);
             break;
@@ -173,9 +179,22 @@ std::unique_ptr<Event> create_event(EventType type, std::vector<Team> teams)
         case engineering_design:
             ret_val = std::make_unique<EngineeringDesignEvent>(teams);
             break;
+        case engineering_design_DC:
+            ret_val = std::make_unique<DCEngineeringDesignEvent>(teams);
+            break;
         case skidpad:
             ret_val = std::make_unique<SkidpadEvent>(teams);
             break;
+        case skidpad_DV:
+            ret_val = std::make_unique<DVSkidpadEvent>(teams);
+            break;
+        case skidpad_DC:
+            ret_val = std::make_unique<DCSkidpadEvent>(teams);
+            break;
+        // TODO: to psuje kompilację z jakiegoś powodu?
+        // case trackdrive:
+        //     ret_val = std::make_unique<TrackdriveEvent>(teams);
+        //     break;
         default:
             throw std::invalid_argument("Invalid event type selected");
     }

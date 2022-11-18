@@ -9,4 +9,4 @@ run_tests
 Makefile
 main_executable
 output_files/*
-build/*
+build

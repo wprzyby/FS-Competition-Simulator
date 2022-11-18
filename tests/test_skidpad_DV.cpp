@@ -50,10 +50,10 @@ TEST_CASE("SkidpadEvent tests DV.", "[Driverless DV]")
     skid_teams_and_results.insert({team_d, skid_team_d_results});
 
     // Creating and simulating the Event
-    SkidpadEvent skid_event(teams, "DV");
+    DVSkidpadEvent skid_event(teams);
     skid_event.set_results(skid_teams_and_results);
     skid_event.simulate();
-    std::map<Team, double> skid_results = skid_event.get_classification();
+    std::map<Team, double> skid_results = skid_event.get_teams_and_points();
     //
 
     // Creating map of correct results
@@ -66,27 +66,20 @@ TEST_CASE("SkidpadEvent tests DV.", "[Driverless DV]")
 
     SECTION("Testing: setting results and calculating points")
     {
-        CHECK(skid_results[team_a] == skid_correct_results[team_a]);
-        CHECK(skid_results[team_b] == skid_correct_results[team_b]);
-        CHECK(skid_results[team_c] == skid_correct_results[team_c]);
-        CHECK(skid_results[team_d] == skid_correct_results[team_d]);
+        CHECK(skid_results.at(team_a) == skid_correct_results.at(team_a));
+        CHECK(skid_results.at(team_b) == skid_correct_results.at(team_b));
+        CHECK(skid_results.at(team_c) == skid_correct_results.at(team_c));
+        CHECK(skid_results.at(team_d) == skid_correct_results.at(team_d));
     }
 
 
     SECTION("Testing: making event classification")
     {
-        std::vector<std::pair<Team, double>> points_vector = skid_event.get_sorted_classification();
+        std::vector<std::pair<Team, double>> points_vector = skid_event.get_classification();
 
         // Checking whether points are truely sorted:
         CHECK(points_vector[0].second >= points_vector[1].second);
         CHECK(points_vector[1].second >= points_vector[2].second);
         //
-    }
-
-
-    SECTION("Testing: EventType and filename getters")
-    {
-        CHECK(skid_event.get_event_type() == skidpad_DV);
-        CHECK(skid_event.get_info_file_name() == "SkidpadEventInfo.pdf");
     }
 }

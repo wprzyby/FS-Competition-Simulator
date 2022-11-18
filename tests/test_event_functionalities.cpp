@@ -81,19 +81,19 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
 
     SECTION("Testing: check_if_category_in_vector() function")
     {
-        bool result1 = check_if_category_in_vector(first_acc_time, AccEveCat);
-        bool result2 = check_if_category_in_vector(tractive_system, AccEveCat);
+        bool result1 = is_category_in_vector(first_acc_time, AccEveCat);
+        bool result2 = is_category_in_vector(tractive_system, AccEveCat);
         CHECK(result1 == true);
         CHECK(result2 == false);
     }
 
-    SECTION("Testing: compare() function")
-    {
-        bool result1 = compare({first_acc_time, 1421412}, {first_acc_time, 1});
-        bool result2 = compare({first_acc_time, 12}, {first_acc_time, 321321});
-        CHECK(result1 == false);
-        CHECK(result2 == true);
-    }
+    // SECTION("Testing: compare() function")
+    // {
+    //     bool result1 = compare({first_acc_time, 1421412}, {first_acc_time, 1});
+    //     bool result2 = compare({first_acc_time, 12}, {first_acc_time, 321321});
+    //     CHECK(result1 == false);
+    //     CHECK(result2 == true);
+    // }
 
     SECTION("Testing: rd_to_n_places() function")
     {

@@ -3,6 +3,7 @@
 #include <map>
 #include <iostream>
 #include <vector>
+#include <functional>
 
 #include "Team.h"
 #include "constants.h"
@@ -13,62 +14,34 @@
 class Event  // Abstract class
 {
     protected:
-        // Enum with Event type
-        EventType m_event_type;
-
-        // Vector of the Teams that are participating in the event (required to be provided externally).
-        std::vector<Team> m_teams_participating;
-
-        // String provided by user in order to set propper enum Event type ("" - No driverless, "DV" - classic driverless, "DC" - Driverless Cup)
-        std::string m_which_driverless;
-
-        // Map with teams and second map of categories in desired Event.
-        std::map<Team, std::map<EventsCategories, double>> m_teams_and_results;
-
-        // Array with teams and total points scored in the Event [Team, TotalPoints].
-        std::map<Team, double> m_classification;
-
-        // Vector with enum categories in the Event
-        std::vector<EventsCategories> m_event_categories;
-
-        // Vector of tuples with teams and points (tuples sorted by points)
-        std::vector<std::pair<Team, double>> m_sorted_classification;
-
-        // Function that sorts teams by their total score (not cirtual, as it only sorts the map by the amount of points that teams scored - same for every competition).
-        void make_event_classification();
-
-        // Calculating points for each event according to the rules.
-        virtual void calculate_teams_points()=0;
-
+      EventType m_event_type;
+      std::vector<EventsCategories> m_event_categories;
+      std::vector<Team> m_teams_participating;
+      std::map<Team, std::map<EventsCategories, double>> m_teams_and_results;
+      std::map<Team, double> m_teams_and_points;
+      std::vector<std::pair<Team, double>> m_classification;
 
     public:
-        // Setting results to the attribute:
-        void set_results(std::map<Team, std::map<EventsCategories, double>> &results);
+      Event() {}
+      Event(std::vector<Team>& teams_participating): m_teams_participating(teams_participating) {}
+      virtual ~Event() {};
 
-        // Simulating the event.
-        void simulate();
+      void init_event_type(EventType event_type);
+      void set_teams(std::vector<Team> &teams) {m_teams_participating = teams;}
+      void set_results(std::map<Team, std::map<EventsCategories, double>> &results);
+      void simulate();
 
-        void set_teams(std::vector<Team> &teams);
+      std::map<Team, double> get_teams_and_points() const {return m_teams_and_points;}
+      std::vector<std::pair<Team, double>> get_classification() const {return m_classification;}
+      EventType get_event_type() const {return m_event_type;}
 
-        // Default Constructor:
-        Event(std::string which_driverless=""): m_which_driverless(which_driverless) {}
-
-        // Constructor:
-        Event(std::vector<Team> teams_participating, std::string which_driverless=""): m_teams_participating(teams_participating), m_which_driverless(which_driverless) {}  // FIXME: Nie wiem czy kurwa nie zepsułem czegoś usunięciem tych list, trzeba poszukać xD
-
-        // Destructor:
-        virtual ~Event() {};
-
-        // Getter of map with final event unsorted classification:
-        std::map<Team, double> get_classification() const;
-
-        // Getter of vector with final event sorted classification:
-        std::vector<std::pair<Team, double>> get_sorted_classification() const {return m_sorted_classification;}
-
-        // Getter of the type of event as an enum
-        EventType get_event_type() const {return m_event_type;}
-
-        std::string get_info_file_name() const;
+    protected:
+      virtual void fill_teams_points()=0;
+      virtual std::map<Team, double> find_teams_best_times();
+      void fill_classification();
+      void fill_points_std_dynamic(double base_pts, double time_thresh_coefficient,
+                                   std::map<Team, double>& teams_and_best_times,
+                                   std::function<double(const double,const double)> pts_formula);
 };
 
 // Order of calling out the methods:

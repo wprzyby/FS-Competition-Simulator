@@ -34,10 +34,10 @@ TEST_CASE("AccelerationEvent DV tests.", "[Driverless]")
     acc_teams_and_results.insert({team_d, acc_team_d_results});
 
     // Creating and simulating the Event
-    AccelerationEvent acc_event(teams, "DV");
+    DVAccelerationEvent acc_event(teams);
     acc_event.set_results(acc_teams_and_results);
     acc_event.simulate();
-    std::map<Team, double> results = acc_event.get_classification();
+    std::map<Team, double> results = acc_event.get_teams_and_points();
     //
 
     // Creating map of correct results
@@ -50,28 +50,21 @@ TEST_CASE("AccelerationEvent DV tests.", "[Driverless]")
 
     SECTION("Testing: setting results and calculating points")
     {
-        CHECK(results[team_a] == acc_correct_results[team_a]);
-        CHECK(results[team_b] == acc_correct_results[team_b]);
-        CHECK(results[team_c] == acc_correct_results[team_c]);
-        CHECK(results.at(team_d) == acc_correct_results[team_d]);
+        CHECK(results.at(team_a) == acc_correct_results.at(team_a));
+        CHECK(results.at(team_b) == acc_correct_results.at(team_b));
+        CHECK(results.at(team_c) == acc_correct_results.at(team_c));
+        CHECK(results.at(team_d) == acc_correct_results.at(team_d));
     }
 
 
     SECTION("Testing: making event classification")
     {
-        std::vector<std::pair<Team, double>> acc_points_vector = acc_event.get_sorted_classification();
+        std::vector<std::pair<Team, double>> acc_points_vector = acc_event.get_classification();
 
         // Checking whether points are truely sorted:
-        CHECK(acc_points_vector[0].second >= acc_points_vector[1].second);
-        CHECK(acc_points_vector[1].second >= acc_points_vector[2].second);
-        CHECK(acc_points_vector[2].second >= acc_points_vector[3].second);
+        CHECK(acc_points_vector.at(0).second >= acc_points_vector.at(1).second);
+        CHECK(acc_points_vector.at(1).second >= acc_points_vector.at(2).second);
+        CHECK(acc_points_vector.at(2).second >= acc_points_vector.at(3).second);
         //
-    }
-
-
-    SECTION("Testing: EventType and filename getters")
-    {
-        CHECK(acc_event.get_event_type() == acceleration_DV);
-        CHECK(acc_event.get_info_file_name() == "AccelerationEventInfo.pdf");
     }
 }

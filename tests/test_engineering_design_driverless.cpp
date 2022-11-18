@@ -11,7 +11,7 @@
 
 TEST_CASE("Engineering Design Event DV functionality")
 {
-    EngineeringDesignEvent event("DV");
+    EngineeringDesignEvent event;
 
     Team team_a("a", "univA", 1);
     Team team_b("b", "univB", 2);
@@ -105,24 +105,18 @@ TEST_CASE("Engineering Design Event DV functionality")
         event.set_teams(teams);
         event.set_results(results);
         event.simulate();
-        std::map<Team, double> classification = event.get_classification();
+        std::map<Team, double> classification = event.get_teams_and_points();
 
         CHECK(correct_results[team_a] == classification[team_a]);
         CHECK(correct_results[team_b] == classification[team_b]);
         CHECK(correct_results[team_c] == classification[team_c]);
 
         // checking if sorted correctly
-        std::vector<std::pair<Team, double>> points_vector = event.get_sorted_classification();
+        std::vector<std::pair<Team, double>> points_vector = event.get_classification();
 
         // Checking whether points are truly sorted:
         CHECK(points_vector[0].second >= points_vector[1].second);
         CHECK(points_vector[1].second >= points_vector[2].second);
         //
-    }
-
-    SECTION("Getters")
-    {
-        CHECK(event.get_event_type() == engineering_design_DC);
-        CHECK(event.get_info_file_name() == "EngineeringDesignEventInfo.pdf");
     }
 }

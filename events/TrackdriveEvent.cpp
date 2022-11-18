@@ -10,24 +10,7 @@
 #include "constants.h"
 
 
-TrackdriveEvent::TrackdriveEvent()
-{
-    m_event_type = trackdrive;
-    m_event_categories = CATEGORY_LISTS.at(trackdrive);
-    m_which_driverless = "DC";
-}
-
-
-TrackdriveEvent::TrackdriveEvent(std::vector<Team> &teams)
-{
-    m_teams_participating = teams;
-    m_event_type = trackdrive;
-    m_event_categories = CATEGORY_LISTS.at(trackdrive);
-    m_which_driverless = "DC";
-}
-
-
-void TrackdriveEvent::calculate_teams_points()
+void TrackdriveEvent::fill_teams_points()
 {
     std::map<Team, double> teams_and_best_times;
     for (auto& [team, team_results]: m_teams_and_results)
@@ -46,7 +29,7 @@ void TrackdriveEvent::calculate_teams_points()
     }
 
     double best_time_overall = find_best_time_overall(teams_and_best_times);  // Finding the best time overall
-    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
+    double base_points = BASE_COMPLETION_POINTS.at(trackdrive);
 
 
     for (auto& [team, team_best_time]: teams_and_best_times)
@@ -64,12 +47,12 @@ void TrackdriveEvent::calculate_teams_points()
         {
             team_final_score = base_points;
         }
-        m_classification.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
+        m_teams_and_points.insert({const_cast<Team&>(team), rd_to_n_places(team_final_score, 1)});  // Inserting team and their final score to the classification.
    }
 }
 
 
-double TrackdriveEvent::get_additional_points(double best_time_overall, double team_best_time) const
+double TrackdriveEvent::get_additional_points(double best_time_overall, double team_best_time)
 {
     double points = 150*(((best_time_overall*2/team_best_time) - 1));  // calculating additional points
 
