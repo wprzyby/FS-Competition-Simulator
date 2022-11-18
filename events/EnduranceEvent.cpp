@@ -59,7 +59,7 @@ void EnduranceEvent::fill_teams_points()
 
 double EnduranceEvent::get_endurance_points(double best_time_overall, double team_best_time)
 {
-    double points = 300 * ( ( (best_time_overall*1.333 / team_best_time) - 1 ) / 0.333 );
+    double points = 225 * ( ( (best_time_overall*1.333 / team_best_time) - 1 ) / 0.333 );
 
     if (points < 0)
     {
@@ -72,7 +72,8 @@ double EnduranceEvent::get_endurance_points(double best_time_overall, double tea
 
 double EnduranceEvent::get_efficiency_points(double best_eff_factor, double team_eff_factor)
 {
-    double points = 75 * ( 2 - (team_eff_factor / best_eff_factor) );
+    double eff_max = best_eff_factor * 1.5;
+    double points = 75 * ((eff_max - team_eff_factor) / eff_max - best_eff_factor);
 
     if (points < 0)
     {
