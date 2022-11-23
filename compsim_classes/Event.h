@@ -15,6 +15,7 @@ class Event  // Abstract class
 {
     protected:
       EventType m_event_type;
+      std::string m_name;
       std::vector<EventsCategories> m_event_categories;
       std::vector<Team> m_teams_participating;
       std::map<Team, std::map<EventsCategories, double>> m_teams_and_results;
@@ -34,6 +35,7 @@ class Event  // Abstract class
       std::map<Team, double> get_teams_and_points() const {return m_teams_and_points;}
       std::vector<std::pair<Team, double>> get_classification() const {return m_classification;}
       EventType get_event_type() const {return m_event_type;}
+      std::string name() const {return m_name;}
 
     protected:
       virtual void fill_teams_points()=0;

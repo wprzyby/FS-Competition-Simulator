@@ -17,7 +17,7 @@
 void Event::init_event_type(EventType event_type) {
     m_event_type = event_type;
     m_event_categories = CATEGORY_LISTS.at(m_event_type);
-
+    m_name = EVENT_TYPE_TO_STRING.at(m_event_type);
 }
 
 
