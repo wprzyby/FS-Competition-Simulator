@@ -22,5 +22,5 @@ class DCEngineeringDesignEvent: public EngineeringDesignEvent {
     public:
       DCEngineeringDesignEvent() {init_event_type(engineering_design_DC);}
       DCEngineeringDesignEvent(std::vector<Team> &teams)
-                            : EngineeringDesignEvent(teams) {init_event_type(engineering_design);}
+                            : EngineeringDesignEvent(teams) {init_event_type(engineering_design_DC);}
 };

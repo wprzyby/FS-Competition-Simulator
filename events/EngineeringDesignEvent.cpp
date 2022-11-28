@@ -12,9 +12,9 @@
 void EngineeringDesignEvent::fill_teams_points()
 {
     // Calculating teams points and adding them to the classification map:
-    for (auto& [team, results]: m_teams_and_results)
+    for (auto& team: m_teams)
     {
-        const double team_points = sum_all_teams_results(results);  // summing all team`s point
+        const double team_points = sum_team_results(team, m_event_categories);  // summing all team`s point
         m_teams_and_points.insert({const_cast<Team&>(team), rd_to_n_places(team_points, 1)});  // inserting team and their final result into classification
     }
 }

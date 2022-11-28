@@ -13,25 +13,18 @@
 std::map<Team, double> SkidpadEvent::find_teams_best_times() {
 
     std::map<Team, double> teams_and_best_times;
-    for (auto& [team, team_results]: m_teams_and_results) {
-        double first_time = round(0.5*(team_results.at(first_left_time) + team_results.at(first_right_time)));  // Calculating first run time with accuracy to miliseconds
-        double second_time = round(0.5*(team_results.at(second_left_time) + team_results.at(second_right_time)));  // Calculating second run time with accuracy to miliseconds
+    for (auto& team: m_teams) {
+        double first_time = round(0.5*(team.result_of_category(first_left_time) + team.result_of_category(first_right_time)));  // Calculating first run time with accuracy to miliseconds
+        double second_time = round(0.5*(team.result_of_category(second_left_time) + team.result_of_category(second_right_time)));  // Calculating second run time with accuracy to miliseconds
 
-        // Inserting team results into buffor map
-        std::map<EventsCategories, double> times;
-        times.insert({skid_first_time, first_time});
-        times.insert({skid_second_time, second_time});
-        //
-
-        double time_to_set = find_best_time_for_team(times);  // Finding best team`s time
-        teams_and_best_times[team] = time_to_set;  // inserting team and their best result into the map.
+        teams_and_best_times[team] = find_min(first_time, second_time);  // inserting team and their best result into the map.
     }
     return teams_and_best_times;
 }
 
 void SkidpadEvent::fill_teams_points()
 {
-    double base_points = BASE_COMPLETION_POINTS.at(skidpad);
+    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
     double time_threshold_coefficient = 1.25;
     std::map<Team, double> teams_and_best_times = find_teams_best_times();
 
@@ -51,7 +44,7 @@ double SkidpadEvent::get_additional_points(double best_time_overall, double team
 }
 
 void DCSkidpadEvent::fill_teams_points() {
-    double base_points = BASE_COMPLETION_POINTS.at(skidpad_DC);
+    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
     double time_threshold_coefficient = 1.5;
     std::map<Team, double> teams_and_best_times = find_teams_best_times();
 

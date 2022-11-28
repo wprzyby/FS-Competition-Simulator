@@ -11,7 +11,7 @@
 
 void AccelerationEvent::fill_teams_points()
 {
-    double base_points = BASE_COMPLETION_POINTS.at(acceleration);
+    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
     double time_threshold_coefficient = 1.5;
     std::map<Team, double> teams_and_best_times = find_teams_best_times();
 
@@ -34,7 +34,7 @@ double AccelerationEvent::get_additional_points(const double best_time_overall, 
 
 void DCAccelerationEvent::fill_teams_points()
 {
-    double base_points = BASE_COMPLETION_POINTS.at(acceleration_DC);
+    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
     double time_threshold_coefficient = 2.0;
     std::map<Team, double> teams_and_best_times = find_teams_best_times();
 

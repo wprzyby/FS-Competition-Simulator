@@ -5,15 +5,13 @@
 #include "exceptions.h"
 
 
-Team::Team(const std::string name, const std::string university, const unsigned number) : m_number(number)
-{
+Team::Team(const std::string name, const std::string university, const unsigned number) : m_number(number) {
     set_name(name);
     set_university(university);
 }
 
 
-void Team::set_name(std::string name)
-{
+void Team::set_name(std::string name) {
     // check for empty string
     if (name.empty()) {throw EmptyNameError("team");}
 
@@ -21,19 +19,10 @@ void Team::set_name(std::string name)
 }
 
 
-void Team::set_university(std::string university)
-{
-    // check for empty string
+void Team::set_university(std::string university) {
     if (university.empty()) {throw EmptyNameError("university");}
 
     m_university = university;
-}
-
-
-void Team::set_number(unsigned int number)
-{
-    // currently doesn't have any number validity check, any number works
-    m_number = number;
 }
 
 // operator implemented for interacting with std::map

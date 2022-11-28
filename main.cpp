@@ -35,9 +35,8 @@ int main() {
         std::cout<< "--------------------------------------------" << std::endl;
         std::cout<< "Setting results for " << event_type << " event:" << std::endl;
 
-        std::map<Team, std::map<EventsCategories, double>> results = input_event_results(event_type, teams, config_path);
+        assign_event_results(teams, event_type, config_path);
         std::unique_ptr<Event> event = create_event(event_type, teams);
-        event->set_results(results);
         events.push_back(std::move(event));
     }
 

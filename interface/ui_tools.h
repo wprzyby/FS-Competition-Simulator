@@ -13,5 +13,5 @@
 
 std::vector<Team> input_teams();
 std::vector<EventType> input_event_types();
-std::map<Team, std::map<EventsCategories, double>> input_event_results(EventType type, std::vector<Team> &teams, std::string config_path);
+void assign_event_results(std::vector<Team> &teams, EventType type, std::string config_path);
 std::unique_ptr<Event> create_event(EventType type, std::vector<Team> teams);

@@ -22,76 +22,57 @@ TEST_CASE("Competition basic functionality - using Autocross and EngineeringDesi
     Team team_a("a", "univA", 1);
     Team team_b("b", "univB", 2);
     Team team_c("c", "univC", 3);
-    std::vector<Team> teams = {team_a, team_b, team_c};
+
 
     // competition.set_teams(teams);
-    autocross_event->set_teams(teams);
-    design_event->set_teams(teams);
-
-    std::map<Team, std::map<EventsCategories, double>> aut_results;
-    std::map<EventsCategories, double> team_a_aut_results;
-    std::map<EventsCategories, double> team_b_aut_results;
-    std::map<EventsCategories, double> team_c_aut_results;
 
     // fastest
-    team_a_aut_results.insert({first_aut_time, 80000});
-    team_a_aut_results.insert({second_aut_time, 80000});
-    team_a_aut_results.insert({third_aut_time, 90000});
-    team_a_aut_results.insert({fourth_aut_time, 0});
+    team_a.set_category_result(first_aut_time, 80000);
+    team_a.set_category_result(second_aut_time, 80000);
+    team_a.set_category_result(third_aut_time, 90000);
+    team_a.set_category_result(fourth_aut_time, 0);
     // scores additional points
-    team_b_aut_results.insert({first_aut_time, 0});
-    team_b_aut_results.insert({second_aut_time, 90000});
-    team_b_aut_results.insert({third_aut_time, 150000.01});
-    team_b_aut_results.insert({fourth_aut_time, 0});
+    team_b.set_category_result(first_aut_time, 0);
+    team_b.set_category_result(second_aut_time, 90000);
+    team_b.set_category_result(third_aut_time, 150000.01);
+    team_b.set_category_result(fourth_aut_time, 0);
     // scores 4.5 points
-    team_c_aut_results.insert({first_aut_time, 150000});
-    team_c_aut_results.insert({second_aut_time, 0});
-    team_c_aut_results.insert({third_aut_time, 200000});
-    team_c_aut_results.insert({fourth_aut_time, 0});
+    team_c.set_category_result(first_aut_time, 150000);
+    team_c.set_category_result(second_aut_time, 0);
+    team_c.set_category_result(third_aut_time, 200000);
+    team_c.set_category_result(fourth_aut_time, 0);
 
-    aut_results.insert({team_a, team_a_aut_results});
-    aut_results.insert({team_b, team_b_aut_results});
-    aut_results.insert({team_c, team_c_aut_results});
-    autocross_event->set_results(aut_results);
+    team_a.set_category_result(overall_vehicle_concept, 0);
+    team_a.set_category_result(vehicle_performance, 0);
+    team_a.set_category_result(mechanical_structural_engineering, 0);
+    team_a.set_category_result(tractive_system, 0);
+    team_a.set_category_result(electronics, 0);
+    team_a.set_category_result(driver_interface, 0);
+    team_a.set_category_result(autonomous_functionality, 0);
+    team_a.set_category_result(design_report, 0);
 
+    team_b.set_category_result(overall_vehicle_concept, 5);
+    team_b.set_category_result(vehicle_performance, 20);
+    team_b.set_category_result(mechanical_structural_engineering, 5);
+    team_b.set_category_result(tractive_system, 1);
+    team_b.set_category_result(electronics, 15);
+    team_b.set_category_result(driver_interface, 0);
+    team_b.set_category_result(autonomous_functionality, 5);
+    team_b.set_category_result(design_report, 10);
 
-    std::map<Team, std::map<EventsCategories, double>> des_results;
-    std::map<EventsCategories, double> team_a_des_results;
-    std::map<EventsCategories, double> team_b_des_results;
-    std::map<EventsCategories, double> team_c_des_results;
+    team_c.set_category_result(overall_vehicle_concept, 30);
+    team_c.set_category_result(vehicle_performance, 18);
+    team_c.set_category_result(mechanical_structural_engineering, 2);
+    team_c.set_category_result(tractive_system, 10);
+    team_c.set_category_result(electronics, 5);
+    team_c.set_category_result(driver_interface, 10);
+    team_c.set_category_result(autonomous_functionality, 20);
+    team_c.set_category_result(design_report, 10);
 
-    team_a_des_results.insert({overall_vehicle_concept, 0});
-    team_a_des_results.insert({vehicle_performance, 0});
-    team_a_des_results.insert({mechanical_structural_engineering, 0});
-    team_a_des_results.insert({tractive_system, 0});
-    team_a_des_results.insert({electronics, 0});
-    team_a_des_results.insert({driver_interface, 0});
-    team_a_des_results.insert({autonomous_functionality, 0});
-    team_a_des_results.insert({design_report, 0});
+    std::vector<Team> teams = {team_a, team_b, team_c};
 
-    team_b_des_results.insert({overall_vehicle_concept, 5});
-    team_b_des_results.insert({vehicle_performance, 20});
-    team_b_des_results.insert({mechanical_structural_engineering, 5});
-    team_b_des_results.insert({tractive_system, 1});
-    team_b_des_results.insert({electronics, 15});
-    team_b_des_results.insert({driver_interface, 0});
-    team_b_des_results.insert({autonomous_functionality, 5});
-    team_b_des_results.insert({design_report, 10});
-
-    team_c_des_results.insert({overall_vehicle_concept, 30});
-    team_c_des_results.insert({vehicle_performance, 18});
-    team_c_des_results.insert({mechanical_structural_engineering, 2});
-    team_c_des_results.insert({tractive_system, 10});
-    team_c_des_results.insert({electronics, 5});
-    team_c_des_results.insert({driver_interface, 10});
-    team_c_des_results.insert({autonomous_functionality, 20});
-    team_c_des_results.insert({design_report, 10});
-
-    des_results.insert({team_a, team_a_des_results});
-    des_results.insert({team_b, team_b_des_results});
-    des_results.insert({team_c, team_c_des_results});
-    design_event->set_results(des_results);
-
+    autocross_event->set_teams(teams);
+    design_event->set_teams(teams);
     std::map<Team, double> correct_results;
 
     correct_results.insert({team_a, 100});

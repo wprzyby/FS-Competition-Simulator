@@ -23,62 +23,50 @@ TEST_CASE("Engineering Design Event functionality")
     Team negative_points_team("d", "univF", 6);
     Team points_over_maximum_team("e", "univG", 7);
 
-    std::map<Team, std::map<EventsCategories, double>> results;
+    team_a.set_category_result(overall_vehicle_concept, 5);
+    team_a.set_category_result(vehicle_performance, 20);
+    team_a.set_category_result(mechanical_structural_engineering, 5);
+    team_a.set_category_result(tractive_system, 1);
+    team_a.set_category_result(electronics, 15);
+    team_a.set_category_result(driver_interface, 0);
+    team_a.set_category_result(autonomous_functionality, 5);
+    team_a.set_category_result(design_report, 10);
 
-    std::map<EventsCategories, double> team_a_results;
-    std::map<EventsCategories, double> team_b_results;
-    std::map<EventsCategories, double> team_c_results;
-    std::map<EventsCategories, double> negative_points_team_results;
-    std::map<EventsCategories, double> points_over_maximum_team_results;
+    team_b.set_category_result(overall_vehicle_concept, 30);
+    team_b.set_category_result(vehicle_performance, 18);
+    team_b.set_category_result(mechanical_structural_engineering, 2);
+    team_b.set_category_result(tractive_system, 10);
+    team_b.set_category_result(electronics, 5);
+    team_b.set_category_result(driver_interface, 10);
+    team_b.set_category_result(autonomous_functionality, 20);
+    team_b.set_category_result(design_report, 10);
 
-    team_a_results.insert({overall_vehicle_concept, 5});
-    team_a_results.insert({vehicle_performance, 20});
-    team_a_results.insert({mechanical_structural_engineering, 5});
-    team_a_results.insert({tractive_system, 1});
-    team_a_results.insert({electronics, 15});
-    team_a_results.insert({driver_interface, 0});
-    team_a_results.insert({autonomous_functionality, 5});
-    team_a_results.insert({design_report, 10});
+    team_c.set_category_result(overall_vehicle_concept, 0);
+    team_c.set_category_result(vehicle_performance, 0);
+    team_c.set_category_result(mechanical_structural_engineering, 0);
+    team_c.set_category_result(tractive_system, 0);
+    team_c.set_category_result(electronics, 0);
+    team_c.set_category_result(driver_interface, 0);
+    team_c.set_category_result(autonomous_functionality, 0);
+    team_c.set_category_result(design_report, 0);
 
-    team_b_results.insert({overall_vehicle_concept, 30});
-    team_b_results.insert({vehicle_performance, 18});
-    team_b_results.insert({mechanical_structural_engineering, 2});
-    team_b_results.insert({tractive_system, 10});
-    team_b_results.insert({electronics, 5});
-    team_b_results.insert({driver_interface, 10});
-    team_b_results.insert({autonomous_functionality, 20});
-    team_b_results.insert({design_report, 10});
+    negative_points_team.set_category_result(overall_vehicle_concept, 0);
+    negative_points_team.set_category_result(vehicle_performance, -1);
+    negative_points_team.set_category_result(mechanical_structural_engineering, -5);
+    negative_points_team.set_category_result(tractive_system, 3);
+    negative_points_team.set_category_result(electronics, 2);
+    negative_points_team.set_category_result(driver_interface, 0);
+    negative_points_team.set_category_result(autonomous_functionality, 1);
+    negative_points_team.set_category_result(design_report, 0);
 
-    team_c_results.insert({overall_vehicle_concept, 0});
-    team_c_results.insert({vehicle_performance, 0});
-    team_c_results.insert({mechanical_structural_engineering, 0});
-    team_c_results.insert({tractive_system, 0});
-    team_c_results.insert({electronics, 0});
-    team_c_results.insert({driver_interface, 0});
-    team_c_results.insert({autonomous_functionality, 0});
-    team_c_results.insert({design_report, 0});
-
-    negative_points_team_results.insert({overall_vehicle_concept, 0});
-    negative_points_team_results.insert({vehicle_performance, -1});
-    negative_points_team_results.insert({mechanical_structural_engineering, -5});
-    negative_points_team_results.insert({tractive_system, 3});
-    negative_points_team_results.insert({electronics, 2});
-    negative_points_team_results.insert({driver_interface, 0});
-    negative_points_team_results.insert({autonomous_functionality, 1});
-    negative_points_team_results.insert({design_report, 0});
-
-    points_over_maximum_team_results.insert({overall_vehicle_concept, 40});
-    points_over_maximum_team_results.insert({vehicle_performance, 0});
-    points_over_maximum_team_results.insert({mechanical_structural_engineering, 20});
-    points_over_maximum_team_results.insert({tractive_system, 5});
-    points_over_maximum_team_results.insert({electronics, 5});
-    points_over_maximum_team_results.insert({driver_interface, 0});
-    points_over_maximum_team_results.insert({autonomous_functionality, 1});
-    points_over_maximum_team_results.insert({design_report, 0});
-
-    results.insert({team_a, team_a_results});
-    results.insert({team_b, team_b_results});
-    results.insert({team_c, team_c_results});
+    points_over_maximum_team.set_category_result(overall_vehicle_concept, 40);
+    points_over_maximum_team.set_category_result(vehicle_performance, 0);
+    points_over_maximum_team.set_category_result(mechanical_structural_engineering, 20);
+    points_over_maximum_team.set_category_result(tractive_system, 5);
+    points_over_maximum_team.set_category_result(electronics, 5);
+    points_over_maximum_team.set_category_result(driver_interface, 0);
+    points_over_maximum_team.set_category_result(autonomous_functionality, 1);
+    points_over_maximum_team.set_category_result(design_report, 0);
 
     std::map<Team, double> correct_results;
 
@@ -96,24 +84,22 @@ TEST_CASE("Engineering Design Event functionality")
     //     teams = {team_a, team_b, team_c, duplicate_univ_team};
     //     REQUIRE_THROWS(event.set_teams(teams));
     // }
+    // TODO: to samo
+    // SECTION("Wrong categories in results")
+    // {
+    //     Team team_x("x", "univX", 10);
+    //     std::map<EventsCategories, double> team_x_results;
+    //     team_x_results.insert({driver_interface, 100000});
+    //     team_x_results.insert({pitch_video, 5});
+    //     team_x_results.insert({first_acc_time, 100000});
 
-    SECTION("Wrong categories in results")
-    {
-        Team team_x("x", "univX", 10);
-        std::map<EventsCategories, double> team_x_results;
-        team_x_results.insert({driver_interface, 100000});
-        team_x_results.insert({pitch_video, 5});
-        team_x_results.insert({first_acc_time, 100000});
-        results.insert({team_x, team_x_results});
-
-        REQUIRE_THROWS(event.set_results(results));
-    }
+    //     REQUIRE_THROWS(event.set_results(results));
+    // }
 
     SECTION("Simulation - correct results")
     {
         std::vector<Team> teams = {team_a, team_b, team_c};
         event.set_teams(teams);
-        event.set_results(results);
         event.simulate();
         std::map<Team, double> classification = event.get_teams_and_points();
 

@@ -28,35 +28,31 @@ double find_min(const double number1, const double number2)  // Function finding
 }
 
 
-double find_max_points(std::map<Team, std::map<EventsCategories, double>> teams_and_results)
+double find_max_points(const std::vector<Team>& teams, const std::vector<EventsCategories>& categories_to_count)
 {
     double max_points = 0;
-    for (auto& [_, results]: teams_and_results)
-    {
-        double team_points = sum_all_teams_results(results);  // Summing team`s points
-        max_points = find_max(max_points, team_points);  // Finding biggest amount among max_points and current team`s points
+    for (auto& team: teams) {
+        max_points = find_max(max_points, sum_team_results(team, categories_to_count));  // Finding biggest amount among max_points and current team`s points
     }
     return max_points;
 }
 
 
-double sum_all_teams_results(std::map<EventsCategories, double> results)
+double sum_team_results(const Team& team, const std::vector<EventsCategories>& categories_to_count)
 {
     double summed_points = 0;
-    for (auto& [_, points]: results)  // Getting row in the map
+    for (auto& category: categories_to_count)
     {
-        summed_points += points;  // Summing all points in the map
+        summed_points += team.result_of_category(category);
     }
-    return summed_points;  // Returning points scored in an event by  the team.
+    return summed_points;
 }
 
-
-double find_best_time_for_team(std::map<EventsCategories, double> team_and_times)
+double find_best_time_for_team(const Team& team, const std::vector<EventsCategories>& timed_categories)
 {
-    double best_time = team_and_times.begin()->second;  // getting first time as a refference
-    for (auto& [_, time]: team_and_times)
-    {
-        best_time = find_min(time, best_time);  // finding lower value among current best and global best
+    double best_time = team.result_of_category(timed_categories.at(0));
+    for (auto& category: timed_categories) {
+        best_time = find_min(team.result_of_category(category), best_time);
     }
     return best_time;
 }

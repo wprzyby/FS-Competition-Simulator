@@ -20,7 +20,7 @@ void Event::init_event_type(EventType event_type) {
     m_name = EVENT_TYPE_TO_STRING.at(m_event_type);
 }
 
-
+/*
 void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &results) {
     for (auto& [_, result]: results) {
         for(auto& [category, score]: result) {
@@ -32,6 +32,7 @@ void Event::set_results(std::map<Team, std::map<EventsCategories, double>> &resu
 
     m_teams_and_results = results;
 }
+*/
 
 
 void Event::simulate() {
@@ -42,8 +43,8 @@ void Event::simulate() {
 
 std::map<Team, double> Event::find_teams_best_times() {
     std::map<Team, double> teams_and_best_times;
-    for (auto& [team, team_results]: m_teams_and_results) {
-        double time_to_set = find_best_time_for_team(team_results);  // Finding best team`s time
+    for (auto& team: m_teams) {
+        double time_to_set = find_best_time_for_team(team, m_event_categories);  // Finding best team`s time
         teams_and_best_times[team] = time_to_set;  // inserting team and their best result into the bufforing map.
     }
     return teams_and_best_times;
