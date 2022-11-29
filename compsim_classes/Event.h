@@ -17,19 +17,18 @@ class Event  // Abstract class
       EventType m_event_type;
       std::string m_name;
       std::vector<EventsCategories> m_event_categories;
-      std::vector<Team> m_teams_participating;
-      std::map<Team, std::map<EventsCategories, double>> m_teams_and_results;
+      std::vector<Team> m_teams;
       std::map<Team, double> m_teams_and_points;
       std::vector<std::pair<Team, double>> m_classification;
 
     public:
       Event() {}
-      Event(std::vector<Team>& teams_participating): m_teams_participating(teams_participating) {}
+      Event(std::vector<Team>& teams_participating): m_teams(teams_participating) {}
       virtual ~Event() {};
 
       void init_event_type(EventType event_type);
-      void set_teams(std::vector<Team> &teams) {m_teams_participating = teams;}
-      void set_results(std::map<Team, std::map<EventsCategories, double>> &results);
+      void set_teams(std::vector<Team> &teams) {m_teams = teams;}
+      // void set_results(std::map<Team, std::map<EventsCategories, double>> &results);
       void simulate();
 
       std::map<Team, double> get_teams_and_points() const {return m_teams_and_points;}

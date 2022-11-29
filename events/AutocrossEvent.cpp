@@ -36,9 +36,9 @@ double AutocrossEvent::get_additional_points(double best_time_overall, double te
 
 std::map<Team, double> DCAutocrossEvent::find_teams_best_times() {
     std::map<Team, double> teams_and_best_times;
-    for (auto& [team, team_results]: m_teams_and_results) {
-        double first_time = team_results.at(first_aut_time);
-        double second_time = team_results.at(second_aut_time);
+    for (auto& team: m_teams) {
+        double first_time = team.result_of_category(first_aut_time);
+        double second_time = team.result_of_category(second_aut_time);
 
         // DNFs in both runs result in not scoring base points
         // hence best time set to 0 as demonstration of DNF of whole event
@@ -60,7 +60,7 @@ std::map<Team, double> DCAutocrossEvent::find_teams_best_times() {
 
 
 void DCAutocrossEvent::fill_teams_points() {
-    double base_points = BASE_COMPLETION_POINTS.at(autocross_DC);
+    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
     std::map<Team, double> teams_and_best_times = find_teams_best_times();
     double best_time_overall = find_best_time_overall(teams_and_best_times);
 

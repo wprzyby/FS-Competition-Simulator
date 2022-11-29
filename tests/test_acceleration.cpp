@@ -13,29 +13,20 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
 {
 
     Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 3), team_c("C", "UniveroC", 2), team_d("D", "UniveroD", 4);
-    std::vector<Team> teams{team_a, team_b, team_c, team_d};
 
-    std::map<Team, std::map<EventsCategories, double>> acc_teams_and_results;
-    std::map<EventsCategories, double> acc_team_a_results;
-    std::map<EventsCategories, double> acc_team_b_results;
-    std::map<EventsCategories, double> acc_team_c_results;
-    std::map<EventsCategories, double> acc_team_d_results;
-    acc_team_a_results.insert({first_acc_time, 12000});
-    acc_team_a_results.insert({second_acc_time, 11000});
-    acc_team_b_results.insert({first_acc_time, 12000});
-    acc_team_b_results.insert({second_acc_time, 13000});
-    acc_team_c_results.insert({first_acc_time, 35000});
-    acc_team_c_results.insert({second_acc_time, 33000});
-    acc_team_d_results.insert({first_acc_time, 0});
-    acc_team_d_results.insert({second_acc_time, 0});
-    acc_teams_and_results.insert({team_a, acc_team_a_results});
-    acc_teams_and_results.insert({team_b, acc_team_b_results});
-    acc_teams_and_results.insert({team_c, acc_team_c_results});
-    acc_teams_and_results.insert({team_d, acc_team_d_results});
+    team_a.set_category_result(first_acc_time, 12000);
+    team_a.set_category_result(second_acc_time, 11000);
+    team_b.set_category_result(first_acc_time, 12000);
+    team_b.set_category_result(second_acc_time, 13000);
+    team_c.set_category_result(first_acc_time, 35000);
+    team_c.set_category_result(second_acc_time, 33000);
+    team_d.set_category_result(first_acc_time, 0);
+    team_d.set_category_result(second_acc_time, 0);
+
+    std::vector<Team> teams{team_a, team_b, team_c, team_d};
 
     // Creating and simulating the Event
     AccelerationEvent acc_event(teams);
-    acc_event.set_results(acc_teams_and_results);
     acc_event.simulate();
     std::map<Team, double> results = acc_event.get_teams_and_points();
     //

@@ -16,14 +16,14 @@ void EnduranceEvent::fill_teams_points()
     std::map<Team, double> teams_and_uncorr_times;
     std::map<Team, double> teams_and_eff_factors;
 
-    for(auto& [team, team_results]: m_teams_and_results)
+    for(auto& team: m_teams)
     {
-        teams_and_corr_times[team] = team_results.at(end_corrected_time);
+        teams_and_corr_times[team] = team.result_of_category(end_corrected_time);
         if (m_run_efficiency)
         {
-            teams_and_uncorr_times[team] = team_results.at(end_uncorrected_time);
-            teams_and_eff_factors[team] = (team_results.at(energy_used) - team_results.at(energy_produced) * 0.9)
-                                           * std::pow(team_results.at(end_uncorrected_time), 2);
+            teams_and_uncorr_times[team] = team.result_of_category(end_uncorrected_time);
+            teams_and_eff_factors[team] = (team.result_of_category(energy_used) - team.result_of_category(energy_produced) * 0.9)
+                                           * std::pow(team.result_of_category(end_uncorrected_time), 2);
         }
     }
 

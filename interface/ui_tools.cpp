@@ -95,26 +95,23 @@ std::vector<EventType> input_event_types()
 }
 
 
-std::map<Team, std::map<EventsCategories, double>> input_event_results(EventType type, std::vector<Team> &teams, std::string config_path)
+void assign_event_results(std::vector<Team> &teams, EventType type, std::string config_path)
 {
     std::vector<EventsCategories> categories = CATEGORY_LISTS.at(type);
     LapTimeParser parser(config_path, ms);
     std::map<EventsCategories, double> single_team_results;
     std::map<Team, std::map<EventsCategories, double>> results;
 
-    for(auto& team: teams)
-    {
-        single_team_results.clear();
+    for(auto& team: teams) {
+
         std::cout<< "\nEntering results for team " << team << '\n';
         std::cout<< "(For DNF, enter time of 0)" << std::endl;
 
-        for(auto category: categories)
-        {
+        for(auto category: categories) {
             double input_value = 0;
             std::cout<< '\n' <<  category << ":";
             auto find_result = std::find(std::begin(TIMED_CATEGORIES), std::end(TIMED_CATEGORIES), category);
-            if (find_result != std::end(TIMED_CATEGORIES))
-            {
+            if (find_result != std::end(TIMED_CATEGORIES)) {
                 unsigned minutes = 0;
                 unsigned seconds = 0;
                 unsigned miliseconds = 0;
@@ -134,19 +131,13 @@ std::map<Team, std::map<EventsCategories, double>> input_event_results(EventType
                 std::cout<< "Number of Unsafe Stop occurences: ";
                 std::cin>> number_of_uss;
                 input_value = parser.parse_time(type, minutes, seconds, miliseconds, number_of_doo, number_of_oc, number_of_uss);
-            }
-            else
-            {
+            } else {
                 std::cin>> input_value;
             }
 
-            single_team_results.insert({category, input_value});
+            team.set_category_result(category, input_value);
         }
-
-        results.insert({team, single_team_results});
     }
-
-    return results;
 }
 
 std::unique_ptr<Event> create_event(EventType type, std::vector<Team> teams)
