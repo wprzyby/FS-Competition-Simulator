@@ -6,6 +6,7 @@ set(events_src_files
     EnduranceEvent.cpp
     EngineeringDesignEvent.cpp
     SkidpadEvent.cpp
+    TrackdriveEvent.cpp
 )
 
 add_library(events ${events_src_files})

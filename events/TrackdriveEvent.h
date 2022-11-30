@@ -14,10 +14,11 @@ class TrackdriveEvent : public Event
       static double get_additional_points(double best_time_overall, double team_best_time);
 
     protected:
-      void fill_teams_points() override;  
+      std::map<Team, double> find_teams_best_times() override;
+      void fill_teams_points() override;
 
     public:
-      TrackdriveEvent(): Event() {}
-      TrackdriveEvent(std::vector<Team> &teams): Event(teams) {}
+      TrackdriveEvent(): Event() {init_event_type(trackdrive);}
+      TrackdriveEvent(std::vector<Team> &teams): Event(teams) {init_event_type(trackdrive);}
 };
 
