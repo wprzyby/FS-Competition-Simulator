@@ -31,7 +31,7 @@ const std::vector<EventsCategories> DC_AUTOCROSS_EVENT_CATEGORIES = {first_aut_t
 const std::vector<EventsCategories> ENDURANCE_EVENT_CATEGORIES = {end_corrected_time, end_uncorrected_time, energy_used, energy_produced};
 
 // Categories for EnduranceEvent
-const std::vector<EventsCategories> TRACKDRIVE_EVENT_CATEGORIES = {tra_first_corrected_time, tra_first_uncorrected_time, tra_second_corrected_time, tra_second_uncorrected_time, tra_laps};  // FIXME: I have no idea what "more than oe run" so let`s just take the best run
+const std::vector<EventsCategories> TRACKDRIVE_EVENT_CATEGORIES = {tra_time, tra_laps};
 
 
 const std::map<EventType, std::vector<EventsCategories>> CATEGORY_LISTS = {{acceleration, ACCELERATION_EVENT_CATEGORIES},
