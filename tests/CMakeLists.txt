@@ -15,6 +15,7 @@ set(tests_src_files
     test_engineering_design_driverless.cpp
     test_skidpad_DV.cpp
     test_skidpad_DC.cpp
+    test_trackdrive.cpp
 )
 
 add_custom_target(test)

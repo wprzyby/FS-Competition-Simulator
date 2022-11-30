@@ -69,6 +69,7 @@ TEST_CASE("SkidpadEvent tests.", "[Non - driverless]")
         // Checking whether points are truely sorted:
         CHECK(points_vector.at(0).second >= points_vector.at(1).second);
         CHECK(points_vector.at(1).second >= points_vector.at(2).second);
+        CHECK(points_vector.at(2).second >= points_vector.at(3).second);
         //
     }
 }
