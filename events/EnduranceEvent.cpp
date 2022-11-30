@@ -73,11 +73,11 @@ double EnduranceEvent::get_endurance_points(double best_time_overall, double tea
 double EnduranceEvent::get_efficiency_points(double best_eff_factor, double team_eff_factor)
 {
     double eff_max = best_eff_factor * 1.5;
-    double points = 75 * ((eff_max - team_eff_factor) / eff_max - best_eff_factor);
+    double points = 75 * ((eff_max - team_eff_factor) / (eff_max - best_eff_factor));
 
     if (points < 0)
     {
-        throw NegativeAdditionalPointsError();
+        points = 0; //TODO: negative points are theoretically possible, need to ask about this
     }
 
     return points;
