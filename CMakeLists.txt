@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.13)
 
 project(competiton_simulator)
 
-add_compile_options(-std=c++20 -Wall -Wextra)
+add_compile_options(-std=c++20 -Wall -Wextra -g)
 
 set(MAIN_SOURCES main.cpp)
 
