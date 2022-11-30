@@ -35,7 +35,7 @@ TEST_CASE("Endurance Event functionality")
     team_b.set_category_result(end_uncorrected_time, 1500000);
     team_b.set_category_result(energy_used, 100000);
     team_b.set_category_result(energy_produced, 30000);
-    // scores 25 points endurance, scores in efficiency
+    // scores 25 points endurance, scores negative in efficiency??
     team_c.set_category_result(end_corrected_time, 1333001);
     team_c.set_category_result(end_uncorrected_time, 1600000);
     team_c.set_category_result(energy_used, 120000);
@@ -48,22 +48,22 @@ TEST_CASE("Endurance Event functionality")
     // DNF in endurance
     team_e.set_category_result(end_corrected_time, 0);
     team_e.set_category_result(end_uncorrected_time, 0);
-    team_e.set_category_result(energy_used, 0);
-    team_e.set_category_result(energy_produced, 0);
+    team_e.set_category_result(energy_used, 120000);
+    team_e.set_category_result(energy_produced, 15000);
 
     std::map<Team, double> correct_results_endurance;
 
-    correct_results_endurance.insert({team_a, 325});
-    correct_results_endurance.insert({team_b, 124.8});
+    correct_results_endurance.insert({team_a, 250});
+    correct_results_endurance.insert({team_b, 99.9});
     correct_results_endurance.insert({team_c, 25});
-    correct_results_endurance.insert({team_d, 47.9});
+    correct_results_endurance.insert({team_d, 42.2});
     correct_results_endurance.insert({team_e, 0});
 
     std::map<Team, double> correct_results_efficiency;
 
-    correct_results_efficiency.insert({team_a, 65.8});
+    correct_results_efficiency.insert({team_a, 56.5});
     correct_results_efficiency.insert({team_b, 75});
-    correct_results_efficiency.insert({team_c, 25.5});
+    correct_results_efficiency.insert({team_c, 0});
     correct_results_efficiency.insert({team_d, 0});
     correct_results_efficiency.insert({team_e, 0});
 
