@@ -9,8 +9,8 @@
 #include "SkidpadEvent.h"
 #include "constants.h"
 
-
-std::map<Team, double> SkidpadEvent::find_teams_best_times() {
+// FINDING BEST TIMES FOR BOTH SKIDPADS:
+std::map<Team, double> SkidpadEventBase::find_teams_best_times() {
 
     std::map<Team, double> teams_and_best_times;
     for (auto& team: m_teams) {
@@ -21,18 +21,18 @@ std::map<Team, double> SkidpadEvent::find_teams_best_times() {
     }
     return teams_and_best_times;
 }
+//-----------------------------
 
-void SkidpadEvent::fill_teams_points()
-{
-    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
-    double time_threshold_coefficient = 1.25;
-    std::map<Team, double> teams_and_best_times = find_teams_best_times();
-
-    fill_points_std_dynamic(base_points, time_threshold_coefficient, teams_and_best_times, &get_additional_points);
+// MANUAL VERSION:
+void SkidpadEvent::init_event_config()  {
+    m_event_type = skidpad;
+    m_name = "Skidpad Event (manual)";
+    m_event_categories = CATEGORY_LISTS.at(skidpad);
+    m_base_points = 3.5;
+    m_time_threshold_coefficient = 1.25;
 }
 
-
-double SkidpadEvent::get_additional_points(double best_time_overall, double team_best_time)
+double SkidpadEvent::get_additional_points(double best_time_overall, double team_best_time) const
 {
     double points = (46.5*(pow((1.25*best_time_overall)/team_best_time, 2) - 1))/0.5625;  // calculating additional points
 
@@ -42,17 +42,18 @@ double SkidpadEvent::get_additional_points(double best_time_overall, double team
 
     return points;
 }
+//-----------------------------
 
-void DCSkidpadEvent::fill_teams_points() {
-    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
-    double time_threshold_coefficient = 1.5;
-    std::map<Team, double> teams_and_best_times = find_teams_best_times();
-
-    fill_points_std_dynamic(base_points, time_threshold_coefficient, teams_and_best_times, &get_additional_points);
+// DC VERSION:
+void DCSkidpadEvent::init_event_config() {
+    m_event_type = skidpad_DC;
+    m_name = "Skidpad Event (DC)";
+    m_event_categories = CATEGORY_LISTS.at(skidpad_DC);
+    m_base_points = 3.5;
+    m_time_threshold_coefficient = 1.5;
 }
 
-
-double DCSkidpadEvent::get_additional_points(double best_time_overall, double team_best_time)
+double DCSkidpadEvent::get_additional_points(double best_time_overall, double team_best_time) const
 {
     double points = (71.5*(pow((1.5*best_time_overall)/team_best_time, 2) - 1))/1.25;  // calculating additional points
 
@@ -62,9 +63,18 @@ double DCSkidpadEvent::get_additional_points(double best_time_overall, double te
 
     return points;
 }
+//-----------------------------
 
+// DV VERSION:
+void DVSkidpadEvent::init_event_config() {
+    m_event_type = skidpad_DV;
+    m_name = "Skidpad Event (DV)";
+    m_event_categories = CATEGORY_LISTS.at(skidpad_DV);
+    m_base_points = 0;
+    m_time_threshold_coefficient = 0;
+}
 
-void DVSkidpadEvent::fill_teams_points() {
+void DVSkidpadEvent::basic_points_filling() {
     std::map<Team, double> teams_and_best_times = find_teams_best_times();
     int non_zero_times = count_non_zero_times(teams_and_best_times);  // Counting teams that were not DNFed or DSQed
 
@@ -86,7 +96,7 @@ void DVSkidpadEvent::fill_teams_points() {
 }
 
 
-double DVSkidpadEvent::get_additional_points(int team_place, int non_zero_times)
+double DVSkidpadEvent::get_additional_points(int team_place, int non_zero_times) const
 {
     double points = (75*(1 + non_zero_times - team_place))/static_cast<double>(non_zero_times);  // calculating additional points
 
@@ -96,3 +106,4 @@ double DVSkidpadEvent::get_additional_points(int team_place, int non_zero_times)
 
     return points;
 }
+//-----------------------------

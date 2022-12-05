@@ -8,19 +8,16 @@
 #include "AccelerationEvent.h"
 #include "constants.h"
 
-
-void AccelerationEvent::fill_teams_points()
-{
-    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
-    double time_threshold_coefficient = 1.5;
-    std::map<Team, double> teams_and_best_times = find_teams_best_times();
-
-    fill_points_std_dynamic(base_points, time_threshold_coefficient,
-                            teams_and_best_times, &get_additional_points);
+// MANUAL VERSION:
+void AccelerationEvent::init_event_config()  {
+    m_event_type = acceleration;
+    m_name = "Acceleration Event (manual)";
+    m_event_categories = CATEGORY_LISTS.at(acceleration);
+    m_base_points = 3.5;
+    m_time_threshold_coefficient = 1.5;
 }
 
-
-double AccelerationEvent::get_additional_points(const double best_time_overall, const double team_best_time)
+double AccelerationEvent::get_additional_points(const double best_time_overall, const double team_best_time) const
 {
     double points = 93*(((1.5*best_time_overall)/team_best_time) - 1);  // calculating additional points
 
@@ -30,30 +27,38 @@ double AccelerationEvent::get_additional_points(const double best_time_overall, 
 
     return points;
 }
+//-----------------------------
 
 
-void DCAccelerationEvent::fill_teams_points()
-{
-    double base_points = BASE_COMPLETION_POINTS.at(m_event_type);
-    double time_threshold_coefficient = 2.0;
-    std::map<Team, double> teams_and_best_times = find_teams_best_times();
-
-    fill_points_std_dynamic(base_points, time_threshold_coefficient,
-                            teams_and_best_times, &get_additional_points);
+// DC VERSION:
+void DCAccelerationEvent::init_event_config()  {
+    m_event_type = acceleration_DC;
+    m_name = "Acceleration Event (DC)";
+    m_event_categories = CATEGORY_LISTS.at(acceleration_DC);
+    m_base_points = 3.5;
+    m_time_threshold_coefficient = 2;
 }
 
-double DCAccelerationEvent::get_additional_points(double best_time_overall, double team_best_time)
-{
+double DCAccelerationEvent::get_additional_points(double best_time_overall, double team_best_time) const {
     double points = 71.5*(2*(best_time_overall/team_best_time) - 1);  // calculating additional points
-
     if (points < 0) {
         throw NegativeAdditionalPointsError();
     }
-
     return points;
 }
+//-----------------------------
 
-void DVAccelerationEvent::fill_teams_points() {
+
+// DV VERSION:
+void DVAccelerationEvent::init_event_config() {
+    m_event_type = acceleration_DV;
+    m_name = "Acceleration Event (DV)";
+    m_event_categories = CATEGORY_LISTS.at(acceleration_DV);
+    m_base_points = 0;
+    m_time_threshold_coefficient = 0;
+}
+
+void DVAccelerationEvent::basic_points_filling() {
 
     std::map<Team, double> teams_and_best_times = find_teams_best_times();
     int non_zero_times = count_non_zero_times(teams_and_best_times);  // Counting teams that were not DNFed or DSQed
@@ -85,3 +90,4 @@ double DVAccelerationEvent::get_additional_points(int team_place, int non_zero_t
 
     return points;
 }
+//-----------------------------

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "compsim_classes/StaticEvent.h"
 #include "compsim_enums/enums.h"
 #include <map>
 #include <vector>
@@ -8,19 +9,24 @@
 #include <compsim_classes/event_base.h>
 
 
-class EngineeringDesignEvent : public Event {
-    protected:
-      void fill_teams_points() override;  // Function that calculates points for teams (based on the map: teams_and_results).
+class EngineeringDesignEvent : public StaticEvent {
+    private:
+      void init_event_config(unsigned int finalists=0, std::map<Team, double> points_to_set={}) override;
+      double get_points(double, double) const override {return 0;};
 
     public:
-      EngineeringDesignEvent() {init_event_type(engineering_design);}
+      EngineeringDesignEvent() {init_event_config();}
       EngineeringDesignEvent(std::vector<Team> &teams)
-                            : Event(teams) {init_event_type(engineering_design);}
+                            : StaticEvent(teams) {init_event_config();}
 };
 
-class DCEngineeringDesignEvent: public EngineeringDesignEvent {
+class DCEngineeringDesignEvent: public StaticEvent {
+    private:
+      void init_event_config(unsigned int finalists=0, std::map<Team, double> points_to_set={}) override;
+      double get_points(double, double) const override {return 0;};
+
     public:
-      DCEngineeringDesignEvent() {init_event_type(engineering_design_DC);}
+      DCEngineeringDesignEvent() {init_event_config();}
       DCEngineeringDesignEvent(std::vector<Team> &teams)
-                            : EngineeringDesignEvent(teams) {init_event_type(engineering_design_DC);}
+                            : StaticEvent(teams) {init_event_config();}
 };

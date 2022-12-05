@@ -4,6 +4,8 @@ set(base_classes_src_files
     Team.cpp
     exceptions.cpp
     event_tools.cpp
+    DynamicEvent.cpp
+    StaticEvent.cpp
 )
 
 add_library(compsim_classes ${base_classes_src_files})

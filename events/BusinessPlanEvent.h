@@ -1,26 +1,23 @@
 #pragma once
+#include "compsim_enums/enums.h"
 #include <map>
 #include <vector>
 #include <iostream>
 
 #include <compsim_classes/event_base.h>
+#include "constants.h"
 
 
-class BusinessPlanEvent : public Event  // BusinessEvent class that inherits from the abstract class Event
+class BusinessPlanEvent : public StaticEvent  // BusinessEvent class that inherits from the abstract class Event
 {
     private:
-      unsigned int m_finalists;
-      std::map<Team, double> m_points_to_set;
-
-    protected:
-      void fill_teams_points() override;  // Function that calculates points for teams (based on the map: teams_and_results).
+      void init_event_config(unsigned int finalists, std::map<Team, double> points_to_set) override;
+      double get_points(double team_total_result, double max_points) const override;
+      void no_finals_points_filling() override;
 
     public:
       BusinessPlanEvent(int finalists=0, std::map<Team, double> points_to_set={})
-                        : m_finalists(finalists), m_points_to_set(points_to_set) {init_event_type(businessplan);}
+                                :StaticEvent() {init_event_config(finalists, points_to_set);}
       BusinessPlanEvent(std::vector<Team> &teams, int finalists=0, std::map<Team, double> points_to_set={})
-                        : Event(teams), m_finalists(finalists), m_points_to_set(points_to_set) {init_event_type(businessplan);}
-
-    private:
-      double get_points(double team_total_result, double max_points) const;
+                                :StaticEvent(teams) {init_event_config(finalists, points_to_set);}
 };

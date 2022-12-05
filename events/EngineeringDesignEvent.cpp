@@ -9,12 +9,18 @@
 #include "constants.h"
 
 
-void EngineeringDesignEvent::fill_teams_points()
-{
-    // Calculating teams points and adding them to the classification map:
-    for (auto& team: m_teams)
-    {
-        const double team_points = sum_team_results(team, m_event_categories);  // summing all team`s point
-        m_teams_and_points.insert({const_cast<Team&>(team), rd_to_n_places(team_points, 1)});  // inserting team and their final result into classification
-    }
+void EngineeringDesignEvent::init_event_config(unsigned int, std::map<Team, double>) {
+    m_event_type = engineering_design;
+        m_name = "Engineering Design Event";
+        m_event_categories = CATEGORY_LISTS.at(engineering_design);
+        m_number_of_finalists = 0;
+        m_points_to_set = {};
+}
+
+void DCEngineeringDesignEvent::init_event_config(unsigned int, std::map<Team, double>) {
+    m_event_type = engineering_design_DC;
+        m_name = "Engineering Design Event (DC)";
+        m_event_categories = CATEGORY_LISTS.at(engineering_design_DC);
+        m_number_of_finalists = 0;
+        m_points_to_set = {};
 }

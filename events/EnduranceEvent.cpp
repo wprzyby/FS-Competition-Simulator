@@ -9,37 +9,43 @@
 #include "EnduranceEvent.h"
 #include "constants.h"
 
+void EnduranceEvent::init_event_config() {
+    m_event_type = endurance;
+    m_name = "Endurance Event";
+    m_event_categories = CATEGORY_LISTS.at(endurance);
+    m_base_points = 25;
+    m_time_threshold_coefficient = 1.333;
+}
 
-void EnduranceEvent::fill_teams_points()
-{
+
+std::map<Team, double> EnduranceEvent::find_teams_best_times() {
     std::map<Team, double> teams_and_corr_times;
+    for(auto& team: m_teams) {
+        teams_and_corr_times[team] = team.result_of_category(end_corrected_time);
+    }
+    return teams_and_corr_times;
+}
+
+
+void EnduranceEvent::additional_points_filling()
+{
+    if (!m_run_efficiency) {return;}
+
     std::map<Team, double> teams_and_uncorr_times;
     std::map<Team, double> teams_and_eff_factors;
 
-    for(auto& team: m_teams)
-    {
-        teams_and_corr_times[team] = team.result_of_category(end_corrected_time);
-        if (m_run_efficiency)
-        {
-            teams_and_uncorr_times[team] = team.result_of_category(end_uncorrected_time);
-            teams_and_eff_factors[team] = (team.result_of_category(energy_used) - team.result_of_category(energy_produced) * 0.9)
+    for(auto& team: m_teams) {
+        teams_and_uncorr_times[team] = team.result_of_category(end_uncorrected_time);
+        teams_and_eff_factors[team] = (team.result_of_category(energy_used) - team.result_of_category(energy_produced) * 0.9)
                                            * std::pow(team.result_of_category(end_uncorrected_time), 2);
-        }
     }
-
-    double base_points = BASE_COMPLETION_POINTS.at(endurance);
-    double time_threshold_coefficient = 1.333;
-
-    fill_points_std_dynamic(base_points, time_threshold_coefficient, teams_and_corr_times, &get_endurance_points);
-    if (!m_run_efficiency) {return;}
 
     double best_uncorr_time = find_best_time_overall(teams_and_uncorr_times);
     double best_eff_factor = find_best_time_overall(teams_and_eff_factors);
 
     // calculating points for each team in the efficiency part of the event
     // and adding them to the points that are already in classicifation
-    for(auto& [team, team_uncorr_time]: teams_and_uncorr_times)
-    {
+    for(auto& [team, team_uncorr_time]: teams_and_uncorr_times) {
         double team_efficiency_score;
 
         if(m_teams_and_points.at(team) == 0 || team_uncorr_time > 1.333*best_uncorr_time || team_uncorr_time == 0)
@@ -57,7 +63,7 @@ void EnduranceEvent::fill_teams_points()
 }
 
 
-double EnduranceEvent::get_endurance_points(double best_time_overall, double team_best_time)
+double EnduranceEvent::get_additional_points(double best_time_overall, double team_best_time) const
 {
     double points = 225 * ( ( (best_time_overall*1.333 / team_best_time) - 1 ) / 0.333 );
 
@@ -70,7 +76,7 @@ double EnduranceEvent::get_endurance_points(double best_time_overall, double tea
 }
 
 
-double EnduranceEvent::get_efficiency_points(double best_eff_factor, double team_eff_factor)
+double EnduranceEvent::get_efficiency_points(double best_eff_factor, double team_eff_factor) const
 {
     double eff_max = best_eff_factor * 1.5;
     double points = 75 * ((eff_max - team_eff_factor) / (eff_max - best_eff_factor));
