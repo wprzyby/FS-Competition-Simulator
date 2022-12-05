@@ -5,22 +5,23 @@
 #include <iostream>
 
 #include <compsim_classes/event_base.h>
+#include "constants.h"
 
 
-class EnduranceEvent : public Event  // EnduranceEvent class that inherits from the abstract class Event
+class EnduranceEvent : public DynamicEvent  // EnduranceEvent class that inherits from the abstract class Event
 {
     private:
       bool m_run_efficiency;
 
-    protected:
-      virtual void fill_teams_points();  // Function that calculates points for teams (based on the map: teams_and_results).
-
     public:
-      EnduranceEvent(bool run_efficiency=false): m_run_efficiency(run_efficiency) {init_event_type(endurance);}
+      EnduranceEvent(bool run_efficiency=false): m_run_efficiency(run_efficiency) {init_event_config();}
       EnduranceEvent(std::vector<Team> &teams, bool run_efficiency=false)
-                    : Event(teams), m_run_efficiency(run_efficiency) {init_event_type(endurance);}
+                    : DynamicEvent(teams), m_run_efficiency(run_efficiency) {init_event_config();}
 
     private:
-      static double get_endurance_points(double best_time_overall, double team_best_time);
-      static double get_efficiency_points(double best_eff_factor, double team_eff_factor);
+      void init_event_config() override;
+      double get_additional_points(double best_time_overall, double team_best_time) const override;
+      std::map<Team, double> find_teams_best_times() override;
+      void additional_points_filling() override;
+      double get_efficiency_points(double best_eff_factor, double team_eff_factor) const;
 };

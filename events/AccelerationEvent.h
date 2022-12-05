@@ -3,46 +3,43 @@
 #include <map>
 #include <vector>
 #include <iostream>
-#include "compsim_classes/Event.h"
+#include "compsim_classes/constants.h"
 #include "constants.h"
 
 #include <compsim_classes/event_base.h>
 
 
 
-class AccelerationEvent : public Event  // AccelerationEvent class that inherits from the abstract class Event
+class AccelerationEvent : public DynamicEvent  // AccelerationEvent class that inherits from the abstract class Event
 {
-    private:
-      static double get_additional_points(double best_time_overall, double team_best_time);
-      double get_additional_points_DC(const double best_time_overall, const double team_best_time) const;
-      double get_additional_points_DV(int team_place, int non_zero_times) const;
-
-    protected:
-      void fill_teams_points() override;  // Function that calculates points for teams (based on the map: teams_and_results).
-
     public:
-      AccelerationEvent() {init_event_type(acceleration);}
-      AccelerationEvent(std::vector<Team> &teams) : Event(teams) {init_event_type(acceleration);}
+      AccelerationEvent() {init_event_config();}
+      AccelerationEvent(std::vector<Team> &teams) : DynamicEvent(teams) {init_event_config();}
+
+     private:
+      void init_event_config() override;
+      double get_additional_points(double best_time_overall, double team_best_time) const override;
 };
 
-class DCAccelerationEvent : public Event
+class DCAccelerationEvent : public DynamicEvent
 {
-    private:
-      double static get_additional_points(double best_time_overall, double team_best_time);
-    protected:
-      void fill_teams_points() override;
     public:
-      DCAccelerationEvent() {init_event_type(acceleration_DC);}
-      DCAccelerationEvent(std::vector<Team> &teams) : Event(teams) {init_event_type(acceleration_DC);}
+      DCAccelerationEvent() {init_event_config();}
+      DCAccelerationEvent(std::vector<Team> &teams) : DynamicEvent(teams) {init_event_config();}
+
+    private:
+      void init_event_config() override;
+      double get_additional_points(double best_time_overall, double team_best_time) const override;
 };
 
-class DVAccelerationEvent : public Event
+class DVAccelerationEvent : public DynamicEvent
 {
-    private:
-      double get_additional_points(int team_place, int non_zero_times) const;
-    protected:
-      void fill_teams_points() override;
     public:
-      DVAccelerationEvent() {init_event_type(acceleration_DV);}
-      DVAccelerationEvent(std::vector<Team> &teams) : Event(teams) {init_event_type(acceleration_DV);}
+      DVAccelerationEvent() {init_event_config();}
+      DVAccelerationEvent(std::vector<Team> &teams) : DynamicEvent(teams) {init_event_config();}
+
+    private:
+      void init_event_config() override;
+      double get_additional_points(int team_place, int non_zero_times) const override;
+      void basic_points_filling() override;
 };

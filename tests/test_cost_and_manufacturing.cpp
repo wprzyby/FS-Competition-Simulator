@@ -48,10 +48,10 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
 
     // Creating map of correct results
     std::map<Team, double> cos_correct_results;
-    cos_correct_results.insert({team_a, 95.0});
-    cos_correct_results.insert({team_b, 93.1});
-    cos_correct_results.insert({team_c, 76.0});
-    cos_correct_results.insert({team_d, 74.1});
+    cos_correct_results.insert({team_a, 100.0});
+    cos_correct_results.insert({team_b, 98.0});
+    cos_correct_results.insert({team_c, 80.0});
+    cos_correct_results.insert({team_d, 78.0});
     //
 
     // Creating and simulating the event in case of finals
