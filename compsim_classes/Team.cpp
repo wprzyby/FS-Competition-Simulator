@@ -13,14 +13,14 @@ Team::Team(const std::string name, const std::string university, const unsigned 
 
 void Team::set_name(std::string name) {
     // check for empty string
-    if (name.empty()) {throw EmptyNameError("team");}
+    // if (name.empty()) {throw EmptyNameError("team");}
 
     m_name = name;
 }
 
 
 void Team::set_university(std::string university) {
-    if (university.empty()) {throw EmptyNameError("university");}
+    // if (university.empty()) {throw EmptyNameError("university");}
 
     m_university = university;
 }

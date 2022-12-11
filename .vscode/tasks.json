@@ -11,23 +11,23 @@
             "args":[]
         },
         {
-            "label": "Build main executable",
-            "type": "shell",
-            "linux": {"command": "cd build;make main;cd .."},
-            "windows": {"command": "cd build;mingw32-make main;cd .."},
-            "group": "build",
-            "args": []
-        },
-        {
             "label": "Build project and run tests",
             "type": "shell",
             "linux": {"command": "cd build;make;./tests/run_tests;cd .."},
             "windows": {"command": "cd build;mingw32-make all;./tests/run_tests;cd .."},
+            "group": "build",
+            "args":[]
+        },
+        {
+            "label": "Build GUI App main executable",
+            "type": "shell",
+            "linux": {"command": "cd build;make main_gui;./qt_interface/compsim_gui;cd .."},
+            "windows": {"command": "cd build;mingw32-make main_gui;./qt_interface/compsim_gui;cd .."},
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "args":[]
+            "args": []
         }
     ]
     }

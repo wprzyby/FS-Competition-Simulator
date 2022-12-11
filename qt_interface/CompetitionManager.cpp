@@ -1,0 +1,1 @@
+#include "CompetitionManager.h"

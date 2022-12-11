@@ -7,7 +7,7 @@
 #include <memory>
 #include <stdexcept>
 
-#include "ui_tools.h"
+#include "interface_tools.h"
 #include "constants.h"
 
 #include <compsim_enums/enums.h>

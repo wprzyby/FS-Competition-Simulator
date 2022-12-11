@@ -15,7 +15,7 @@ class Team
 
     public:
     // constructor:
-    Team(const std::string name, const std::string university, const unsigned number);
+    Team(const std::string name="", const std::string university="", const unsigned number=0);
 
     // getters:
     std::string name() const {return m_name;}
