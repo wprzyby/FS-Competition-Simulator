@@ -6,6 +6,7 @@ set(GUI_MAIN_SRCS
     TeamListItem.cpp
     CompetitionManager.cpp
     ResultSettingWidget.cpp
+    tools.cpp
 )
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Core)

@@ -10,7 +10,7 @@ std::ostream& operator<<(std::ostream& os, enum EventType e)
     return os<<events_str[e];
 }
 
-std::ostream& operator<<(std::ostream& os, enum EventsCategories e)
+std::ostream& operator<<(std::ostream& os, enum EventCategory e)
 {
     if(e >= CategoriesTotalCount || e < 0) return os<<"unknown";
     return os<<categories_str[e];

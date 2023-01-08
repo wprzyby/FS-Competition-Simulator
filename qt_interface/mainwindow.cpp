@@ -8,6 +8,7 @@
 #include <compsim_enums/enums.h>
 #include <events/constants.h>
 #include <vector>
+#include "tools.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -108,9 +109,12 @@ void MainWindow::returnToSetup() {
 
 void MainWindow::resultSettingChangeScreen(int event_index) {
     // setting result setting widget properties to a given event's characteristics
-    ui->labelEventToSetResults->setText(QString::fromStdString(EVENT_TYPE_TO_STRING.at(competition_manager.event_type_at(event_index))));
-    ui->widgetResultSetting->setQueries(CATEGORY_LISTS.at(competition_manager.event_type_at(event_index)));
-    ui->widgetResultSetting->setEventType(competition_manager.event_type_at(event_index));
+    EventType current_event_type = competition_manager.event_type_at(event_index);
+    ui->labelEventToSetResults->setText(QString::fromStdString(EVENT_TYPE_TO_STRING.at(current_event_type)));
+
+    // ui->widgetResultSetting->setQueries(CATEGORY_LISTS.at(current_event_type));
+    ui->widgetResultSetting->setQueries(get_event_queries(current_event_type));
+    ui->widgetResultSetting->setEventType(current_event_type);
     ui->widgetResultSetting->displayInputScreen();
 
     // enabling/disabling buttons according to whether user is at the final even or at the first event

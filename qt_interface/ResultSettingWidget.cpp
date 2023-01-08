@@ -35,18 +35,24 @@ void ResultSettingWidget::displayInputScreen() {
 
 
 QWidget* ResultSettingWidget::create_single_team_results_input(TeamListItem *team_item) {
+    // creates a widget containing input lines for results of a single team
+
     QWidget * single_team_input = new QWidget();
     QVBoxLayout * layout = new QVBoxLayout();
 
+    // adds team's name as label to new widget
     QLabel * label = new QLabel(QString::fromStdString(team_item->team.name()));
     label->setFont(QFont("Sans Serif", 20));
     layout->addWidget(label);
 
-    for (EventsCategories& query: m_queries) {
+    // adds input lines for each set query
+    for (EventCategory& query: m_queries) {
         ResultLineEdit * query_line_edit = new ResultLineEdit(team_item, &m_laptime_parser, m_event_type, query);
         layout->addWidget(query_line_edit);
     }
+    // a spacer is added for aesthetic purposes
     QSpacerItem * spacer = new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
+
     layout->addSpacerItem(spacer);
     single_team_input->setLayout(layout);
     return single_team_input;
@@ -59,7 +65,7 @@ void ResultSettingWidget::removeLayout() {
 }
 
 
-ResultLineEdit::ResultLineEdit(TeamListItem * team_item, LapTimeParser * parser, EventType event_type, EventsCategories category, QWidget *parent): QLineEdit(parent) {
+ResultLineEdit::ResultLineEdit(TeamListItem * team_item, LapTimeParser * parser, EventType event_type, EventCategory category, QWidget *parent): QLineEdit(parent) {
     this->setValidator(new QIntValidator(this));
 
     m_team = &team_item->team;

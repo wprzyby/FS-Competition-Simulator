@@ -19,7 +19,8 @@ const std::map<EventType, std::string> EVENT_TYPE_TO_STRING = {{acceleration, "A
                                                                {skidpad_DC, "Skidpad Event (DC)"},
                                                                {skidpad_DV, "Skidpad Event (DV)"}};
 
-const std::map<EventsCategories, std::string> EVENT_CATEGORY_TO_STRING = {{pitch_video, "Pitch video"},
+
+const std::map<EventCategory, std::string> EVENT_CATEGORY_TO_STRING = {{pitch_video, "Pitch video"},
                                                                           {novelty, "Novelty"},
                                                                           {content, "Content"},
                                                                           {finances, "Finances"},

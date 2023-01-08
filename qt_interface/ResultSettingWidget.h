@@ -14,7 +14,7 @@
 class ResultSettingWidget : public QWidget {
     private:
         std::list<TeamListItem*> m_teams;
-        std::vector<EventsCategories> m_queries;
+        std::vector<EventCategory> m_queries;
         EventType m_event_type;
         bool m_IsPenaltyQueryEnabled=true;
         LapTimeParser m_laptime_parser=LapTimeParser(PenaltyConfigFilePath, ms);
@@ -22,7 +22,7 @@ class ResultSettingWidget : public QWidget {
     public:
         ResultSettingWidget(QWidget *parent=nullptr): QWidget(parent) {}
         void setTeams(std::list<TeamListItem*> teams) {m_teams = teams;}
-        void setQueries(std::vector<EventsCategories> queries) {m_queries = queries;}
+        void setQueries(std::vector<EventCategory> queries) {m_queries = queries;}
         void setEventType(EventType event_type) {m_event_type = event_type;}
         void setPenaltyQueryEnabled(bool isEnabled) {m_IsPenaltyQueryEnabled = isEnabled;}
         void displayInputScreen();
@@ -38,9 +38,9 @@ class ResultLineEdit: public QLineEdit {
         Team* m_team=nullptr;
         LapTimeParser* m_parser=nullptr;
         EventType m_event_type;
-        EventsCategories m_category;
+        EventCategory m_category;
     public:
         ResultLineEdit(QWidget *parent=nullptr);
-        ResultLineEdit(TeamListItem * team_item, LapTimeParser * parser, EventType event_type, EventsCategories category, QWidget *parent=nullptr);
+        ResultLineEdit(TeamListItem * team_item, LapTimeParser * parser, EventType event_type, EventCategory category, QWidget *parent=nullptr);
         void insertResultsIntoTeam();
 };

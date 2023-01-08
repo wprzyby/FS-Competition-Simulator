@@ -10,11 +10,11 @@
 
 double find_max(const double number1, const double number2);
 double find_min(const double number1, const double number2);  // Function finding lower value among two numbers provided
-double find_max_points(const std::vector<Team>& teams, const std::vector<EventsCategories>& categories_to_count);
-double sum_team_results(const Team& team, const std::vector<EventsCategories>& categories_to_count);
-double find_best_time_for_team(const Team& team, const std::vector<EventsCategories>& timed_categories);
+double find_max_points(const std::vector<Team>& teams, const std::vector<EventCategory>& categories_to_count);
+double sum_team_results(const Team& team, const std::vector<EventCategory>& categories_to_count);
+double find_best_time_for_team(const Team& team, const std::vector<EventCategory>& timed_categories);
 double find_best_time_overall(std::map<Team, double> &teams_and_times);  // finds the best time among team`s best times
-bool is_category_in_vector(EventsCategories const &category, std::vector<EventsCategories> const &categories_in_event);
+bool is_category_in_vector(EventCategory const &category, std::vector<EventCategory> const &categories_in_event);
 // bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<EventsCategories, double> const &second_pair);  // Returns true if variable of the type double is greater in the second vector
 bool better_team(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair);
 bool worse_team(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair);

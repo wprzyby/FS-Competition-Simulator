@@ -29,7 +29,7 @@ class NegativeAdditionalPointsError: public std::invalid_argument
 class NoSuchCategoryInTheEventError: public std::invalid_argument
 {
     public:
-        NoSuchCategoryInTheEventError(const EventsCategories category);
+        NoSuchCategoryInTheEventError(const EventCategory category);
 };
 
 

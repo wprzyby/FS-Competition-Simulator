@@ -97,10 +97,10 @@ std::vector<EventType> input_event_types()
 
 void assign_event_results(std::vector<Team> &teams, EventType type, std::string config_path)
 {
-    std::vector<EventsCategories> categories = CATEGORY_LISTS.at(type);
+    std::vector<EventCategory> categories = CATEGORY_LISTS.at(type);
     LapTimeParser parser(config_path, ms);
-    std::map<EventsCategories, double> single_team_results;
-    std::map<Team, std::map<EventsCategories, double>> results;
+    std::map<EventCategory, double> single_team_results;
+    std::map<Team, std::map<EventCategory, double>> results;
 
     for(auto& team: teams) {
 

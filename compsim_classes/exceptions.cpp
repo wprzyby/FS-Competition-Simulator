@@ -8,7 +8,7 @@ EmptyNameError::EmptyNameError(std::string name_of_attribute):
     std::invalid_argument("Tried to create " + name_of_attribute + " with empty name") {}
 
 
-NoSuchCategoryInTheEventError::NoSuchCategoryInTheEventError(const EventsCategories category):
+NoSuchCategoryInTheEventError::NoSuchCategoryInTheEventError(const EventCategory category):
     std::invalid_argument("Among categories in the Event, there is no such categoty as: " + static_cast<std::string>(events_str[category])) {}
 
 

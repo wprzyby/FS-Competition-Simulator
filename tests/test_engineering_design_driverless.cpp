@@ -23,7 +23,7 @@ TEST_CASE("Engineering Design Event DV functionality")
     Team negative_points_team("d", "univF", 6);
     Team points_over_maximum_team("e", "univG", 7);
 
-    std::map<Team, std::map<EventsCategories, double>> results;
+    std::map<Team, std::map<EventCategory, double>> results;
 
     team_a.set_category_result(overall_vehicle_concept, 5);
     team_a.set_category_result(vehicle_performance, 20);
