@@ -1,4 +1,4 @@
-#include "teamlistitem.h"
+#include "TeamListItem.h"
 #include <QWidget>
 #include <qnamespace.h>
 

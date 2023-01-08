@@ -1,7 +1,7 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include "teamlistitem.h"
+#include "TeamListItem.h"
 #include <QMainWindow>
 #include <QListWidgetItem>
 #include <list>
@@ -28,10 +28,16 @@ private slots:
     void backToMainMenu();
     void finishSetup();
     void returnToSetup();
+    void resultSettingNextEvent();
+    void resultSettingPreviousEvent();
+
 
 private:
     Ui::MainWindow *ui;
-    std::list<TeamListItem> teams;
+    std::list<TeamListItem*> m_teams;
     CompetitionManager competition_manager;
+    int m_result_setting_current_index=0;
+
+    void resultSettingChangeScreen(int event_index);
 };
 #endif // MAINWINDOW_H

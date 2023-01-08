@@ -14,8 +14,8 @@ std::map<Team, double> SkidpadEventBase::find_teams_best_times() {
 
     std::map<Team, double> teams_and_best_times;
     for (auto& team: m_teams) {
-        double first_time = round(0.5*(team.result_of_category(first_left_time) + team.result_of_category(first_right_time)));  // Calculating first run time with accuracy to miliseconds
-        double second_time = round(0.5*(team.result_of_category(second_left_time) + team.result_of_category(second_right_time)));  // Calculating second run time with accuracy to miliseconds
+        double first_time = round(0.5*(team.result_of_category(first_skid_left_time) + team.result_of_category(first_skid_right_time)));  // Calculating first run time with accuracy to miliseconds
+        double second_time = round(0.5*(team.result_of_category(second_skid_left_time) + team.result_of_category(second_skid_right_time)));  // Calculating second run time with accuracy to miliseconds
 
         teams_and_best_times[team] = find_min(first_time, second_time);  // inserting team and their best result into the map.
     }

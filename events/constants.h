@@ -18,7 +18,7 @@ const std::vector<EventsCategories> DC_ENGINEERING_DESIGN_EVENT_CATEGORIES = {ov
 
 
 // Categories for SkidpadEvent
-const std::vector<EventsCategories> SKIDPAD_EVENT_CATEGORIES = {first_left_time, first_right_time, second_left_time, second_right_time};
+const std::vector<EventsCategories> SKIDPAD_EVENT_CATEGORIES = {first_skid_left_time, first_skid_right_time, second_skid_left_time, second_skid_right_time};
 
 // Categories for AccelerationEvent
 const std::vector<EventsCategories> ACCELERATION_EVENT_CATEGORIES = {first_acc_time, second_acc_time};
@@ -28,7 +28,7 @@ const std::vector<EventsCategories> AUTOCROSS_EVENT_CATEGORIES = {first_aut_time
 const std::vector<EventsCategories> DC_AUTOCROSS_EVENT_CATEGORIES = {first_aut_time, second_aut_time};
 
 // Categories for EnduranceEvent
-const std::vector<EventsCategories> ENDURANCE_EVENT_CATEGORIES = {end_corrected_time, end_uncorrected_time, energy_used, energy_produced};
+const std::vector<EventsCategories> ENDURANCE_EVENT_CATEGORIES = {end_corrected_time, end_uncorrected_time, end_energy_used, end_energy_produced};
 
 // Categories for EnduranceEvent
 const std::vector<EventsCategories> TRACKDRIVE_EVENT_CATEGORIES = {tra_time, tra_laps};

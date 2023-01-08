@@ -3,8 +3,9 @@ set(GUI_MAIN_SRCS
     mainwindow.h
     mainwindow.ui
     main_gui.cpp
-    teamlistitem.cpp
+    TeamListItem.cpp
     CompetitionManager.cpp
+    ResultSettingWidget.cpp
 )
 
 find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets Core)
