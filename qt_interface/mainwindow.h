@@ -30,6 +30,9 @@ private slots:
     void returnToSetup();
     void resultSettingNextEvent();
     void resultSettingPreviousEvent();
+    void resultSettingFinish();
+    void resultShowingNextEvent();
+    void resultShowingPreviousEvent();
 
 
 private:
@@ -37,7 +40,9 @@ private:
     std::list<TeamListItem*> m_teams;
     CompetitionManager competition_manager;
     int m_result_setting_current_index=0;
+    int m_result_showing_current_index=0;
 
     void resultSettingChangeScreen(int event_index);
+    void resultShowingChangeScreen(int event_index);
 };
 #endif // MAINWINDOW_H

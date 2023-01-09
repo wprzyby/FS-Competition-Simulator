@@ -1,46 +1,42 @@
 #pragma once
 
 #include <QWidget>
+#include <QStackedWidget>
 #include <list>
 #include <QLineEdit>
 #include <QBoxLayout>
+#include <QGridLayout>
 #include <vector>
 
 #include <compsim_enums/enums.h>
 #include "TeamListItem.h"
-#include "laptime_parser/LapTimeParser.h"
+#include <laptime_parser/LapTimeParser.h>
 #include "constants.h"
+#include "ResultLineEditsWidget.h"
 
-class ResultSettingWidget : public QWidget {
+
+
+
+class ResultSettingWidget : public QStackedWidget {
     private:
         std::list<TeamListItem*> m_teams;
         std::vector<EventCategory> m_queries;
-        EventType m_event_type;
+        std::vector<EventType> m_event_types;
+        std::vector<ResultLineEditsWidget*> m_input_line_edits;
         bool m_IsPenaltyQueryEnabled=true;
         LapTimeParser m_laptime_parser=LapTimeParser(PenaltyConfigFilePath, ms);
 
     public:
-        ResultSettingWidget(QWidget *parent=nullptr): QWidget(parent) {}
+        ResultSettingWidget(QWidget *parent=nullptr): QStackedWidget(parent) {}
+        ~ResultSettingWidget();
         void setTeams(std::list<TeamListItem*> teams) {m_teams = teams;}
-        void setQueries(std::vector<EventCategory> queries) {m_queries = queries;}
-        void setEventType(EventType event_type) {m_event_type = event_type;}
-        void setPenaltyQueryEnabled(bool isEnabled) {m_IsPenaltyQueryEnabled = isEnabled;}
-        void displayInputScreen();
-        void saveInput() {}
+        void setEventTypes(std::vector<EventType> event_types);
+        void saveInput();
+        void clearWidget();
 
     private:
-        QWidget* create_single_team_results_input(TeamListItem *team);
+        QWidget* create_single_team_results_input(TeamListItem *team, EventType event_type);
+        QGridLayout* create_event_layout(EventType event_type);
         void removeLayout();
 };
 
-class ResultLineEdit: public QLineEdit {
-    private:
-        Team* m_team=nullptr;
-        LapTimeParser* m_parser=nullptr;
-        EventType m_event_type;
-        EventCategory m_category;
-    public:
-        ResultLineEdit(QWidget *parent=nullptr);
-        ResultLineEdit(TeamListItem * team_item, LapTimeParser * parser, EventType event_type, EventCategory category, QWidget *parent=nullptr);
-        void insertResultsIntoTeam();
-};

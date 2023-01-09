@@ -36,7 +36,7 @@ void EnduranceEvent::additional_points_filling()
 
     for(auto& team: m_teams) {
         teams_and_uncorr_times[team] = team.result_of_category(end_uncorrected_time);
-        teams_and_eff_factors[team] = (team.result_of_category(energy_used) - team.result_of_category(energy_produced) * 0.9)
+        teams_and_eff_factors[team] = (team.result_of_category(end_energy_used) - team.result_of_category(end_energy_produced) * 0.9)
                                            * std::pow(team.result_of_category(end_uncorrected_time), 2);
     }
 

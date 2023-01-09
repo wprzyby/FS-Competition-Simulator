@@ -14,28 +14,28 @@ TEST_CASE("SkidpadEvent tests.", "[Non - driverless]")
     Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 2), team_c("C", "UniveroC", 3), team_d("D", "UniveroD", 4);
 
 
-    team_a.set_category_result(first_left_time, 0);
-    team_a.set_category_result(first_right_time, 0);
-    team_a.set_category_result(second_left_time, 5702);
-    team_a.set_category_result(second_right_time, 4981);
+    team_a.set_category_result(first_skid_left_time, 0);
+    team_a.set_category_result(first_skid_right_time, 0);
+    team_a.set_category_result(second_skid_left_time, 5702);
+    team_a.set_category_result(second_skid_right_time, 4981);
 
 
-    team_b.set_category_result(first_left_time, 4800);
-    team_b.set_category_result(first_right_time, 4800);
-    team_b.set_category_result(second_left_time, 4912);
-    team_b.set_category_result(second_right_time, 3987);
+    team_b.set_category_result(first_skid_left_time, 4800);
+    team_b.set_category_result(first_skid_right_time, 4800);
+    team_b.set_category_result(second_skid_left_time, 4912);
+    team_b.set_category_result(second_skid_right_time, 3987);
 
 
-    team_c.set_category_result(first_left_time, 0);
-    team_c.set_category_result(first_right_time, 0);
-    team_c.set_category_result(second_left_time, 7053);
-    team_c.set_category_result(second_right_time, 7124);
+    team_c.set_category_result(first_skid_left_time, 0);
+    team_c.set_category_result(first_skid_right_time, 0);
+    team_c.set_category_result(second_skid_left_time, 7053);
+    team_c.set_category_result(second_skid_right_time, 7124);
 
 
-    team_d.set_category_result(first_left_time, 6541);
-    team_d.set_category_result(first_right_time, 5432);
-    team_d.set_category_result(second_left_time, 4982);
-    team_d.set_category_result(second_right_time, 5014);
+    team_d.set_category_result(first_skid_left_time, 6541);
+    team_d.set_category_result(first_skid_right_time, 5432);
+    team_d.set_category_result(second_skid_left_time, 4982);
+    team_d.set_category_result(second_skid_right_time, 5014);
 
     std::vector<Team> teams{team_a, team_b, team_c, team_d};
 

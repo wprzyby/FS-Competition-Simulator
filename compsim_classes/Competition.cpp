@@ -27,16 +27,16 @@ void Competition::set_events(std::vector<std::unique_ptr<Event>> events)
 void Competition::set_teams(std::vector<Team> &teams)
 {
     // Checking if all teams are unique
-    for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
-    {
-        std::vector<Team>::iterator other_team = team;
-        other_team++;
-        while(other_team != teams.end())
-        {
-            if (*team == *other_team){throw DuplicateTeamError();}
-            other_team++;
-        }
-    }
+    // for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
+    // {
+    //     std::vector<Team>::iterator other_team = team;
+    //     other_team++;
+    //     while(other_team != teams.end())
+    //     {
+    //         if (*team == *other_team){throw DuplicateTeamError();}
+    //         other_team++;
+    //     }
+    // }
 
     m_teams = teams;
 }

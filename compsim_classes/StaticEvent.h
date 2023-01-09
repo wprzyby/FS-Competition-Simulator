@@ -14,6 +14,6 @@ class StaticEvent : public Event {
       void fill_teams_points() override;
 
     public:
-      StaticEvent(): Event() {}
+      StaticEvent(): Event() {m_is_dynamic=false;}
       StaticEvent(std::vector<Team>& teams_participating) : Event(teams_participating) {}
 };

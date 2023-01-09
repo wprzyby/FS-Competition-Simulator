@@ -1,6 +1,7 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "TeamListItem.h"
+#include "compsim_classes/Competition.h"
 #include "compsim_classes/constants.h"
 #include "constants.h"
 #include <QDebug>
@@ -24,6 +25,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButtonChangeSetup, SIGNAL(clicked()), this, SLOT(returnToSetup()));
     connect(ui->pushButtonResultSettingNext, SIGNAL(clicked()), this, SLOT(resultSettingNextEvent()));
     connect(ui->pushButtonResultSettingPrevious, SIGNAL(clicked()), this, SLOT(resultSettingPreviousEvent()));
+    connect(ui->pushButtonResultSettingFinish, SIGNAL(clicked()), this, SLOT(resultSettingFinish()));
+    connect(ui->pushButtonEventScoresNext, SIGNAL(clicked()), this, SLOT(resultShowingNextEvent()));
+    connect(ui->pushButtonEventScoresPrevious, SIGNAL(clicked()), this, SLOT(resultShowingPreviousEvent()));
 }
 
 MainWindow::~MainWindow() {
@@ -96,7 +100,9 @@ void MainWindow::finishSetup() {
     m_result_setting_current_index = 0;
     ui->baseStack->setCurrentIndex(ResultSettingScreenIndexNumber);
 
+    ui->widgetResultSetting->clearWidget();
     ui->widgetResultSetting->setTeams(this->m_teams);
+    ui->widgetResultSetting->setEventTypes(event_types);
 
     this->resultSettingChangeScreen(m_result_setting_current_index);
 }
@@ -108,14 +114,10 @@ void MainWindow::returnToSetup() {
 
 
 void MainWindow::resultSettingChangeScreen(int event_index) {
-    // setting result setting widget properties to a given event's characteristics
+    // setting ResultSettingWidget's screen to an event corresponding to the index
     EventType current_event_type = competition_manager.event_type_at(event_index);
     ui->labelEventToSetResults->setText(QString::fromStdString(EVENT_TYPE_TO_STRING.at(current_event_type)));
-
-    // ui->widgetResultSetting->setQueries(CATEGORY_LISTS.at(current_event_type));
-    ui->widgetResultSetting->setQueries(get_event_queries(current_event_type));
-    ui->widgetResultSetting->setEventType(current_event_type);
-    ui->widgetResultSetting->displayInputScreen();
+    ui->widgetResultSetting->setCurrentIndex(event_index);
 
     // enabling/disabling buttons according to whether user is at the final even or at the first event
     bool isAtFinalEvent = competition_manager.event_types().size() - 1 == m_result_setting_current_index;
@@ -135,4 +137,37 @@ void MainWindow::resultSettingNextEvent() {
 void MainWindow::resultSettingPreviousEvent() {
     m_result_setting_current_index -= 1;
     this->resultSettingChangeScreen(m_result_setting_current_index);
+}
+
+
+void MainWindow::resultSettingFinish() {
+    ui->widgetResultSetting->saveInput();
+    ui->baseStack->setCurrentIndex(EventResultsScreenIndexNumber);
+    competition_manager.setup_competition(m_teams);
+    competition_manager.competition.create_classification();
+    this->resultShowingChangeScreen(m_result_showing_current_index);
+}
+
+
+void MainWindow::resultShowingNextEvent() {
+    m_result_showing_current_index += 1;
+    this->resultShowingChangeScreen(m_result_showing_current_index);
+}
+
+void MainWindow::resultShowingPreviousEvent() {
+    m_result_showing_current_index -= 1;
+    this->resultShowingChangeScreen(m_result_showing_current_index);
+}
+
+
+void MainWindow::resultShowingChangeScreen(int event_index) {
+    EventType event_type_to_show = competition_manager.event_type_at(event_index);
+    std::vector< std::pair<Team, double>> classification_to_show = competition_manager.competition.get_events_classifications().at(event_type_to_show);
+    ui->widgetScoresShowing->setScores(classification_to_show);
+    ui->labelEventShowingScores->setText(QString::fromStdString(EVENT_TYPE_TO_STRING.at(event_type_to_show)));
+
+    bool isAtFinalEvent = competition_manager.event_types().size() - 1 == m_result_showing_current_index;
+    bool isAtFirstEvent = m_result_showing_current_index == 0;
+    ui->pushButtonEventScoresNext->setEnabled(!isAtFinalEvent);
+    ui->pushButtonEventScoresPrevious->setEnabled(!isAtFirstEvent);
 }

@@ -6,6 +6,8 @@ set(GUI_MAIN_SRCS
     TeamListItem.cpp
     CompetitionManager.cpp
     ResultSettingWidget.cpp
+    ResultLineEditsWidget.cpp
+    ScoresShowingWidget.cpp
     tools.cpp
 )
 
