@@ -17,6 +17,8 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
+private:
+    enum class ResultShowingMode {Events, Competition};
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -24,7 +26,6 @@ public:
 private slots:
     void on_pushButtonChooseCompsim_clicked();
     void on_pushButtonAddTeam_clicked();
-    void updateCheckBoxes();
     void backToMainMenu();
     void finishSetup();
     void returnToSetup();
@@ -33,6 +34,8 @@ private slots:
     void resultSettingFinish();
     void resultShowingNextEvent();
     void resultShowingPreviousEvent();
+    void returnToResultSetting();
+    void changeResultShowingMode();
 
 
 private:
@@ -41,6 +44,8 @@ private:
     CompetitionManager competition_manager;
     int m_result_setting_current_index=0;
     int m_result_showing_current_index=0;
+    ResultShowingMode m_result_showing_mode=ResultShowingMode::Events;
+
 
     void resultSettingChangeScreen(int event_index);
     void resultShowingChangeScreen(int event_index);

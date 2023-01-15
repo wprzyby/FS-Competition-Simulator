@@ -59,6 +59,8 @@ void Competition::simulate()
 
 void Competition::create_classification()
 {
+    m_comp_classification.clear();
+    m_teams_and_comp_points.clear();
     simulate();
 
     // summing points from each event for every team to obtain total competition points

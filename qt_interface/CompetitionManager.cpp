@@ -22,6 +22,8 @@ void CompetitionManager::set_event_types(std::vector<EventType> event_types) {
 }
 
 void CompetitionManager::setup_competition(std::list<TeamListItem *> team_items) {
+    m_events.clear();
+
     for (auto& event_type: m_event_types) {
         std::unique_ptr<Event> event;
 

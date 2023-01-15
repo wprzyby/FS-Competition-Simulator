@@ -34,6 +34,8 @@ void ResultSettingWidget::clearWidget() {
     //     delete line_edit;
     // }
 
+    m_input_line_edits.clear();
+
     for (int i=this->count() - 1; i >= 0; i--) {
         QWidget* current_widget = this->widget(i);
         this->removeWidget(current_widget);
@@ -50,7 +52,6 @@ ResultSettingWidget::~ResultSettingWidget() {
 QGridLayout* ResultSettingWidget::create_event_layout(EventType event_type) {
 
     QGridLayout *grid = new QGridLayout;
-
 
     // the inputs for every team are laid out in a square, starting from top left and
     // going right until square width is reached
@@ -79,6 +80,7 @@ QWidget* ResultSettingWidget::create_single_team_results_input(TeamListItem *tea
 
     QWidget * single_team_input = new QWidget();
     QVBoxLayout * layout = new QVBoxLayout();
+    layout->setSpacing(0);
 
     // adds team's name as label to new widget
     QLabel * label = new QLabel(QString::fromStdString(team_item->team.name()));
@@ -104,7 +106,7 @@ QWidget* ResultSettingWidget::create_single_team_results_input(TeamListItem *tea
         layout->addWidget(query_line_edit_widget);
     }
     // a spacer is added for aesthetic purposes
-    QSpacerItem * spacer = new QSpacerItem(0, 0, QSizePolicy::Minimum, QSizePolicy::Expanding);
+    QSpacerItem * spacer = new QSpacerItem(0, 0, QSizePolicy::Maximum, QSizePolicy::Expanding);
 
     layout->addSpacerItem(spacer);
     single_team_input->setLayout(layout);

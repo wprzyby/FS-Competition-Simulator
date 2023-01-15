@@ -16,8 +16,8 @@ class BusinessPlanEvent : public StaticEvent  // BusinessEvent class that inheri
       void no_finals_points_filling() override;
 
     public:
-      BusinessPlanEvent(int finalists=0, std::map<Team, double> points_to_set={})
+      BusinessPlanEvent(unsigned int finalists=0, std::map<Team, double> points_to_set={})
                                 :StaticEvent() {init_event_config(finalists, points_to_set);}
-      BusinessPlanEvent(std::vector<Team> &teams, int finalists=0, std::map<Team, double> points_to_set={})
+      BusinessPlanEvent(std::vector<Team> &teams, unsigned int finalists=0, std::map<Team, double> points_to_set={})
                                 :StaticEvent(teams) {init_event_config(finalists, points_to_set);}
 };

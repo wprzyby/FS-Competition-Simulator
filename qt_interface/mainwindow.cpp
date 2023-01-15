@@ -9,6 +9,7 @@
 #include <compsim_enums/enums.h>
 #include <events/constants.h>
 #include <vector>
+#include "qt_interface/ResultSettingWidget.h"
 #include "tools.h"
 
 
@@ -18,7 +19,6 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
     ui->baseStack->setCurrentIndex(MainMenuIndexNumber);
-    updateCheckBoxes();
     ui->lineEditTeamNumber->setValidator(new QIntValidator(this));
     connect(ui->pushButtonBackToMenu, SIGNAL(clicked()), this, SLOT(backToMainMenu()));
     connect(ui->pushButtonFinishSetup, SIGNAL(clicked()), this, SLOT(finishSetup()));
@@ -28,6 +28,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButtonResultSettingFinish, SIGNAL(clicked()), this, SLOT(resultSettingFinish()));
     connect(ui->pushButtonEventScoresNext, SIGNAL(clicked()), this, SLOT(resultShowingNextEvent()));
     connect(ui->pushButtonEventScoresPrevious, SIGNAL(clicked()), this, SLOT(resultShowingPreviousEvent()));
+    connect(ui->pushButtonChangeResults, SIGNAL(clicked()), this, SLOT(returnToResultSetting()));
+    connect(ui->pushButtonShowCompetitionScores, SIGNAL(clicked()), this, SLOT(changeResultShowingMode()));
 }
 
 MainWindow::~MainWindow() {
@@ -55,20 +57,6 @@ void MainWindow::on_pushButtonAddTeam_clicked()
     ui->lineEditTeamName->clear();
     ui->lineEditTeamUni->clear();
     ui->lineEditTeamNumber->clear();
-}
-
-void MainWindow::updateCheckBoxes() {
-    // updating updating availability of check boxes for modes of Competition (Standard/Driverless Cup)
-    /*
-    bool isStandardCompetitionChecked = ui->checkBoxStandardCompetition->isChecked();
-    ui->checkBoxesEventsStandard->setEnabled(isStandardCompetitionChecked);
-    ui->checkBoxesEventsDC->setEnabled(!isStandardCompetitionChecked);
-
-    // updating availability of check boxes for additional events (e.g. DV Acceleration) based on whether the main event is checked (e.g. Acceleration)
-    ui->checkBoxAccelerationDV->setEnabled(ui->checkBoxAcceleration->isChecked());
-    ui->checkBoxSkidpadDV->setEnabled(ui->checkBoxSkidpad->isChecked());
-    ui->checkBoxEnduranceEfficiency->setEnabled(ui->checkBoxEndurance->isChecked());
-    */
 }
 
 
@@ -110,12 +98,16 @@ void MainWindow::finishSetup() {
 
 void MainWindow::returnToSetup() {
     ui->baseStack->setCurrentIndex(SetupScreenIndexNumber);
+    m_result_setting_current_index = 0;
+    m_result_showing_current_index = 0;
+    m_result_showing_mode = ResultShowingMode::Events;
 }
 
 
 void MainWindow::resultSettingChangeScreen(int event_index) {
     // setting ResultSettingWidget's screen to an event corresponding to the index
     EventType current_event_type = competition_manager.event_type_at(event_index);
+    ui->widgetResultSetting->setCurrentIndex(event_index);
     ui->labelEventToSetResults->setText(QString::fromStdString(EVENT_TYPE_TO_STRING.at(current_event_type)));
     ui->widgetResultSetting->setCurrentIndex(event_index);
 
@@ -145,7 +137,7 @@ void MainWindow::resultSettingFinish() {
     ui->baseStack->setCurrentIndex(EventResultsScreenIndexNumber);
     competition_manager.setup_competition(m_teams);
     competition_manager.competition.create_classification();
-    this->resultShowingChangeScreen(m_result_showing_current_index);
+    this->resultShowingUpdateMode();
 }
 
 
@@ -171,3 +163,43 @@ void MainWindow::resultShowingChangeScreen(int event_index) {
     ui->pushButtonEventScoresNext->setEnabled(!isAtFinalEvent);
     ui->pushButtonEventScoresPrevious->setEnabled(!isAtFirstEvent);
 }
+
+void MainWindow::resultShowingShowCompetition() {
+    std::vector< std::pair<Team, double>> classification_to_show = competition_manager.competition.get_final_classification();
+    ui->widgetScoresShowing->setScores(classification_to_show);
+    ui->labelEventShowingScores->setText("Whole Competition Final Classification");
+    this->ui->pushButtonEventScoresNext->setEnabled(false);
+    this->ui->pushButtonEventScoresPrevious->setEnabled(false);
+}
+
+
+void MainWindow::returnToResultSetting() {
+    this->ui->baseStack->setCurrentIndex(ResultSettingScreenIndexNumber);
+}
+
+
+void MainWindow::changeResultShowingMode() {
+    if (m_result_showing_mode == ResultShowingMode::Competition) {
+        m_result_showing_mode = ResultShowingMode::Events;
+    } else {
+        m_result_showing_mode = ResultShowingMode::Competition;
+    }
+
+    this->resultShowingUpdateMode();
+}
+
+
+void MainWindow::resultShowingUpdateMode() {
+    switch(m_result_showing_mode) {
+        case ResultShowingMode::Competition:
+            this->resultShowingShowCompetition();
+            this->ui->pushButtonShowCompetitionScores->setText("SHOW EVENTS SCORES");
+            break;
+        case ResultShowingMode::Events:
+            this->resultShowingChangeScreen(m_result_showing_current_index);
+            this->ui->pushButtonShowCompetitionScores->setText("SHOW COMPETITION SCORES");
+            break;
+    }
+}
+
+

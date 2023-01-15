@@ -22,6 +22,8 @@ UntimedResultLineEditsWidget::UntimedResultLineEditsWidget(TeamListItem * team_i
                                                        :ResultLineEditsWidget(team_item, category, parent) {
 
     QVBoxLayout * layout = new QVBoxLayout();
+    layout->setSpacing(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     QLabel * label = new QLabel(QString::fromStdString(EVENT_CATEGORY_TO_STRING.at(m_category)));
     layout->addWidget(label);
@@ -29,8 +31,11 @@ UntimedResultLineEditsWidget::UntimedResultLineEditsWidget(TeamListItem * team_i
     QLineEdit * result_input = new QLineEdit();
     result_input->setValidator(new QIntValidator(result_input));
     result_input->setPlaceholderText("Result");
+    result_input->setMaximumWidth(150);
     layout->addWidget(result_input);
     m_result_input = result_input;
+
+    this->setLayout(layout);
 }
 
 
@@ -54,6 +59,8 @@ TimedResultLineEditsWidget::TimedResultLineEditsWidget(TeamListItem * team_item,
     m_event_type = event_type;
 
     QGridLayout * layout = new QGridLayout();
+    layout->setVerticalSpacing(0);
+    layout->setContentsMargins(0, 0, 0, 0);
 
     QLabel * label = new QLabel(QString::fromStdString(EVENT_CATEGORY_TO_STRING.at(m_category)));
     label->setFont(QFont("Sans Serif", 12));
@@ -65,36 +72,42 @@ TimedResultLineEditsWidget::TimedResultLineEditsWidget(TeamListItem * team_item,
     QLineEdit * minutes_input = new QLineEdit();
     minutes_input->setValidator(new QIntValidator(minutes_input));
     minutes_input->setPlaceholderText("Minutes");
+    minutes_input->setMaximumWidth(150);
     layout->addWidget(minutes_input, 1, 0);
     m_minutes_input = minutes_input;
 
     QLineEdit * seconds_input = new QLineEdit();
     seconds_input->setValidator(new QIntValidator(seconds_input));
     seconds_input->setPlaceholderText("Seconds");
+    seconds_input->setMaximumWidth(150);
     layout->addWidget(seconds_input, 2, 0);
     m_seconds_input = seconds_input;
 
     QLineEdit * miliseconds_input = new QLineEdit();
     miliseconds_input->setValidator(new QIntValidator(miliseconds_input));
     miliseconds_input->setPlaceholderText("Miliseconds");
+    miliseconds_input->setMaximumWidth(150);
     layout->addWidget(miliseconds_input, 3, 0);
     m_miliseconds_input = miliseconds_input;
 
     QLineEdit * doo_input = new QLineEdit();
     doo_input->setValidator(new QIntValidator(doo_input));
     doo_input->setPlaceholderText("Down-or-over (cones)");
+    doo_input->setMaximumWidth(150);
     layout->addWidget(doo_input, 1, 1);
     m_doo_input = doo_input;
 
     QLineEdit * oc_input = new QLineEdit();
     oc_input->setValidator(new QIntValidator(oc_input));
     oc_input->setPlaceholderText("Off-course");
+    oc_input->setMaximumWidth(150);
     layout->addWidget(oc_input, 2, 1);
     m_oc_input = oc_input;
 
     QLineEdit * uss_input = new QLineEdit();
     uss_input->setValidator(new QIntValidator(uss_input));
     uss_input->setPlaceholderText("Unsafe Stop");
+    uss_input->setMaximumWidth(150);
     layout->addWidget(uss_input, 3, 1);
     m_uss_input = uss_input;
 
@@ -114,6 +127,9 @@ TimedResultLineEditsWidget::~TimedResultLineEditsWidget() {
 
 
 void TimedResultLineEditsWidget::insertResultsIntoTeam() {
+    // endurance demands a special case because it's the only event which
+    // also requires the value of uncorrected time, so both corrected and uncorrected
+    // times need to be saved
     if (m_category == end_uncorrected_time) {
         insertResultsEndurance();
         return;
