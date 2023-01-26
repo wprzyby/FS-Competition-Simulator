@@ -31,6 +31,7 @@ class ResultSettingWidget : public QStackedWidget {
         ~ResultSettingWidget();
         void setTeams(std::list<TeamListItem*> teams) {m_teams = teams;}
         void setEventTypes(std::vector<EventType> event_types);
+        void setupLayouts();
         void saveInput();
         void clearWidget();
 

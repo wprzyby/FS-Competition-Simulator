@@ -20,6 +20,10 @@
 
 void ResultSettingWidget::setEventTypes(std::vector<EventType> event_types) {
     m_event_types = event_types;
+}
+
+
+void ResultSettingWidget::setupLayouts() {
     for (auto event_type: m_event_types) {
         QWidget* event_widget = new QWidget();
         event_widget->setLayout(create_event_layout(event_type));

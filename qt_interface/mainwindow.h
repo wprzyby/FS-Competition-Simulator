@@ -36,6 +36,7 @@ private slots:
     void resultShowingPreviousEvent();
     void returnToResultSetting();
     void changeResultShowingMode();
+    void updateFinalsSpinBoxes();
 
 
 private:

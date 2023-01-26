@@ -13,7 +13,8 @@ const std::map<EventType, std::string> EVENT_ENUM_TO_STR_PENALTY_CONFIG = {{acce
                                                                      {autocross_DC, "autocross"},
                                                                      {skidpad_DC, "skidpad"},
                                                                      {acceleration_DV, "acceleration"},
-                                                                     {skidpad_DV, "skidpad"}};
+                                                                     {skidpad_DV, "skidpad"},
+                                                                     {trackdrive, "trackdrive"}};
 
 
 #endif

@@ -57,4 +57,6 @@ const std::map<EventCategory, std::string> EVENT_CATEGORY_TO_STRING = {{pitch_vi
                                                                           {end_energy_used, "Energy used"},
                                                                           {end_energy_produced, "Energy produced"},
                                                                           {tra_time, "Time"},
-                                                                          {tra_laps, "Number of laps"}};
+                                                                          {tra_laps, "Number of laps"},
+                                                                          {businessplan_finals_score, "FINALS SCORE (zero or empty means non-finalist"},
+                                                                          {cost_and_manufacturing_finals_score, "FINALS SCORE (zero or empty means non-finalist"}};

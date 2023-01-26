@@ -20,6 +20,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->baseStack->setCurrentIndex(MainMenuIndexNumber);
     ui->lineEditTeamNumber->setValidator(new QIntValidator(this));
+    ui->lineEditAutocrossTime6mps->setValidator(new QIntValidator(this));
+    ui->spinBoxBusinessplanFinalists->setMaximum(0);
+    ui->spinBoxCostAndManufacturingFinalists->setMaximum(0);
     connect(ui->pushButtonBackToMenu, SIGNAL(clicked()), this, SLOT(backToMainMenu()));
     connect(ui->pushButtonFinishSetup, SIGNAL(clicked()), this, SLOT(finishSetup()));
     connect(ui->pushButtonChangeSetup, SIGNAL(clicked()), this, SLOT(returnToSetup()));
@@ -30,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButtonEventScoresPrevious, SIGNAL(clicked()), this, SLOT(resultShowingPreviousEvent()));
     connect(ui->pushButtonChangeResults, SIGNAL(clicked()), this, SLOT(returnToResultSetting()));
     connect(ui->pushButtonShowCompetitionScores, SIGNAL(clicked()), this, SLOT(changeResultShowingMode()));
+    connect(ui->pushButtonAddTeam, SIGNAL(clicked()), this, SLOT(updateFinalsSpinBoxes()));
 }
 
 MainWindow::~MainWindow() {
@@ -79,10 +83,20 @@ void MainWindow::finishSetup() {
         if (ui->checkBoxAutocrossDC->isChecked())               {event_types.push_back(autocross_DC);}
         if (ui->checkBoxSkidpadDC->isChecked())                 {event_types.push_back(skidpad_DC);}
         if (ui->checkBoxTrackdrive->isChecked())                {event_types.push_back(trackdrive);}
+        if (ui->checkBoxEngineeringDesignDC->isChecked())       {event_types.push_back(engineering_design_DC);}
+
+        // fetching additional event configuration information
+        unsigned int number_of_finalists_businessplan = ui->spinBoxBusinessplanFinalists->value();
+        unsigned int number_of_finalists_cost_and_manufacturing = ui->spinBoxCostAndManufacturingFinalists->value();
+        unsigned int autocross_6mps_time = ui->lineEditAutocrossTime6mps->text().toUInt();
 
     // passing choices to competition manager
     competition_manager.set_event_types(event_types);
     competition_manager.set_endurance_efficiency(ui->checkBoxEnduranceEfficiency->isChecked());
+    competition_manager.set_number_of_finalists(businessplan, number_of_finalists_businessplan);
+    competition_manager.set_number_of_finalists(cost_and_manufacturing, number_of_finalists_cost_and_manufacturing);
+    competition_manager.set_autocross_6mps_time(autocross_6mps_time);
+
 
     // going to next screen
     m_result_setting_current_index = 0;
@@ -91,6 +105,7 @@ void MainWindow::finishSetup() {
     ui->widgetResultSetting->clearWidget();
     ui->widgetResultSetting->setTeams(this->m_teams);
     ui->widgetResultSetting->setEventTypes(event_types);
+    ui->widgetResultSetting->setupLayouts();
 
     this->resultSettingChangeScreen(m_result_setting_current_index);
 }
@@ -203,3 +218,7 @@ void MainWindow::resultShowingUpdateMode() {
 }
 
 
+void MainWindow::updateFinalsSpinBoxes() {
+    ui->spinBoxBusinessplanFinalists->setMaximum(m_teams.size());
+    ui->spinBoxCostAndManufacturingFinalists->setMaximum(m_teams.size());
+}
