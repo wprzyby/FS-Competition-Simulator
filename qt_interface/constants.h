@@ -7,7 +7,7 @@
 const constexpr unsigned int MainMenuIndexNumber            = 0;
 const constexpr unsigned int SetupScreenIndexNumber         = 1;
 const constexpr unsigned int ResultSettingScreenIndexNumber = 2;
-const constexpr unsigned int EventResultsScreenIndexNumber  = 3;
+const constexpr unsigned int EventScoresScreenIndexNumber   = 3;
 
 const std::string PenaltyConfigFilePath = "../dynamic_events_penalties.json";
 

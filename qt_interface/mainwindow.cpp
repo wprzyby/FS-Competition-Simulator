@@ -134,7 +134,7 @@ void MainWindow::resultSettingPreviousEvent() {
 
 void MainWindow::resultSettingFinish() {
     ui->widgetResultSetting->saveInput();
-    ui->baseStack->setCurrentIndex(EventResultsScreenIndexNumber);
+    ui->baseStack->setCurrentIndex(EventScoresScreenIndexNumber);
     competition_manager.setup_competition(m_teams);
     competition_manager.competition.create_classification();
     this->resultShowingUpdateMode();

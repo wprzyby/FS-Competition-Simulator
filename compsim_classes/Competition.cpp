@@ -44,6 +44,9 @@ void Competition::set_teams(std::vector<Team> &teams)
 
 void Competition::simulate()
 {
+    m_events_and_teams_points.clear();
+    m_events_and_classifications.clear();
+
     for(auto& event_ptr: m_events)
     {
         event_ptr->simulate();
