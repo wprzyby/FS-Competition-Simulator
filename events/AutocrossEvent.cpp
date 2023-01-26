@@ -65,9 +65,10 @@ std::map<Team, double> DCAutocrossEvent::find_teams_best_times() {
 
 
 double DCAutocrossEvent::get_additional_points(double best_time_overall, double team_best_time) const {
-    if (best_time_overall >= m_t_max) {
+    if (team_best_time >= m_t_max) {
         return 0;
     }
+
     double points = 90 * ((m_t_max - team_best_time) / (m_t_max - best_time_overall));
     if (points < 0) {
         throw NegativeAdditionalPointsError();
