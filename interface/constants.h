@@ -12,6 +12,6 @@ const std::map<EventType, std::string> INFO_EVENT_NAMES = {{acceleration, "Accel
                                                           {engineering_design, "Engineering Design Event"},
                                                           {skidpad, "Skidpad Event"}};
 
-const std::vector<EventsCategories> TIMED_CATEGORIES = {first_left_time, first_right_time, second_left_time, second_right_time, first_acc_time,
+const std::vector<EventCategory> TIMED_CATEGORIES = {first_skid_left_time, first_skid_right_time, second_skid_left_time, second_skid_right_time, first_acc_time,
                                                         second_acc_time, first_aut_time, second_aut_time, third_aut_time, fourth_aut_time,
                                                         end_corrected_time, end_uncorrected_time};

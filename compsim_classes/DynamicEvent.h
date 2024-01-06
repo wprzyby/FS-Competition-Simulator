@@ -17,7 +17,7 @@ class DynamicEvent : public Event {
       void fill_teams_points() override;
 
     public:
-      DynamicEvent() : Event() {}
+      DynamicEvent() : Event() {m_is_dynamic=true;}
       DynamicEvent(std::vector<Team>& teams_participating) : Event(teams_participating) {}
 
 };

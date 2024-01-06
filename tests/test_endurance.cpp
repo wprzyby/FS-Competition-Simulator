@@ -28,28 +28,28 @@ TEST_CASE("Endurance Event functionality")
     // fastest
     team_a.set_category_result(end_corrected_time, 1000000);
     team_a.set_category_result(end_uncorrected_time, 1500000);
-    team_a.set_category_result(energy_used, 100000);
-    team_a.set_category_result(energy_produced, 20000);
+    team_a.set_category_result(end_energy_used, 100000);
+    team_a.set_category_result(end_energy_produced, 20000);
     // scores additional points in endurance and efficiency
     team_b.set_category_result(end_corrected_time, 1200000);
     team_b.set_category_result(end_uncorrected_time, 1500000);
-    team_b.set_category_result(energy_used, 100000);
-    team_b.set_category_result(energy_produced, 30000);
+    team_b.set_category_result(end_energy_used, 100000);
+    team_b.set_category_result(end_energy_produced, 30000);
     // scores 25 points endurance, scores negative in efficiency??
     team_c.set_category_result(end_corrected_time, 1333001);
     team_c.set_category_result(end_uncorrected_time, 1600000);
-    team_c.set_category_result(energy_used, 120000);
-    team_c.set_category_result(energy_produced, 15000);
+    team_c.set_category_result(end_energy_used, 120000);
+    team_c.set_category_result(end_energy_produced, 15000);
     // scores points in endurance, no points in efficiency
     team_d.set_category_result(end_corrected_time, 1300000);
     team_d.set_category_result(end_uncorrected_time, 2000000);
-    team_d.set_category_result(energy_used, 90000);
-    team_d.set_category_result(energy_produced, 40000);
+    team_d.set_category_result(end_energy_used, 90000);
+    team_d.set_category_result(end_energy_produced, 40000);
     // DNF in endurance
     team_e.set_category_result(end_corrected_time, 0);
     team_e.set_category_result(end_uncorrected_time, 0);
-    team_e.set_category_result(energy_used, 120000);
-    team_e.set_category_result(energy_produced, 15000);
+    team_e.set_category_result(end_energy_used, 120000);
+    team_e.set_category_result(end_energy_produced, 15000);
 
     std::map<Team, double> correct_results_endurance;
 

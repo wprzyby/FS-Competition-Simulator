@@ -13,7 +13,7 @@ LapTimeParser::LapTimeParser(std::string config_path, LapTimeMode mode)
 {
     load_json_data(config_path);
     m_mode = mode;
-    m_enum_conversion_map = DYNAMIC_EVENT_ENUN_TO_STR;
+    m_enum_conversion_map = EVENT_ENUM_TO_STR_PENALTY_CONFIG;
 }
 
 

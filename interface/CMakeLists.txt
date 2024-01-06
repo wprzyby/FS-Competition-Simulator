@@ -1,6 +1,6 @@
 set(interface_src_files
     FileSaver.cpp
-    ui_tools.cpp
+    interface_tools.cpp
 )
 
 add_library(interface ${interface_src_files})

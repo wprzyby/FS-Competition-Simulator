@@ -15,8 +15,9 @@ class Event  // Abstract class
 {
     protected:
       EventType m_event_type;
+      bool m_is_dynamic;
       std::string m_name;
-      std::vector<EventsCategories> m_event_categories;
+      std::vector<EventCategory> m_event_categories;
       std::vector<Team> m_teams;
       std::map<Team, double> m_teams_and_points;
       std::vector<std::pair<Team, double>> m_classification;
@@ -30,6 +31,7 @@ class Event  // Abstract class
       std::vector<std::pair<Team, double>> get_classification() const {return m_classification;}
       EventType get_event_type() const {return m_event_type;}
       std::string name() const {return m_name;}
+      bool is_dynamic() const {return m_is_dynamic;}
 
       void init_event_type(EventType event_type);
       void set_teams(std::vector<Team> &teams) {m_teams = teams;}

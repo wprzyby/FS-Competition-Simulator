@@ -13,14 +13,14 @@ Team::Team(const std::string name, const std::string university, const unsigned 
 
 void Team::set_name(std::string name) {
     // check for empty string
-    if (name.empty()) {throw EmptyNameError("team");}
+    // if (name.empty()) {throw EmptyNameError("team");}
 
     m_name = name;
 }
 
 
 void Team::set_university(std::string university) {
-    if (university.empty()) {throw EmptyNameError("university");}
+    // if (university.empty()) {throw EmptyNameError("university");}
 
     m_university = university;
 }
@@ -34,7 +34,7 @@ bool Team::operator<(const Team &second_arg) const
 bool Team::operator==(const Team& second_argument) const
 {
     // Here are or in ifs because EVERY team`s atributte has to be unique. Operator is used for assertion that there are no duplicate teams.
-    if ((m_name == second_argument.m_name) or (m_number == second_argument.m_number) or (m_university == second_argument.m_university)) {return true;}
+    if ((m_name == second_argument.m_name) && (m_number == second_argument.m_number) && (m_university == second_argument.m_university)) {return true;}
     else {return false;}
 }
 

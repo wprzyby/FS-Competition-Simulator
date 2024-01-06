@@ -28,7 +28,7 @@ double find_min(const double number1, const double number2)  // Function finding
 }
 
 
-double find_max_points(const std::vector<Team>& teams, const std::vector<EventsCategories>& categories_to_count)
+double find_max_points(const std::vector<Team>& teams, const std::vector<EventCategory>& categories_to_count)
 {
     double max_points = 0;
     for (auto& team: teams) {
@@ -38,7 +38,7 @@ double find_max_points(const std::vector<Team>& teams, const std::vector<EventsC
 }
 
 
-double sum_team_results(const Team& team, const std::vector<EventsCategories>& categories_to_count)
+double sum_team_results(const Team& team, const std::vector<EventCategory>& categories_to_count)
 {
     double summed_points = 0;
     for (auto& category: categories_to_count)
@@ -48,7 +48,7 @@ double sum_team_results(const Team& team, const std::vector<EventsCategories>& c
     return summed_points;
 }
 
-double find_best_time_for_team(const Team& team, const std::vector<EventsCategories>& timed_categories)
+double find_best_time_for_team(const Team& team, const std::vector<EventCategory>& timed_categories)
 {
     double best_time = team.result_of_category(timed_categories.at(0));
     for (auto& category: timed_categories) {
@@ -69,7 +69,7 @@ double find_best_time_overall(std::map<Team, double> &teams_and_times)
 }
 
 
-bool is_category_in_vector(EventsCategories const &category, std::vector<EventsCategories> const &categories_in_event)
+bool is_category_in_vector(EventCategory const &category, std::vector<EventCategory> const &categories_in_event)
 {
     bool result = false;
     for (auto& category_in_event: categories_in_event)  // getting category from vector

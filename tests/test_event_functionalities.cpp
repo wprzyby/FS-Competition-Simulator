@@ -20,11 +20,11 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
 
 
     // Creating map of results for AccelerationEvent
-    std::map<Team, std::map<EventsCategories, double>> acc_teams_and_results;
-    std::map<EventsCategories, double> acc_team_a_results;
-    std::map<EventsCategories, double> acc_team_b_results;
-    std::map<EventsCategories, double> acc_team_c_results;
-    std::map<EventsCategories, double> acc_team_d_results;
+    std::map<Team, std::map<EventCategory, double>> acc_teams_and_results;
+    std::map<EventCategory, double> acc_team_a_results;
+    std::map<EventCategory, double> acc_team_b_results;
+    std::map<EventCategory, double> acc_team_c_results;
+    std::map<EventCategory, double> acc_team_d_results;
     acc_team_a_results.insert({first_acc_time, 12000});
     acc_team_a_results.insert({second_acc_time, 11000});
     acc_team_b_results.insert({first_acc_time, 12000});

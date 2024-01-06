@@ -21,7 +21,7 @@ enum EventType
     EventTypeTotalCount
 };
 
-enum EventsCategories
+enum EventCategory
 {
     #define X(a) a,
     #include "EventsCategories.def"
@@ -63,5 +63,5 @@ char const* const LapTimeMode_str[]
 
 
 std::ostream& operator<<(std::ostream& os, enum EventType e);
-std::ostream& operator<<(std::ostream& os, enum EventsCategories e);
+std::ostream& operator<<(std::ostream& os, enum EventCategory e);
 std::ostream& operator<<(std::ostream& os, enum LapTimeMode e);

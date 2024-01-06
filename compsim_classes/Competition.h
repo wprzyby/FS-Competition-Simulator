@@ -29,9 +29,9 @@ class Competition
       std::map<EventType, std::vector<std::pair<Team, double>>> get_events_classifications() const {return m_events_and_classifications;}
       std::vector< std::pair<Team, double> > get_final_classification() const {return m_comp_classification;}
       void set_teams(std::vector<Team> &teams);
+      void set_events(std::vector<std::unique_ptr<Event>> events);
       void create_classification();
 
     private:
       void simulate();
-      void set_events(std::vector<std::unique_ptr<Event>> events);
 };

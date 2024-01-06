@@ -47,5 +47,17 @@
         "USS":
             {"penalty": 0,
             "dnf": false}
+    },
+    "trackdrive":
+    {
+        "DOO":
+            {"penalty": 2000,
+            "dnf": false},
+        "OC":
+            {"penalty": 10000,
+            "dnf": false},
+        "USS":
+            {"penalty": 0,
+            "dnf": false}
     }
 }

@@ -27,16 +27,16 @@ void Competition::set_events(std::vector<std::unique_ptr<Event>> events)
 void Competition::set_teams(std::vector<Team> &teams)
 {
     // Checking if all teams are unique
-    for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
-    {
-        std::vector<Team>::iterator other_team = team;
-        other_team++;
-        while(other_team != teams.end())
-        {
-            if (*team == *other_team){throw DuplicateTeamError();}
-            other_team++;
-        }
-    }
+    // for (std::vector<Team>::iterator team = teams.begin(); team != teams.end(); ++team)
+    // {
+    //     std::vector<Team>::iterator other_team = team;
+    //     other_team++;
+    //     while(other_team != teams.end())
+    //     {
+    //         if (*team == *other_team){throw DuplicateTeamError();}
+    //         other_team++;
+    //     }
+    // }
 
     m_teams = teams;
 }
@@ -44,6 +44,9 @@ void Competition::set_teams(std::vector<Team> &teams)
 
 void Competition::simulate()
 {
+    m_events_and_teams_points.clear();
+    m_events_and_classifications.clear();
+
     for(auto& event_ptr: m_events)
     {
         event_ptr->simulate();
@@ -59,6 +62,8 @@ void Competition::simulate()
 
 void Competition::create_classification()
 {
+    m_comp_classification.clear();
+    m_teams_and_comp_points.clear();
     simulate();
 
     // summing points from each event for every team to obtain total competition points
