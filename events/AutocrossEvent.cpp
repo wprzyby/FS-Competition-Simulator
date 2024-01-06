@@ -30,11 +30,11 @@ double AutocrossEvent::get_additional_points(double best_time_overall, double te
 
 // DC VERSION:
 void DCAutocrossEvent::init_event_config() {
-    m_event_type = autocross;
+    m_event_type = autocross_DC;
     m_name = "Autocross Event (manual)";
     m_event_categories = CATEGORY_LISTS.at(autocross);
-    m_base_points = 4.5;
-    m_time_threshold_coefficient = 1.25;
+    m_base_points = 10;
+    m_time_threshold_coefficient = 100;
     m_use_time_threshold = true;
 }
 
@@ -65,8 +65,11 @@ std::map<Team, double> DCAutocrossEvent::find_teams_best_times() {
 
 
 double DCAutocrossEvent::get_additional_points(double best_time_overall, double team_best_time) const {
+    if (best_time_overall >= m_t_max) {
+        return 0;
+    }
     double points = 90 * ((m_t_max - team_best_time) / (m_t_max - best_time_overall));
-    if (points <= 0) {
+    if (points < 0) {
         throw NegativeAdditionalPointsError();
     }
     return points;
