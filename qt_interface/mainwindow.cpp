@@ -124,9 +124,7 @@ void MainWindow::resultSettingChangeScreen(int event_index) {
     EventType current_event_type = competition_manager.event_type_at(event_index);
     ui->widgetResultSetting->setCurrentIndex(event_index);
     ui->labelEventToSetResults->setText(QString::fromStdString(EVENT_TYPE_TO_STRING.at(current_event_type)));
-    ui->widgetResultSetting->setCurrentIndex(event_index);
 
-    // enabling/disabling buttons according to whether user is at the final even or at the first event
     bool isAtFinalEvent = competition_manager.event_types().size() - 1 == m_result_setting_current_index;
     bool isAtFirstEvent = m_result_setting_current_index == 0;
     ui->pushButtonResultSettingNext->setEnabled(!isAtFinalEvent);

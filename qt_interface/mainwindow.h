@@ -1,6 +1,4 @@
-#ifndef MAINWINDOW_H
-#define MAINWINDOW_H
-
+#pragma once
 #include "TeamListItem.h"
 #include <QMainWindow>
 #include <QListWidgetItem>
@@ -48,7 +46,8 @@ private:
     ResultShowingMode m_result_showing_mode=ResultShowingMode::Events;
 
 
-    void resultSettingChangeScreen(int event_index);
     void resultShowingChangeScreen(int event_index);
+    void resultSettingChangeScreen(int event_index);
+    void resultShowingUpdateMode();
+    void resultShowingShowCompetition();
 };
-#endif // MAINWINDOW_H
