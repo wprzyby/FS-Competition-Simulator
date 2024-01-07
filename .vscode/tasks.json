@@ -1,0 +1,33 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Reconfigure CMake",
+            "type": "shell",
+            "linux": {"command": "cmake -S . -B ./build"},
+            "windows": {"command": "cmake -S . -B ./build -G 'MinGW Makefiles'"},
+            "args":[]
+        },
+        {
+            "label": "Build project and run tests",
+            "type": "shell",
+            "linux": {"command": "cd build;make;./tests/run_tests;cd .."},
+            "windows": {"command": "cd build;mingw32-make all;./tests/run_tests;cd .."},
+            "group": "build",
+            "args":[]
+        },
+        {
+            "label": "Build GUI App main executable",
+            "type": "shell",
+            "linux": {"command": "cd build;make main_gui;./qt_interface/compsim_gui;cd .."},
+            "windows": {"command": "cd build;mingw32-make main_gui;./qt_interface/compsim_gui;cd .."},
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "args": []
+        }
+    ]
+    }

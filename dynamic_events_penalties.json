@@ -1,0 +1,63 @@
+{
+    "_comment": "all penalties in miliseconds, penalties according to Formula Student Rules for 2023 (missing trackdrive)",
+    "acceleration":
+    {
+        "DOO":
+            {"penalty": 2000,
+            "dnf": false},
+        "OC":
+            {"penalty": 0,
+            "dnf": true},
+        "USS":
+            {"penalty": 0,
+            "dnf": true}
+    },
+    "skidpad":
+    {
+        "DOO":
+            {"penalty": 200,
+            "dnf": false},
+        "OC":
+            {"penalty": 0,
+            "dnf": true},
+        "USS":
+            {"penalty": 0,
+            "dnf": true}
+    },
+    "autocross":
+    {
+        "DOO":
+            {"penalty": 2000,
+            "dnf": false},
+        "OC":
+            {"penalty": 10000,
+            "dnf": false},
+        "USS":
+            {"penalty": 0,
+            "dnf": true}
+    },
+    "endurance":
+    {
+        "DOO":
+            {"penalty": 2000,
+            "dnf": false},
+        "OC":
+            {"penalty": 10000,
+            "dnf": false},
+        "USS":
+            {"penalty": 0,
+            "dnf": false}
+    },
+    "trackdrive":
+    {
+        "DOO":
+            {"penalty": 2000,
+            "dnf": false},
+        "OC":
+            {"penalty": 10000,
+            "dnf": false},
+        "USS":
+            {"penalty": 0,
+            "dnf": false}
+    }
+}
