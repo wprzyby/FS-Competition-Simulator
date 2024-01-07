@@ -16,10 +16,13 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
 
     team_a.set_category_result(first_acc_time, 12000);
     team_a.set_category_result(second_acc_time, 11000);
+
     team_b.set_category_result(first_acc_time, 12000);
     team_b.set_category_result(second_acc_time, 13000);
+
     team_c.set_category_result(first_acc_time, 35000);
-    team_c.set_category_result(second_acc_time, 33000);
+    team_c.set_category_result(second_acc_time, 17000);
+
     team_d.set_category_result(first_acc_time, 0);
     team_d.set_category_result(second_acc_time, 0);
 
@@ -34,8 +37,8 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
     // Creating map of correct results
     std::map<Team, double> acc_correct_results;
     acc_correct_results.insert({team_a, 50.0});
-    acc_correct_results.insert({team_b, 38.4});
-    acc_correct_results.insert({team_c, 3.5});
+    acc_correct_results.insert({team_b, 38.1});
+    acc_correct_results.insert({team_c, 2.5});
     acc_correct_results.insert({team_d, 0});
     //
 
@@ -52,7 +55,7 @@ TEST_CASE("AccelerationEvent tests.", "[Non - driverless]")
     {
         std::vector<std::pair<Team, double>> acc_points_vector = acc_event.get_classification();
 
-        // Checking whether points are truely sorted:
+        // Checking whether points are truly sorted:
         CHECK(acc_points_vector.at(0).second >= acc_points_vector.at(1).second);
         CHECK(acc_points_vector.at(1).second >= acc_points_vector.at(2).second);
         CHECK(acc_points_vector.at(2).second >= acc_points_vector.at(3).second);

@@ -33,7 +33,7 @@ TEST_CASE("Autocross Event functionality")
     team_b.set_category_result(second_aut_time, 90000);
     team_b.set_category_result(third_aut_time, 150000.01);
     team_b.set_category_result(fourth_aut_time, 0);
-    // scores 4.5 points
+    // scores base points
     team_c.set_category_result(first_aut_time, 150000);
     team_c.set_category_result(second_aut_time, 0);
     team_c.set_category_result(third_aut_time, 200000);
@@ -52,8 +52,8 @@ TEST_CASE("Autocross Event functionality")
     std::map<Team, double> correct_results;
 
     correct_results.insert({team_a, 100});
-    correct_results.insert({team_b, 46.9});
-    correct_results.insert({team_c, 4.5});
+    correct_results.insert({team_b, 47.2});
+    correct_results.insert({team_c, 5.0});
     correct_results.insert({team_d, 0});
     correct_results.insert({team_e, 0});
 
@@ -91,18 +91,6 @@ TEST_CASE("Autocross Event functionality")
         CHECK(points_vector.at(3).second >= points_vector.at(4).second);
         //
     }
-    // TODO: takie rzeczy teraz nie będą działać - do ogarnięcia
-    // SECTION("Wrong categories in results")
-    // {
-    //     Team team_x("x", "univX", 10);
-    //     std::map<EventsCategories, double> team_x_results;
-    //     team_x_results.insert({first_aut_time, 100000});
-    //     team_x_results.insert({pitch_video, 5});
-    //     team_x_results.insert({first_acc_time, 100000});
-    //     results.insert({team_x, team_x_results});
-
-    //     REQUIRE_THROWS(event.set_results(results));
-    // }
 }
 
 

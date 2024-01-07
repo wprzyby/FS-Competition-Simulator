@@ -67,18 +67,6 @@ TEST_CASE("Endurance Event functionality")
     correct_results_efficiency.insert({team_d, 0});
     correct_results_efficiency.insert({team_e, 0});
 
-    // TODO: to nie będzie działać - ogarnąć
-    // SECTION("Wrong categories in results")
-    // {
-    //     Team team_x("x", "univX", 10);
-    //     std::map<EventsCategories, double> team_x_results;
-    //     team_x_results.insert({end_corrected_time, 100000});
-    //     team_x_results.insert({pitch_video, 5});
-    //     team_x_results.insert({first_acc_time, 100000});
-    //     results.insert({team_x, team_x_results});
-
-    //     REQUIRE_THROWS(event.set_results(results));
-    // }
 
     SECTION("Simulation - endurance only")
     {
