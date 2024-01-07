@@ -17,10 +17,13 @@ TEST_CASE("AccelerationEvent DC tests.", "[Driverless Cup]")
 
     team_a.set_category_result(first_acc_time, 12000);
     team_a.set_category_result(second_acc_time, 11000);
+
     team_b.set_category_result(first_acc_time, 12000);
     team_b.set_category_result(second_acc_time, 13000);
+
     team_c.set_category_result(first_acc_time, 35000);
     team_c.set_category_result(second_acc_time, 33000);
+
     team_d.set_category_result(first_acc_time, 0);
     team_d.set_category_result(second_acc_time, 0);
 
@@ -53,7 +56,7 @@ TEST_CASE("AccelerationEvent DC tests.", "[Driverless Cup]")
     {
         std::vector<std::pair<Team, double>> acc_points_vector = acc_event.get_classification();
 
-        // Checking whether points are truely sorted:
+        // Checking whether points are truly sorted:
         CHECK(acc_points_vector[0].second >= acc_points_vector[1].second);
         CHECK(acc_points_vector[1].second >= acc_points_vector[2].second);
         CHECK(acc_points_vector[2].second >= acc_points_vector[3].second);

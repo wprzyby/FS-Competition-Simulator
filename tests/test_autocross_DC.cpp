@@ -24,11 +24,11 @@ TEST_CASE("Autocross DC Event functionality")
     team_a.set_category_result(first_aut_time, 80000);
     team_a.set_category_result(second_aut_time, 80000);
 
-    // scores 51.3 points
+    // scores additional points
     team_b.set_category_result(first_aut_time, 0);
     team_b.set_category_result(second_aut_time, 90000);
 
-    // scores 47.5 points
+    // scores additional points
     team_c.set_category_result(first_aut_time, 150000);
     team_c.set_category_result(second_aut_time, 0);
 

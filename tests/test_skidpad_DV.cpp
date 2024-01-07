@@ -11,7 +11,7 @@
 
 TEST_CASE("SkidpadEvent tests DV.", "[Driverless DV]")
 {
-    Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 2), team_c("C", "UniveroC", 3), team_d("D", "UniveroD", 4);
+    Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 2), team_c("C", "UniveroC", 3), team_d("D", "UniveroD", 4), team_e("E", "UniveroE", 5);
 
     team_a.set_category_result(first_skid_left_time, 0);
     team_a.set_category_result(first_skid_right_time, 0);
@@ -36,6 +36,12 @@ TEST_CASE("SkidpadEvent tests DV.", "[Driverless DV]")
     team_d.set_category_result(second_skid_left_time, 4982);
     team_d.set_category_result(second_skid_right_time, 5014);
 
+    // DQ due to exceeded 25s threshold
+    team_e.set_category_result(first_skid_left_time, 25000);
+    team_e.set_category_result(first_skid_right_time, 26000);
+    team_e.set_category_result(second_skid_left_time, 30000);
+    team_e.set_category_result(second_skid_right_time, 30000);
+
     std::vector<Team> teams{team_a, team_b, team_c, team_d};
 
     // Creating and simulating the Event
@@ -50,6 +56,7 @@ TEST_CASE("SkidpadEvent tests DV.", "[Driverless DV]")
     skid_correct_results.insert({team_b, 75});
     skid_correct_results.insert({team_c, 18.8});
     skid_correct_results.insert({team_d, 56.3});
+    skid_correct_results.insert({team_e, 0});
     //
 
     SECTION("Testing: setting results and calculating points")
@@ -58,6 +65,7 @@ TEST_CASE("SkidpadEvent tests DV.", "[Driverless DV]")
         CHECK(skid_results.at(team_b) == skid_correct_results.at(team_b));
         CHECK(skid_results.at(team_c) == skid_correct_results.at(team_c));
         CHECK(skid_results.at(team_d) == skid_correct_results.at(team_d));
+        CHECK(skid_results.at(team_e) == skid_correct_results.at(team_e));
     }
 
 
@@ -65,7 +73,7 @@ TEST_CASE("SkidpadEvent tests DV.", "[Driverless DV]")
     {
         std::vector<std::pair<Team, double>> points_vector = skid_event.get_classification();
 
-        // Checking whether points are truely sorted:
+        // Checking whether points are truly sorted:
         CHECK(points_vector[0].second >= points_vector[1].second);
         CHECK(points_vector[1].second >= points_vector[2].second);
         //

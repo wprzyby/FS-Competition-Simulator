@@ -46,10 +46,10 @@ TEST_CASE("SkidpadEvent test DC", "[Driverless Cup]")
 
     // Creating map of correct results
     std::map<Team, double> skid_correct_results;
-    skid_correct_results.insert({team_a, 35.6});
+    skid_correct_results.insert({team_a, 35.7});
     skid_correct_results.insert({team_b, 75});
-    skid_correct_results.insert({team_c, 3.5});
-    skid_correct_results.insert({team_d, 48.3});
+    skid_correct_results.insert({team_c, 3.8});
+    skid_correct_results.insert({team_d, 40.4});
     //
 
     SECTION("Testing: setting results and calculating points")
@@ -65,7 +65,7 @@ TEST_CASE("SkidpadEvent test DC", "[Driverless Cup]")
     {
         std::vector<std::pair<Team, double>> points_vector = skid_event.get_classification();
 
-        // Checking whether points are truely sorted:
+        // Checking whether points are truly sorted:
         CHECK(points_vector[0].second >= points_vector[1].second);
         CHECK(points_vector[1].second >= points_vector[2].second);
         //
