@@ -21,3 +21,7 @@ bool worse_team(std::pair<Team, double> const &first_pair, std::pair<Team, doubl
 double rd_to_n_places(double number, int n);  // rounds given number to n decimal places.
 int count_non_zero_times(std::map<Team, double> &teams_and_best_times);  // Finding how many teams acheived non zero times
 std::vector<std::pair<Team, double>> sort_teams_and_points(std::map<Team, double> &map_to_sort, bool descending=true);
+double sum_results(const Team &team, std::vector<EventCategory> categories, std::vector<EventCategory> category_exclusions={});
+void sort_teams_and_best_times(std::vector<std::pair<std::string, double>> &teams_and_best_times);
+double find_best_time_for_team_skidpad(const Team& team);
+double find_best_time_for_team_dc_autocross(const Team& team, const double t_6ms);

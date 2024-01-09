@@ -2,6 +2,7 @@
 #include <map>
 #include <vector>
 #include <cmath>
+#include <algorithm>
 
 #include "constants.h"
 #include "Team.h"
@@ -48,15 +49,6 @@ double sum_team_results(const Team& team, const std::vector<EventCategory>& cate
     return summed_points;
 }
 
-double find_best_time_for_team(const Team& team, const std::vector<EventCategory>& timed_categories)
-{
-    double best_time = team.result_of_category(timed_categories.at(0));
-    for (auto& category: timed_categories) {
-        best_time = find_min(team.result_of_category(category), best_time);
-    }
-    return best_time;
-}
-
 
 double find_best_time_overall(std::map<Team, double> &teams_and_times)
 {
@@ -78,12 +70,6 @@ bool is_category_in_vector(EventCategory const &category, std::vector<EventCateg
     }
     return result;
 }
-
-
-// bool compare(std::pair<EventsCategories, double> const &first_pair, std::pair<EventsCategories, double> const &second_pair)
-// {
-//     return first_pair.second < second_pair.second;
-// }
 
 
 bool better_team(std::pair<Team, double> const &first_pair, std::pair<Team, double> const &second_pair)
@@ -134,4 +120,72 @@ std::vector<std::pair<Team, double>> sort_teams_and_points(std::map<Team, double
     }
 
     return teams_and_points_vector;
+}
+
+
+
+double sum_results(const Team &team, std::vector<EventCategory> categories, std::vector<EventCategory> category_exclusions) {
+    for (auto& exclusion: category_exclusions) {
+        auto it = std::remove(categories.begin(), categories.end(), exclusion);
+        categories.erase(it, categories.end());
+    }
+
+    double sum = 0;
+    for (auto& category: categories) {
+        sum += team.result_of_category(category);
+    }
+    return sum;
+}
+
+
+void sort_teams_and_best_times(std::vector<std::pair<std::string, double>> &teams_and_best_times) {
+    
+    // lambda function for sorting times which takes into account that time=0 is DNF/DQ, so the worst possible time
+    auto is_time_better = [](std::pair<std::string, double> pair1, std::pair<std::string, double> pair2)
+    {
+        if (pair1.second == 0) return false;
+        if (pair2.second == 0) return true;
+        return pair1.second < pair2.second;
+    };
+
+    std::sort(teams_and_best_times.begin(), teams_and_best_times.end(), is_time_better);
+}
+
+
+double find_best_time_for_team(const Team& team, const std::vector<EventCategory>& timed_categories)
+{
+    double best_time = team.result_of_category(timed_categories.at(0));
+    for (auto& category: timed_categories) {
+        best_time = find_min(team.result_of_category(category), best_time);
+    }
+    return best_time;
+}
+
+
+double find_best_time_for_team_skidpad(const Team& team)
+{
+    double first_time = round(0.5*(team.result_of_category(first_skid_left_time) + team.result_of_category(first_skid_right_time)));
+    double second_time = round(0.5*(team.result_of_category(second_skid_left_time) + team.result_of_category(second_skid_right_time)));
+    return find_min(first_time, second_time);
+}
+
+
+double find_best_time_for_team_dc_autocross(const Team& team, const double t_6ms)
+{
+    double first_time = team.result_of_category(first_aut_time);
+    double second_time = team.result_of_category(second_aut_time);
+
+    // DNFs in both runs result in not scoring base points
+    // hence best time set to 0 as demonstration of DNF of whole event
+    if (first_time == 0 && second_time == 0) {
+        return 0;
+    }
+
+    // if DNF/DQ or time exceeded time for driving the lap with 6m/s,
+    // the time for the run is set to time for driving the lap with 6m/s
+    if (first_time == 0 || first_time>t_6ms) {first_time = t_6ms;}
+    if (second_time == 0 || second_time>t_6ms) {second_time = t_6ms;}
+
+    double avg_time = (first_time + second_time) / 2;
+    return std::min(first_time, avg_time);
 }

@@ -81,7 +81,7 @@ void Competition::simulate_efficiency()
 void Competition::simulate_m_skidpad()
 {
     // no categories because proprietary preprocessing determines categories
-    std::map<std::string, double> event_data = preprocessing_skidpad(false);
+    std::map<std::string, double> event_data = preprocessing_skidpad();
     for (auto& team: m_teams) {
         m_events_and_teams_points[skidpad][team.name()] = m_skidpad_points(event_data, team.name());
     }
@@ -91,7 +91,7 @@ void Competition::simulate_m_skidpad()
 void Competition::simulate_dc_skidpad()
 {
     // no categories because proprietary preprocessing determines categories
-    std::map<std::string, double> event_data = preprocessing_skidpad(false);
+    std::map<std::string, double> event_data = preprocessing_skidpad();
     for (auto& team: m_teams) {
         m_events_and_teams_points[skidpad_DC][team.name()] = dc_skidpad_points(event_data, team.name());
     }
@@ -101,10 +101,8 @@ void Competition::simulate_dc_skidpad()
 void Competition::simulate_dv_skidpad()
 {
     // no categories because proprietary preprocessing determines categories
-    std::map<std::string, double> event_data = preprocessing_skidpad(true);
+    std::map<std::string, double> event_data = preprocessing_skidpad_ranks_based();
     for (auto& team: m_teams) {
         m_events_and_teams_points[skidpad_DV][team.name()] = dv_skidpad_points(event_data, team.name());
     }
 }
-
-

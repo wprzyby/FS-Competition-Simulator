@@ -33,6 +33,7 @@ class Competition
       std::map<EventType, std::vector<std::pair<std::string, double>>> m_events_and_classifications;
       std::map<std::string, double> m_teams_and_comp_points;
       std::vector< std::pair<std::string, double> > m_comp_classification;
+      double m_t_6ms;
 
     public:
       Competition() {};
@@ -52,7 +53,10 @@ class Competition
       std::map<std::string, double> preprocessing_ranks_based(std::vector<EventCategory> categories);
       std::map<std::string, double> preprocessing_dc_autocross();
       std::map<std::string, double> preprocessing_efficiency();
-      std::map<std::string, double> preprocessing_skidpad(bool is_ranks_based);
+      std::map<std::string, double> preprocessing_skidpad();
+      std::map<std::string, double> preprocessing_skidpad_ranks_based();
+      std::map<std::string, double> preprocessing_static_finals(std::vector<EventCategory> categories, EventCategory finals_category);
+      std::map<std::string, double> preprocessing_static_no_finals(std::vector<EventCategory> categories);
 
       void simulate_m_acceleration();
       void simulate_dv_acceleration();
