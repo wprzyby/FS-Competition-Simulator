@@ -1,5 +1,7 @@
 #include "exceptions.h"
+#include "constants.h"
 #include "enums.h"
+#include "enum_string_maps.h"
 #include <stdexcept>
 
 
@@ -8,7 +10,7 @@ EmptyNameError::EmptyNameError(std::string name_of_attribute):
 
 
 NoSuchCategoryInTheEventError::NoSuchCategoryInTheEventError(const EventCategory category):
-    std::invalid_argument("Among categories in the Event, there is no such categoty as: " + static_cast<std::string>(events_str[category])) {}
+    std::invalid_argument("Among categories in the Event, there is no such categoty as: " + EVENT_CATEGORY_TO_STRING.at(category)) {}
 
 
 UnmatchedNumberOfFinalistsError::UnmatchedNumberOfFinalistsError():
