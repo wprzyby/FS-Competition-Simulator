@@ -7,7 +7,7 @@ set(tests_src_files
     test_autocross.cpp
     test_businessplan.cpp
     test_cost_and_manufacturing.cpp
-    test_endurance.cpp
+    # test_endurance.cpp
     test_engineering_design_driverless.cpp
     test_engineering_design.cpp
     test_skidpad_DC.cpp

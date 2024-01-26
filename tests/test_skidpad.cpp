@@ -49,10 +49,10 @@ TEST_CASE("SkidpadEvent tests.", "[Non - driverless]")
 
     // Creating map of correct results
     std::map<std::string, double> correct_results;
-    correct_results.insert({"A", 9.6});
+    correct_results.insert({"A", 9.61});
     correct_results.insert({"B", 50.0});
-    correct_results.insert({"C", 3.5});
-    correct_results.insert({"D", 14.4});
+    correct_results.insert({"C", 2.5});
+    correct_results.insert({"D", 22.63});
     //
 
     SECTION("Testing: setting results and calculating points")

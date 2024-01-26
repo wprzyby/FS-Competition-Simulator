@@ -1,6 +1,6 @@
 #include "PointsCalculatorFSG.h"
 
-double PointsCalculatorFSG::get_points(EventType event_type, EventData event_data, std::string team_name) {
+double PointsCalculatorFSG::get_points(EventType event_type, const EventData& event_data, std::string team_name) {
     double points;
     switch (event_type) {
         case acceleration:

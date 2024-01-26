@@ -24,3 +24,10 @@ void Team::set_category_result(EventCategory category, double result_to_set) {
 double Team::result_of_category(EventCategory category) const {
     return m_results.at(category);
 }
+
+bool Team::is_category_result_set(EventCategory category) const {
+    if (this->m_results.count(category)) {
+        return true;
+    }
+    return false;
+}

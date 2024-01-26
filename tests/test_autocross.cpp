@@ -50,7 +50,7 @@ TEST_CASE("Autocross Event functionality")
     std::map<std::string, double> correct_results;
 
     correct_results.insert({"A", 100});
-    correct_results.insert({"B", 47.2});
+    correct_results.insert({"B", 47.22});
     correct_results.insert({"C", 5.0});
     correct_results.insert({"D", 0});
     correct_results.insert({"E", 0});

@@ -68,7 +68,7 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
     correct_results_finals.insert({"A", 100.0});
     correct_results_finals.insert({"B", 97.0});
     correct_results_finals.insert({"C", 95.0});
-    correct_results_finals.insert({"D", 92.6});
+    correct_results_finals.insert({"D", 92.63});
 
     SECTION("Testing: setting results and calculating points")
     {

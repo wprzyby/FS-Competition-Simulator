@@ -25,15 +25,19 @@ EventData EventSimulatorStandard::preprocessing_ranks_based(const Teams& teams, 
     EventData event_data;
     std::vector<std::pair<std::string, double>> teams_and_best_times = {};
     for (auto& team: teams) {
-        double best_time = find_best_time_for_team(team.name(), categories);
+        double best_time = find_best_time_for_team(team, categories);
         teams_and_best_times.push_back({team.name(), best_time});
     }
     sort_teams_and_best_times(teams_and_best_times);
     int current_place = 0;
     for (auto& [team_name, best_time]: teams_and_best_times) {
-        if (best_time == 0) break;
-        ++current_place;
-        event_data[team_name] = current_place;
+        if (best_time != 0) {
+            ++current_place;
+            event_data[team_name] = current_place;
+        } else {
+            event_data[team_name] = 0;
+        }
+
     }
     event_data["non_zero_times"] = current_place;
     return event_data;
@@ -110,7 +114,7 @@ EventData EventSimulatorStandard::preprocessing_skidpad_ranks_based(const Teams&
     EventData event_data;
     std::vector<std::pair<std::string, double>> teams_and_best_times = {};
     for (auto& team: teams) {
-        double best_time = find_best_time_for_team_skidpad(team.name());
+        double best_time = find_best_time_for_team_skidpad(team);
         teams_and_best_times.push_back({team.name(), best_time});
     }
     sort_teams_and_best_times(teams_and_best_times);

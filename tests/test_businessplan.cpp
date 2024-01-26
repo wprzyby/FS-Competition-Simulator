@@ -16,6 +16,7 @@ TEST_CASE("BusinessPlanEvent tests.")
 {
     Team team_a("A"), team_b("B"), team_c("C");
 
+    // 89
     team_a.set_category_result(pitch_video, 9);
     team_a.set_category_result(novelty, 8);
     team_a.set_category_result(content, 17);
@@ -26,6 +27,7 @@ TEST_CASE("BusinessPlanEvent tests.")
     team_a.set_category_result(questions, 10);
     team_a.set_category_result(general_impression, 5);
 
+    // 90
     team_b.set_category_result(pitch_video, 8);
     team_b.set_category_result(novelty, 9);
     team_b.set_category_result(content, 19);
@@ -36,6 +38,7 @@ TEST_CASE("BusinessPlanEvent tests.")
     team_b.set_category_result(questions, 8);
     team_b.set_category_result(general_impression, 4);
 
+    // 62
     team_c.set_category_result(pitch_video, 4);
     team_c.set_category_result(novelty, 3);
     team_c.set_category_result(content, 12);
@@ -55,9 +58,9 @@ TEST_CASE("BusinessPlanEvent tests.")
 
     // Creating map of correct results
     std::map<std::string, double> correct_results;
-    correct_results.insert({"A", 69.2});
+    correct_results.insert({"A", 69.22});
     correct_results.insert({"B", 70.0});
-    correct_results.insert({"C", 48.2});
+    correct_results.insert({"C", 48.22});
     //
 
     team_b.set_category_result(businessplan_finals_score, 72);
@@ -69,7 +72,7 @@ TEST_CASE("BusinessPlanEvent tests.")
     std::map<std::string, double> correct_results_finals;
     correct_results_finals.insert({"A", 70.0});
     correct_results_finals.insert({"B", 72.0});
-    correct_results_finals.insert({"C", 48.8});
+    correct_results_finals.insert({"C", 48.76});
     //
 
     SECTION("Testing: setting results and calculating points")

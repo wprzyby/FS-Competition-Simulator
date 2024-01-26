@@ -44,7 +44,7 @@ TEST_CASE("SkidpadEvent tests DV.", "[Driverless DV]")
     team_e.set_category_result(second_skid_left_time, 30000);
     team_e.set_category_result(second_skid_right_time, 30000);
 
-    std::vector<Team> teams{team_a, team_b, team_c, team_d};
+    std::vector<Team> teams{team_a, team_b, team_c, team_d, team_e};
 
     // Creating and simulating the Event
     EventSimulatorPtr event_simulator = create_event_simulator(FSG);
@@ -55,8 +55,8 @@ TEST_CASE("SkidpadEvent tests DV.", "[Driverless DV]")
     std::map<std::string, double> correct_results;
     correct_results.insert({"A", 37.5});
     correct_results.insert({"B", 75});
-    correct_results.insert({"C", 18.8});
-    correct_results.insert({"D", 56.3});
+    correct_results.insert({"C", 18.75});
+    correct_results.insert({"D", 56.25});
     correct_results.insert({"E", 0});
     //
 

@@ -42,10 +42,10 @@ TEST_CASE("AccelerationEvent DV tests.", "[Driverless]")
     // Creating map of correct results
     std::map<std::string, double> correct_results;
     correct_results.insert({"A", 75});
-    correct_results.insert({"B", 50});
-    correct_results.insert({"C", 25});
+    correct_results.insert({"B", 56.25});
+    correct_results.insert({"C", 18.75});
     correct_results.insert({"D", 0});
-    correct_results.insert({"E", 0});
+    correct_results.insert({"E", 37.5});
     //
 
     SECTION("Testing: setting results and calculating points")

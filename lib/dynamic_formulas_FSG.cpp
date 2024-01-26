@@ -1,5 +1,6 @@
 #include "PointsCalculatorFSG.h"
 #include <cmath>
+#include <map>
 
 
 double PointsCalculatorFSG::m_acceleration_points(const EventData& event_data, std::string team_name)
@@ -47,7 +48,7 @@ double PointsCalculatorFSG::m_autocross_points(const EventData& event_data, std:
 
     double p_max = 100;
     double base_points = p_max * 0.05;
-    double t_max = best_time_overall * 1.5;
+    double t_max = best_time_overall * 1.25;
     if (t_team == 0) return 0.0;    // time=0 means DNF/DQ
     if (t_team > t_max) return base_points;
     return base_points + p_max * 0.95 * ((t_max / t_team) - 1) / 0.25;
@@ -64,7 +65,7 @@ double PointsCalculatorFSG::dc_autocross_points(const EventData& event_data, std
     double base_points = p_max * 0.10;
     if (t_team_total == 0) return 0.0;    // time=0 means DNF/DQ
     if (t_team_total > t_max) return base_points;
-    return base_points + 0.9 * p_max * (t_max - t_team_total) / (t_max / t_min);
+    return base_points + 0.9 * p_max * (t_max - t_team_total) / (t_max - t_min);
 }
 
 

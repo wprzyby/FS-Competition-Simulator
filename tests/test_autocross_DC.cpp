@@ -41,12 +41,12 @@ TEST_CASE("Autocross DC Event functionality")
     std::map<std::string, double> correct_results;
 
     correct_results.insert({"A", 100});
-    correct_results.insert({"B", 51.3});
+    correct_results.insert({"B", 51.25});
     correct_results.insert({"C", 47.5});
     correct_results.insert({"D", 10});
     correct_results.insert({"E", 0});
 
-    std::vector<Team> teams{team_a, team_b, team_c, team_d};
+    std::vector<Team> teams{team_a, team_b, team_c, team_d, team_e};
 
     // Creating and simulating the Event
     EventSimulatorPtr event_simulator = create_event_simulator(FSG);

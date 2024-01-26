@@ -22,6 +22,7 @@ class Team
     // setters:
     void set_name(std::string name);
     void set_category_result(EventCategory category, double result_to_set);
+    bool is_category_result_set(EventCategory category) const;
 
 };
 
