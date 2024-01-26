@@ -1,8 +1,5 @@
 #pragma once
 
-#include <compsim_classes/event_base.h>
-#include <compsim_classes/Competition.h>
-#include <compsim_enums/enums.h>
 #include <memory>
 #include <vector>
 #include "TeamListItem.h"

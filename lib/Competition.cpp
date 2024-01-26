@@ -27,7 +27,7 @@ void Competition::set_events(std::vector<EventType> &events)
 }
 
 
-void Competition::set_teams(std::vector<Team> &teams)
+void Competition::set_teams(std::vector<Team> teams)
 {
     m_teams = teams;
 }

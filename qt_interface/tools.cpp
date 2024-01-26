@@ -1,6 +1,4 @@
 #include "tools.h"
-#include "compsim_enums/enums.h"
-#include "events/constants.h"
 #include "qt_interface/constants.h"
 
 std::vector<EventCategory> get_event_queries(EventType event_type) {
@@ -25,4 +23,12 @@ std::vector<EventCategory> get_event_queries(EventType event_type) {
     }
 
     return CATEGORY_LISTS.at(event_type);
+}
+
+std::vector<Team> get_teams_from_items(std::list<TeamListItem *> team_list_items) {
+    std::vector<Team> teams;
+    for (auto& team_item: team_list_items) {
+        teams.push_back(team_item->team);
+    }
+    return teams
 }

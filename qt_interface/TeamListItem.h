@@ -3,7 +3,8 @@
 #include <QObject>
 #include <QWidget>
 #include <QListWidgetItem>
-#include <compsim_classes/Team.h>
+
+#include <Team.h>
 
 
 class TeamListItem
@@ -11,5 +12,5 @@ class TeamListItem
 {
 public:
     Team team;
-    TeamListItem(QString name, QString university="", QString number=0, QListWidget *parent = nullptr);
+    TeamListItem(QString name, QListWidget *parent = nullptr);
 };

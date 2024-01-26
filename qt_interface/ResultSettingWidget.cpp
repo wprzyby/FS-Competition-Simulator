@@ -1,7 +1,5 @@
 #include "ResultSettingWidget.h"
 #include "ResultLineEditsWidget.h"
-#include <compsim_classes/constants.h>
-#include <compsim_enums/enums.h>
 #include <QGridLayout>
 #include <QBoxLayout>
 #include <QLineEdit>
@@ -12,7 +10,6 @@
 #include <QLineEdit>
 #include <QSpacerItem>
 #include <QWidget>
-#include "qt_interface/constants.h"
 #include "tools.h"
 
 

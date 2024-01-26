@@ -1,7 +1,4 @@
 #include "CompetitionManager.h"
-#include "compsim_enums/enums.h"
-#include <compsim_classes/event_base.h>
-#include <events/events.h>
 #include <memory>
 
 

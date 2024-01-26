@@ -2,7 +2,6 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <compsim_enums/enums.h>
 
 const constexpr unsigned int MainMenuIndexNumber            = 0;
 const constexpr unsigned int SetupScreenIndexNumber         = 1;

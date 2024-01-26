@@ -8,9 +8,7 @@
 #include <QGridLayout>
 #include <vector>
 
-#include <compsim_enums/enums.h>
 #include "TeamListItem.h"
-#include <laptime_parser/LapTimeParser.h>
 #include "constants.h"
 #include "ResultLineEditsWidget.h"
 

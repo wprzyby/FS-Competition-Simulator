@@ -1,7 +1,6 @@
 #pragma once
 
 #include <QWidget>
-#include <compsim_classes/event_base.h>
 
 class ScoresShowingWidget: public QWidget {
 
@@ -9,7 +8,7 @@ class ScoresShowingWidget: public QWidget {
     public:
         ScoresShowingWidget(QWidget* parent): QWidget(parent) {}
 
-        void setScores(std::vector< std::pair<Team, double>> classification_to_show);
+        void setScores(std::vector< std::pair<std::string, double>> classification_to_show);
 
     private:
         void removeLayout();

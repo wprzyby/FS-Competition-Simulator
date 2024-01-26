@@ -3,9 +3,8 @@
 #include <QMainWindow>
 #include <QListWidgetItem>
 #include <list>
-#include "CompetitionManager.h"
-
-#include <compsim_classes/Team.h>
+#include <Team.h>
+#include <Competition.h>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -40,7 +39,7 @@ private slots:
 private:
     Ui::MainWindow *ui;
     std::list<TeamListItem*> m_teams;
-    CompetitionManager competition_manager;
+    Competition competition;
     int m_result_setting_current_index=0;
     int m_result_showing_current_index=0;
     ResultShowingMode m_result_showing_mode=ResultShowingMode::Events;

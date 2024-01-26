@@ -1,16 +1,14 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "TeamListItem.h"
-#include "compsim_classes/Competition.h"
-#include "compsim_classes/constants.h"
 #include "constants.h"
 #include <QDebug>
 #include <qdebug.h>
-#include <compsim_enums/enums.h>
-#include <events/constants.h>
 #include <vector>
 #include "qt_interface/ResultSettingWidget.h"
 #include "tools.h"
+#include <enum_string_maps.h>
+#include <simulator_factory.h>
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -34,6 +32,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButtonChangeResults, SIGNAL(clicked()), this, SLOT(returnToResultSetting()));
     connect(ui->pushButtonShowCompetitionScores, SIGNAL(clicked()), this, SLOT(changeResultShowingMode()));
     connect(ui->pushButtonAddTeam, SIGNAL(clicked()), this, SLOT(updateFinalsSpinBoxes()));
+    this->competition.set_event_simulator(create_event_simulator(FSG));
 }
 
 MainWindow::~MainWindow() {
@@ -53,9 +52,7 @@ void MainWindow::backToMainMenu() {
 void MainWindow::on_pushButtonAddTeam_clicked()
 {
     QString name = ui->lineEditTeamName->text();
-    QString uni = ui->lineEditTeamUni->text();
-    QString number = ui->lineEditTeamNumber->text();
-    TeamListItem *team_to_add = new TeamListItem(name, uni, number);
+    TeamListItem *team_to_add = new TeamListItem(name);
     m_teams.push_back(team_to_add);
     ui->listWidgetTeams->addItem(m_teams.back());
     ui->lineEditTeamName->clear();
@@ -91,11 +88,9 @@ void MainWindow::finishSetup() {
         unsigned int autocross_6mps_time = ui->lineEditAutocrossTime6mps->text().toUInt();
 
     // passing choices to competition manager
-    competition_manager.set_event_types(event_types);
-    competition_manager.set_endurance_efficiency(ui->checkBoxEnduranceEfficiency->isChecked());
-    competition_manager.set_number_of_finalists(businessplan, number_of_finalists_businessplan);
-    competition_manager.set_number_of_finalists(cost_and_manufacturing, number_of_finalists_cost_and_manufacturing);
-    competition_manager.set_autocross_6mps_time(autocross_6mps_time);
+    competition.set_events(event_types);
+    // competition_manager.set_endurance_efficiency(ui->checkBoxEnduranceEfficiency->isChecked());
+    competition.set_event_constants({{"dc_autocross_t_6ms", autocross_6mps_time}});
 
 
     // going to next screen
@@ -121,11 +116,11 @@ void MainWindow::returnToSetup() {
 
 void MainWindow::resultSettingChangeScreen(int event_index) {
     // setting ResultSettingWidget's screen to an event corresponding to the index
-    EventType current_event_type = competition_manager.event_type_at(event_index);
+    EventType current_event_type = competition.event_at(event_index);
     ui->widgetResultSetting->setCurrentIndex(event_index);
     ui->labelEventToSetResults->setText(QString::fromStdString(EVENT_TYPE_TO_STRING.at(current_event_type)));
 
-    bool isAtFinalEvent = competition_manager.event_types().size() - 1 == m_result_setting_current_index;
+    bool isAtFinalEvent = competition.events().size() - 1 == m_result_setting_current_index;
     bool isAtFirstEvent = m_result_setting_current_index == 0;
     ui->pushButtonResultSettingNext->setEnabled(!isAtFinalEvent);
     ui->pushButtonResultSettingPrevious->setEnabled(!isAtFirstEvent);
@@ -148,8 +143,8 @@ void MainWindow::resultSettingPreviousEvent() {
 void MainWindow::resultSettingFinish() {
     ui->widgetResultSetting->saveInput();
     ui->baseStack->setCurrentIndex(EventScoresScreenIndexNumber);
-    competition_manager.setup_competition(m_teams);
-    competition_manager.competition.create_classification();
+    competition.set_teams(get_teams_from_items(m_teams));
+    competition.create_classification();
     this->resultShowingUpdateMode();
 }
 
@@ -166,19 +161,19 @@ void MainWindow::resultShowingPreviousEvent() {
 
 
 void MainWindow::resultShowingChangeScreen(int event_index) {
-    EventType event_type_to_show = competition_manager.event_type_at(event_index);
-    std::vector< std::pair<Team, double>> classification_to_show = competition_manager.competition.get_events_classifications().at(event_type_to_show);
+    EventType event_type_to_show = competition.event_at(event_index);
+    std::vector< std::pair<std::string, double>> classification_to_show = competition.get_events_classifications().at(event_type_to_show);
     ui->widgetScoresShowing->setScores(classification_to_show);
     ui->labelEventShowingScores->setText(QString::fromStdString(EVENT_TYPE_TO_STRING.at(event_type_to_show)));
 
-    bool isAtFinalEvent = competition_manager.event_types().size() - 1 == m_result_showing_current_index;
+    bool isAtFinalEvent = competition.events().size() - 1 == m_result_showing_current_index;
     bool isAtFirstEvent = m_result_showing_current_index == 0;
     ui->pushButtonEventScoresNext->setEnabled(!isAtFinalEvent);
     ui->pushButtonEventScoresPrevious->setEnabled(!isAtFirstEvent);
 }
 
 void MainWindow::resultShowingShowCompetition() {
-    std::vector< std::pair<Team, double>> classification_to_show = competition_manager.competition.get_final_classification();
+    std::vector< std::pair<std::string, double>> classification_to_show = competition.get_final_classification();
     ui->widgetScoresShowing->setScores(classification_to_show);
     ui->labelEventShowingScores->setText("Whole Competition Final Classification");
     this->ui->pushButtonEventScoresNext->setEnabled(false);

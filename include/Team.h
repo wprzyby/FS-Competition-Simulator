@@ -13,7 +13,7 @@ class Team
 
     public:
     // constructor:
-    Team(const std::string name);
+    Team(const std::string name="");
 
     // getters:
     std::string name() const {return m_name;}

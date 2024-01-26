@@ -1,14 +1,13 @@
 #include "ResultLineEditsWidget.h"
 #include "TeamListItem.h"
-#include "compsim_classes/Event.h"
-#include "compsim_classes/constants.h"
-#include "compsim_enums/enums.h"
 #include "constants.h"
 #include <QBoxLayout>
 #include <QLabel>
 #include <QLineEdit>
 #include <qboxlayout.h>
 #include <qgridlayout.h>
+#include <enum_string_maps.h>
+#include <LapTimeParser.h>
 
 ResultLineEditsWidget::ResultLineEditsWidget(TeamListItem * team_item, EventCategory category,
                                              QWidget *parent): QWidget(parent) {

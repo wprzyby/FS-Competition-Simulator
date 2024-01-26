@@ -1,10 +1,9 @@
 #pragma once
 
-#include <compsim_classes/event_base.h>
-#include <laptime_parser/LapTimeParser.h>
 #include "TeamListItem.h"
 
 #include <QWidget>
+#include <LapTimeParser.h>
 
 
 class ResultLineEditsWidget: public QWidget {

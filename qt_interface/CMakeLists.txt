@@ -4,7 +4,6 @@ set(GUI_MAIN_SRCS
     mainwindow.ui
     main_gui.cpp
     TeamListItem.cpp
-    CompetitionManager.cpp
     ResultSettingWidget.cpp
     ResultLineEditsWidget.cpp
     ScoresShowingWidget.cpp
@@ -36,7 +35,7 @@ endif()
 add_dependencies(main_gui ${EXEC_NAME})
 
 target_include_directories(${EXEC_NAME} PRIVATE ${PROJECT_SOURCE_DIR})
-target_link_libraries(${EXEC_NAME} PRIVATE events laptime_parser Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core)
+target_link_libraries(${EXEC_NAME} PRIVATE compsim_logic Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::Core)
 
 install(TARGETS ${EXEC_NAME}
     BUNDLE DESTINATION .
