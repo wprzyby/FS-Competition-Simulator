@@ -1,18 +1,20 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <string>
 
 #include "catch.hpp"
-#include <compsim_classes/Team.h>
-#include <compsim_classes/exceptions.h>
-#include <compsim_enums/enums.h>
+#include <Team.h>
+#include <exceptions.h>
+#include <enums.h>
 
-#include <events/BusinessPlanEvent.h>
+#include <EventSimulatorInterface.h>
+#include <simulator_factory.h>
+
 
 
 TEST_CASE("BusinessPlanEvent tests.")
 {
-    Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 2), team_c("C", "UniveroC", 3);
+    Team team_a("A"), team_b("B"), team_c("C");
 
     team_a.set_category_result(pitch_video, 9);
     team_a.set_category_result(novelty, 8);
@@ -47,63 +49,43 @@ TEST_CASE("BusinessPlanEvent tests.")
     std::vector<Team> teams{team_a, team_b, team_c};
 
     // Creating and simulating the Event
-    BusinessPlanEvent bus_event(teams);
-    bus_event.simulate();
-    std::map<Team, double> bus_results = bus_event.get_teams_and_points();
+    EventSimulatorPtr event_simulator = create_event_simulator(FSG);
+    EventResults results = event_simulator->simulate_event(businessplan, teams);
     //
 
     // Creating map of correct results
-    std::map<Team, double> bus_correct_results;
-    bus_correct_results.insert({team_a, 69.2});
-    bus_correct_results.insert({team_b, 70.0});
-    bus_correct_results.insert({team_c, 48.2});
+    std::map<std::string, double> correct_results;
+    correct_results.insert({"A", 69.2});
+    correct_results.insert({"B", 70.0});
+    correct_results.insert({"C", 48.2});
     //
 
-    BusinessPlanEvent bus_event_finals(teams, 1, {{team_b, 72.0}});
-    bus_event_finals.simulate();
-    std::map<Team, double> bus_results_finals = bus_event_finals.get_teams_and_points();
+    team_b.set_category_result(businessplan_finals_score, 72);
+    teams = {team_a, team_b, team_c};
+    std::map<std::string, double> results_finals = event_simulator->simulate_event(businessplan, teams);
     //
 
     // Creating map of correct results
-    std::map<Team, double> bus_correct_results_finals;
-    bus_correct_results_finals.insert({team_a, 70.0});
-    bus_correct_results_finals.insert({team_b, 72.0});
-    bus_correct_results_finals.insert({team_c, 48.8});
+    std::map<std::string, double> correct_results_finals;
+    correct_results_finals.insert({"A", 70.0});
+    correct_results_finals.insert({"B", 72.0});
+    correct_results_finals.insert({"C", 48.8});
     //
 
     SECTION("Testing: setting results and calculating points")
     {
-        CHECK(bus_results.at(team_a) == bus_correct_results.at(team_a));
-        CHECK(bus_results.at(team_b) == bus_correct_results.at(team_b));
-        CHECK(bus_results.at(team_c) == bus_correct_results.at(team_c));
-    }
-
-
-    SECTION("Testing: making event classification")
-    {
-        std::vector<std::pair<Team, double>> points_vector = bus_event.get_classification();
-
-        // Checking whether points are truely sorted:
-        CHECK(points_vector.at(0).second >= points_vector.at(1).second);
-        CHECK(points_vector.at(1).second >= points_vector.at(2).second);
-        //
+        CHECK(results.at("A") == correct_results.at("A"));
+        CHECK(results.at("B") == correct_results.at("B"));
+        CHECK(results.at("C") == correct_results.at("C"));
     }
 
 
     SECTION("Testing: setting results and calculating points - finalists")
     {
-        CHECK(bus_results_finals.at(team_a) == bus_correct_results_finals.at(team_a));
-        CHECK(bus_results_finals.at(team_b) == bus_correct_results_finals.at(team_b));
-        CHECK(bus_results_finals.at(team_c) == bus_correct_results_finals.at(team_c));
+        CHECK(results_finals.at("A") == correct_results_finals.at("A"));
+        CHECK(results_finals.at("B") == correct_results_finals.at("B"));
+        CHECK(results_finals.at("C") == correct_results_finals.at("C"));
     }
 
-    SECTION("Testing: making event classification - finalists")
-    {
-        std::vector<std::pair<Team, double>> points_vector_finals = bus_event_finals.get_classification();
 
-        // Checking whether points are truely sorted:
-        CHECK(points_vector_finals.at(0).second >= points_vector_finals.at(1).second);
-        CHECK(points_vector_finals.at(1).second >= points_vector_finals.at(2).second);
-        //
-    }
 }

@@ -1,23 +1,20 @@
-#include "catch.hpp"
-#include <compsim_classes/Team.h>
-#include <compsim_classes/exceptions.h>
-#include <compsim_enums/enums.h>
-
-#include <events/AutocrossEvent.h>
-
-#include <map>
+#include <iostream>
 #include <vector>
+#include <string>
+
+#include "catch.hpp"
+#include <Team.h>
+#include <exceptions.h>
+#include <enums.h>
+
+#include <EventSimulatorInterface.h>
+#include <simulator_factory.h>
+
 
 
 TEST_CASE("Autocross DC Event functionality")
 {
-    DCAutocrossEvent event(200000);
-
-    Team team_a("a", "univA", 1);
-    Team team_b("b", "univB", 3);
-    Team team_c("c", "univC", 2);
-    Team team_d("d", "univD", 4);
-    Team team_e("e", "univE", 5);
+    Team team_a("A"), team_b("B"), team_c("C"), team_d("D"), team_e("E");
 
 
     // fastest
@@ -41,34 +38,27 @@ TEST_CASE("Autocross DC Event functionality")
     team_e.set_category_result(second_aut_time, 0);
 
 
-    std::map<Team, double> correct_results;
+    std::map<std::string, double> correct_results;
 
-    correct_results.insert({team_a, 100});
-    correct_results.insert({team_b, 51.3});
-    correct_results.insert({team_c, 47.5});
-    correct_results.insert({team_d, 10});
-    correct_results.insert({team_e, 0});
+    correct_results.insert({"A", 100});
+    correct_results.insert({"B", 51.3});
+    correct_results.insert({"C", 47.5});
+    correct_results.insert({"D", 10});
+    correct_results.insert({"E", 0});
+
+    std::vector<Team> teams{team_a, team_b, team_c, team_d};
+
+    // Creating and simulating the Event
+    EventSimulatorPtr event_simulator = create_event_simulator(FSG);
+    event_simulator->set_event_constants({{"dc_autocross_t_6ms", 200000}});
+    EventResults results = event_simulator->simulate_event(autocross_DC, teams);
 
     SECTION("Results of DC simulation")
     {
-        std::vector<Team> teams = {team_a, team_b, team_c, team_d, team_e};
-        event.set_teams(teams);
-        event.simulate();
-        std::map<Team, double> classification = event.get_teams_and_points();
-
-        CHECK(correct_results.at(team_a) == classification.at(team_a));
-        CHECK(correct_results.at(team_b) == classification.at(team_b));
-        CHECK(correct_results.at(team_c) == classification.at(team_c));
-        CHECK(correct_results.at(team_d) == classification.at(team_d));
-        CHECK(correct_results.at(team_e) == classification.at(team_e));
-
-        std::vector<std::pair<Team, double>> points_vector = event.get_classification();
-
-        // Checking whether points are truly sorted:
-        CHECK(points_vector.at(0).second >= points_vector.at(1).second);
-        CHECK(points_vector.at(1).second >= points_vector.at(2).second);
-        CHECK(points_vector.at(2).second >= points_vector.at(3).second);
-        CHECK(points_vector.at(3).second >= points_vector.at(4).second);
-
+        CHECK(results.at("A") == correct_results.at("A"));
+        CHECK(results.at("B") == correct_results.at("B"));
+        CHECK(results.at("C") == correct_results.at("C"));
+        CHECK(results.at("D") == correct_results.at("D"));
+        CHECK(results.at("E") == correct_results.at("E"));
     }
 }
