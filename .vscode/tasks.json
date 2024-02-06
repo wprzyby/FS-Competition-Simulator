@@ -15,18 +15,18 @@
             "type": "shell",
             "linux": {"command": "cd build;make;./tests/run_tests;cd .."},
             "windows": {"command": "cd build;mingw32-make all;./tests/run_tests;cd .."},
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "group": "build",
             "args":[]
         },
         {
             "label": "Build GUI App main executable",
             "type": "shell",
-            "linux": {"command": "cd build;make main_gui;./qt_interface/compsim_gui;cd .."},
-            "windows": {"command": "cd build;mingw32-make main_gui;./qt_interface/compsim_gui;cd .."},
-            "group": "build",
+            "linux": {"command": "cd build;make main_gui;./src/compsim_gui;cd .."},
+            "windows": {"command": "cd build;mingw32-make main_gui;./src/compsim_gui;cd .."},
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "args": []
         }
     ]

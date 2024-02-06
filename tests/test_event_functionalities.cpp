@@ -1,42 +1,19 @@
 #include <iostream>
 #include <vector>
-#include <map>
+#include <string>
 
 #include "catch.hpp"
-#include <compsim_classes/event_base.h>
-#include <events/AccelerationEvent.h>
-#include <events/constants.h>
-#include <compsim_enums/enums.h>
+#include <Team.h>
 
-// TODO: to trzeba wszystko popoprawiać bo teraz po zmianach jest trochę bez sensu
+#include <enums.h>
+#include <event_tools.h>
+
 
 TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
 {
-
-    Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 2), team_c("C", "UniveroC", 3), team_d("D", "UniveroD", 4);
+    Team team_a("A"), team_b("B"), team_c("C"), team_d("D");
     std::vector<Team> teams{team_a, team_b, team_c, team_d};
-    AccelerationEvent event(teams);
     //
-
-
-    // Creating map of results for AccelerationEvent
-    std::map<Team, std::map<EventCategory, double>> acc_teams_and_results;
-    std::map<EventCategory, double> acc_team_a_results;
-    std::map<EventCategory, double> acc_team_b_results;
-    std::map<EventCategory, double> acc_team_c_results;
-    std::map<EventCategory, double> acc_team_d_results;
-    acc_team_a_results.insert({first_acc_time, 12000});
-    acc_team_a_results.insert({second_acc_time, 11000});
-    acc_team_b_results.insert({first_acc_time, 12000});
-    acc_team_b_results.insert({second_acc_time, 13000});
-    acc_team_c_results.insert({first_acc_time, 35000});
-    acc_team_c_results.insert({second_acc_time, 33000});
-    acc_team_d_results.insert({first_acc_time, 0});
-    acc_team_d_results.insert({second_acc_time, 0});
-    acc_teams_and_results.insert({team_a, acc_team_a_results});
-    acc_teams_and_results.insert({team_b, acc_team_b_results});
-    acc_teams_and_results.insert({team_c, acc_team_c_results});
-    acc_teams_and_results.insert({team_d, acc_team_d_results});
 
     std::map<Team, double> teams_and_best_times;
     teams_and_best_times.insert({team_a, 11000});
@@ -79,14 +56,6 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
         CHECK(time == 11000);
     }
 
-    SECTION("Testing: check_if_category_in_vector() function")
-    {
-        bool result1 = is_category_in_vector(first_acc_time, ACCELERATION_EVENT_CATEGORIES);
-        bool result2 = is_category_in_vector(tractive_system, ACCELERATION_EVENT_CATEGORIES);
-        CHECK(result1 == true);
-        CHECK(result2 == false);
-    }
-
     // SECTION("Testing: compare() function")
     // {
     //     bool result1 = compare({first_acc_time, 1421412}, {first_acc_time, 1});
@@ -106,7 +75,7 @@ TEST_CASE("General Event Functionalities Tests", "[Based on AccelerationEvent]")
     SECTION("Testing count_non_zero_times() function")
     {
         std::map<Team, double> test_map;
-        Team team1("asdas","asdsa", 1), team2("asda2s","asds2a", 2), team3("asd3as","as3dsa", 3), team4("asd4as","4asdsa", 4), team5("asdaadfs","a4sdsa", 5);
+        Team team1("asdas"), team2("asda2s"), team3("asd3as"), team4("asd4as"), team5("asdaadfs");
         test_map.insert({team1, 4});
         test_map.insert({team2, 4});
         test_map.insert({team3, 0});

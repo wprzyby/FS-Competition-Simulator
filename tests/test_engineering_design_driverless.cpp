@@ -1,29 +1,19 @@
-#include <map>
+#include <iostream>
 #include <vector>
+#include <string>
 
 #include "catch.hpp"
-#include <compsim_classes/Team.h>
-#include <compsim_classes/exceptions.h>
-#include <compsim_enums/enums.h>
+#include <Team.h>
+#include <exceptions.h>
+#include <enums.h>
 
-#include <events/EngineeringDesignEvent.h>
+#include <EventSimulatorInterface.h>
+#include <simulator_factory.h>
 
 
 TEST_CASE("Engineering Design Event DV functionality")
 {
-    DCEngineeringDesignEvent event;
-
-    Team team_a("a", "univA", 1);
-    Team team_b("b", "univB", 2);
-    Team team_c("c", "univC", 3);
-
-    Team duplicate_name_team("a", "univD", 4);
-    Team duplicate_univ_team("f", "univA", 5);
-    Team duplicate_numb_team("g", "univE", 1);
-    Team negative_points_team("d", "univF", 6);
-    Team points_over_maximum_team("e", "univG", 7);
-
-    std::map<Team, std::map<EventCategory, double>> results;
+    Team team_a("A"), team_b("B"), team_c("C");
 
     team_a.set_category_result(overall_vehicle_concept, 5);
     team_a.set_category_result(vehicle_performance, 20);
@@ -46,67 +36,24 @@ TEST_CASE("Engineering Design Event DV functionality")
     team_c.set_category_result(electronics, 0);
     team_c.set_category_result(autonomous_functionality, 0);
 
-    negative_points_team.set_category_result(overall_vehicle_concept, 0);
-    negative_points_team.set_category_result(vehicle_performance, -1);
-    negative_points_team.set_category_result(mechanical_structural_engineering, -5);
-    negative_points_team.set_category_result(tractive_system, 3);
-    negative_points_team.set_category_result(electronics, 2);
-    negative_points_team.set_category_result(autonomous_functionality, 1);
 
-    points_over_maximum_team.set_category_result(overall_vehicle_concept, 40);
-    points_over_maximum_team.set_category_result(vehicle_performance, 0);
-    points_over_maximum_team.set_category_result(mechanical_structural_engineering, 20);
-    points_over_maximum_team.set_category_result(tractive_system, 5);
-    points_over_maximum_team.set_category_result(electronics, 5);
-    points_over_maximum_team.set_category_result(autonomous_functionality, 1);
+    std::map<std::string, double> correct_results;
 
-    std::map<Team, double> correct_results;
+    correct_results.insert({"A", 51});
+    correct_results.insert({"B", 85});
+    correct_results.insert({"C", 0.0});
 
-    correct_results.insert({team_a, 51});
-    correct_results.insert({team_b, 85});
-    correct_results.insert({team_c, 0.0});
+    std::vector<Team> teams{team_a, team_b, team_c};
 
-    // SECTION("Setting duplicate teams")
-    // {
-    //     std::vector<Team> teams = {team_a, team_b, team_c, duplicate_name_team};  // FIXME
+    // Creating and simulating the Event
+    EventSimulatorPtr event_simulator = create_event_simulator(FSG);
+    EventResults results = event_simulator->simulate_event(engineering_design_DC, teams);
 
-    //     REQUIRE_THROWS(event.set_teams(teams));
-    //     teams = {team_a, team_b, team_c, duplicate_numb_team};
-    //     REQUIRE_THROWS(event.set_teams(teams));
-    //     teams = {team_a, team_b, team_c, duplicate_univ_team};
-    //     REQUIRE_THROWS(event.set_teams(teams));
-    // }
-
-    // TODO: ten sam problem co w innych, nie będzie działać
-    // SECTION("Wrong categories in results")
-    // {
-    //     Team team_x("x", "univX", 10);
-    //     std::map<EventsCategories, double> team_x_results;
-    //     team_x_results.insert({vehicle_performance, 100000});
-    //     team_x_results.insert({pitch_video, 5});
-    //     team_x_results.insert({first_acc_time, 100000});
-    //     results.insert({team_x, team_x_results});
-
-    //     REQUIRE_THROWS(event.set_results(results));
-    // }
 
     SECTION("Simulation - correct results")
     {
-        std::vector<Team> teams = {team_a, team_b, team_c};
-        event.set_teams(teams);
-        event.simulate();
-        std::map<Team, double> classification = event.get_teams_and_points();
-
-        CHECK(correct_results.at(team_a) == classification.at(team_a));
-        CHECK(correct_results.at(team_b) == classification.at(team_b));
-        CHECK(correct_results.at(team_c) == classification.at(team_c));
-
-        // checking if sorted correctly
-        std::vector<std::pair<Team, double>> points_vector = event.get_classification();
-
-        // Checking whether points are truly sorted:
-        CHECK(points_vector.at(0).second >= points_vector.at(1).second);
-        CHECK(points_vector.at(1).second >= points_vector.at(2).second);
-        //
+        CHECK(results.at("A") == correct_results.at("A"));
+        CHECK(results.at("B") == correct_results.at("B"));
+        CHECK(results.at("C") == correct_results.at("C"));
     }
 }

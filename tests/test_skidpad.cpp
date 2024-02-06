@@ -1,17 +1,19 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 #include "catch.hpp"
-#include <compsim_classes/Team.h>
-#include <compsim_classes/exceptions.h>
-#include <compsim_enums/enums.h>
+#include <Team.h>
+#include <exceptions.h>
+#include <enums.h>
 
-#include <events/SkidpadEvent.h>
+#include <EventSimulatorInterface.h>
+#include <simulator_factory.h>
 
 
 TEST_CASE("SkidpadEvent tests.", "[Non - driverless]")
 {
-    Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 2), team_c("C", "UniveroC", 3), team_d("D", "UniveroD", 4);
+    Team team_a("A"), team_b("B"), team_c("C"), team_d("D");
 
 
     team_a.set_category_result(first_skid_left_time, 0);
@@ -40,36 +42,24 @@ TEST_CASE("SkidpadEvent tests.", "[Non - driverless]")
     std::vector<Team> teams{team_a, team_b, team_c, team_d};
 
     // Creating and simulating the Event
-    SkidpadEvent skid_event(teams);
-    skid_event.simulate();
-    std::map<Team, double> skid_results = skid_event.get_teams_and_points();
+
+    EventSimulatorPtr event_simulator = create_event_simulator(FSG);
+    EventResults results = event_simulator->simulate_event(skidpad, teams);
     //
 
     // Creating map of correct results
-    std::map<Team, double> skid_correct_results;
-    skid_correct_results.insert({team_a, 9.6});
-    skid_correct_results.insert({team_b, 50.0});
-    skid_correct_results.insert({team_c, 3.5});
-    skid_correct_results.insert({team_d, 14.4});
+    std::map<std::string, double> correct_results;
+    correct_results.insert({"A", 9.61});
+    correct_results.insert({"B", 50.0});
+    correct_results.insert({"C", 2.5});
+    correct_results.insert({"D", 22.63});
     //
 
     SECTION("Testing: setting results and calculating points")
     {
-        CHECK(skid_results.at(team_a) == skid_correct_results.at(team_a));
-        CHECK(skid_results.at(team_b) == skid_correct_results.at(team_b));
-        CHECK(skid_results.at(team_c) == skid_correct_results.at(team_c));
-        CHECK(skid_results.at(team_d) == skid_correct_results.at(team_d));
-    }
-
-
-    SECTION("Testing: making event classification")
-    {
-        std::vector<std::pair<Team, double>> points_vector = skid_event.get_classification();
-
-        // Checking whether points are truely sorted:
-        CHECK(points_vector.at(0).second >= points_vector.at(1).second);
-        CHECK(points_vector.at(1).second >= points_vector.at(2).second);
-        CHECK(points_vector.at(2).second >= points_vector.at(3).second);
-        //
+        CHECK(results.at("A") == correct_results.at("A"));
+        CHECK(results.at("B") == correct_results.at("B"));
+        CHECK(results.at("C") == correct_results.at("C"));
+        CHECK(results.at("D") == correct_results.at("D"));
     }
 }

@@ -12,11 +12,6 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
 set(CMAKE_CXX_STANDARD 20)
 add_compile_options(-std=c++20 -Wall -Wextra -g)
 
-add_subdirectory(compsim_enums)
-add_subdirectory(compsim_classes)
-add_subdirectory(events)
-add_subdirectory(laptime_parser)
-add_subdirectory(interface)
+add_subdirectory(lib)
 add_subdirectory(tests)
-add_subdirectory(qt_interface)
-
+add_subdirectory(src)

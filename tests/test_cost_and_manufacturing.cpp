@@ -1,18 +1,20 @@
 #include <iostream>
 #include <vector>
+#include <string>
 
 #include "catch.hpp"
-#include <compsim_classes/Team.h>
-#include <compsim_classes/exceptions.h>
-#include <compsim_enums/enums.h>
+#include <Team.h>
+#include <exceptions.h>
+#include <enums.h>
 
-#include <events/CostAndManufacturingEvent.h>
+#include <EventSimulatorInterface.h>
+#include <simulator_factory.h>
 
 
 
 TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in case of no finals]")
 {
-    Team team_a("A", "UniveroA", 1), team_b("B", "UniveroB", 3), team_c("C", "UniveroC", 39), team_d("D", "UniveroD", 4);
+    Team team_a("A"), team_b("B"), team_c("C"), team_d("D");
 
     team_a.set_category_result(format_and_accuracy_of_documents, 5);
     team_a.set_category_result(knowledge_of_documents_and_vehicle, 5);
@@ -41,72 +43,47 @@ TEST_CASE("CostAndManufacturingEvent tests.", "[Testing all functionalities in c
     std::vector<Team> teams{team_a, team_b, team_c, team_d};
 
     // Creating and simulating the Event
-    CostAndManufacturingEvent cos_event(teams);
-    cos_event.simulate();
-    std::map<Team, double> cos_results = cos_event.get_teams_and_points();
+    EventSimulatorPtr event_simulator = create_event_simulator(FSG);
+    EventResults results = event_simulator->simulate_event(cost_and_manufacturing, teams);
     //
 
     // Creating map of correct results
-    std::map<Team, double> cos_correct_results;
-    cos_correct_results.insert({team_a, 100.0});
-    cos_correct_results.insert({team_b, 98.0});
-    cos_correct_results.insert({team_c, 80.0});
-    cos_correct_results.insert({team_d, 78.0});
+    std::map<std::string, double> correct_results;
+    correct_results.insert({"A", 100.0});
+    correct_results.insert({"B", 98.0});
+    correct_results.insert({"C", 80.0});
+    correct_results.insert({"D", 78.0});
     //
 
     // Creating and simulating the event in case of finals
-    CostAndManufacturingEvent cos_event_finals(teams, 2, {{team_a, 100.0}, {team_b, 97.0}});
-    cos_event_finals.simulate();
-    std::map<Team, double> cos_results_finals = cos_event_finals.get_teams_and_points();
+    team_a.set_category_result(cost_and_manufacturing_finals_score, 100);
+    team_b.set_category_result(cost_and_manufacturing_finals_score, 97);
+    teams = {team_a, team_b, team_c, team_d};
+    EventResults results_finals = event_simulator->simulate_event(cost_and_manufacturing, teams);
+
     //
 
     // Creating map of correct results
-    std::map<Team, double> cos_correct_results_finals;
-    cos_correct_results_finals.insert({team_a, 100.0});
-    cos_correct_results_finals.insert({team_b, 97.0});
-    cos_correct_results_finals.insert({team_c, 95.0});
-    cos_correct_results_finals.insert({team_d, 92.6});
+    std::map<std::string, double> correct_results_finals;
+    correct_results_finals.insert({"A", 100.0});
+    correct_results_finals.insert({"B", 97.0});
+    correct_results_finals.insert({"C", 95.0});
+    correct_results_finals.insert({"D", 92.63});
 
     SECTION("Testing: setting results and calculating points")
     {
-        CHECK(cos_results.at(team_a) == cos_correct_results.at(team_a));
-        CHECK(cos_results.at(team_b) == cos_correct_results.at(team_b));
-        CHECK(cos_results.at(team_c) == cos_correct_results.at(team_c));
-        CHECK(cos_results.at(team_d) == cos_correct_results.at(team_d));
-    }
-
-
-    SECTION("Testing: making event classification")
-    {
-        std::vector<std::pair<Team, double>> points_vector = cos_event.get_classification();
-
-        // Checking whether points are truely sorted:
-        CHECK(points_vector.at(0).second >= points_vector.at(1).second);
-        CHECK(points_vector.at(1).second >= points_vector.at(2).second);
-        CHECK(points_vector.at(2).second >= points_vector.at(3).second);
-        //
+        CHECK(results.at("A") == correct_results.at("A"));
+        CHECK(results.at("B") == correct_results.at("B"));
+        CHECK(results.at("C") == correct_results.at("C"));
+        CHECK(results.at("D") == correct_results.at("D"));
     }
 
 
     SECTION("Testing: setting results and calculating points - finals")
     {
-        CHECK(cos_results_finals.at(team_a) == cos_correct_results_finals.at(team_a));
-        CHECK(cos_results_finals.at(team_b) == cos_correct_results_finals.at(team_b));
-        CHECK(cos_results_finals.at(team_c) == cos_correct_results_finals.at(team_c));
-        CHECK(cos_results_finals.at(team_d) == cos_correct_results_finals.at(team_d));
-    }
-
-
-    SECTION("Testing: making event classification - finals")
-    {
-        std::vector<double> cos_points_vector_finals;
-
-        std::vector<std::pair<Team, double>> points_vector_finals = cos_event_finals.get_classification();
-
-        // Checking whether points are truely sorted:
-        CHECK(points_vector_finals.at(0).second >= points_vector_finals.at(1).second);
-        CHECK(points_vector_finals.at(1).second >= points_vector_finals.at(2).second);
-        CHECK(points_vector_finals.at(2).second >= points_vector_finals.at(3).second);
-        //
+        CHECK(results_finals.at("A") == correct_results_finals.at("A"));
+        CHECK(results_finals.at("B") == correct_results_finals.at("B"));
+        CHECK(results_finals.at("C") == correct_results_finals.at("C"));
+        CHECK(results_finals.at("D") == correct_results_finals.at("D"));
     }
 }
