@@ -72,4 +72,5 @@ enum CompetitionType {
     FSA,
     FSCH,
     FSE,
+    FSN,
 };

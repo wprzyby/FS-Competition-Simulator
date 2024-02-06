@@ -1,6 +1,7 @@
 set(compsim_sources
     Competition.cpp
     dynamic_formulas_FSG.cpp
+    dynamic_formulas_FSN.cpp
     dynamic_preprocessing.cpp
     dynamic_sims.cpp
     event_tools.cpp
