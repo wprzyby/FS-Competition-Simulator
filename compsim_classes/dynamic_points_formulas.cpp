@@ -1,1 +1,0 @@
-#include "dynamic_points_formulas.h"

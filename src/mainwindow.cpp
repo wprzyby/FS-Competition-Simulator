@@ -5,7 +5,7 @@
 #include <QDebug>
 #include <qdebug.h>
 #include <vector>
-#include "qt_interface/ResultSettingWidget.h"
+#include "ResultSettingWidget.h"
 #include "tools.h"
 #include <enum_string_maps.h>
 #include <simulator_factory.h>

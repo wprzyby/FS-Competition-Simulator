@@ -14,4 +14,4 @@ add_compile_options(-std=c++20 -Wall -Wextra -g)
 
 add_subdirectory(lib)
 add_subdirectory(tests)
-add_subdirectory(qt_interface)
+add_subdirectory(src)

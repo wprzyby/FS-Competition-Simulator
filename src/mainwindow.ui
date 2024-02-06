@@ -18,7 +18,7 @@
     <item row="0" column="0">
      <widget class="QStackedWidget" name="baseStack">
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page">
        <layout class="QGridLayout" name="gridLayout">
@@ -1021,13 +1021,13 @@
   <customwidget>
    <class>ResultSettingWidget</class>
    <extends>QWidget</extends>
-   <header location="global">qt_interface/ResultSettingWidget.h</header>
+   <header location="global">src/ResultSettingWidget.h</header>
    <container>1</container>
   </customwidget>
   <customwidget>
    <class>ScoresShowingWidget</class>
    <extends>QWidget</extends>
-   <header>qt_interface/ScoresShowingWidget.h</header>
+   <header>src/ScoresShowingWidget.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

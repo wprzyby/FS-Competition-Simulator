@@ -1,5 +1,5 @@
 #include "tools.h"
-#include "qt_interface/constants.h"
+#include "constants.h"
 
 
 std::vector<Team> get_teams_from_items(std::list<TeamListItem *> team_list_items) {
