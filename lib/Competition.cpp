@@ -35,6 +35,11 @@ void Competition::set_teams(std::vector<Team> teams)
 
 void Competition::simulate()
 {
+    auto is_team_better = [](std::pair<std::string, double> pair1, std::pair<std::string, double> pair2)
+    {
+        return pair1.second > pair2.second;
+    };
+
     m_events_and_teams_points.clear();
     m_events_and_classifications.clear();
 
@@ -42,7 +47,12 @@ void Competition::simulate()
     {
         EventResults results = event_simulator_->simulate_event(event, m_teams);
         m_events_and_teams_points[event] = results;
+        for (auto& team: m_teams) {
+            m_events_and_classifications[event].push_back({team.name(), m_events_and_teams_points[event][team.name()]});
+        }
+        std::sort(m_events_and_classifications[event].begin(), m_events_and_classifications[event].end(), is_team_better);
     }
+
 }
 
 

@@ -14,7 +14,7 @@ void ScoresShowingWidget::setScores(std::vector<std::pair<std::string, double>> 
         QString team_name_shown = QString::fromStdString(team_name);
 
         QLabel* team_name_label = new QLabel(team_index + team_name_shown);
-        QLabel* score_label = new QLabel(QString::number(score, 'f', 1));
+        QLabel* score_label = new QLabel(QString::number(score, 'f', 2));
         team_name_label->setFont(QFont("Sans Serif", 20));
         score_label->setFont(QFont("Sans Serif", 20));
 

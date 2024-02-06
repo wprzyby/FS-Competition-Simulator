@@ -27,4 +27,5 @@ class EventSimulatorInterface
       virtual EventResults simulate_event(EventType event_type, const Teams& teams)=0;
       void set_event_constants(std::map<std::string, double> events_constants) {events_constants_ = events_constants;}
       virtual EventCategories get_event_categories(EventType event_type)=0;
+      virtual std::map<EventType, EventCategories> get_all_events_categories()=0;
 };

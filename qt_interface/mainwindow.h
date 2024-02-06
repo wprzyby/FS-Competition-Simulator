@@ -21,7 +21,6 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_pushButtonChooseCompsim_clicked();
     void on_pushButtonAddTeam_clicked();
     void backToMainMenu();
     void finishSetup();
@@ -34,6 +33,8 @@ private slots:
     void returnToResultSetting();
     void changeResultShowingMode();
     void updateFinalsSpinBoxes();
+    void setupFSG();
+    void setupFSN();
 
 
 private:

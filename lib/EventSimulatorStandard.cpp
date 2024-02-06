@@ -39,6 +39,10 @@ EventCategories EventSimulatorStandard::get_event_categories(EventType event_typ
     return EventSimulatorStandard::std_events_categories.at(event_type);
 }
 
+std::map<EventType, EventCategories> EventSimulatorStandard::get_all_events_categories() {
+    return EventSimulatorStandard::std_events_categories;
+}
+
 EventResults EventSimulatorStandard::simulate_event(EventType event_type, const Teams& teams) {
     EventResults results;
     switch (event_type) {

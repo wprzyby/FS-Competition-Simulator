@@ -39,6 +39,7 @@ class EventSimulatorStandard: public EventSimulatorInterface
                             EventSimulatorInterface(points_calculator, events_constants) {}
       EventResults simulate_event(EventType event_type, const Teams& teams) override;
       EventCategories get_event_categories(EventType event_type) override;
+      std::map<EventType, EventCategories> get_all_events_categories() override;
 
     private:
       EventData preprocessing_standard(const Teams& teams, EventCategories categories);

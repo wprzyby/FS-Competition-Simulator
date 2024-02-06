@@ -88,7 +88,10 @@ QWidget* ResultSettingWidget::create_single_team_results_input(TeamListItem *tea
     label->setFont(QFont("Sans Serif", 20));
     layout->addWidget(label);
 
-    std::vector<EventCategory> queries = get_event_queries(event_type);
+    std::vector<EventCategory> queries = m_events_categories.at(event_type);
+    if (event_type == endurance) {
+        queries.erase(std::remove(queries.begin(), queries.end(), end_corrected_time), queries.end());
+    }
 
     // adds input lines for each set query
     for (EventCategory& query: queries) {

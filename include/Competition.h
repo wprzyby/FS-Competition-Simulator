@@ -40,6 +40,7 @@ class Competition
       void set_event_constants(std::map<std::string, double> events_constants) {event_simulator_->set_event_constants(events_constants);}
       EventType event_at(int index) {return m_events.at(index);}
       std::vector<EventType> events() {return m_events;}
+      std::map<EventType, EventCategories> get_all_events_categories() {return event_simulator_->get_all_events_categories();}
 
     private:
       void simulate();

@@ -11,7 +11,6 @@ Team::Team(const std::string name) {
 
 
 void Team::set_name(std::string name) {
-    if (name.empty()) throw EmptyNameError("team");
     m_name = name;
 }
 

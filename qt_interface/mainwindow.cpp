@@ -32,7 +32,8 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButtonChangeResults, SIGNAL(clicked()), this, SLOT(returnToResultSetting()));
     connect(ui->pushButtonShowCompetitionScores, SIGNAL(clicked()), this, SLOT(changeResultShowingMode()));
     connect(ui->pushButtonAddTeam, SIGNAL(clicked()), this, SLOT(updateFinalsSpinBoxes()));
-    this->competition.set_event_simulator(create_event_simulator(FSG));
+    connect(ui->pushButtonChooseFSG, SIGNAL(clicked()), this, SLOT(setupFSG()));
+    connect(ui->pushButtonChooseFSN, SIGNAL(clicked()), this, SLOT(setupFSN()));
 }
 
 MainWindow::~MainWindow() {
@@ -40,7 +41,13 @@ MainWindow::~MainWindow() {
     while(!m_teams.empty()) delete m_teams.front(), m_teams.pop_front();
 }
 
-void MainWindow::on_pushButtonChooseCompsim_clicked() {
+void MainWindow::setupFSG() {
+    this->competition.set_event_simulator(create_event_simulator(FSG));
+    ui->baseStack->setCurrentIndex(SetupScreenIndexNumber);
+}
+
+void MainWindow::setupFSN() {
+    this->competition.set_event_simulator(create_event_simulator(FSN));
     ui->baseStack->setCurrentIndex(SetupScreenIndexNumber);
 }
 
@@ -100,6 +107,7 @@ void MainWindow::finishSetup() {
     ui->widgetResultSetting->clearWidget();
     ui->widgetResultSetting->setTeams(this->m_teams);
     ui->widgetResultSetting->setEventTypes(event_types);
+    ui->widgetResultSetting->setEventsCategories(this->competition.get_all_events_categories());
     ui->widgetResultSetting->setupLayouts();
 
     this->resultSettingChangeScreen(m_result_setting_current_index);
@@ -162,6 +170,7 @@ void MainWindow::resultShowingPreviousEvent() {
 
 void MainWindow::resultShowingChangeScreen(int event_index) {
     EventType event_type_to_show = competition.event_at(event_index);
+    competition.create_classification();
     std::vector< std::pair<std::string, double>> classification_to_show = competition.get_events_classifications().at(event_type_to_show);
     ui->widgetScoresShowing->setScores(classification_to_show);
     ui->labelEventShowingScores->setText(QString::fromStdString(EVENT_TYPE_TO_STRING.at(event_type_to_show)));
